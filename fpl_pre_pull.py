@@ -18,7 +18,7 @@ prices come from element-summary (GW1 price) and the transfers endpoint (element
 FPL's sell-on rule in game_settings, free transfers from the transfer history, chips from bootstrap chips
 minus history chips. All labelled DERIVED; exact unless a Free Hit has been played (see A1 note).
 """
-import argparse, json, os, sys, time, glob, unicodedata, urllib.request, urllib.error, urllib.parse
+import argparse, json, os, sys, time, glob, gzip, zlib, unicodedata, urllib.request, urllib.error, urllib.parse
 from datetime import datetime, timezone
 
 ENTRY_ID = 6048651
@@ -37,10 +37,16 @@ class Source:
         t0 = time.time()
         hdr = dict(headers or UA)
         try:
+            hdr.setdefault("Accept-Encoding", "gzip, deflate")
             with urllib.request.urlopen(urllib.request.Request(url, headers=hdr), timeout=30) as r:
                 body = r.read()
+                enc = (r.headers.get("Content-Encoding") or "").lower()
+                if enc == "gzip" or body[:2] == b"\x1f\x8b":
+                    body = gzip.decompress(body)
+                elif enc == "deflate":
+                    body = zlib.decompress(body)
                 self.log.append((url, r.status, len(body), int((time.time() - t0) * 1000)))
-                return json.loads(body)
+                return json.loads(body.decode("utf-8", "replace"))
         except urllib.error.HTTPError as e:
             self.log.append((url, e.code, 0, int((time.time() - t0) * 1000)))
             return None
@@ -278,6 +284,41 @@ SOFASCORE_ID_TO_FPL = {"7": "CRY", "11": "COV", "14": "NFO", "17": "MCI", "30": 
                        "39": "NEW", "40": "AVL", "41": "SUN", "42": "ARS", "43": "FUL", "44": "LIV", "48": "EVE", "50": "BRE", "60": "BOU", "96": "HUL"}
 
 
+def load_pool(bs, top10k, out_dir, owned_ids):
+    """Buying pool = manual list (pool.json) + automatic rules. Returns list of element ids (not owned)."""
+    cfg = {"manual": [], "auto": {"top_transfers_in": 8, "top_form_per_position": 3, "min_selected_pct": 3.0, "top10k_eo_min": 40}}
+    for cand in ("pool.json", os.path.join(out_dir, "..", "pool.json")):
+        if os.path.exists(cand):
+            try:
+                cfg.update(json.load(open(cand)))
+            except Exception:
+                pass
+            break
+    el = bs["elements"]; by_id = {e["id"]: e for e in el}; by_name = {}
+    for e in el:
+        by_name.setdefault(_norm(e["web_name"]), []).append(e["id"])
+    pool = set()
+    reasons = {}
+    for m in cfg.get("manual", []):
+        ids = [m] if isinstance(m, int) else by_name.get(_norm(str(m)), [])
+        for i in ids:
+            pool.add(i); reasons.setdefault(i, []).append("manual/watchlist")
+    a = cfg.get("auto", {})
+    avail = [e for e in el if e["status"] == "a"]
+    for e in sorted(avail, key=lambda e: -((e.get("transfers_in_event") or 0) - (e.get("transfers_out_event") or 0)))[: a.get("top_transfers_in", 0)]:
+        pool.add(e["id"]); reasons.setdefault(e["id"], []).append("top net transfers in")
+    for pos in (1, 2, 3, 4):
+        cands = [e for e in avail if e["element_type"] == pos and float(e["selected_by_percent"]) >= a.get("min_selected_pct", 0)]
+        for e in sorted(cands, key=lambda e: -float(e.get("form") or 0))[: a.get("top_form_per_position", 0)]:
+            pool.add(e["id"]); reasons.setdefault(e["id"], []).append("top form in position")
+    if top10k:
+        for k, v in top10k.items():
+            if v * 100 >= a.get("top10k_eo_min", 999) and int(k) in by_id:
+                pool.add(int(k)); reasons.setdefault(int(k), []).append(f"top-10k EO {round(v*100,1)}%")
+    pool -= set(owned_ids)
+    return sorted(pool), reasons
+
+
 def _norm(sname):
     return "".join(c for c in unicodedata.normalize("NFKD", sname or "") if not unicodedata.combining(c)).lower().replace(".", " ").replace("'", " ")
 
@@ -293,7 +334,7 @@ def _match_name(fpl_el, candidates, key):
     return (best, bs) if bs >= 1 else (None, 0)
 
 
-def build_post(src, bs, owned_ids, out_dir, force=False):
+def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     """Group C: per-player per-match facts for the last finished GW, three providers, consistency, gate."""
     cov, warn = {}, {}
     ev = bs["events"]; cur = next((e for e in ev if e["is_current"]), None)
@@ -311,7 +352,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False):
     season = int(cur["deadline_time"][:4]) if int(cur["deadline_time"][5:7]) >= 7 else int(cur["deadline_time"][:4]) - 1
     gw_date = None
     # ----- Understat per owned club
-    clubs = sorted({teams[el[i]["team"]] for i in owned_ids if i in el})
+    tracked = list(owned_ids) + [i for i in (pool_ids or []) if i not in owned_ids]
+    clubs = sorted({teams[el[i]["team"]] for i in tracked if i in el})
     us_matches = {}   # fpl_short -> (match_id, match json, side)
     us_ok = 0
     for club in clubs:
@@ -367,7 +409,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False):
         fm_matches[mid] = {"home": h, "away": a, "players": flat_ps, "referee": ref.get("text"), "referee_stats": ref.get("stats"), "events": events or [], "shots": shots or [], "stats": stats or [], "weather": c.get("weather")}
     # ----- per owned player
     rows = []; cons = {"minutes": [], "xg": [], "points": []}
-    for i in owned_ids:
+    for i in tracked:
         e = el.get(i)
         if not e: continue
         club = teams[e["team"]]
@@ -375,7 +417,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False):
         expl = live_by.get(i, {}).get("explain", [])
         fid = expl[0]["fixture"] if expl else None
         f = fx_by_id.get(fid) if fid else None
-        row = {"id": i, "name": e["web_name"], "club": club, "pos": {1: "GK", 2: "DEF", 3: "MID", 4: "FWD"}[e["element_type"]],
+        row = {"id": i, "name": e["web_name"], "club": club, "pos": {1: "GK", 2: "DEF", 3: "MID", 4: "FWD"}[e["element_type"]], "owned": i in owned_ids,
                "opp": (teams[f["team_a"]] if f and f["team_h"] == e["team"] else (teams[f["team_h"]] if f else None)), "home": (f["team_h"] == e["team"]) if f else None,
                "fpl": {k: lv.get(k) for k in ["minutes", "starts", "total_points", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed",
                                                 "yellow_cards", "red_cards", "saves", "bonus", "bps", "defensive_contribution", "clearances_blocks_interceptions", "recoveries", "tackles",
@@ -466,6 +508,10 @@ def build_post(src, bs, owned_ids, out_dir, force=False):
             "readiness": {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "rule": "POST facts feed Form/Minutes; anything not OK needs a human decision before the next PRE run uses it"},
             "sources_ok": {"understat_clubs": f"{us_ok}/{len(clubs)}", "fotmob_matches": f"{fm_ok}/{len(fm_ids)}"},
             "players": rows, "team_level": team_level, "consistency_flags": cons, "coverage": cov,
+            # every player's official line for this GW — the raw material for the D-group percentiles (season store)
+            "all_players_live": {str(pid): {k: st.get(k) for k in ["minutes", "total_points", "bps", "bonus", "goals_scored", "assists", "clean_sheets", "goals_conceded", "saves", "defensive_contribution",
+                                                                     "clearances_blocks_interceptions", "recoveries", "tackles", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "starts"]}
+                                 for pid, st in ((e_["id"], e_["stats"]) for e_ in live["elements"])},
             "fetch_log": [{"url": u, "status": s_, "bytes": b, "ms": ms} for (u, s_, b, ms) in src.log]}
     return snap, None
 
@@ -478,13 +524,13 @@ def brief_post(s):
     L.append("| # | Param | Status | What is needed |\n|---|---|---|---|")
     for i, g in enumerate(R["gate_items"], 1): L.append(f"| {i} | {g['param']} | {g['status']} | {g['needs']} |")
     L.append(f"\nSources: Understat clubs {s['sources_ok']['understat_clubs']}, FotMob matches {s['sources_ok']['fotmob_matches']}.\n")
-    L.append("## Owned 15 — per-match facts\n")
+    L.append("## Tracked players — per-match facts (owned first, then pool)\n")
     L.append("| Player | Opp | Min FPL/US/FM | Pts | G/A | xG FPL / US / Opta | xA US / Opta | Shots (SoT) | KP | DefCon (CBI+R+T) | BPS/Bonus | Sub | Ref |")
     L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
-    for r in s["players"]:
+    for r in sorted(s["players"], key=lambda r: (not r.get("owned", True), r.get("pos"))):
         f = r["fpl"]; u = r.get("understat", {}); m = r.get("fotmob", {})
         sub = m.get("sub_event"); subtxt = f"off {sub['min']}'" + (" (inj)" if sub and sub.get("injured") else "") if sub else ("90" if (f.get("minutes") or 0) >= 90 else (f"{f.get('minutes')}'" if f.get("minutes") else "DNP"))
-        L.append(f"| {r['name']} ({r['club']}) | {'v' if r['home'] else '@'} {r['opp']} | {f.get('minutes')}/{u.get('min','—')}/{m.get('min','—')} | {f.get('total_points')} | {f.get('goals_scored')}/{f.get('assists')} | "
+        L.append(f"| {r['name']} ({r['club']}){'' if r.get('owned', True) else ' [pool]'} | {'v' if r['home'] else '@'} {r['opp']} | {f.get('minutes')}/{u.get('min','—')}/{m.get('min','—')} | {f.get('total_points')} | {f.get('goals_scored')}/{f.get('assists')} | "
                  f"{f.get('expected_goals')} / {u.get('xG','—')} / {m.get('xG','—')} | {u.get('xA','—')} / {m.get('xA','—')} | {m.get('shots','—')} ({m.get('sot','—')}) | {u.get('key_passes', m.get('chances_created','—'))} | "
                  f"{f.get('defensive_contribution')} ({f.get('clearances_blocks_interceptions')}+{f.get('recoveries')}+{f.get('tackles')}) | {f.get('bps')}/{f.get('bonus')} | {subtxt} | {r.get('referee','—')} |")
     c = s["consistency_flags"]
@@ -562,18 +608,11 @@ def build(src, force=False, window_h=30.0):
             return now                                                  # no profit: sell at current price
         return purchase + int((now - purchase) * sell_fee)             # half the profit, rounded down (tenths)
 
-    # -------- A1 owned 15
+    # -------- A1 owned 15 (+ buying pool rows built the same way)
     owned = []
-    if picks and picks.get("picks"):
-        for p in picks["picks"]:
-            e = el.get(p["element"])
-            if not e:
-                warn.append(f"A1: element {p['element']} in picks but not in bootstrap (trimmed offline file?)")
-                continue
-            pp, pp_src = purchase_price(p["element"])
-            sp = selling_price(pp, e["now_cost"])
-            es = esum.get(p["element"]) or {}
-            owned.append({
+    def player_row(e, p, esum_entry, pp, pp_src, sp):
+            es = esum_entry or {}
+            return {
                 "id": e["id"], "name": e["web_name"], "team": teams.get(e["team"]), "pos": pos.get(e["element_type"]),
                 "slot": p["position"], "multiplier": p["multiplier"], "captain": p["is_captain"], "vice": p["is_vice_captain"],
                 "now_cost": e["now_cost"] / 10,
@@ -596,7 +635,16 @@ def build(src, force=False, window_h=30.0):
                 "scout_risks": e.get("scout_risks"),
                 "set_pieces": {"corners": e.get("corners_and_indirect_freekicks_order"), "dfk": e.get("direct_freekicks_order"), "pens": e.get("penalties_order")},
                 "yellow_cards": e.get("yellow_cards"),
-            })
+            }
+    if picks and picks.get("picks"):
+        for p in picks["picks"]:
+            e = el.get(p["element"])
+            if not e:
+                warn.append(f"A1: element {p['element']} in picks but not in bootstrap (trimmed offline file?)")
+                continue
+            pp, pp_src = purchase_price(p["element"])
+            sp = selling_price(pp, e["now_cost"])
+            owned.append(player_row(e, p, esum.get(p["element"]), pp, pp_src, sp))
         fh_played = any(c["name"] == "freehit" for c in (hist or {}).get("chips", []))
         cov["A1"] = {"status": "DERIVED", "source": f"entry/{ENTRY_ID}/event/{last_gw}/picks + bootstrap + element-summary (GW1 price) + transfers (element_in_cost) + sell-on rule {sell_fee}",
                      "note": ("purchase/selling prices derived from public data; exact for an initial-squad player or an in-season buy" +
@@ -681,9 +729,21 @@ def build(src, force=False, window_h=30.0):
     cap_myband = {c[0]: c[1] for c in band_by_name.get(my_band, {}).get("captains", [])} if my_band else {}
     cap_overall = {c[0]: c[1] for c in band_by_name.get("Overall", {}).get("captains", [])}
 
+    # -------- buying pool (Tier 2 candidates): manual list + automatic rules, same fields as the owned rows
+    pool_ids, pool_reasons = load_pool(bs, top10k, os.path.dirname(os.path.abspath(src.prev_dir or "snapshots")), [o["id"] for o in owned])
+    pool = []
+    for i in pool_ids:
+        e = el.get(i)
+        if not e: continue
+        if not src.offline:
+            esum[i] = src.element_summary(i)
+        r = player_row(e, {"position": None, "multiplier": None, "is_captain": False, "is_vice_captain": False}, esum.get(i), None, "pool", None)
+        r["pool_reason"] = pool_reasons.get(i, [])
+        pool.append(r)
+
     consistency = {}
     diffs = []
-    for o in owned:
+    for o in owned + pool:
         i = o["id"]
         o["eo_top10k"] = pct(top10k.get(str(i), 0) * 100, 2) if top10k else None
         o["eo_elite_json"] = pct(elite.get(str(i), 0) * 100, 2) if elite else None
@@ -788,7 +848,7 @@ def build(src, force=False, window_h=30.0):
         "readiness": readiness,
         "B_schedule": B,
         "gw_next": N, "gw_last": last_gw, "in_pre_window": in_window,
-        "A1_owned": owned, "A2_bank_ft_chips": a2, "A7_flow": flow, "A9_rank": a9, "A10_flags": a10,
+        "A1_owned": owned, "pool": pool, "A2_bank_ft_chips": a2, "A7_flow": flow, "A9_rank": a9, "A10_flags": a10,
         "coverage": cov, "consistency": consistency, "warnings": warn,
         "fetch_log": [{"url": u, "status": s, "bytes": b, "ms": ms} for (u, s, b, ms) in src.log],
         "transfers_made": transfers or [],
@@ -824,6 +884,15 @@ def brief(s):
         L.append(f"| {o['slot']} | {o['name']}{role} | {o['pos']} {o['team']} | {o['now_cost']} | {o.get('purchase_price') if o.get('purchase_price') is not None else '—'} | {o.get('selling_price') if o.get('selling_price') is not None else '—'} | {st} | "
                  f"{o.get('price_change_percent')} ({proj}) | {o.get('net_transfers_event'):+,} | {o['selected_by']} | {o.get('eo_top10k')} | {o.get('cap_top10k')} | {o.get('cap_myband')} | "
                  f"{lg.get('pts','—')} pts / {lg.get('min','—')}' / bps {lg.get('bps','—')} |")
+    if s.get("pool"):
+        L.append(f"\n## Buying pool ({len(s['pool'])} players — watchlist + top transfers-in + top form per position + top-10k EO ≥ threshold; edit pool.json)\n")
+        L.append("| Player | Pos | £ | Status | Price Δ% (proj) | Net tr. | Own% | EO top10k | Form | Pts | Why in pool | Next 3 |")
+        L.append("|---|---|---|---|---|---|---|---|---|---|---|---|")
+        for o in sorted(s["pool"], key=lambda x: (x["pos"], -float(x.get("form") or 0))):
+            proj = (o.get("price_projections") or [{}])[0].get("projected_percent")
+            st = o["status"] + (f" {o['chance_next']}%" if o.get("chance_next") not in (None, 100) else "") + (f" — {o['news'][:40]}" if o["news"] else "")
+            nxt = ", ".join(f"{'v' if u['home'] else '@'}{u['opp']}({u['fdr']})" for u in (o.get("upcoming") or [])[:3])
+            L.append(f"| {o['name']} ({o['team']}) | {o['pos']} | {o['now_cost']} | {st} | {o.get('price_change_percent')} ({proj}) | {o.get('net_transfers_event'):+,} | {o['selected_by']} | {o.get('eo_top10k')} | {o.get('form')} | {o.get('total_points')} | {'; '.join(o.get('pool_reason', []))} | {nxt} |")
     L.append("\n## Market flow (net transfers this GW, all players)\n")
     L.append("In: " + ", ".join(f"{n} ({t}) {v:+,}" for n, t, v in s["A7_flow"]["top_in"]))
     L.append("Out: " + ", ".join(f"{n} ({t}) {v:+,}" for n, t, v in s["A7_flow"]["top_out"]))
@@ -874,7 +943,22 @@ def main():
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--window-hours", type=float, default=30.0)
     ap.add_argument("--mode", choices=["pre", "post"], default="pre", help="pre = deadline snapshot (groups A, B); post = last finished GW facts (group C)")
+    ap.add_argument("--fill", help="JSON file of browser-fetched items {param: {status, source, fetched_utc, data}} to merge into the latest snapshot of --mode; recomputes the gate")
     a = ap.parse_args()
+    if a.fill:
+        name = "latest_post" if a.mode == "post" else "latest"
+        path = os.path.join(a.out, name + ".json")
+        snap = json.load(open(path)); fill = json.load(open(a.fill))
+        for k, v in fill.items():
+            snap["coverage"][k] = {"status": v.get("status", "OK [BROWSER-FILL]"), "source": v.get("source", "browser pane"), "note": f"filled {v.get('fetched_utc')}"}
+            snap.setdefault("browser_fill", {})[k] = v
+        R = snap["readiness"]; R["gate_items"] = [g for g in R["gate_items"] if g["param"] not in fill]
+        R["verdict"] = "HOLD" if R["gate_items"] else "GO"
+        json.dump(snap, open(path, "w"), indent=1, ensure_ascii=False)
+        md = brief_post(snap) if a.mode == "post" else brief(snap)
+        open(os.path.join(a.out, name + ".md"), "w").write(md)
+        print(f"merged {len(fill)} item(s) into {path}; gate={R['verdict']} ({len(R['gate_items'])} open)")
+        return
     src = Source(a.offline, prev_dir=a.out)
     if a.mode == "post":
         bs = src.bootstrap()
@@ -882,7 +966,9 @@ def main():
         cur = next((e for e in bs["events"] if e["is_current"]), None)
         picks = src.picks(cur["id"]) if cur else None
         owned = [p["element"] for p in (picks or {}).get("picks", [])]
-        snap, why = build_post(src, bs, owned, a.out, force=a.force)
+        top10k = src.lf("top10k.json")
+        pool_ids, _ = load_pool(bs, top10k, os.path.dirname(os.path.abspath(a.out)), owned)
+        snap, why = build_post(src, bs, owned, a.out, force=a.force, pool_ids=pool_ids)
         if snap is None:
             print(why); return
         os.makedirs(a.out, exist_ok=True)
