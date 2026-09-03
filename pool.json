@@ -1,0 +1,5 @@
+{
+  "_comment": "Buying pool. manual = FPL web_names or element ids you want tracked (watchlist). auto rules add the market movers each run.",
+  "manual": ["Calafiori", "Palmer", "Cherki", "Wissa", "Szoboszlai"],
+  "auto": {"top_transfers_in": 8, "top_form_per_position": 3, "min_selected_pct": 3.0, "top10k_eo_min": 40}
+}
