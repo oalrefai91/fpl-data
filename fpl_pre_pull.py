@@ -508,6 +508,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     snap = {"generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live", "cadence": "POST", "gw": L,
             "readiness": {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "rule": "POST facts feed Form/Minutes; anything not OK needs a human decision before the next PRE run uses it"},
             "sources_ok": {"understat_clubs": f"{us_ok}/{len(clubs)}", "fotmob_matches": f"{fm_ok}/{len(fm_ids)}"},
+            "tracked": {"owned": [el[i]["web_name"] for i in owned_ids if i in el], "pool": [el[i]["web_name"] for i in tracked if i not in owned_ids and i in el],
+                        "pool_source": "pool.json (manual + auto rules)" if any(os.path.exists(c) for c in ("pool.json", os.path.join(out_dir, "..", "pool.json"))) else "auto rules only — pool.json not found in the repo"},
             "players": rows, "team_level": team_level, "consistency_flags": cons, "coverage": cov,
             # every player's official line for this GW — the raw material for the D-group percentiles (season store)
             "all_players_live": {str(pid): {k: st.get(k) for k in ["minutes", "total_points", "bps", "bonus", "goals_scored", "assists", "clean_sheets", "goals_conceded", "saves", "defensive_contribution",
