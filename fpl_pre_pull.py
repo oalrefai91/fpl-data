@@ -33,9 +33,9 @@ class Source:
         self.prev_dir = prev_dir
         self.log = []  # (url, status, bytes, ms)
 
-    def _get(self, url):
+    def _get(self, url, headers=None):
         t0 = time.time()
-        hdr = dict(UA)
+        hdr = dict(headers or UA)
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=hdr), timeout=30) as r:
                 body = r.read()
@@ -71,7 +71,16 @@ class Source:
     # ESPN hidden JSON (cups, European ties, odds) — open, no key
     def espn(self, league, d1, d2):
         key = {"uefa.champions": "ucl", "uefa.europa": "uel", "uefa.europa.conf": "uecl", "eng.league_cup": "efl", "eng.fa": "fa", "eng.1": "pl"}[league]
-        return self._file(f"espn_{key}.json") if self.offline else self._get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?dates={d1}-{d2}")
+        if self.offline:
+            return self._file(f"espn_{key}.json")
+        # ESPN's edge returned 403 to the GitHub runner with a plain UA (3 Sep 2026); send browser-like headers and fall back to the core host
+        h = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+             "Accept": "application/json, text/plain, */*", "Accept-Language": "en-GB,en;q=0.9", "Referer": "https://www.espn.com/", "Origin": "https://www.espn.com"}
+        j = self._get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?dates={d1}-{d2}", headers=h)
+        if j: return j
+        j = self._get(f"https://site.web.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?dates={d1}-{d2}", headers=h)
+        if j: return j
+        return self._get(f"https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league={league}&dates={d1}-{d2}", headers=h)
     # Open-Meteo — open, no key; hourly forecast at a venue for one UTC day
     def meteo(self, lat, lon, day):
         if self.offline:
@@ -493,8 +502,39 @@ def build(src, force=False, window_h=30.0):
         pass
     B = build_schedule(src, bs, N, teams, cov, warn, prev)
 
+    # -------- readiness gate: every parameter is GO only if fully fetched for THIS gameweek; everything else needs a human decision
+    gen = now_utc()
+    hold = []
+    for k, c in cov.items():
+        st = c["status"]
+        if st.startswith("OK"):
+            continue
+        need = {"A1": "log in to FPL in the browser pane and read my-team/, or confirm the derived prices against the Transfers page",
+                "A2": "confirm free transfers and chips on the FPL site (derived from history)",
+                "A4": "overall-cohort EO: no source — skip, or paste a figure from LiveFPL /EO if the Overall column is populated this week",
+                "A6": "overall-cohort EO: same as A4",
+                "A8": "read Safety Score and Template Rating from livefpl.net/6048651 in the browser pane, or paste them",
+                "B5": "cup/European fixtures: ESPN blocked — paste the owned clubs' midweek fixtures, or supply another source URL",
+                "B7": "player call-ups for the next break: paste, or skip until the break is within 10 days",
+                "B9": "referee appointments: read premierleague.com 'Match officials for Matchweek N' (check the season!) or skip",
+                "B10": "weather: kick-offs are beyond the 7-day forecast horizon — re-run closer, or skip"}.get(k, c.get("note", ""))
+        hold.append({"param": k, "status": st, "source": c.get("source"), "needs": need,
+                     "options": ["provide a source URL", "paste the data manually", "skip this GW (output is labelled with the gap)", "abort"]})
+    # freshness: cohort data (A4–A6) is always the last finished GW; snapshot must be inside the PRE window
+    freshness = {"snapshot_generated_utc": gen.strftime("%Y-%m-%dT%H:%M:%SZ"), "hours_to_deadline": round(hours_to_deadline, 1),
+                 "cohort_data_gw": last_gw, "cohort_note": f"EO/captaincy figures are GW{last_gw} actuals used as the GW{N} baseline — confirm or skip",
+                 "in_pre_window": in_window}
+    if not in_window and not src.offline:
+        hold.append({"param": "FRESHNESS", "status": "STALE", "source": "snapshot timing", "needs": f"snapshot is {round(hours_to_deadline,1)} h from the deadline (outside the {window_h} h window) — re-run the pull",
+                     "options": ["re-run the pull", "proceed with this snapshot (labelled STALE)", "abort"]})
+    hold.append({"param": "A4-A6 baseline", "status": f"GW{last_gw} actuals", "source": "livefpl.us", "needs": freshness["cohort_note"],
+                 "options": ["use as baseline", "skip cohort-dependent outputs", "abort"]})
+    readiness = {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "freshness": freshness,
+                 "rule": "The selection model must not run while verdict is HOLD. Each gate item needs an explicit human choice; PARTIAL and DERIVED are not silently accepted."}
+
     snap = {
         "generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live",
+        "readiness": readiness,
         "B_schedule": B,
         "gw_next": N, "gw_last": last_gw, "in_pre_window": in_window,
         "A1_owned": owned, "A2_bank_ft_chips": a2, "A7_flow": flow, "A9_rank": a9, "A10_flags": a10,
@@ -509,6 +549,15 @@ def build(src, force=False, window_h=30.0):
 def brief(s):
     L = []
     L.append(f"# PRE snapshot — GW{s['gw_next']} (generated {s['generated_utc']}, {s['mode']})\n")
+    R = s.get("readiness") or {}
+    if R:
+        L.append(f"## ⛔ GATE: {R['verdict']} — {len(R['gate_items'])} item(s) need a decision before the model runs\n")
+        L.append(R["rule"] + "\n")
+        L.append("| # | Param | Status | What is needed | Options |\n|---|---|---|---|---|")
+        for i, g in enumerate(R["gate_items"], 1):
+            L.append(f"| {i} | {g['param']} | {g['status']} | {g['needs']} | {' / '.join(g['options'])} |")
+        fr = R["freshness"]
+        L.append(f"\nFreshness: snapshot {fr['snapshot_generated_utc']}, {fr['hours_to_deadline']} h to deadline, in PRE window = {fr['in_pre_window']}; cohort data = GW{fr['cohort_data_gw']}.\n")
     a10 = s["A10_flags"]
     L.append(f"Deadline **{a10['deadline_utc']}** — {a10['hours_to_deadline']} h away. Last GW{a10['last_gw']}: finished={a10['finished']}, data_checked={a10['data_checked']}.")
     a9 = s["A9_rank"]; a2 = s["A2_bank_ft_chips"]
