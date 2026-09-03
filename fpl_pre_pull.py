@@ -18,7 +18,7 @@ prices come from element-summary (GW1 price) and the transfers endpoint (element
 FPL's sell-on rule in game_settings, free transfers from the transfer history, chips from bootstrap chips
 minus history chips. All labelled DERIVED; exact unless a Free Hit has been played (see A1 note).
 """
-import argparse, json, os, sys, time, urllib.request, urllib.error
+import argparse, json, os, sys, time, glob, unicodedata, urllib.request, urllib.error, urllib.parse
 from datetime import datetime, timezone
 
 ENTRY_ID = 6048651
@@ -97,6 +97,20 @@ class Source:
                 body = r.read().decode("utf-8", "replace"); self.log.append((r.url, r.status, len(body), int((time.time() - t0) * 1000))); return body
         except Exception as e:
             self.log.append(("football-data.co.uk E0.csv", f"ERR {type(e).__name__}", 0, 0)); return None
+    # Understat — JSON endpoints behind the site pages; the X-Requested-With header is required (3 Sep 2026). 3–12 calls per GW.
+    US_H = {"X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36", "Referer": "https://understat.com/"}
+    def understat_team(self, title, season):
+        if self.offline:
+            return self._file(f"understat_team_{title}.json")
+        return self._get(f"https://understat.com/getTeamData/{urllib.parse.quote(title)}/{season}", headers=self.US_H)
+    def understat_match(self, mid):
+        return self._file(f"understat_match_{mid}.json") if self.offline else self._get(f"https://understat.com/getMatchData/{mid}", headers=self.US_H)
+    # FotMob — same-origin data proxy used by the site; Opta-fed. Untested from GitHub (3 Sep 2026); fails gracefully.
+    FM_H = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36", "Accept": "application/json", "Referer": "https://www.fotmob.com/"}
+    def fotmob_league(self, season="2026/2027"):
+        return self._file("fotmob_leagues.json") if self.offline else self._get(f"https://www.fotmob.com/api/data/leagues?id=47&season={urllib.parse.quote(season, safe='')}", headers=self.FM_H)
+    def fotmob_match(self, mid):
+        return self._file(f"fotmob_match_{mid}.json") if self.offline else self._get(f"https://www.fotmob.com/api/data/matchDetails?matchId={mid}", headers=self.FM_H)
     # LiveFPL (.us JSON)
     def lf(self, name, gw=None):
         fname = "livefpl_" + name.replace("api/", "").replace(".json", "").replace(f"_{gw}", "") + ".json"
@@ -251,6 +265,243 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
     out["referee_last_matches"] = last[-10:]
     cov["B9"] = {"status": "PARTIAL", "source": "football-data.co.uk E0.csv (referee per finished match, season card rates)", "note": "appointments for the coming GW are published by the PL (Tue/Wed) but exist in no JSON endpoint found — the PL SDP match API has no officials field and no 'Match officials' article appeared in the content feed; attended web step"}
     return out
+
+
+# ----------------------------------------------------------------------------- group C reference tables
+US_TITLE = {"ARS": "Arsenal", "AVL": "Aston Villa", "BOU": "Bournemouth", "BRE": "Brentford", "BHA": "Brighton", "CHE": "Chelsea", "COV": "Coventry",
+            "CRY": "Crystal Palace", "EVE": "Everton", "FUL": "Fulham", "HUL": "Hull", "IPS": "Ipswich", "LEE": "Leeds", "LIV": "Liverpool",
+            "MCI": "Manchester City", "MUN": "Manchester United", "NEW": "Newcastle United", "NFO": "Nottingham Forest", "SUN": "Sunderland", "TOT": "Tottenham"}
+FOTMOB_ID_TO_FPL = {"8455": "CHE", "8456": "MCI", "8463": "LEE", "8472": "SUN", "8586": "TOT", "8650": "LIV", "8667": "HUL", "8668": "EVE", "8669": "COV",
+                    "8678": "BOU", "9825": "ARS", "9826": "CRY", "9879": "FUL", "9902": "IPS", "9937": "BRE", "10203": "NFO", "10204": "BHA",
+                    "10252": "AVL", "10260": "MUN", "10261": "NEW"}
+SOFASCORE_ID_TO_FPL = {"7": "CRY", "11": "COV", "14": "NFO", "17": "MCI", "30": "BHA", "32": "IPS", "33": "TOT", "34": "LEE", "35": "MUN", "38": "CHE",
+                       "39": "NEW", "40": "AVL", "41": "SUN", "42": "ARS", "43": "FUL", "44": "LIV", "48": "EVE", "50": "BRE", "60": "BOU", "96": "HUL"}
+
+
+def _norm(sname):
+    return "".join(c for c in unicodedata.normalize("NFKD", sname or "") if not unicodedata.combining(c)).lower().replace(".", " ").replace("'", " ")
+
+def _match_name(fpl_el, candidates, key):
+    """Best-effort name match: FPL first/second/web names vs a provider's display name. Returns (candidate, score)."""
+    toks = set(t for t in _norm(f"{fpl_el.get('first_name','')} {fpl_el.get('second_name','')} {fpl_el.get('web_name','')}").replace("-", " ").split() if len(t) >= 3)
+    best, bs = None, 0
+    for c in candidates:
+        ct = set(t for t in _norm(key(c)).replace("-", " ").split() if len(t) >= 3)
+        sc = len(toks & ct)
+        if sc > bs:
+            best, bs = c, sc
+    return (best, bs) if bs >= 1 else (None, 0)
+
+
+def build_post(src, bs, owned_ids, out_dir, force=False):
+    """Group C: per-player per-match facts for the last finished GW, three providers, consistency, gate."""
+    cov, warn = {}, {}
+    ev = bs["events"]; cur = next((e for e in ev if e["is_current"]), None)
+    if not cur:
+        return None, "no current event"
+    L = cur["id"]
+    if not (cur["finished"] and cur["data_checked"]) and not force and not src.offline:
+        return None, f"GW{L} not yet finished+data_checked — POST pull waits (use --force)"
+    if not force and not src.offline and glob.glob(os.path.join(out_dir, f"GW{L}_POST_*.json")):
+        return None, f"GW{L} POST snapshot already exists"
+    el = {e["id"]: e for e in bs["elements"]}; teams = {t["id"]: t["short_name"] for t in bs["teams"]}
+    live = src.live(L) or {"elements": []}; live_by = {e["id"]: e for e in live["elements"]}
+    fx = [f for f in (src.fixtures_all() or []) if f.get("event") == L]
+    fx_by_id = {f["id"]: f for f in fx}
+    season = int(cur["deadline_time"][:4]) if int(cur["deadline_time"][5:7]) >= 7 else int(cur["deadline_time"][:4]) - 1
+    gw_date = None
+    # ----- Understat per owned club
+    clubs = sorted({teams[el[i]["team"]] for i in owned_ids if i in el})
+    us_matches = {}   # fpl_short -> (match_id, match json, side)
+    us_ok = 0
+    for club in clubs:
+        tj = src.understat_team(US_TITLE[club], season)
+        if not tj: continue
+        us_ok += 1
+        # the club's fixture in GW L: match by date window of the GW's fixtures
+        gw_kos = [parse_ts(f["kickoff_time"]) for f in fx if teams[f["team_h"]] == club or teams[f["team_a"]] == club]
+        for d in tj.get("dates", []):
+            if not d.get("isResult"): continue
+            dt = datetime.strptime(d["datetime"], "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+            if any(abs((dt - k).total_seconds()) < 36 * 3600 for k in gw_kos):
+                side = "h" if d["h"]["title"] == US_TITLE[club] else "a"
+                mj = src.understat_match(d["id"])
+                us_matches[club] = {"id": d["id"], "side": side, "xG": d["xG"], "goals": d["goals"], "match": mj, "opp": d["a" if side == "h" else "h"]["title"]}
+    # ----- FotMob per fixture involving an owned club
+    fm_matches = {}
+    lg = src.fotmob_league()
+    fm_ids = {}
+    if lg:
+        for m in (lg.get("fixtures", {}).get("allMatches") or []):
+            if str(m.get("round")) == str(L):
+                h, a = FOTMOB_ID_TO_FPL.get(str(m["home"]["id"])), FOTMOB_ID_TO_FPL.get(str(m["away"]["id"]))
+                if h in clubs or a in clubs: fm_ids[m["id"]] = (h, a)
+    elif src.offline:
+        for f in glob.glob(os.path.join(src.offline, "fotmob_match_*.json")):
+            j = json.load(open(f)); g = j.get("general", {})
+            if g.get("finished"):
+                h, a = FOTMOB_ID_TO_FPL.get(str(g.get("homeTeam", {}).get("id"))), FOTMOB_ID_TO_FPL.get(str(g.get("awayTeam", {}).get("id")))
+                fm_ids[str(g.get("matchId"))] = (h, a)
+    fm_ok = 0
+    for mid, (h, a) in fm_ids.items():
+        j = src.fotmob_match(mid)
+        if not j: continue
+        fm_ok += 1
+        c = j.get("content", j)     # live shape has .content; offline sample is already trimmed
+        ps = c.get("playerStats", {})
+        flat_ps = {}
+        for pid, pp in ps.items():
+            if "stats" in pp and isinstance(pp["stats"], dict):
+                flat_ps[pid] = pp
+            else:
+                flat = {}
+                for grp in pp.get("stats", []):
+                    for k, v in (grp.get("stats") or {}).items():
+                        flat[k] = (v.get("stat", {}).get("value") if isinstance(v, dict) else v)
+                flat_ps[pid] = {"id": pp.get("id"), "name": pp.get("name"), "teamId": pp.get("teamId"), "stats": flat}
+        info = (c.get("matchFacts", {}).get("infoBox") if "matchFacts" in c else c.get("infoBox")) or {}
+        ref = info.get("Referee") or {}
+        events = c.get("matchFacts", {}).get("events", {}).get("events") if "matchFacts" in c else c.get("events")
+        shots = c.get("shotmap", {}).get("shots") if isinstance(c.get("shotmap"), dict) else c.get("shotmap")
+        stats = c.get("stats", {}).get("Periods", {}).get("All", {}).get("stats") if isinstance(c.get("stats"), dict) else c.get("stats")
+        fm_matches[mid] = {"home": h, "away": a, "players": flat_ps, "referee": ref.get("text"), "referee_stats": ref.get("stats"), "events": events or [], "shots": shots or [], "stats": stats or [], "weather": c.get("weather")}
+    # ----- per owned player
+    rows = []; cons = {"minutes": [], "xg": [], "points": []}
+    for i in owned_ids:
+        e = el.get(i)
+        if not e: continue
+        club = teams[e["team"]]
+        lv = live_by.get(i, {}).get("stats", {})
+        expl = live_by.get(i, {}).get("explain", [])
+        fid = expl[0]["fixture"] if expl else None
+        f = fx_by_id.get(fid) if fid else None
+        row = {"id": i, "name": e["web_name"], "club": club, "pos": {1: "GK", 2: "DEF", 3: "MID", 4: "FWD"}[e["element_type"]],
+               "opp": (teams[f["team_a"]] if f and f["team_h"] == e["team"] else (teams[f["team_h"]] if f else None)), "home": (f["team_h"] == e["team"]) if f else None,
+               "fpl": {k: lv.get(k) for k in ["minutes", "starts", "total_points", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed",
+                                                "yellow_cards", "red_cards", "saves", "bonus", "bps", "defensive_contribution", "clearances_blocks_interceptions", "recoveries", "tackles",
+                                                "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "influence", "creativity", "threat", "ict_index"]},
+               "status_now": e["status"], "news_now": e.get("news") or ""}
+        row["absent_reason"] = ("did not play — " + (e.get("news") or "no FPL news; check reports")) if (lv.get("minutes") or 0) == 0 else None
+        # Understat
+        um = us_matches.get(club)
+        if um and um.get("match"):
+            roster = list((um["match"].get("rosters", {}).get(um["side"]) or {}).values())
+            cand, sc = _match_name(e, roster, lambda r: r["player"])
+            if cand:
+                shots = [sh for sh in (um["match"].get("shots", {}).get(um["side"]) or []) if sh.get("player") == cand["player"]]
+                row["understat"] = {"player_id": cand["player_id"], "name": cand["player"], "match_score": sc, "min": int(cand["time"]), "position": cand["position"], "shots": int(cand["shots"]),
+                                    "xG": round(float(cand["xG"]), 3), "xA": round(float(cand["xA"]), 3), "key_passes": int(cand["key_passes"]), "goals": int(cand["goals"]), "assists": int(cand["assists"]),
+                                    "xGChain": round(float(cand["xGChain"]), 3), "xGBuildup": round(float(cand["xGBuildup"]), 3),
+                                    "shot_list": [{"min": int(sh["minute"]), "result": sh["result"], "xG": round(float(sh["xG"]), 3), "X": round(float(sh["X"]), 3), "Y": round(float(sh["Y"]), 3), "situation": sh["situation"], "body": sh["shotType"], "last_action": sh.get("lastAction")} for sh in shots]}
+            else:
+                row["understat"] = {"unmatched": True, "roster_names": [r["player"] for r in roster][:25]}
+        # FotMob
+        for mid, m in fm_matches.items():
+            if club not in (m["home"], m["away"]): continue
+            cand, sc = _match_name(e, list(m["players"].values()), lambda p: p.get("name") or "")
+            if cand:
+                st = cand["stats"]
+                sub = next((ev_ for ev_ in m["events"] if ev_.get("type") == "Substitution" and cand.get("name") in (ev_.get("swap") or [])), None)
+                shots = [sh for sh in m["shots"] if str(sh.get("playerId")) == str(cand.get("id"))]
+                row["fotmob"] = {"player_id": cand.get("id"), "name": cand.get("name"), "match_score": sc, "min": st.get("Minutes played"), "shots": st.get("Total shots"), "sot": st.get("Shots on target"),
+                                 "xG": st.get("Expected goals (xG)"), "xGOT": st.get("Expected goals on target (xGOT)"), "xA": st.get("Expected assists (xA)"), "npxG": st.get("xG Non-penalty"),
+                                 "chances_created": st.get("Chances created"), "big_chances_created": st.get("Big chances created"), "touches": st.get("Touches"), "touches_opp_box": st.get("Touches in opposition box"),
+                                 "tackles": st.get("Tackles"), "interceptions": st.get("Interceptions"), "clearances": st.get("Clearances"), "blocks": st.get("Blocks"), "recoveries": st.get("Recoveries"),
+                                 "aerials_won": st.get("Aerial duels won"), "crosses_acc": st.get("Accurate crosses"), "dribbles": st.get("Successful dribbles"), "passes_final_third": st.get("Passes into final third"),
+                                 "distance_m": st.get("Distance covered"), "fantasy_points": st.get("Fantasy points"),
+                                 "sub_event": sub and {"min": sub.get("time"), "swap": sub.get("swap"), "injured": sub.get("injuredPlayerOut")},
+                                 "shot_list": [{"min": sh.get("min"), "result": sh.get("eventType"), "xG": round(float(sh.get("expectedGoals") or 0), 3), "xGOT": round(float(sh.get("expectedGoalsOnTarget") or 0), 3), "situation": sh.get("situation"), "body": sh.get("shotType"), "x": sh.get("x"), "y": sh.get("y")} for sh in shots]}
+                row["referee"] = m["referee"]
+            else:
+                row["fotmob"] = {"unmatched": True}
+        # consistency
+        mins = {"fpl": row["fpl"]["minutes"], "understat": row.get("understat", {}).get("min"), "fotmob": row.get("fotmob", {}).get("min")}
+        xg = {"fpl": row["fpl"]["expected_goals"], "understat": row.get("understat", {}).get("xG"), "fotmob(opta)": row.get("fotmob", {}).get("xG")}
+        row["consistency"] = {"minutes": mins, "xG": xg, "fpl_points_vs_fotmob_fantasy": [row["fpl"]["total_points"], row.get("fotmob", {}).get("fantasy_points")]}
+        present = [v for v in mins.values() if v is not None]
+        if len(set(present)) > 1: cons["minutes"].append((row["name"], mins))
+        xs = [float(v) for v in xg.values() if v not in (None, "")]
+        if len(xs) >= 2 and max(xs) - min(xs) > 0.25: cons["xg"].append((row["name"], xg))
+        fp = row["consistency"]["fpl_points_vs_fotmob_fantasy"]
+        if fp[1] is not None and fp[0] != fp[1]: cons["points"].append((row["name"], fp))
+        rows.append(row)
+    # ----- team-level (free from the same calls)
+    team_level = {}
+    for club, um in us_matches.items():
+        team_level.setdefault(club, {})["understat"] = {"match_id": um["id"], "home": um["side"] == "h", "opp": um["opp"], "goals": um["goals"], "xG": um["xG"]}
+    for mid, m in fm_matches.items():
+        for club in (m["home"], m["away"]):
+            if club in clubs:
+                tl = team_level.setdefault(club, {})
+                tl["fotmob"] = {"match_id": mid, "referee": m["referee"], "referee_stats": m["referee_stats"], "stats": [{"title": st.get("title"), "stats": st.get("stats")} for grp in m["stats"] for st in (grp.get("stats") or []) if any(k in (st.get("title") or "") for k in ("Expected goals", "xG", "Ball possession", "Total shots", "Corners", "Big chances", "Offsides", "Crosses", "Fouls", "Yellow", "Red"))]}
+    # ----- coverage C1–C19
+    n_us = sum(1 for r in rows if r.get("understat") and not r["understat"].get("unmatched")); n_fm = sum(1 for r in rows if r.get("fotmob") and not r["fotmob"].get("unmatched"))
+    n = len(rows)
+    def st_(k, ok_cond, partial_cond, src_, note):
+        cov[k] = {"status": "OK" if ok_cond else ("PARTIAL" if partial_cond else "MISSING"), "source": src_, "note": note}
+    st_("C1", True, True, "event/N/live minutes", "official FPL minutes")
+    st_("C2", n_us == n and n_fm == n, n_us + n_fm > 0, f"Understat ({n_us}/{n}) + FotMob/Opta ({n_fm}/{n})", "SofaScore minutes are browser-only")
+    st_("C3", n_fm == n, n_fm > 0, "FotMob events (sub minute, injuredPlayerOut flag)", "the REASON (tactical/game state) is a MID-cadence report item")
+    st_("C4", True, True, "live minutes/starts + bootstrap status/news", "why-absent text = FPL news; empty news → check reports")
+    st_("C5", False, True, "derived across GWs", "needs a per-club regular-starter baseline — not yet computed")
+    st_("C6", True, True, "event/N/live total_points", "")
+    st_("C7", True, True, "event/N/live", "")
+    st_("C8", True, True, "event/N/live bonus + bps", "final after data_checked")
+    st_("C9", True, True, "event/N/live defensive_contribution, CBI, recoveries, tackles", "")
+    st_("C10", n_fm == n, n_fm > 0, "FPL saves; goals prevented needs xGOT faced (FotMob/SofaScore GK stats)", "GK-only")
+    st_("C11", n_us == n and n_fm == n, True, "FPL own xG/xA/xGI + Understat + FotMob(Opta)", "three models; FotMob and SofaScore share the Opta feed — count them as ONE provider")
+    st_("C12", n_fm == n, n_fm > 0, "FotMob total/on-target shots, big chances; Understat shots", "")
+    st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat); passes into final third, touches in box (FotMob)", "xT, SCA, GCA, deep completions, zone-14: FBref only — Cloudflare-blocked, attended")
+    st_("C14", True, True, "event/N/live cards", "")
+    st_("C15", n_us == n, n_us + n_fm > 0, "Understat shot list (X, Y, xG, result, situation, body, last action) + FotMob shotmap (xGOT)", "")
+    st_("C16", False, False, "SofaScore /event/{id}/player/{pid}/heatmap — browser only", "not scriptable; attended POST step or device-bound task")
+    st_("C17", True, True, "fixtures/?event=N (opponent, venue)", "archetype comes from the team profile (F5)")
+    st_("C18", n_fm == n, n_fm > 0, "FotMob tackles/interceptions/clearances/blocks/aerials/recoveries", "")
+    st_("C19", False, n_fm > 0, "FotMob accurate crosses, dribbles, passes into final third", "through balls, progressive carries, offsides per player: SofaScore (browser) or FBref (blocked)")
+    hold = [{"param": k, "status": c["status"], "source": c["source"], "needs": c["note"] or "confirm", "options": ["provide a source URL", "paste the data manually", "skip this GW (output is labelled with the gap)", "abort"]} for k, c in cov.items() if not c["status"].startswith("OK")]
+    for r in rows:
+        if r.get("understat", {}).get("unmatched") or r.get("fotmob", {}).get("unmatched"):
+            hold.append({"param": f"NAME-MATCH {r['name']}", "status": "UNMATCHED", "source": "provider roster", "needs": "confirm the provider's spelling of this player and add to the crosswalk", "options": ["paste the name", "skip", "abort"]})
+    snap = {"generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live", "cadence": "POST", "gw": L,
+            "readiness": {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "rule": "POST facts feed Form/Minutes; anything not OK needs a human decision before the next PRE run uses it"},
+            "sources_ok": {"understat_clubs": f"{us_ok}/{len(clubs)}", "fotmob_matches": f"{fm_ok}/{len(fm_ids)}"},
+            "players": rows, "team_level": team_level, "consistency_flags": cons, "coverage": cov,
+            "fetch_log": [{"url": u, "status": s_, "bytes": b, "ms": ms} for (u, s_, b, ms) in src.log]}
+    return snap, None
+
+
+def brief_post(s):
+    L = []
+    L.append(f"# POST snapshot — GW{s['gw']} (generated {s['generated_utc']}, {s['mode']})\n")
+    R = s["readiness"]
+    L.append(f"## ⛔ GATE: {R['verdict']} — {len(R['gate_items'])} item(s)\n")
+    L.append("| # | Param | Status | What is needed |\n|---|---|---|---|")
+    for i, g in enumerate(R["gate_items"], 1): L.append(f"| {i} | {g['param']} | {g['status']} | {g['needs']} |")
+    L.append(f"\nSources: Understat clubs {s['sources_ok']['understat_clubs']}, FotMob matches {s['sources_ok']['fotmob_matches']}.\n")
+    L.append("## Owned 15 — per-match facts\n")
+    L.append("| Player | Opp | Min FPL/US/FM | Pts | G/A | xG FPL / US / Opta | xA US / Opta | Shots (SoT) | KP | DefCon (CBI+R+T) | BPS/Bonus | Sub | Ref |")
+    L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+    for r in s["players"]:
+        f = r["fpl"]; u = r.get("understat", {}); m = r.get("fotmob", {})
+        sub = m.get("sub_event"); subtxt = f"off {sub['min']}'" + (" (inj)" if sub and sub.get("injured") else "") if sub else ("90" if (f.get("minutes") or 0) >= 90 else (f"{f.get('minutes')}'" if f.get("minutes") else "DNP"))
+        L.append(f"| {r['name']} ({r['club']}) | {'v' if r['home'] else '@'} {r['opp']} | {f.get('minutes')}/{u.get('min','—')}/{m.get('min','—')} | {f.get('total_points')} | {f.get('goals_scored')}/{f.get('assists')} | "
+                 f"{f.get('expected_goals')} / {u.get('xG','—')} / {m.get('xG','—')} | {u.get('xA','—')} / {m.get('xA','—')} | {m.get('shots','—')} ({m.get('sot','—')}) | {u.get('key_passes', m.get('chances_created','—'))} | "
+                 f"{f.get('defensive_contribution')} ({f.get('clearances_blocks_interceptions')}+{f.get('recoveries')}+{f.get('tackles')}) | {f.get('bps')}/{f.get('bonus')} | {subtxt} | {r.get('referee','—')} |")
+    c = s["consistency_flags"]
+    L.append("\n## Consistency flags\n")
+    L.append(f"- Minutes disagree: {c['minutes'] or 'none'}")
+    L.append(f"- xG models differ by >0.25: {c['xg'] or 'none'}")
+    L.append(f"- FPL points vs FotMob fantasy points: {c['points'] or 'all equal'}")
+    L.append("\n## Team level\n")
+    for club, t in s["team_level"].items():
+        u = t.get("understat", {}); fm = t.get("fotmob", {})
+        xg = [x for x in fm.get("stats", []) if x["title"] in ("Expected goals (xG)", "xG open play", "xG set play", "xG non-penalty")]
+        L.append(f"- {club}: Understat xG {u.get('xG')} goals {u.get('goals')} ({'H' if u.get('home') else 'A'} v {u.get('opp')}); FotMob ref {fm.get('referee')}; " + "; ".join(f"{x['title']} {x['stats']}" for x in xg[:4]))
+    L.append("\n## Coverage C1–C19\n")
+    L.append("| # | Status | Source | Note |\n|---|---|---|---|")
+    for k in [f"C{i}" for i in range(1, 20)]:
+        cc = s["coverage"].get(k, {}); L.append(f"| {k} | {cc.get('status')} | {cc.get('source')} | {cc.get('note')} |")
+    return "\n".join(L) + "\n"
 
 
 # ----------------------------------------------------------------------------- main build
@@ -622,8 +873,27 @@ def main():
     ap.add_argument("--out", default="snapshots")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--window-hours", type=float, default=30.0)
+    ap.add_argument("--mode", choices=["pre", "post"], default="pre", help="pre = deadline snapshot (groups A, B); post = last finished GW facts (group C)")
     a = ap.parse_args()
-    snap = build(Source(a.offline, prev_dir=a.out), force=a.force, window_h=a.window_hours)
+    src = Source(a.offline, prev_dir=a.out)
+    if a.mode == "post":
+        bs = src.bootstrap()
+        if not bs: sys.exit("bootstrap-static unreachable")
+        cur = next((e for e in bs["events"] if e["is_current"]), None)
+        picks = src.picks(cur["id"]) if cur else None
+        owned = [p["element"] for p in (picks or {}).get("picks", [])]
+        snap, why = build_post(src, bs, owned, a.out, force=a.force)
+        if snap is None:
+            print(why); return
+        os.makedirs(a.out, exist_ok=True)
+        stem = os.path.join(a.out, f"GW{snap['gw']}_POST_{snap['generated_utc'].replace(':','').replace('-','')}")
+        with open(stem + ".json", "w") as f: json.dump(snap, f, indent=1, ensure_ascii=False)
+        with open(stem + ".md", "w") as f: f.write(brief_post(snap))
+        for ext in (".json", ".md"):
+            with open(os.path.join(a.out, "latest_post" + ext), "w") as f: f.write(open(stem + ext).read())
+        print(f"wrote {stem}.json / .md  (coverage: " + ", ".join(f"{k}={v['status']}" for k, v in snap["coverage"].items()) + f") gate={snap['readiness']['verdict']}")
+        return
+    snap = build(src, force=a.force, window_h=a.window_hours)
     if snap is None:
         return
     os.makedirs(a.out, exist_ok=True)
