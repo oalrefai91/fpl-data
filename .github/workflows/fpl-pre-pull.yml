@@ -1,0 +1,48 @@
+# Save as  .github/workflows/fpl-pre-pull.yml  in a PUBLIC GitHub repo that also contains fpl_pre_pull.py (public: the Claude scheduled task reads raw.githubusercontent.com without a token; the snapshot holds only data the FPL API already exposes publicly — the cookie stays in Secrets, never in the repo)
+#
+# Fires three times a day (UTC). The script itself decides whether it is inside the PRE window
+# (default: within 30 h of the next FPL deadline) and exits quietly otherwise, so a fixed cron
+# gives you deadline-relative snapshots at roughly T-28h, T-22h, T-16h, T-10h, T-4h for a Saturday
+# 11:00 UK deadline, and T-25h / T-19h / T-13h / T-7h / T-1h for a Friday 18:30 UK deadline.
+# Use "Run workflow" in the Actions tab with force=true to pull outside the window.
+
+name: FPL PRE pull
+
+on:
+  schedule:
+    - cron: "0 6,12,18 * * *"     # 06:00, 12:00, 18:00 UTC daily (07/08, 13/14, 19/20 Amsterdam)
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Pull even outside the PRE window"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull group A (account & market)
+        env:
+          # OPTIONAL. Add a repository secret FPL_COOKIE containing your browser's Cookie header for
+          # fantasy.premierleague.com (from your own logged-in session) to unlock my-team/:
+          # selling prices, exact free-transfer count, chips available. Leave unset to skip.
+          FPL_COOKIE: ${{ secrets.FPL_COOKIE }}
+        run: |
+          if [ -n "$FPL_COOKIE" ]; then printf '%s' "$FPL_COOKIE" > /tmp/fpl_cookie; COOKIE_ARG="--cookie-file /tmp/fpl_cookie"; fi
+          FORCE_ARG=""; [ "${{ inputs.force }}" = "true" ] && FORCE_ARG="--force"
+          python3 fpl_pre_pull.py --out snapshots $COOKIE_ARG $FORCE_ARG
+
+      - name: Commit snapshot
+        run: |
+          git config user.name  "fpl-bot"
+          git config user.email "fpl-bot@users.noreply.github.com"
+          git add snapshots/ || true
+          git diff --cached --quiet && echo "nothing new" && exit 0
+          git commit -m "PRE snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
