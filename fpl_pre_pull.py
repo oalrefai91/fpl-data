@@ -11,10 +11,12 @@ Usage
     python3 fpl_pre_pull.py                       # live pull, only inside the PRE window (default 30 h before deadline)
     python3 fpl_pre_pull.py --force               # live pull regardless of the window
     python3 fpl_pre_pull.py --offline fixtures/   # test against saved JSON (no network)
-    python3 fpl_pre_pull.py --cookie-file ~/.fpl_cookie   # optional: adds my-team/ (selling prices, FTs, chips)
 
-The cookie file is a single line, the browser's `Cookie:` header for fantasy.premierleague.com. Create it
-yourself from your own logged-in browser; the script never handles a password.
+No login of any kind. The authenticated my-team/ endpoint (FPL uses an OpenID Connect bearer token from
+account.premierleague.com, renewed every few minutes, so no static secret can call it) is NOT used: purchase
+prices come from element-summary (GW1 price) and the transfers endpoint (element_in_cost), selling prices from
+FPL's sell-on rule in game_settings, free transfers from the transfer history, chips from bootstrap chips
+minus history chips. All labelled DERIVED; exact unless a Free Hit has been played (see A1 note).
 """
 import argparse, json, os, sys, time, urllib.request, urllib.error
 from datetime import datetime, timezone
@@ -26,16 +28,13 @@ UA = {"User-Agent": "Mozilla/5.0 (fpl-pre-pull; personal use)"}
 
 # ----------------------------------------------------------------------------- fetch layer
 class Source:
-    def __init__(self, offline_dir=None, cookie=None):
+    def __init__(self, offline_dir=None):
         self.offline = offline_dir
-        self.cookie = cookie
         self.log = []  # (url, status, bytes, ms)
 
-    def _get(self, url, auth=False):
+    def _get(self, url):
         t0 = time.time()
         hdr = dict(UA)
-        if auth and self.cookie:
-            hdr["Cookie"] = self.cookie
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=hdr), timeout=30) as r:
                 body = r.read()
@@ -67,10 +66,6 @@ class Source:
     def fixtures(self, gw):     return self._file("fixtures.json") if self.offline else self._get(FPL + f"fixtures/?event={gw}")
     def live(self, gw):         return self._file("live.json") if self.offline else self._get(FPL + f"event/{gw}/live/")
     def element_summary(self, i): return self._file(f"element_{i}.json") if self.offline else self._get(FPL + f"element-summary/{i}/")
-    def my_team(self):
-        if self.offline or not self.cookie:
-            return None
-        return self._get(FPL + f"my-team/{ENTRY_ID}/", auth=True)
     # LiveFPL (.us JSON)
     def lf(self, name, gw=None):
         fname = "livefpl_" + name.replace("api/", "").replace(".json", "").replace(f"_{gw}", "") + ".json"
@@ -120,24 +115,53 @@ def build(src, force=False, window_h=30.0):
     transfers = src.transfers()
     fx_next = src.fixtures(N)
     live_cur = src.live(last_gw) if cur else None
-    my_team = src.my_team()
+    esum = {p["element"]: src.element_summary(p["element"]) for p in (picks or {}).get("picks", [])}
+
+    # purchase price: latest transfer-in cost if the player was bought in-season, else his GW1 price (initial squad)
+    sell_fee = float(bs.get("game_settings", {}).get("transfers_sell_on_fee", 0.5))
+    max_ft = int(bs.get("game_settings", {}).get("max_extra_free_transfers", 4)) + 1
+    started = (entry or {}).get("started_event", 1)
+    bought_at = {}
+    for tr in sorted(transfers or [], key=lambda t: (t["event"], t["time"])):
+        bought_at[tr["element_in"]] = tr["element_in_cost"]          # later transfers overwrite earlier ones
+    def purchase_price(eid):
+        if eid in bought_at:
+            return bought_at[eid], "transfers endpoint"
+        es = esum.get(eid)
+        if es and es.get("history"):
+            first = min(es["history"], key=lambda h: h["round"])
+            if first["round"] <= started:
+                return first["value"], f"element-summary GW{first['round']} price"
+            return first["value"], f"element-summary GW{first['round']} price (first appearance after your start — check)"
+        return None, "unknown"
+    def selling_price(purchase, now):
+        if purchase is None:
+            return None
+        if now <= purchase:
+            return now                                                  # no profit: sell at current price
+        return purchase + int((now - purchase) * sell_fee)             # half the profit, rounded down (tenths)
 
     # -------- A1 owned 15
     owned = []
     if picks and picks.get("picks"):
-        mt_by_el = {p["element"]: p for p in (my_team or {}).get("picks", [])}
         for p in picks["picks"]:
             e = el.get(p["element"])
             if not e:
                 warn.append(f"A1: element {p['element']} in picks but not in bootstrap (trimmed offline file?)")
                 continue
-            m = mt_by_el.get(p["element"], {})
+            pp, pp_src = purchase_price(p["element"])
+            sp = selling_price(pp, e["now_cost"])
+            es = esum.get(p["element"]) or {}
             owned.append({
                 "id": e["id"], "name": e["web_name"], "team": teams.get(e["team"]), "pos": pos.get(e["element_type"]),
                 "slot": p["position"], "multiplier": p["multiplier"], "captain": p["is_captain"], "vice": p["is_vice_captain"],
                 "now_cost": e["now_cost"] / 10,
-                "purchase_price": (m.get("purchase_price") or 0) / 10 if m else None,
-                "selling_price": (m.get("selling_price") or 0) / 10 if m else None,
+                "purchase_price": pp / 10 if pp is not None else None, "purchase_source": pp_src,
+                "selling_price": sp / 10 if sp is not None else None,
+                "history": [{"gw": h["round"], "opp": teams.get(h["opponent_team"]), "home": h["was_home"], "min": h["minutes"], "pts": h["total_points"],
+                             "bps": h["bps"], "bonus": h["bonus"], "xgi": h["expected_goal_involvements"], "defcon": h["defensive_contribution"],
+                             "value": h["value"] / 10, "net_transfers": h["transfers_balance"]} for h in es.get("history", [])],
+                "upcoming": [{"gw": f["event"], "opp": teams.get(f["team_a"] if f["is_home"] else f["team_h"]), "home": f["is_home"], "fdr": f["difficulty"]} for f in es.get("fixtures", [])[:6]],
                 "status": e["status"], "chance_next": e.get("chance_of_playing_next_round"), "news": e.get("news") or "",
                 "news_added": e.get("news_added"),
                 "selected_by": float(e["selected_by_percent"]),
@@ -152,9 +176,10 @@ def build(src, force=False, window_h=30.0):
                 "set_pieces": {"corners": e.get("corners_and_indirect_freekicks_order"), "dfk": e.get("direct_freekicks_order"), "pens": e.get("penalties_order")},
                 "yellow_cards": e.get("yellow_cards"),
             })
-        cov["A1"] = {"status": "OK" if my_team else "PARTIAL", "source": f"entry/{ENTRY_ID}/event/{last_gw}/picks + bootstrap",
-                     "note": "purchase/selling price present (my-team auth)" if my_team else
-                             "public picks endpoint has NO purchase_price/selling_price — needs authenticated my-team/ (cookie) or read from the FPL site"}
+        fh_played = any(c["name"] == "freehit" for c in (hist or {}).get("chips", []))
+        cov["A1"] = {"status": "DERIVED", "source": f"entry/{ENTRY_ID}/event/{last_gw}/picks + bootstrap + element-summary (GW1 price) + transfers (element_in_cost) + sell-on rule {sell_fee}",
+                     "note": ("purchase/selling prices derived from public data; exact for an initial-squad player or an in-season buy" +
+                              (" — A FREE HIT WAS PLAYED: players re-bought after it may carry the wrong purchase price, verify on the site" if fh_played else ""))}
     else:
         cov["A1"] = {"status": "MISSING", "source": "picks", "note": "picks endpoint failed (404 until the first deadline of the season passes)"}
 
@@ -162,13 +187,8 @@ def build(src, force=False, window_h=30.0):
     eh = (picks or {}).get("entry_history", {})
     bank = eh.get("bank")
     chips_used = (hist or {}).get("chips", [])
-    if my_team:
-        ft = my_team.get("transfers", {})
-        a2 = {"bank": ft.get("bank", bank) / 10 if ft.get("bank") is not None else None, "free_transfers": ft.get("limit"),
-              "transfers_made_this_gw": ft.get("made"), "chips": my_team.get("chips")}
-        cov["A2"] = {"status": "OK", "source": "my-team (auth)", "note": ""}
-    else:
-        # Derive FTs from history: 1 per GW, rolling, cap 5 (2024/25+ rules), reset by WC/FH.
+    if True:
+        # Derive FTs from history: 1 per GW, rolling, banked to max_ft (game_settings.max_extra_free_transfers + 1).
         ft = 1
         rows = sorted((hist or {}).get("current", []), key=lambda r: r["event"])
         chip_gw = {c["event"]: c["name"] for c in chips_used}
@@ -177,18 +197,23 @@ def build(src, force=False, window_h=30.0):
                 ft = 1  # after GW1 deadline you hold 1 FT for GW2
                 continue
             if chip_gw.get(r["event"]) in ("wildcard", "freehit"):
-                ft = min(ft + 1, 5)   # transfers made on a WC/FH week do not consume the banked FT
+                ft = min(ft + 1, max_ft)   # transfers made on a WC/FH week do not consume the banked FT
                 continue
             used = r["event_transfers"]
             paid = r["event_transfers_cost"] // 4
             ft = max(0, ft - (used - paid))
-            ft = min(ft + 1, 5)       # +1 for the coming GW, banked to a maximum of 5 (2024/25+ rule)
-        a2 = {"bank": bank / 10 if bank is not None else None, "free_transfers": ft, "free_transfers_label": "DERIVED",
-              "transfers_made_this_gw": None,
-              "chips_used": chips_used,
-              "chips_available_note": "public API lists USED chips only; the available set is inferred from the rules"}
-        cov["A2"] = {"status": "DERIVED", "source": "picks.entry_history.bank + entry/history (chips used) + FT rule",
-                     "note": "free-transfer count is NOT in any public endpoint; derived from transfer history with the 1/GW-roll-to-5 rule. my-team/ (auth) gives it exactly"}
+            ft = min(ft + 1, max_ft)       # +1 for the coming GW, banked to the cap
+        used_names = {(c["name"], c["event"]) for c in chips_used}
+        chips_state = []
+        for c in bs.get("chips", []):
+            in_half = c["start_event"] <= N <= c["stop_event"]
+            used_ev = next((ev for (nm, ev) in used_names if nm == c["name"] and c["start_event"] <= ev <= c["stop_event"]), None)
+            chips_state.append({"chip": c["name"], "window": f"GW{c['start_event']}-{c['stop_event']}", "current_half": in_half,
+                                "status": f"used GW{used_ev}" if used_ev else ("available" if in_half or N < c["start_event"] else "expired")})
+        a2 = {"bank": bank / 10 if bank is not None else None, "free_transfers": ft, "free_transfers_label": "DERIVED", "ft_cap": max_ft,
+              "chips": chips_state}
+        cov["A2"] = {"status": "DERIVED", "source": "picks.entry_history.bank + entry/history (transfers, chips used) + bootstrap.chips + game_settings",
+                     "note": "free-transfer count is not in any public endpoint; derived with the 1/GW roll rule. Chips = bootstrap chip windows minus history.chips"}
 
     # -------- A3 prices + predictor (FPL native since 2026/27)
     has_pc = any(o.get("price_change_percent") is not None for o in owned)
@@ -300,16 +325,6 @@ def build(src, force=False, window_h=30.0):
     else:
         cov["A11"] = {"status": "MISSING", "source": "event/N/live", "note": "unreachable"}
 
-    # -------- owned per-element histories (form inputs, price history) — only when online (15 calls)
-    if not src.offline:
-        for o in owned:
-            es = src.element_summary(o["id"])
-            if es:
-                o["history"] = [{"gw": h["round"], "opp": teams.get(h["opponent_team"]), "home": h["was_home"], "min": h["minutes"], "pts": h["total_points"],
-                                 "bps": h["bps"], "bonus": h["bonus"], "xgi": h["expected_goal_involvements"], "defcon": h["defensive_contribution"],
-                                 "value": h["value"] / 10, "net_transfers": h["transfers_balance"]} for h in es["history"]]
-                o["upcoming"] = [{"gw": f["event"], "opp": teams.get(f["team_a"] if f["is_home"] else f["team_h"]), "home": f["is_home"], "fdr": f["difficulty"]} for f in es["fixtures"][:6]]
-
     snap = {
         "generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live",
         "gw_next": N, "gw_last": last_gw, "in_pre_window": in_window,
@@ -328,16 +343,16 @@ def brief(s):
     a10 = s["A10_flags"]
     L.append(f"Deadline **{a10['deadline_utc']}** — {a10['hours_to_deadline']} h away. Last GW{a10['last_gw']}: finished={a10['finished']}, data_checked={a10['data_checked']}.")
     a9 = s["A9_rank"]; a2 = s["A2_bank_ft_chips"]
-    L.append(f"Overall rank **{a9['overall_rank']:,}**, total {a9['total_points']}, last GW {a9['gw_points']} (GW rank {a9['gw_rank']:,}). Team value {a9['team_value']}m, bank {a9['bank']}m, free transfers **{a2.get('free_transfers')}** ({a2.get('free_transfers_label','my-team')}).\n")
+    L.append(f"Overall rank **{a9['overall_rank']:,}**, total {a9['total_points']}, last GW {a9['gw_points']} (GW rank {a9['gw_rank']:,}). Team value {a9['team_value']}m, bank {a9['bank']}m, free transfers **{a2.get('free_transfers')}** (DERIVED, cap {a2.get('ft_cap')}). Chips this half: " + ", ".join(f"{c['chip']} {c['status']}" for c in a2.get('chips', []) if c['current_half']) + "\n")
     L.append("## Owned 15\n")
-    L.append("| # | Player | Pos | £ | Sell | Status | Price Δ% (proj tonight) | Net tr. | Own% | EO top10k | C% top10k | C% my band | Last GW |")
-    L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+    L.append("| # | Player | Pos | £ | Bought | Sell |Status | Price Δ% (proj tonight) | Net tr. | Own% | EO top10k | C% top10k | C% my band | Last GW |")
+    L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for o in s["A1_owned"]:
         proj = (o.get("price_projections") or [{}])[0].get("projected_percent")
         role = " (C)" if o["captain"] else (" (V)" if o["vice"] else "")
         lg = o.get("last_gw") or {}
         st = o["status"] + (f" {o['chance_next']}%" if o.get("chance_next") not in (None, 100) else "") + (f" — {o['news']}" if o["news"] else "")
-        L.append(f"| {o['slot']} | {o['name']}{role} | {o['pos']} {o['team']} | {o['now_cost']} | {o.get('selling_price') if o.get('selling_price') is not None else '—'} | {st} | "
+        L.append(f"| {o['slot']} | {o['name']}{role} | {o['pos']} {o['team']} | {o['now_cost']} | {o.get('purchase_price') if o.get('purchase_price') is not None else '—'} | {o.get('selling_price') if o.get('selling_price') is not None else '—'} | {st} | "
                  f"{o.get('price_change_percent')} ({proj}) | {o.get('net_transfers_event'):+,} | {o['selected_by']} | {o.get('eo_top10k')} | {o.get('cap_top10k')} | {o.get('cap_myband')} | "
                  f"{lg.get('pts','—')} pts / {lg.get('min','—')}' / bps {lg.get('bps','—')} |")
     L.append("\n## Market flow (net transfers this GW, all players)\n")
@@ -368,10 +383,8 @@ def main():
     ap.add_argument("--out", default="snapshots")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--window-hours", type=float, default=30.0)
-    ap.add_argument("--cookie-file", help="file containing the Cookie header for fantasy.premierleague.com (enables my-team/)")
     a = ap.parse_args()
-    cookie = open(os.path.expanduser(a.cookie_file)).read().strip() if a.cookie_file and os.path.exists(os.path.expanduser(a.cookie_file)) else None
-    snap = build(Source(a.offline, cookie), force=a.force, window_h=a.window_hours)
+    snap = build(Source(a.offline), force=a.force, window_h=a.window_hours)
     if snap is None:
         return
     os.makedirs(a.out, exist_ok=True)
