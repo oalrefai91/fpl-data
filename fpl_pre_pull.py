@@ -299,10 +299,20 @@ def load_pool(bs, top10k, out_dir, owned_ids):
         by_name.setdefault(_norm(e["web_name"]), []).append(e["id"])
     pool = set()
     reasons = {}
+    teams_short = {t["id"]: t["short_name"] for t in bs["teams"]}
     for m in cfg.get("manual", []):
-        ids = [m] if isinstance(m, int) else by_name.get(_norm(str(m)), [])
+        if isinstance(m, int):
+            ids = [m]
+        else:
+            name, _, club = str(m).partition("(")          # "Palmer (CHE)" pins the club; a bare name takes the most-owned match
+            ids = by_name.get(_norm(name.strip()), [])
+            club = club.strip(") ").upper()
+            if club:
+                ids = [i for i in ids if teams_short.get(by_id[i]["team"]) == club]
+            elif len(ids) > 1:
+                ids = sorted(ids, key=lambda i: -float(by_id[i]["selected_by_percent"]))[:1]
         for i in ids:
-            pool.add(i); reasons.setdefault(i, []).append("manual/watchlist")
+            pool.add(i); reasons.setdefault(i, []).append("manual/watchlist" + (f" ({m})" if isinstance(m, str) and len(by_name.get(_norm(str(m).partition('(')[0].strip()), [])) > 1 else ""))
     a = cfg.get("auto", {})
     avail = [e for e in el if e["status"] == "a"]
     for e in sorted(avail, key=lambda e: -((e.get("transfers_in_event") or 0) - (e.get("transfers_out_event") or 0)))[: a.get("top_transfers_in", 0)]:
