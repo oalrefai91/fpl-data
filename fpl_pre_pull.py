@@ -477,8 +477,9 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                 tl = team_level.setdefault(club, {})
                 tl["fotmob"] = {"match_id": mid, "referee": m["referee"], "referee_stats": m["referee_stats"], "stats": [{"title": st.get("title"), "stats": st.get("stats")} for grp in m["stats"] for st in (grp.get("stats") or []) if any(k in (st.get("title") or "") for k in ("Expected goals", "xG", "Ball possession", "Total shots", "Corners", "Big chances", "Offsides", "Crosses", "Fouls", "Yellow", "Red"))]}
     # ----- coverage C1–C19
-    n_us = sum(1 for r in rows if r.get("understat") and not r["understat"].get("unmatched")); n_fm = sum(1 for r in rows if r.get("fotmob") and not r["fotmob"].get("unmatched"))
-    n = len(rows)
+    played = [r for r in rows if (r["fpl"].get("minutes") or 0) > 0]      # a player who did not appear has no provider row to match
+    n_us = sum(1 for r in played if r.get("understat") and not r["understat"].get("unmatched")); n_fm = sum(1 for r in played if r.get("fotmob") and not r["fotmob"].get("unmatched"))
+    n = len(played)
     def st_(k, ok_cond, partial_cond, src_, note):
         cov[k] = {"status": "OK" if ok_cond else ("PARTIAL" if partial_cond else "MISSING"), "source": src_, "note": note}
     st_("C1", True, True, "event/N/live minutes", "official FPL minutes")
@@ -501,7 +502,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     st_("C18", n_fm == n, n_fm > 0, "FotMob tackles/interceptions/clearances/blocks/aerials/recoveries", "")
     st_("C19", False, n_fm > 0, "FotMob accurate crosses, dribbles, passes into final third", "through balls, progressive carries, offsides per player: SofaScore (browser) or FBref (blocked)")
     hold = [{"param": k, "status": c["status"], "source": c["source"], "needs": c["note"] or "confirm", "options": ["provide a source URL", "paste the data manually", "skip this GW (output is labelled with the gap)", "abort"]} for k, c in cov.items() if not c["status"].startswith("OK")]
-    for r in rows:
+    for r in played:
         if r.get("understat", {}).get("unmatched") or r.get("fotmob", {}).get("unmatched"):
             hold.append({"param": f"NAME-MATCH {r['name']}", "status": "UNMATCHED", "source": "provider roster", "needs": "confirm the provider's spelling of this player and add to the crosswalk", "options": ["paste the name", "skip", "abort"]})
     snap = {"generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live", "cadence": "POST", "gw": L,
