@@ -34,6 +34,11 @@ jobs:
           FORCE_ARG=""; [ "${{ inputs.force }}" = "true" ] && FORCE_ARG="--force"
           python3 fpl_pre_pull.py --out snapshots $FORCE_ARG
 
+      - name: Pull group C (POST — last finished GW, once data_checked)
+        # Runs on every cron; exits quietly until the last GW is finished+data_checked, and only writes one POST snapshot per GW.
+        run: |
+          python3 fpl_pre_pull.py --mode post --out snapshots || true
+
       - name: Commit snapshot
         run: |
           git config user.name  "fpl-bot"
