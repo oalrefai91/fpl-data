@@ -1,0 +1,2419 @@
+{
+ "generated_utc": "2026-09-03T18:48:57Z",
+ "mode": "live",
+ "gw_next": 3,
+ "gw_last": 2,
+ "in_pre_window": true,
+ "A1_owned": [
+  {
+   "id": 496,
+   "name": "Kinsky",
+   "team": "TOT",
+   "pos": "GKP",
+   "slot": 1,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 4.5,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 19.7,
+   "price_change_percent": -28.7,
+   "price_change_hourly": -754,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-29.7",
+     "likelihood": -2
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-35.0",
+     "likelihood": -2
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-40.3",
+     "likelihood": -3
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 34450,
+   "transfers_out_event": 201981,
+   "net_transfers_event": -167531,
+   "form": "1.5",
+   "total_points": 3,
+   "event_points": 1,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 20.14,
+   "eo_elite_json": 62.8,
+   "eo_games_idx1": 20.28,
+   "eo_games_idx2_UNVERIFIED": 32.84,
+   "cap_top10k": 0.01,
+   "cap_myband": 0.0,
+   "cap_overall": 0.0,
+   "last_gw": {
+    "pts": 1,
+    "min": 90,
+    "bps": 4,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "BRE",
+     "home": false,
+     "min": 90,
+     "pts": 2,
+     "bps": 15,
+     "bonus": 0,
+     "xgi": "0.00",
+     "defcon": 0,
+     "value": 4.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "NEW",
+     "home": true,
+     "min": 90,
+     "pts": 1,
+     "bps": 4,
+     "bonus": 0,
+     "xgi": "0.00",
+     "defcon": 0,
+     "value": 4.5,
+     "net_transfers": -41526
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "NFO",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 5,
+     "opp": "AVL",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "MUN",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 7,
+     "opp": "COV",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 8,
+     "opp": "CHE",
+     "home": false,
+     "fdr": 4
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Gabriel",
+   "team": "ARS",
+   "pos": "DEF",
+   "slot": 2,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 8.0,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 26.0,
+   "price_change_percent": -32.5,
+   "price_change_hourly": -1320,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-33.8",
+     "likelihood": -2
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-40.8",
+     "likelihood": -3
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-47.9",
+     "likelihood": -3
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 38478,
+   "transfers_out_event": 258103,
+   "net_transfers_event": -219625,
+   "form": "6.5",
+   "total_points": 13,
+   "event_points": 8,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 1,
+   "eo_top10k": 25.51,
+   "eo_elite_json": 24.1,
+   "eo_games_idx1": 25.61,
+   "eo_games_idx2_UNVERIFIED": 25.54,
+   "cap_top10k": 0.36,
+   "cap_myband": 0.78,
+   "cap_overall": 0.53,
+   "last_gw": {
+    "pts": 8,
+    "min": 90,
+    "bps": 23,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "COV",
+     "home": true,
+     "min": 90,
+     "pts": 5,
+     "bps": 21,
+     "bonus": 0,
+     "xgi": "0.06",
+     "defcon": 4,
+     "value": 8.0,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "AVL",
+     "home": false,
+     "min": 90,
+     "pts": 8,
+     "bps": 23,
+     "bonus": 0,
+     "xgi": "0.15",
+     "defcon": 10,
+     "value": 8.0,
+     "net_transfers": -65343
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "CHE",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 4,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 5,
+     "opp": "BHA",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 7,
+     "opp": "NFO",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 115,
+   "name": "De Cuyper",
+   "team": "BHA",
+   "pos": "DEF",
+   "slot": 3,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 4.7,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 15.7,
+   "price_change_percent": 26.9,
+   "price_change_hourly": 4739,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "31.2",
+     "likelihood": 2
+    },
+    {
+     "offset": 1,
+     "projected_percent": "54.7",
+     "likelihood": 3
+    },
+    {
+     "offset": 2,
+     "projected_percent": "78.1",
+     "likelihood": 3
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 607274,
+   "transfers_out_event": 86034,
+   "net_transfers_event": 521240,
+   "form": "8.5",
+   "total_points": 17,
+   "event_points": 0,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": 2,
+    "dfk": 4,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 17.16,
+   "eo_elite_json": 0.9,
+   "eo_games_idx1": 18.3,
+   "eo_games_idx2_UNVERIFIED": 41.24,
+   "cap_top10k": 0.07,
+   "cap_myband": 0.02,
+   "cap_overall": 0.03,
+   "last_gw": {
+    "pts": 0,
+    "min": 90,
+    "bps": -2,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "AVL",
+     "home": true,
+     "min": 77,
+     "pts": 17,
+     "bps": 46,
+     "bonus": 2,
+     "xgi": "1.68",
+     "defcon": 4,
+     "value": 4.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "CHE",
+     "home": false,
+     "min": 90,
+     "pts": 0,
+     "bps": -2,
+     "bonus": 0,
+     "xgi": "0.08",
+     "defcon": 2,
+     "value": 4.6,
+     "net_transfers": 473840
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 4,
+     "opp": "COV",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 5,
+     "opp": "ARS",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 6,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 7,
+     "opp": "CRY",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "LIV",
+     "home": false,
+     "fdr": 4
+    }
+   ]
+  },
+  {
+   "id": 423,
+   "name": "Shaw",
+   "team": "MUN",
+   "pos": "DEF",
+   "slot": 4,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 4.5,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 16.4,
+   "price_change_percent": -61.8,
+   "price_change_hourly": -1770,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-64.6",
+     "likelihood": -3
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-79.6",
+     "likelihood": -3
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-94.7",
+     "likelihood": -3
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 25025,
+   "transfers_out_event": 236472,
+   "net_transfers_event": -211447,
+   "form": "1.5",
+   "total_points": 3,
+   "event_points": 2,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": 3,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 17.0,
+   "eo_elite_json": 18.9,
+   "eo_games_idx1": 17.08,
+   "eo_games_idx2_UNVERIFIED": 21.85,
+   "cap_top10k": 0.03,
+   "cap_myband": 0.02,
+   "cap_overall": 0.0,
+   "last_gw": {
+    "pts": 2,
+    "min": 72,
+    "bps": 12,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "HUL",
+     "home": false,
+     "min": 90,
+     "pts": 1,
+     "bps": 13,
+     "bonus": 0,
+     "xgi": "0.26",
+     "defcon": 4,
+     "value": 4.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "IPS",
+     "home": true,
+     "min": 72,
+     "pts": 2,
+     "bps": 12,
+     "bonus": 0,
+     "xgi": "0.02",
+     "defcon": 8,
+     "value": 4.5,
+     "net_transfers": -74162
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "EVE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "MCI",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 5,
+     "opp": "FUL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "TOT",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 7,
+     "opp": "LEE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "BOU",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 426,
+   "name": "B.Fernandes",
+   "team": "MUN",
+   "pos": "MID",
+   "slot": 5,
+   "multiplier": 2,
+   "captain": true,
+   "vice": false,
+   "now_cost": 12.0,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 48.6,
+   "price_change_percent": -12.7,
+   "price_change_hourly": 368,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-12.5",
+     "likelihood": -1
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-11.5",
+     "likelihood": -1
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-10.4",
+     "likelihood": -1
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 308587,
+   "transfers_out_event": 255068,
+   "net_transfers_event": 53519,
+   "form": "12.5",
+   "total_points": 25,
+   "event_points": 23,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": 1,
+    "dfk": 1,
+    "pens": 1
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 64.12,
+   "eo_elite_json": 181.9,
+   "eo_games_idx1": 64.16,
+   "eo_games_idx2_UNVERIFIED": 40.87,
+   "cap_top10k": 22.74,
+   "cap_myband": 21.2,
+   "cap_overall": 18.67,
+   "last_gw": {
+    "pts": 23,
+    "min": 90,
+    "bps": 87,
+    "bonus": 3
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "HUL",
+     "home": false,
+     "min": 90,
+     "pts": 2,
+     "bps": 18,
+     "bonus": 0,
+     "xgi": "0.34",
+     "defcon": 6,
+     "value": 12.0,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "IPS",
+     "home": true,
+     "min": 90,
+     "pts": 23,
+     "bps": 87,
+     "bonus": 3,
+     "xgi": "2.50",
+     "defcon": 8,
+     "value": 12.0,
+     "net_transfers": -180062
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "EVE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "MCI",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 5,
+     "opp": "FUL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "TOT",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 7,
+     "opp": "LEE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "BOU",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 427,
+   "name": "Mbeumo",
+   "team": "MUN",
+   "pos": "MID",
+   "slot": 6,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 8.0,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 29.1,
+   "price_change_percent": -92.6,
+   "price_change_hourly": -5093,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-97.1",
+     "likelihood": -4
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-121.5",
+     "likelihood": -5
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-146.0",
+     "likelihood": -5
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 72217,
+   "transfers_out_event": 570036,
+   "net_transfers_event": -497819,
+   "form": "6.5",
+   "total_points": 13,
+   "event_points": 11,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": 2,
+    "dfk": 2,
+    "pens": 2
+   },
+   "yellow_cards": 1,
+   "eo_top10k": 48.04,
+   "eo_elite_json": 84.7,
+   "eo_games_idx1": 48.1,
+   "eo_games_idx2_UNVERIFIED": 44.71,
+   "cap_top10k": 3.81,
+   "cap_myband": 3.32,
+   "cap_overall": 2.65,
+   "last_gw": {
+    "pts": 11,
+    "min": 90,
+    "bps": 37,
+    "bonus": 2
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "HUL",
+     "home": false,
+     "min": 90,
+     "pts": 2,
+     "bps": 12,
+     "bonus": 0,
+     "xgi": "0.73",
+     "defcon": 4,
+     "value": 8.0,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "IPS",
+     "home": true,
+     "min": 90,
+     "pts": 11,
+     "bps": 37,
+     "bonus": 2,
+     "xgi": "1.97",
+     "defcon": 5,
+     "value": 8.0,
+     "net_transfers": -137963
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "EVE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "MCI",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 5,
+     "opp": "FUL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "TOT",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 7,
+     "opp": "LEE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "BOU",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 557,
+   "name": "Tzolis",
+   "team": "ARS",
+   "pos": "MID",
+   "slot": 7,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 6.5,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 21.0,
+   "price_change_percent": -19.9,
+   "price_change_hourly": -4498,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-25.3",
+     "likelihood": -2
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-55.2",
+     "likelihood": -3
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-85.0",
+     "likelihood": -3
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 83039,
+   "transfers_out_event": 443823,
+   "net_transfers_event": -360784,
+   "form": "3.0",
+   "total_points": 6,
+   "event_points": 0,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": 3,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 1,
+   "eo_top10k": 33.48,
+   "eo_elite_json": 62.1,
+   "eo_games_idx1": 33.53,
+   "eo_games_idx2_UNVERIFIED": 33.25,
+   "cap_top10k": 1.2,
+   "cap_myband": 1.54,
+   "cap_overall": 0.95,
+   "last_gw": {
+    "pts": 0,
+    "min": 45,
+    "bps": 1,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "COV",
+     "home": true,
+     "min": 75,
+     "pts": 6,
+     "bps": 30,
+     "bonus": 0,
+     "xgi": "0.33",
+     "defcon": 6,
+     "value": 6.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "AVL",
+     "home": false,
+     "min": 45,
+     "pts": 0,
+     "bps": 1,
+     "bonus": 0,
+     "xgi": "0.01",
+     "defcon": 3,
+     "value": 6.5,
+     "net_transfers": 180987
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "CHE",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 4,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 5,
+     "opp": "BHA",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 7,
+     "opp": "NFO",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 290,
+   "name": "Slater",
+   "team": "HUL",
+   "pos": "MID",
+   "slot": 8,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 4.5,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 4.7,
+   "price_change_percent": 54.3,
+   "price_change_hourly": 406,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "55.3",
+     "likelihood": 3
+    },
+    {
+     "offset": 1,
+     "projected_percent": "60.7",
+     "likelihood": 3
+    },
+    {
+     "offset": 2,
+     "projected_percent": "66.2",
+     "likelihood": 3
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 120750,
+   "transfers_out_event": 50499,
+   "net_transfers_event": 70251,
+   "form": "4.0",
+   "total_points": 8,
+   "event_points": 2,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": 2,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 1,
+   "eo_top10k": 0.18,
+   "eo_elite_json": 0.9,
+   "eo_games_idx1": 0.21,
+   "eo_games_idx2_UNVERIFIED": 1.14,
+   "cap_top10k": 0.0,
+   "cap_myband": 0.0,
+   "cap_overall": 0.0,
+   "last_gw": {
+    "pts": 2,
+    "min": 90,
+    "bps": 6,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "MUN",
+     "home": true,
+     "min": 90,
+     "pts": 6,
+     "bps": 20,
+     "bonus": 0,
+     "xgi": "0.44",
+     "defcon": 3,
+     "value": 4.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "COV",
+     "home": false,
+     "min": 90,
+     "pts": 2,
+     "bps": 6,
+     "bonus": 0,
+     "xgi": "0.01",
+     "defcon": 10,
+     "value": 4.5,
+     "net_transfers": 69997
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "AVL",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "CHE",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 5,
+     "opp": "NEW",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 7,
+     "opp": "FUL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "BRE",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 411,
+   "name": "Haaland",
+   "team": "MCI",
+   "pos": "FWD",
+   "slot": 9,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 15.5,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 71.3,
+   "price_change_percent": 54.2,
+   "price_change_hourly": 1286,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "57.4",
+     "likelihood": 3
+    },
+    {
+     "offset": 1,
+     "projected_percent": "74.6",
+     "likelihood": 3
+    },
+    {
+     "offset": 2,
+     "projected_percent": "91.9",
+     "likelihood": 3
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 296302,
+   "transfers_out_event": 33766,
+   "net_transfers_event": 262536,
+   "form": "7.5",
+   "total_points": 15,
+   "event_points": 13,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": 1
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 70.35,
+   "eo_elite_json": 73.7,
+   "eo_games_idx1": 70.37,
+   "eo_games_idx2_UNVERIFIED": 46.93,
+   "cap_top10k": 22.82,
+   "cap_myband": 33.86,
+   "cap_overall": 42.0,
+   "last_gw": {
+    "pts": 13,
+    "min": 90,
+    "bps": 60,
+    "bonus": 3
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "BOU",
+     "home": true,
+     "min": 90,
+     "pts": 2,
+     "bps": 6,
+     "bonus": 0,
+     "xgi": "0.76",
+     "defcon": 3,
+     "value": 15.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "CRY",
+     "home": false,
+     "min": 90,
+     "pts": 13,
+     "bps": 60,
+     "bonus": 3,
+     "xgi": "0.66",
+     "defcon": 5,
+     "value": 15.5,
+     "net_transfers": -34247
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "COV",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 4,
+     "opp": "MUN",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 5,
+     "opp": "SUN",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 6,
+     "opp": "LIV",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 7,
+     "opp": "IPS",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 8,
+     "opp": "AVL",
+     "home": false,
+     "fdr": 4
+    }
+   ]
+  },
+  {
+   "id": 165,
+   "name": "João Pedro",
+   "team": "CHE",
+   "pos": "FWD",
+   "slot": 10,
+   "multiplier": 1,
+   "captain": false,
+   "vice": true,
+   "now_cost": 7.7,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 69.7,
+   "price_change_percent": 6.2,
+   "price_change_hourly": 1212,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "7.3",
+     "likelihood": 1
+    },
+    {
+     "offset": 1,
+     "projected_percent": "13.3",
+     "likelihood": 1
+    },
+    {
+     "offset": 2,
+     "projected_percent": "19.3",
+     "likelihood": 1
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 364641,
+   "transfers_out_event": 119754,
+   "net_transfers_event": 244887,
+   "form": "10.0",
+   "total_points": 20,
+   "event_points": 9,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 119.58,
+   "eo_elite_json": 96.0,
+   "eo_games_idx1": 119.79,
+   "eo_games_idx2_UNVERIFIED": 96.47,
+   "cap_top10k": 22.98,
+   "cap_myband": 19.64,
+   "cap_overall": 12.4,
+   "last_gw": {
+    "pts": 9,
+    "min": 90,
+    "bps": 44,
+    "bonus": 2
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "FUL",
+     "home": false,
+     "min": 90,
+     "pts": 11,
+     "bps": 45,
+     "bonus": 2,
+     "xgi": "0.69",
+     "defcon": 3,
+     "value": 7.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "BHA",
+     "home": true,
+     "min": 90,
+     "pts": 9,
+     "bps": 44,
+     "bonus": 2,
+     "xgi": "1.27",
+     "defcon": 3,
+     "value": 7.6,
+     "net_transfers": 377023
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "ARS",
+     "home": false,
+     "fdr": 5
+    },
+    {
+     "gw": 4,
+     "opp": "HUL",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 5,
+     "opp": "BRE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "BOU",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 7,
+     "opp": "EVE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "TOT",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 249,
+   "name": "Barry",
+   "team": "EVE",
+   "pos": "FWD",
+   "slot": 11,
+   "multiplier": 1,
+   "captain": false,
+   "vice": false,
+   "now_cost": 5.5,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 4.5,
+   "price_change_percent": 84.3,
+   "price_change_hourly": 885,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "86.5",
+     "likelihood": 3
+    },
+    {
+     "offset": 1,
+     "projected_percent": "98.4",
+     "likelihood": 4
+    },
+    {
+     "offset": 2,
+     "projected_percent": "110.2",
+     "likelihood": 5
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 145720,
+   "transfers_out_event": 69296,
+   "net_transfers_event": 76424,
+   "form": "5.0",
+   "total_points": 10,
+   "event_points": 2,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": 2
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 3.46,
+   "eo_elite_json": 0.1,
+   "eo_games_idx1": 3.51,
+   "eo_games_idx2_UNVERIFIED": 6.24,
+   "cap_top10k": 0.08,
+   "cap_myband": 0.14,
+   "cap_overall": 0.14,
+   "last_gw": {
+    "pts": 2,
+    "min": 69,
+    "bps": 6,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "CRY",
+     "home": true,
+     "min": 78,
+     "pts": 8,
+     "bps": 37,
+     "bonus": 2,
+     "xgi": "0.54",
+     "defcon": 3,
+     "value": 5.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "BOU",
+     "home": false,
+     "min": 69,
+     "pts": 2,
+     "bps": 6,
+     "bonus": 0,
+     "xgi": "1.48",
+     "defcon": 3,
+     "value": 5.5,
+     "net_transfers": 127837
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "MUN",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 4,
+     "opp": "TOT",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 5,
+     "opp": "IPS",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 6,
+     "opp": "HUL",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 7,
+     "opp": "CHE",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 8,
+     "opp": "ARS",
+     "home": false,
+     "fdr": 5
+    }
+   ]
+  },
+  {
+   "id": 497,
+   "name": "Dubravka",
+   "team": "TOT",
+   "pos": "GKP",
+   "slot": 12,
+   "multiplier": 0,
+   "captain": false,
+   "vice": false,
+   "now_cost": 4.0,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 18.2,
+   "price_change_percent": -8.2,
+   "price_change_hourly": -32,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-8.3",
+     "likelihood": -1
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-8.5",
+     "likelihood": -1
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-8.8",
+     "likelihood": -1
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 96627,
+   "transfers_out_event": 91148,
+   "net_transfers_event": 5479,
+   "form": "0.0",
+   "total_points": 0,
+   "event_points": 0,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 0.28,
+   "eo_elite_json": 0.1,
+   "eo_games_idx1": null,
+   "eo_games_idx2_UNVERIFIED": null,
+   "cap_top10k": 0.0,
+   "cap_myband": 0.0,
+   "cap_overall": 0.0,
+   "last_gw": {
+    "pts": 0,
+    "min": 0,
+    "bps": 0,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "BRE",
+     "home": false,
+     "min": 0,
+     "pts": 0,
+     "bps": 0,
+     "bonus": 0,
+     "xgi": "0.00",
+     "defcon": 0,
+     "value": 4.0,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "NEW",
+     "home": true,
+     "min": 0,
+     "pts": 0,
+     "bps": 0,
+     "bonus": 0,
+     "xgi": "0.00",
+     "defcon": 0,
+     "value": 4.0,
+     "net_transfers": -28731
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "NFO",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 5,
+     "opp": "AVL",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "MUN",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 7,
+     "opp": "COV",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 8,
+     "opp": "CHE",
+     "home": false,
+     "fdr": 4
+    }
+   ]
+  },
+  {
+   "id": 334,
+   "name": "Muharemović",
+   "team": "LEE",
+   "pos": "DEF",
+   "slot": 13,
+   "multiplier": 0,
+   "captain": false,
+   "vice": false,
+   "now_cost": 5.0,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 3.2,
+   "price_change_percent": 6.5,
+   "price_change_hourly": 22,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "6.5",
+     "likelihood": 1
+    },
+    {
+     "offset": 1,
+     "projected_percent": "6.8",
+     "likelihood": 1
+    },
+    {
+     "offset": 2,
+     "projected_percent": "7.1",
+     "likelihood": 1
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 32131,
+   "transfers_out_event": 31180,
+   "net_transfers_event": 951,
+   "form": "5.0",
+   "total_points": 10,
+   "event_points": 4,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 8.6,
+   "eo_elite_json": 9.6,
+   "eo_games_idx1": 8.69,
+   "eo_games_idx2_UNVERIFIED": 13.49,
+   "cap_top10k": 0.0,
+   "cap_myband": 0.02,
+   "cap_overall": 0.0,
+   "last_gw": {
+    "pts": 4,
+    "min": 90,
+    "bps": 17,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "NFO",
+     "home": false,
+     "min": 90,
+     "pts": 6,
+     "bps": 25,
+     "bonus": 0,
+     "xgi": "0.09",
+     "defcon": 7,
+     "value": 5.0,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "BRE",
+     "home": true,
+     "min": 90,
+     "pts": 4,
+     "bps": 17,
+     "bonus": 0,
+     "xgi": "0.01",
+     "defcon": 19,
+     "value": 5.0,
+     "net_transfers": 9697
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "BHA",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "NEW",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 5,
+     "opp": "CRY",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "ARS",
+     "home": false,
+     "fdr": 5
+    },
+    {
+     "gw": 7,
+     "opp": "MUN",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 8,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "name": "Konsa",
+   "team": "ARS",
+   "pos": "DEF",
+   "slot": 14,
+   "multiplier": 0,
+   "captain": false,
+   "vice": false,
+   "now_cost": 4.4,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 10.6,
+   "price_change_percent": -2.3,
+   "price_change_hourly": -168,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-2.6",
+     "likelihood": -1
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-3.9",
+     "likelihood": -1
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-5.2",
+     "likelihood": -1
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 181303,
+   "transfers_out_event": 156598,
+   "net_transfers_event": 24705,
+   "form": "0.5",
+   "total_points": 1,
+   "event_points": 1,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": null,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 1.03,
+   "eo_elite_json": 0.6,
+   "eo_games_idx1": 1.14,
+   "eo_games_idx2_UNVERIFIED": 2.66,
+   "cap_top10k": 0.0,
+   "cap_myband": 0.0,
+   "cap_overall": 0.0,
+   "last_gw": {
+    "pts": 1,
+    "min": 11,
+    "bps": 3,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "COV",
+     "home": true,
+     "min": 0,
+     "pts": 0,
+     "bps": 0,
+     "bonus": 0,
+     "xgi": "0.00",
+     "defcon": 0,
+     "value": 4.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "AVL",
+     "home": false,
+     "min": 11,
+     "pts": 1,
+     "bps": 3,
+     "bonus": 0,
+     "xgi": "0.00",
+     "defcon": 1,
+     "value": 4.5,
+     "net_transfers": -179766
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "CHE",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 4,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 5,
+     "opp": "BHA",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 7,
+     "opp": "NFO",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 8,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  {
+   "id": 337,
+   "name": "Aaronson",
+   "team": "LEE",
+   "pos": "MID",
+   "slot": 15,
+   "multiplier": 0,
+   "captain": false,
+   "vice": false,
+   "now_cost": 5.5,
+   "purchase_price": null,
+   "selling_price": null,
+   "status": "a",
+   "chance_next": null,
+   "news": "",
+   "news_added": null,
+   "selected_by": 0.7,
+   "price_change_percent": -84.9,
+   "price_change_hourly": -63,
+   "price_projections": [
+    {
+     "offset": 0,
+     "projected_percent": "-87.2",
+     "likelihood": -3
+    },
+    {
+     "offset": 1,
+     "projected_percent": "-99.2",
+     "likelihood": -4
+    },
+    {
+     "offset": 2,
+     "projected_percent": "-111.3",
+     "likelihood": -5
+    }
+   ],
+   "price_locked_until": null,
+   "transfers_in_event": 1639,
+   "transfers_out_event": 11883,
+   "net_transfers_event": -10244,
+   "form": "2.0",
+   "total_points": 4,
+   "event_points": 1,
+   "scout_risks": [],
+   "set_pieces": {
+    "corners": null,
+    "dfk": 3,
+    "pens": null
+   },
+   "yellow_cards": 0,
+   "eo_top10k": 0.15,
+   "eo_elite_json": 0.0,
+   "eo_games_idx1": 0.16,
+   "eo_games_idx2_UNVERIFIED": 0.35,
+   "cap_top10k": 0.0,
+   "cap_myband": 0.0,
+   "cap_overall": 0.0,
+   "last_gw": {
+    "pts": 1,
+    "min": 45,
+    "bps": 6,
+    "bonus": 0
+   },
+   "history": [
+    {
+     "gw": 1,
+     "opp": "NFO",
+     "home": false,
+     "min": 81,
+     "pts": 3,
+     "bps": 16,
+     "bonus": 0,
+     "xgi": "0.02",
+     "defcon": 7,
+     "value": 5.5,
+     "net_transfers": 0
+    },
+    {
+     "gw": 2,
+     "opp": "BRE",
+     "home": true,
+     "min": 45,
+     "pts": 1,
+     "bps": 6,
+     "bonus": 0,
+     "xgi": "0.01",
+     "defcon": 3,
+     "value": 5.5,
+     "net_transfers": -5840
+    }
+   ],
+   "upcoming": [
+    {
+     "gw": 3,
+     "opp": "BHA",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 4,
+     "opp": "NEW",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 5,
+     "opp": "CRY",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 6,
+     "opp": "ARS",
+     "home": false,
+     "fdr": 5
+    },
+    {
+     "gw": 7,
+     "opp": "MUN",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 8,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  }
+ ],
+ "A2_bank_ft_chips": {
+  "bank": 0.0,
+  "free_transfers": 2,
+  "free_transfers_label": "DERIVED",
+  "transfers_made_this_gw": null,
+  "chips_used": [],
+  "chips_available_note": "public API lists USED chips only; the available set is inferred from the rules"
+ },
+ "A7_flow": {
+  "top_in": [
+   [
+    "Cherki",
+    "MCI",
+    1321231
+   ],
+   [
+    "Wissa",
+    "NEW",
+    727290
+   ],
+   [
+    "Elanga",
+    "NEW",
+    541021
+   ],
+   [
+    "De Cuyper",
+    "BHA",
+    521240
+   ],
+   [
+    "Ajayi",
+    "HUL",
+    455848
+   ],
+   [
+    "Hall",
+    "NEW",
+    380712
+   ],
+   [
+    "M.Sangaré",
+    "BRE",
+    352247
+   ],
+   [
+    "Gvardiol",
+    "MCI",
+    332314
+   ]
+  ],
+  "top_out": [
+   [
+    "Mbeumo",
+    "MUN",
+    -497819
+   ],
+   [
+    "Tzolis",
+    "ARS",
+    -360784
+   ],
+   [
+    "Semenyo",
+    "MCI",
+    -277628
+   ],
+   [
+    "Brobbey",
+    "SUN",
+    -237141
+   ],
+   [
+    "Watkins",
+    "AVL",
+    -234983
+   ],
+   [
+    "Mateta",
+    "CRY",
+    -220577
+   ],
+   [
+    "Gabriel",
+    "ARS",
+    -219625
+   ],
+   [
+    "Ndiaye",
+    "MCI",
+    -217863
+   ]
+  ]
+ },
+ "A9_rank": {
+  "overall_rank": 1213143,
+  "total_points": 158,
+  "gw_points": 94,
+  "gw_rank": 2427967,
+  "percentile": 25,
+  "team_value": 100.2,
+  "bank": 0.0,
+  "note": "official; final only if A10 flags both true for the last GW"
+ },
+ "A10_flags": {
+  "last_gw": 2,
+  "finished": true,
+  "data_checked": true,
+  "next_gw": 3,
+  "deadline_utc": "2026-09-04T17:30:00Z",
+  "hours_to_deadline": 22.7,
+  "fixtures_next": [
+   {
+    "id": 21,
+    "kickoff": "2026-09-04T19:00:00Z",
+    "home": "IPS",
+    "away": "LIV",
+    "fdr_h": 4,
+    "fdr_a": 2,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 27,
+    "kickoff": "2026-09-05T11:30:00Z",
+    "home": "NEW",
+    "away": "BOU",
+    "fdr_h": 3,
+    "fdr_a": 3,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 22,
+    "kickoff": "2026-09-05T14:00:00Z",
+    "home": "BRE",
+    "away": "SUN",
+    "fdr_h": 2,
+    "fdr_a": 3,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 23,
+    "kickoff": "2026-09-05T14:00:00Z",
+    "home": "BHA",
+    "away": "LEE",
+    "fdr_h": 2,
+    "fdr_a": 3,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 24,
+    "kickoff": "2026-09-05T14:00:00Z",
+    "home": "FUL",
+    "away": "CRY",
+    "fdr_h": 3,
+    "fdr_a": 3,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 26,
+    "kickoff": "2026-09-05T14:00:00Z",
+    "home": "MCI",
+    "away": "COV",
+    "fdr_h": 2,
+    "fdr_a": 5,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 28,
+    "kickoff": "2026-09-05T14:00:00Z",
+    "home": "NFO",
+    "away": "TOT",
+    "fdr_h": 3,
+    "fdr_a": 3,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 25,
+    "kickoff": "2026-09-05T16:30:00Z",
+    "home": "HUL",
+    "away": "AVL",
+    "fdr_h": 3,
+    "fdr_a": 2,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 30,
+    "kickoff": "2026-09-06T13:00:00Z",
+    "home": "EVE",
+    "away": "MUN",
+    "fdr_h": 4,
+    "fdr_a": 3,
+    "finished": false,
+    "started": false
+   },
+   {
+    "id": 29,
+    "kickoff": "2026-09-06T15:30:00Z",
+    "home": "ARS",
+    "away": "CHE",
+    "fdr_h": 4,
+    "fdr_a": 5,
+    "finished": false,
+    "started": false
+   }
+  ]
+ },
+ "coverage": {
+  "A1": {
+   "status": "PARTIAL",
+   "source": "entry/6048651/event/2/picks + bootstrap",
+   "note": "public picks endpoint has NO purchase_price/selling_price — needs authenticated my-team/ (cookie) or read from the FPL site"
+  },
+  "A2": {
+   "status": "DERIVED",
+   "source": "picks.entry_history.bank + entry/history (chips used) + FT rule",
+   "note": "free-transfer count is NOT in any public endpoint; derived from transfer history with the 1/GW-roll-to-5 rule. my-team/ (auth) gives it exactly"
+  },
+  "A3": {
+   "status": "OK",
+   "source": "bootstrap elements.now_cost + price_change_percent/projections",
+   "note": "FPL now publishes its own price-change progress and 3-night projection; LiveFPL /prices re-renders the same numbers"
+  },
+  "A4": {
+   "status": "PARTIAL",
+   "source": "livefpl.us top10k.json (+ locals bands, + FPL selected_by_percent)",
+   "note": "top10k cohort OK and cross-checked vs games.json idx1; OVERALL-cohort EO has no verified source: livefpl.net /EO Overall column renders 0% (GW1 and GW2), games.json idx2 does not match any displayed cohort. FPL selected_by_percent is raw ownership, not EO."
+  },
+  "A5": {
+   "status": "OK",
+   "source": "livefpl.us locals_2.json captains per band",
+   "note": "bands available: Top100…3M-6M, Top 1M, Elite, Overall. User band = 1M-1.5M. locals_3.json for the coming GW appears only after its deadline."
+  },
+  "A6": {
+   "status": "PARTIAL",
+   "source": "top10k.json (= /EO Top10k column exactly)",
+   "note": "same Overall-cohort gap as A4"
+  },
+  "A7": {
+   "status": "OK",
+   "source": "bootstrap elements.transfers_in_event / transfers_out_event (all 650 players)",
+   "note": "pair-level flow (who → who) is only on livefpl.net /prices Trends tab (browser only)"
+  },
+  "A8": {
+   "status": "MISSING",
+   "source": "livefpl.net (rendered app only)",
+   "note": "Safety Score and Template Rating are computed client-side on livefpl.net/<team-id>; no JSON endpoint found. Browser step only. locals_N band means allow a rough Safety-Score interpolation (see live-rank.md)."
+  },
+  "A9": {
+   "status": "OK",
+   "source": "picks.entry_history / entry / history",
+   "note": "lags live during a GW — see live-rank.md"
+  },
+  "A10": {
+   "status": "OK",
+   "source": "bootstrap events + fixtures/?event=N",
+   "note": ""
+  },
+  "A11": {
+   "status": "OK (POST)",
+   "source": "event/2/live bps+bonus",
+   "note": "live top-3 BPS projection is a LIVE-cadence job; games.json idx 11 carries LiveFPL's provisional bonus during matches"
+  }
+ },
+ "consistency": {
+  "top10k_json_vs_games_idx1_max_abs_pp": 1.14,
+  "elite_json_minus_top10k_pp_top10_players": {
+   "João Pedro": -23.6,
+   "Haaland": 3.3,
+   "Palmer": -55.1,
+   "Calafiori": 17.5,
+   "B.Fernandes": 117.8,
+   "Szoboszlai": 10.6,
+   "Mbeumo": 36.7,
+   "Raya": -22.5,
+   "Tzolis": 28.6,
+   "Rogers": -26.7
+  }
+ },
+ "warnings": [
+  "elite.json differs from top10k.json by >30 pp on a top-10-EO player — elite.json is probably STALE (previous GW). Do not use without a freshness check."
+ ],
+ "fetch_log": [
+  {
+   "url": "https://fantasy.premierleague.com/api/bootstrap-static/",
+   "status": 200,
+   "bytes": 1733845,
+   "ms": 187
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/entry/6048651/",
+   "status": 200,
+   "bytes": 15128,
+   "ms": 98
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/entry/6048651/history/",
+   "status": 200,
+   "bytes": 1009,
+   "ms": 114
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/entry/6048651/event/2/picks/",
+   "status": 200,
+   "bytes": 1867,
+   "ms": 92
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/entry/6048651/transfers/",
+   "status": 200,
+   "bytes": 2,
+   "ms": 95
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/fixtures/?event=3",
+   "status": 200,
+   "bytes": 3092,
+   "ms": 17
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/event/2/live/",
+   "status": 200,
+   "bytes": 444814,
+   "ms": 22
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/my-team/6048651/",
+   "status": 403,
+   "bytes": 0,
+   "ms": 125
+  },
+  {
+   "url": "https://livefpl.us/top10k.json",
+   "status": 200,
+   "bytes": 8467,
+   "ms": 1920
+  },
+  {
+   "url": "https://livefpl.us/elite.json",
+   "status": 200,
+   "bytes": 7552,
+   "ms": 1512
+  },
+  {
+   "url": "https://livefpl.us/locals_2.json",
+   "status": 200,
+   "bytes": 33397,
+   "ms": 395
+  },
+  {
+   "url": "https://livefpl.us/api/games.json",
+   "status": 200,
+   "bytes": 53087,
+   "ms": 629
+  },
+  {
+   "url": "https://livefpl.us/players.json",
+   "status": 200,
+   "bytes": 11934,
+   "ms": 245
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/496/",
+   "status": 200,
+   "bytes": 11924,
+   "ms": 23
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/4/",
+   "status": 200,
+   "bytes": 14288,
+   "ms": 19
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/115/",
+   "status": 200,
+   "bytes": 11317,
+   "ms": 17
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/423/",
+   "status": 200,
+   "bytes": 18997,
+   "ms": 18
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/426/",
+   "status": 200,
+   "bytes": 14966,
+   "ms": 18
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/427/",
+   "status": 200,
+   "bytes": 13750,
+   "ms": 33
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/557/",
+   "status": 200,
+   "bytes": 11305,
+   "ms": 16
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/290/",
+   "status": 200,
+   "bytes": 10750,
+   "ms": 16
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/411/",
+   "status": 200,
+   "bytes": 13175,
+   "ms": 16
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/165/",
+   "status": 200,
+   "bytes": 13695,
+   "ms": 19
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/249/",
+   "status": 200,
+   "bytes": 11316,
+   "ms": 35
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/497/",
+   "status": 200,
+   "bytes": 16034,
+   "ms": 14
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/334/",
+   "status": 200,
+   "bytes": 10752,
+   "ms": 14
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/31/",
+   "status": 200,
+   "bytes": 14865,
+   "ms": 18
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/element-summary/337/",
+   "status": 200,
+   "bytes": 11935,
+   "ms": 15
+  }
+ ],
+ "transfers_made": []
+}
