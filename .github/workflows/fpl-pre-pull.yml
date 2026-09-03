@@ -28,15 +28,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Pull group A (account & market)
-        env:
-          # OPTIONAL. Add a repository secret FPL_COOKIE containing your browser's Cookie header for
-          # fantasy.premierleague.com (from your own logged-in session) to unlock my-team/:
-          # selling prices, exact free-transfer count, chips available. Leave unset to skip.
-          FPL_COOKIE: ${{ secrets.FPL_COOKIE }}
+        # No secrets needed: everything comes from public endpoints; purchase/selling prices, free
+        # transfers and chips are derived (see the script docstring for why my-team/ cannot be scripted).
         run: |
-          if [ -n "$FPL_COOKIE" ]; then printf '%s' "$FPL_COOKIE" > /tmp/fpl_cookie; COOKIE_ARG="--cookie-file /tmp/fpl_cookie"; fi
           FORCE_ARG=""; [ "${{ inputs.force }}" = "true" ] && FORCE_ARG="--force"
-          python3 fpl_pre_pull.py --out snapshots $COOKIE_ARG $FORCE_ARG
+          python3 fpl_pre_pull.py --out snapshots $FORCE_ARG
 
       - name: Commit snapshot
         run: |
