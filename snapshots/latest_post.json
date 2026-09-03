@@ -1,0 +1,3582 @@
+{
+ "generated_utc": "2026-09-03T20:46:41Z",
+ "mode": "live",
+ "cadence": "POST",
+ "gw": 2,
+ "readiness": {
+  "verdict": "HOLD",
+  "gate_items": [
+   {
+    "param": "C2",
+    "status": "PARTIAL",
+    "source": "Understat (0/15) + FotMob/Opta (15/15)",
+    "needs": "SofaScore minutes are browser-only",
+    "options": [
+     "provide a source URL",
+     "paste the data manually",
+     "skip this GW (output is labelled with the gap)",
+     "abort"
+    ]
+   },
+   {
+    "param": "C5",
+    "status": "PARTIAL",
+    "source": "derived across GWs",
+    "needs": "needs a per-club regular-starter baseline — not yet computed",
+    "options": [
+     "provide a source URL",
+     "paste the data manually",
+     "skip this GW (output is labelled with the gap)",
+     "abort"
+    ]
+   },
+   {
+    "param": "C11",
+    "status": "PARTIAL",
+    "source": "FPL own xG/xA/xGI + Understat + FotMob(Opta)",
+    "needs": "three models; FotMob and SofaScore share the Opta feed — count them as ONE provider",
+    "options": [
+     "provide a source URL",
+     "paste the data manually",
+     "skip this GW (output is labelled with the gap)",
+     "abort"
+    ]
+   },
+   {
+    "param": "C13",
+    "status": "PARTIAL",
+    "source": "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat); passes into final third, touches in box (FotMob)",
+    "needs": "xT, SCA, GCA, deep completions, zone-14: FBref only — Cloudflare-blocked, attended",
+    "options": [
+     "provide a source URL",
+     "paste the data manually",
+     "skip this GW (output is labelled with the gap)",
+     "abort"
+    ]
+   },
+   {
+    "param": "C15",
+    "status": "PARTIAL",
+    "source": "Understat shot list (X, Y, xG, result, situation, body, last action) + FotMob shotmap (xGOT)",
+    "needs": "confirm",
+    "options": [
+     "provide a source URL",
+     "paste the data manually",
+     "skip this GW (output is labelled with the gap)",
+     "abort"
+    ]
+   },
+   {
+    "param": "C16",
+    "status": "MISSING",
+    "source": "SofaScore /event/{id}/player/{pid}/heatmap — browser only",
+    "needs": "not scriptable; attended POST step or device-bound task",
+    "options": [
+     "provide a source URL",
+     "paste the data manually",
+     "skip this GW (output is labelled with the gap)",
+     "abort"
+    ]
+   },
+   {
+    "param": "C19",
+    "status": "PARTIAL",
+    "source": "FotMob accurate crosses, dribbles, passes into final third",
+    "needs": "through balls, progressive carries, offsides per player: SofaScore (browser) or FBref (blocked)",
+    "options": [
+     "provide a source URL",
+     "paste the data manually",
+     "skip this GW (output is labelled with the gap)",
+     "abort"
+    ]
+   }
+  ],
+  "rule": "POST facts feed Form/Minutes; anything not OK needs a human decision before the next PRE run uses it"
+ },
+ "sources_ok": {
+  "understat_clubs": "0/9",
+  "fotmob_matches": "8/8"
+ },
+ "players": [
+  {
+   "id": 496,
+   "name": "Kinsky",
+   "club": "TOT",
+   "pos": "GK",
+   "opp": "NEW",
+   "home": true,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 1,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 2,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 4,
+    "defensive_contribution": 0,
+    "clearances_blocks_interceptions": 0,
+    "recoveries": 6,
+    "tackles": 0,
+    "expected_goals": "0.00",
+    "expected_assists": "0.00",
+    "expected_goal_involvements": "0.00",
+    "expected_goals_conceded": "0.72",
+    "influence": "3.8",
+    "creativity": "0.0",
+    "threat": "0.0",
+    "ict_index": "0.4"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 1341475,
+    "name": "Antonín Kinsky",
+    "match_score": 2,
+    "min": 90,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": null,
+    "npxG": null,
+    "chances_created": null,
+    "big_chances_created": null,
+    "touches": 45,
+    "touches_opp_box": null,
+    "tackles": 0,
+    "interceptions": 0,
+    "clearances": 0,
+    "blocks": null,
+    "recoveries": 6,
+    "aerials_won": null,
+    "crosses_acc": null,
+    "dribbles": null,
+    "passes_final_third": 5,
+    "distance_m": 5748,
+    "fantasy_points": 1,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Peter Bankes",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": 4,
+   "name": "Gabriel",
+   "club": "ARS",
+   "pos": "DEF",
+   "opp": "AVL",
+   "home": false,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 8,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 1,
+    "goals_conceded": 0,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 23,
+    "defensive_contribution": 10,
+    "clearances_blocks_interceptions": 8,
+    "recoveries": 5,
+    "tackles": 2,
+    "expected_goals": "0.13",
+    "expected_assists": "0.02",
+    "expected_goal_involvements": "0.15",
+    "expected_goals_conceded": "0.33",
+    "influence": "18.2",
+    "creativity": "3.2",
+    "threat": "6.0",
+    "ict_index": "2.7"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 795179,
+    "name": "Gabriel",
+    "match_score": 1,
+    "min": 90,
+    "shots": 1,
+    "sot": 0,
+    "xG": 0.13,
+    "xGOT": null,
+    "xA": 0.02,
+    "npxG": 0.13,
+    "chances_created": 0,
+    "big_chances_created": null,
+    "touches": 89,
+    "touches_opp_box": 2,
+    "tackles": 2,
+    "interceptions": 2,
+    "clearances": 6,
+    "blocks": 0,
+    "recoveries": 5,
+    "aerials_won": 1,
+    "crosses_acc": null,
+    "dribbles": 1,
+    "passes_final_third": 9,
+    "distance_m": 10987,
+    "fantasy_points": 8,
+    "sub_event": null,
+    "shot_list": [
+     {
+      "min": 8,
+      "result": "Miss",
+      "xG": 0.127,
+      "xGOT": 0.0,
+      "situation": "FromCorner",
+      "body": "Header",
+      "x": 98.92105263139999,
+      "y": 31.1025
+     }
+    ]
+   },
+   "referee": "Jarred Gillett",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "0.13",
+     "understat": null,
+     "fotmob(opta)": 0.13
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     8,
+     8
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "name": "De Cuyper",
+   "club": "BHA",
+   "pos": "DEF",
+   "opp": "CHE",
+   "home": false,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 0,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 4,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": -2,
+    "defensive_contribution": 2,
+    "clearances_blocks_interceptions": 2,
+    "recoveries": 3,
+    "tackles": 0,
+    "expected_goals": "0.03",
+    "expected_assists": "0.05",
+    "expected_goal_involvements": "0.08",
+    "expected_goals_conceded": "2.93",
+    "influence": "8.8",
+    "creativity": "23.7",
+    "threat": "5.0",
+    "ict_index": "3.8"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 1134871,
+    "name": "Maxim De Cuyper",
+    "match_score": 2,
+    "min": 90,
+    "shots": 1,
+    "sot": 0,
+    "xG": 0.03,
+    "xGOT": null,
+    "xA": 0.05,
+    "npxG": 0.03,
+    "chances_created": 1,
+    "big_chances_created": null,
+    "touches": 70,
+    "touches_opp_box": 1,
+    "tackles": 0,
+    "interceptions": 1,
+    "clearances": 1,
+    "blocks": 0,
+    "recoveries": 3,
+    "aerials_won": 0,
+    "crosses_acc": 2,
+    "dribbles": null,
+    "passes_final_third": 6,
+    "distance_m": 10836,
+    "fantasy_points": 0,
+    "sub_event": null,
+    "shot_list": [
+     {
+      "min": 24,
+      "result": "AttemptSaved",
+      "xG": 0.032,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "LeftFoot",
+      "x": 93.6,
+      "y": 50.026242036300005
+     }
+    ]
+   },
+   "referee": "Michael Oliver",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "0.03",
+     "understat": null,
+     "fotmob(opta)": 0.03
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": 423,
+   "name": "Shaw",
+   "club": "MUN",
+   "pos": "DEF",
+   "opp": "IPS",
+   "home": true,
+   "fpl": {
+    "minutes": 72,
+    "starts": 1,
+    "total_points": 2,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 1,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 12,
+    "defensive_contribution": 8,
+    "clearances_blocks_interceptions": 4,
+    "recoveries": 2,
+    "tackles": 4,
+    "expected_goals": "0.00",
+    "expected_assists": "0.02",
+    "expected_goal_involvements": "0.02",
+    "expected_goals_conceded": "1.06",
+    "influence": "18.4",
+    "creativity": "1.6",
+    "threat": "4.0",
+    "ict_index": "2.4"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 362694,
+    "name": "Luke Shaw",
+    "match_score": 2,
+    "min": 73,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": 0.02,
+    "npxG": null,
+    "chances_created": 0,
+    "big_chances_created": null,
+    "touches": 63,
+    "touches_opp_box": 2,
+    "tackles": 4,
+    "interceptions": 2,
+    "clearances": 2,
+    "blocks": 0,
+    "recoveries": 2,
+    "aerials_won": 2,
+    "crosses_acc": null,
+    "dribbles": null,
+    "passes_final_third": 11,
+    "distance_m": 7448,
+    "fantasy_points": 2,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Craig Pawson",
+   "consistency": {
+    "minutes": {
+     "fpl": 72,
+     "understat": null,
+     "fotmob": 73
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": 426,
+   "name": "B.Fernandes",
+   "club": "MUN",
+   "pos": "MID",
+   "opp": "IPS",
+   "home": true,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 23,
+    "goals_scored": 3,
+    "assists": 1,
+    "clean_sheets": 0,
+    "goals_conceded": 2,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 3,
+    "bps": 87,
+    "defensive_contribution": 8,
+    "clearances_blocks_interceptions": 1,
+    "recoveries": 5,
+    "tackles": 2,
+    "expected_goals": "2.02",
+    "expected_assists": "0.48",
+    "expected_goal_involvements": "2.50",
+    "expected_goals_conceded": "2.06",
+    "influence": "132.4",
+    "creativity": "62.5",
+    "threat": "66.0",
+    "ict_index": "26.1"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 422685,
+    "name": "Bruno Fernandes",
+    "match_score": 2,
+    "min": 90,
+    "shots": 8,
+    "sot": 3,
+    "xG": 2.02,
+    "xGOT": 2.4,
+    "xA": 0.48,
+    "npxG": 1.23,
+    "chances_created": 3,
+    "big_chances_created": 1,
+    "touches": 94,
+    "touches_opp_box": 5,
+    "tackles": 2,
+    "interceptions": 0,
+    "clearances": 0,
+    "blocks": 1,
+    "recoveries": 5,
+    "aerials_won": 0,
+    "crosses_acc": 4,
+    "dribbles": 1,
+    "passes_final_third": 9,
+    "distance_m": 11135,
+    "fantasy_points": 23,
+    "sub_event": null,
+    "shot_list": [
+     {
+      "min": 14,
+      "result": "AttemptSaved",
+      "xG": 0.126,
+      "xGOT": 0.0,
+      "situation": "FastBreak",
+      "body": "RightFoot",
+      "x": 92,
+      "y": 24.2794904507
+     },
+     {
+      "min": 26,
+      "result": "AttemptSaved",
+      "xG": 0.035,
+      "xGOT": 0.0,
+      "situation": "FreeKick",
+      "body": "RightFoot",
+      "x": 77.0791262152,
+      "y": 42.5240625
+     },
+     {
+      "min": 40,
+      "result": "Goal",
+      "xG": 0.299,
+      "xGOT": 0.733,
+      "situation": "FastBreak",
+      "body": "LeftFoot",
+      "x": 92.3,
+      "y": 41.9459375
+     },
+     {
+      "min": 61,
+      "result": "Goal",
+      "xG": 0.788,
+      "xGOT": 0.682,
+      "situation": "Penalty",
+      "body": "RightFoot",
+      "x": 94,
+      "y": 34
+     },
+     {
+      "min": 68,
+      "result": "Goal",
+      "xG": 0.683,
+      "xGOT": 0.986,
+      "situation": "RegularPlay",
+      "body": "RightFoot",
+      "x": 99.01754385950001,
+      "y": 37.708
+     },
+     {
+      "min": 69,
+      "result": "Miss",
+      "xG": 0.01,
+      "xGOT": 0.0,
+      "situation": "FastBreak",
+      "body": "RightFoot",
+      "x": 54.533333331,
+      "y": 29.631666665
+     },
+     {
+      "min": 77,
+      "result": "AttemptSaved",
+      "xG": 0.026,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "RightFoot",
+      "x": 82.93543689360001,
+      "y": 44.7014012695
+     },
+     {
+      "min": 81,
+      "result": "AttemptSaved",
+      "xG": 0.055,
+      "xGOT": 0.0,
+      "situation": "FastBreak",
+      "body": "RightFoot",
+      "x": 81.5839805832,
+      "y": 23.718980896300003
+     }
+    ]
+   },
+   "referee": "Craig Pawson",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "2.02",
+     "understat": null,
+     "fotmob(opta)": 2.02
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     23,
+     23
+    ]
+   }
+  },
+  {
+   "id": 427,
+   "name": "Mbeumo",
+   "club": "MUN",
+   "pos": "MID",
+   "opp": "IPS",
+   "home": true,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 11,
+    "goals_scored": 1,
+    "assists": 1,
+    "clean_sheets": 0,
+    "goals_conceded": 2,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 1,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 2,
+    "bps": 37,
+    "defensive_contribution": 5,
+    "clearances_blocks_interceptions": 0,
+    "recoveries": 2,
+    "tackles": 3,
+    "expected_goals": "1.76",
+    "expected_assists": "0.21",
+    "expected_goal_involvements": "1.97",
+    "expected_goals_conceded": "2.06",
+    "influence": "45.6",
+    "creativity": "43.3",
+    "threat": "35.0",
+    "ict_index": "12.4"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 923312,
+    "name": "Bryan Mbeumo",
+    "match_score": 2,
+    "min": 90,
+    "shots": 5,
+    "sot": 1,
+    "xG": 1.76,
+    "xGOT": 0.61,
+    "xA": 0.21,
+    "npxG": 1.76,
+    "chances_created": 3,
+    "big_chances_created": 1,
+    "touches": 43,
+    "touches_opp_box": 7,
+    "tackles": 3,
+    "interceptions": 0,
+    "clearances": 0,
+    "blocks": 0,
+    "recoveries": 2,
+    "aerials_won": 1,
+    "crosses_acc": 2,
+    "dribbles": 0,
+    "passes_final_third": 2,
+    "distance_m": 10551,
+    "fantasy_points": 11,
+    "sub_event": null,
+    "shot_list": [
+     {
+      "min": 52,
+      "result": "Post",
+      "xG": 0.926,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "RightFoot",
+      "x": 103.8620689656,
+      "y": 31.636249999999997
+     },
+     {
+      "min": 56,
+      "result": "AttemptSaved",
+      "xG": 0.125,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "Header",
+      "x": 98.3421052628,
+      "y": 35.143750000000004
+     },
+     {
+      "min": 68,
+      "result": "AttemptSaved",
+      "xG": 0.156,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "LeftFoot",
+      "x": 91.4,
+      "y": 28.286904761
+     },
+     {
+      "min": 76,
+      "result": "AttemptSaved",
+      "xG": 0.02,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "LeftFoot",
+      "x": 94.09649122639999,
+      "y": 18.394140129500002
+     },
+     {
+      "min": 82,
+      "result": "Goal",
+      "xG": 0.532,
+      "xGOT": 0.612,
+      "situation": "FastBreak",
+      "body": "LeftFoot",
+      "x": 82.1470873792,
+      "y": 22.107515927399998
+     }
+    ]
+   },
+   "referee": "Craig Pawson",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "1.76",
+     "understat": null,
+     "fotmob(opta)": 1.76
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     11,
+     11
+    ]
+   }
+  },
+  {
+   "id": 557,
+   "name": "Tzolis",
+   "club": "ARS",
+   "pos": "MID",
+   "opp": "AVL",
+   "home": false,
+   "fpl": {
+    "minutes": 45,
+    "starts": 1,
+    "total_points": 0,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 0,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 1,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 1,
+    "defensive_contribution": 3,
+    "clearances_blocks_interceptions": 1,
+    "recoveries": 2,
+    "tackles": 0,
+    "expected_goals": "0.00",
+    "expected_assists": "0.01",
+    "expected_goal_involvements": "0.01",
+    "expected_goals_conceded": "0.10",
+    "influence": "0.0",
+    "creativity": "11.8",
+    "threat": "4.0",
+    "ict_index": "1.6"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 1157237,
+    "name": "Christos Tzolis",
+    "match_score": 2,
+    "min": 45,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": 0.01,
+    "npxG": null,
+    "chances_created": 1,
+    "big_chances_created": null,
+    "touches": 24,
+    "touches_opp_box": 2,
+    "tackles": 0,
+    "interceptions": 0,
+    "clearances": 1,
+    "blocks": 0,
+    "recoveries": 2,
+    "aerials_won": 0,
+    "crosses_acc": 0,
+    "dribbles": 0,
+    "passes_final_third": null,
+    "distance_m": 5312,
+    "fantasy_points": 0,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Jarred Gillett",
+   "consistency": {
+    "minutes": {
+     "fpl": 45,
+     "understat": null,
+     "fotmob": 45
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": 290,
+   "name": "Slater",
+   "club": "HUL",
+   "pos": "MID",
+   "opp": "COV",
+   "home": false,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 2,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 1,
+    "goals_conceded": 0,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 1,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 6,
+    "defensive_contribution": 10,
+    "clearances_blocks_interceptions": 2,
+    "recoveries": 4,
+    "tackles": 4,
+    "expected_goals": "0.00",
+    "expected_assists": "0.01",
+    "expected_goal_involvements": "0.01",
+    "expected_goals_conceded": "1.29",
+    "influence": "9.8",
+    "creativity": "2.8",
+    "threat": "2.0",
+    "ict_index": "1.5"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 807930,
+    "name": "Regan Slater",
+    "match_score": 2,
+    "min": 90,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": 0.01,
+    "npxG": null,
+    "chances_created": 0,
+    "big_chances_created": null,
+    "touches": 43,
+    "touches_opp_box": 1,
+    "tackles": 4,
+    "interceptions": 0,
+    "clearances": 2,
+    "blocks": 0,
+    "recoveries": 4,
+    "aerials_won": 1,
+    "crosses_acc": null,
+    "dribbles": null,
+    "passes_final_third": 7,
+    "distance_m": 11585,
+    "fantasy_points": 2,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Josh Smith",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": 411,
+   "name": "Haaland",
+   "club": "MCI",
+   "pos": "FWD",
+   "opp": "CRY",
+   "home": false,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 13,
+    "goals_scored": 2,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 1,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 3,
+    "bps": 60,
+    "defensive_contribution": 5,
+    "clearances_blocks_interceptions": 3,
+    "recoveries": 2,
+    "tackles": 0,
+    "expected_goals": "0.66",
+    "expected_assists": "0.00",
+    "expected_goal_involvements": "0.66",
+    "expected_goals_conceded": "0.66",
+    "influence": "69.0",
+    "creativity": "0.1",
+    "threat": "51.0",
+    "ict_index": "12.0"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 737066,
+    "name": "Erling Haaland",
+    "match_score": 2,
+    "min": 90,
+    "shots": 5,
+    "sot": 3,
+    "xG": 0.66,
+    "xGOT": 1.02,
+    "xA": null,
+    "npxG": 0.66,
+    "chances_created": 0,
+    "big_chances_created": null,
+    "touches": 19,
+    "touches_opp_box": 6,
+    "tackles": 0,
+    "interceptions": 0,
+    "clearances": 3,
+    "blocks": 0,
+    "recoveries": 2,
+    "aerials_won": 2,
+    "crosses_acc": null,
+    "dribbles": null,
+    "passes_final_third": null,
+    "distance_m": 9110,
+    "fantasy_points": 13,
+    "sub_event": null,
+    "shot_list": [
+     {
+      "min": 7,
+      "result": "AttemptSaved",
+      "xG": 0.219,
+      "xGOT": 0.0,
+      "situation": "FromCorner",
+      "body": "LeftFoot",
+      "x": 99.01754385950001,
+      "y": 31.7125
+     },
+     {
+      "min": 8,
+      "result": "Miss",
+      "xG": 0.168,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "LeftFoot",
+      "x": 100.44827586240001,
+      "y": 37.732
+     },
+     {
+      "min": 17,
+      "result": "Goal",
+      "xG": 0.079,
+      "xGOT": 0.408,
+      "situation": "RegularPlay",
+      "body": "Header",
+      "x": 96.79824561320001,
+      "y": 30.316
+     },
+     {
+      "min": 44,
+      "result": "Miss",
+      "xG": 0.098,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "Header",
+      "x": 97.7631578942,
+      "y": 36.440000000000005
+     },
+     {
+      "min": 84,
+      "result": "Goal",
+      "xG": 0.1,
+      "xGOT": 0.614,
+      "situation": "RegularPlay",
+      "body": "LeftFoot",
+      "x": 98.4385964909,
+      "y": 43.860636937900004
+     }
+    ]
+   },
+   "referee": "Andy Madley",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "0.66",
+     "understat": null,
+     "fotmob(opta)": 0.66
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     13,
+     13
+    ]
+   }
+  },
+  {
+   "id": 165,
+   "name": "João Pedro",
+   "club": "CHE",
+   "pos": "FWD",
+   "opp": "BHA",
+   "home": true,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 9,
+    "goals_scored": 1,
+    "assists": 1,
+    "clean_sheets": 0,
+    "goals_conceded": 3,
+    "own_goals": 1,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 2,
+    "bps": 44,
+    "defensive_contribution": 3,
+    "clearances_blocks_interceptions": 0,
+    "recoveries": 2,
+    "tackles": 1,
+    "expected_goals": "1.23",
+    "expected_assists": "0.04",
+    "expected_goal_involvements": "1.27",
+    "expected_goals_conceded": "1.41",
+    "influence": "52.8",
+    "creativity": "22.5",
+    "threat": "46.0",
+    "ict_index": "12.1"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 1021382,
+    "name": "João Pedro",
+    "match_score": 2,
+    "min": 90,
+    "shots": 5,
+    "sot": 2,
+    "xG": 1.23,
+    "xGOT": 0.8,
+    "xA": 0.04,
+    "npxG": 1.23,
+    "chances_created": 2,
+    "big_chances_created": null,
+    "touches": 43,
+    "touches_opp_box": 9,
+    "tackles": 1,
+    "interceptions": 0,
+    "clearances": 0,
+    "blocks": 0,
+    "recoveries": 2,
+    "aerials_won": 4,
+    "crosses_acc": null,
+    "dribbles": 4,
+    "passes_final_third": 3,
+    "distance_m": 10356,
+    "fantasy_points": 9,
+    "sub_event": null,
+    "shot_list": [
+     {
+      "min": 4,
+      "result": "AttemptSaved",
+      "xG": 0.19,
+      "xGOT": 0.0,
+      "situation": "FromCorner",
+      "body": "Header",
+      "x": 102.155172414,
+      "y": 30.279999999999998
+     },
+     {
+      "min": 25,
+      "result": "Miss",
+      "xG": 0.401,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "RightFoot",
+      "x": 95.9298245603,
+      "y": 31.7125
+     },
+     {
+      "min": 32,
+      "result": "Goal",
+      "xG": 0.462,
+      "xGOT": 0.804,
+      "situation": "FastBreak",
+      "body": "RightFoot",
+      "x": 96.2192982446,
+      "y": 30.645
+     },
+     {
+      "min": 41,
+      "result": "AttemptSaved",
+      "xG": 0.048,
+      "xGOT": 0.0,
+      "situation": "RegularPlay",
+      "body": "RightFoot",
+      "x": 96.79824561320001,
+      "y": 45.1217834353
+     },
+     {
+      "min": 49,
+      "result": "AttemptSaved",
+      "xG": 0.125,
+      "xGOT": 0.0,
+      "situation": "FastBreak",
+      "body": "RightFoot",
+      "x": 95.2543859636,
+      "y": 41.483437499999994
+     },
+     {
+      "min": 63,
+      "result": "Goal",
+      "xG": 0.0,
+      "xGOT": 0.0,
+      "situation": "FromCorner",
+      "body": "LeftFoot",
+      "x": 8.4912280711,
+      "y": 44.4211464923
+     }
+    ]
+   },
+   "referee": "Michael Oliver",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "1.23",
+     "understat": null,
+     "fotmob(opta)": 1.23
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     9,
+     9
+    ]
+   }
+  },
+  {
+   "id": 249,
+   "name": "Barry",
+   "club": "EVE",
+   "pos": "FWD",
+   "opp": "BOU",
+   "home": false,
+   "fpl": {
+    "minutes": 69,
+    "starts": 1,
+    "total_points": 2,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 1,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 6,
+    "defensive_contribution": 3,
+    "clearances_blocks_interceptions": 2,
+    "recoveries": 1,
+    "tackles": 0,
+    "expected_goals": "1.48",
+    "expected_assists": "0.00",
+    "expected_goal_involvements": "1.48",
+    "expected_goals_conceded": "0.58",
+    "influence": "10.0",
+    "creativity": "11.7",
+    "threat": "58.0",
+    "ict_index": "8.0"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 1398392,
+    "name": "Thierno Barry",
+    "match_score": 2,
+    "min": 70,
+    "shots": 3,
+    "sot": 2,
+    "xG": 1.48,
+    "xGOT": 0.88,
+    "xA": null,
+    "npxG": 1.48,
+    "chances_created": 1,
+    "big_chances_created": null,
+    "touches": 19,
+    "touches_opp_box": 5,
+    "tackles": 0,
+    "interceptions": 0,
+    "clearances": 2,
+    "blocks": 0,
+    "recoveries": 1,
+    "aerials_won": 2,
+    "crosses_acc": null,
+    "dribbles": 1,
+    "passes_final_third": 2,
+    "distance_m": 7520,
+    "fantasy_points": 2,
+    "sub_event": null,
+    "shot_list": [
+     {
+      "min": 20,
+      "result": "AttemptSaved",
+      "xG": 0.815,
+      "xGOT": 0.669,
+      "situation": "RegularPlay",
+      "body": "RightFoot",
+      "x": 99.784482759,
+      "y": 33.00875
+     },
+     {
+      "min": 45,
+      "result": "Miss",
+      "xG": 0.131,
+      "xGOT": 0.0,
+      "situation": "FastBreak",
+      "body": "RightFoot",
+      "x": 94.8684210512,
+      "y": 24.139363062099996
+     },
+     {
+      "min": 49,
+      "result": "AttemptSaved",
+      "xG": 0.537,
+      "xGOT": 0.213,
+      "situation": "RegularPlay",
+      "body": "LeftFoot",
+      "x": 95.73684210409999,
+      "y": 28.959285713000003
+     }
+    ]
+   },
+   "referee": "Chris Kavanagh",
+   "consistency": {
+    "minutes": {
+     "fpl": 69,
+     "understat": null,
+     "fotmob": 70
+    },
+    "xG": {
+     "fpl": "1.48",
+     "understat": null,
+     "fotmob(opta)": 1.48
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "id": 497,
+   "name": "Dubravka",
+   "club": "TOT",
+   "pos": "GK",
+   "opp": "NEW",
+   "home": true,
+   "fpl": {
+    "minutes": 0,
+    "starts": 0,
+    "total_points": 0,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 0,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 0,
+    "defensive_contribution": 0,
+    "clearances_blocks_interceptions": 0,
+    "recoveries": 0,
+    "tackles": 0,
+    "expected_goals": "0.00",
+    "expected_assists": "0.00",
+    "expected_goal_involvements": "0.00",
+    "expected_goals_conceded": "0.00",
+    "influence": "0.0",
+    "creativity": "0.0",
+    "threat": "0.0",
+    "ict_index": "0.0"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": "did not play — no FPL news; check reports",
+   "fotmob": {
+    "player_id": 72241,
+    "name": "Martin Dúbravka",
+    "match_score": 2,
+    "min": null,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": null,
+    "npxG": null,
+    "chances_created": null,
+    "big_chances_created": null,
+    "touches": null,
+    "touches_opp_box": null,
+    "tackles": null,
+    "interceptions": null,
+    "clearances": null,
+    "blocks": null,
+    "recoveries": null,
+    "aerials_won": null,
+    "crosses_acc": null,
+    "dribbles": null,
+    "passes_final_third": null,
+    "distance_m": null,
+    "fantasy_points": null,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Peter Bankes",
+   "consistency": {
+    "minutes": {
+     "fpl": 0,
+     "understat": null,
+     "fotmob": null
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     0,
+     null
+    ]
+   }
+  },
+  {
+   "id": 334,
+   "name": "Muharemović",
+   "club": "LEE",
+   "pos": "DEF",
+   "opp": "BRE",
+   "home": true,
+   "fpl": {
+    "minutes": 90,
+    "starts": 1,
+    "total_points": 4,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 1,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 17,
+    "defensive_contribution": 19,
+    "clearances_blocks_interceptions": 17,
+    "recoveries": 3,
+    "tackles": 2,
+    "expected_goals": "0.00",
+    "expected_assists": "0.01",
+    "expected_goal_involvements": "0.01",
+    "expected_goals_conceded": "1.67",
+    "influence": "51.6",
+    "creativity": "0.8",
+    "threat": "2.0",
+    "ict_index": "5.4"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 1250485,
+    "name": "Tarik Muharemovic",
+    "match_score": 2,
+    "min": 90,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": 0.01,
+    "npxG": null,
+    "chances_created": 0,
+    "big_chances_created": null,
+    "touches": 79,
+    "touches_opp_box": 1,
+    "tackles": 2,
+    "interceptions": 2,
+    "clearances": 11,
+    "blocks": 4,
+    "recoveries": 3,
+    "aerials_won": 2,
+    "crosses_acc": 0,
+    "dribbles": 3,
+    "passes_final_third": 5,
+    "distance_m": 10036,
+    "fantasy_points": 4,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Tony Harrington",
+   "consistency": {
+    "minutes": {
+     "fpl": 90,
+     "understat": null,
+     "fotmob": 90
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     4,
+     4
+    ]
+   }
+  },
+  {
+   "id": 31,
+   "name": "Konsa",
+   "club": "ARS",
+   "pos": "DEF",
+   "opp": "AVL",
+   "home": false,
+   "fpl": {
+    "minutes": 11,
+    "starts": 0,
+    "total_points": 1,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 0,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 3,
+    "defensive_contribution": 1,
+    "clearances_blocks_interceptions": 1,
+    "recoveries": 0,
+    "tackles": 0,
+    "expected_goals": "0.00",
+    "expected_assists": "0.00",
+    "expected_goal_involvements": "0.00",
+    "expected_goals_conceded": "0.00",
+    "influence": "3.2",
+    "creativity": "0.1",
+    "threat": "0.0",
+    "ict_index": "0.3"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 710159,
+    "name": "Ezri Konsa",
+    "match_score": 2,
+    "min": 11,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": null,
+    "npxG": null,
+    "chances_created": 0,
+    "big_chances_created": null,
+    "touches": 11,
+    "touches_opp_box": 0,
+    "tackles": 0,
+    "interceptions": 0,
+    "clearances": 1,
+    "blocks": 0,
+    "recoveries": 0,
+    "aerials_won": 1,
+    "crosses_acc": null,
+    "dribbles": null,
+    "passes_final_third": null,
+    "distance_m": 2444,
+    "fantasy_points": 1,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Jarred Gillett",
+   "consistency": {
+    "minutes": {
+     "fpl": 11,
+     "understat": null,
+     "fotmob": 11
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": 337,
+   "name": "Aaronson",
+   "club": "LEE",
+   "pos": "MID",
+   "opp": "BRE",
+   "home": true,
+   "fpl": {
+    "minutes": 45,
+    "starts": 1,
+    "total_points": 1,
+    "goals_scored": 0,
+    "assists": 0,
+    "clean_sheets": 0,
+    "goals_conceded": 1,
+    "own_goals": 0,
+    "penalties_saved": 0,
+    "penalties_missed": 0,
+    "yellow_cards": 0,
+    "red_cards": 0,
+    "saves": 0,
+    "bonus": 0,
+    "bps": 6,
+    "defensive_contribution": 3,
+    "clearances_blocks_interceptions": 1,
+    "recoveries": 1,
+    "tackles": 1,
+    "expected_goals": "0.00",
+    "expected_assists": "0.01",
+    "expected_goal_involvements": "0.01",
+    "expected_goals_conceded": "0.55",
+    "influence": "2.2",
+    "creativity": "0.6",
+    "threat": "0.0",
+    "ict_index": "0.3"
+   },
+   "status_now": "a",
+   "news_now": "",
+   "absent_reason": null,
+   "fotmob": {
+    "player_id": 952322,
+    "name": "Brenden Aaronson",
+    "match_score": 2,
+    "min": 45,
+    "shots": null,
+    "sot": null,
+    "xG": null,
+    "xGOT": null,
+    "xA": 0.01,
+    "npxG": null,
+    "chances_created": 0,
+    "big_chances_created": null,
+    "touches": 13,
+    "touches_opp_box": 0,
+    "tackles": 1,
+    "interceptions": 0,
+    "clearances": 1,
+    "blocks": 0,
+    "recoveries": 1,
+    "aerials_won": 0,
+    "crosses_acc": null,
+    "dribbles": 0,
+    "passes_final_third": 2,
+    "distance_m": 6274,
+    "fantasy_points": 1,
+    "sub_event": null,
+    "shot_list": []
+   },
+   "referee": "Tony Harrington",
+   "consistency": {
+    "minutes": {
+     "fpl": 45,
+     "understat": null,
+     "fotmob": 45
+    },
+    "xG": {
+     "fpl": "0.00",
+     "understat": null,
+     "fotmob(opta)": null
+    },
+    "fpl_points_vs_fotmob_fantasy": [
+     1,
+     1
+    ]
+   }
+  }
+ ],
+ "team_level": {
+  "MCI": {
+   "fotmob": {
+    "match_id": "5795429",
+    "referee": "Andy Madley",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 41,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 3.44,
+      "valueType": "perMatch",
+      "average": 4.02,
+      "total": 141,
+      "averageType": "below",
+      "fillPercentage": 28.62,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 6,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 0,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 10,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 22.42,
+      "valueType": "perMatch",
+      "average": 21.72,
+      "total": 807,
+      "averageType": "above",
+      "fillPercentage": 66.62,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       28,
+       72
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "0.66",
+       "2.21"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       9,
+       18
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       3,
+       5
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       3,
+       2
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       2
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       2,
+       6
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       9,
+       18
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "0.66",
+       "2.21"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "0.47",
+       "1.81"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "0.20",
+       "0.40"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "0.66",
+       "2.21"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "0.05",
+       "3.08"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       3,
+       0
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       2
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       8,
+       11
+      ]
+     }
+    ]
+   }
+  },
+  "EVE": {
+   "fotmob": {
+    "match_id": "5795425",
+    "referee": "Chris Kavanagh",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 54,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 4.43,
+      "valueType": "perMatch",
+      "average": 4.01,
+      "total": 239,
+      "averageType": "above",
+      "fillPercentage": 65.26,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 5,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 4,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 10,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 22.07,
+      "valueType": "perMatch",
+      "average": 21.71,
+      "total": 993,
+      "averageType": "average",
+      "fillPercentage": 58.41,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       59,
+       41
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "2.16",
+       "1.84"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       13
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       6,
+       3
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       6,
+       3
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       3,
+       2
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       10,
+       7
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       13
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "2.16",
+       "1.84"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "1.17",
+       "1.59"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "0.99",
+       "0.25"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "2.16",
+       "1.84"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "1.90",
+       "1.41"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       0,
+       1
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       3,
+       2
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       11,
+       14
+      ]
+     }
+    ]
+   }
+  },
+  "HUL": {
+   "fotmob": {
+    "match_id": "5795428",
+    "referee": "Josh Smith",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 47,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 3.94,
+      "valueType": "perMatch",
+      "average": 3.84,
+      "total": 185,
+      "averageType": "average",
+      "fillPercentage": 52.98,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 4,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 4,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 12,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 21.15,
+      "valueType": "perMatch",
+      "average": 22.09,
+      "total": 994,
+      "averageType": "below",
+      "fillPercentage": 43.34,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       68,
+       32
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "1.29",
+       "0.72"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       11,
+       6
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       1,
+       1
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       1,
+       0
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       4
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       6,
+       2
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       11,
+       6
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "1.29",
+       "0.72"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "1.29",
+       "0.71"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "0.01",
+       "0.01"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "1.29",
+       "0.72"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "1.33",
+       "0.50"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       3,
+       0
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       4
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       11,
+       8
+      ]
+     }
+    ]
+   }
+  },
+  "TOT": {
+   "fotmob": {
+    "match_id": "5795434",
+    "referee": "Peter Bankes",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 46,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 3.98,
+      "valueType": "perMatch",
+      "average": 4.01,
+      "total": 183,
+      "averageType": "average",
+      "fillPercentage": 48.65,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 4,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 4,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 12,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 21.55,
+      "valueType": "perMatch",
+      "average": 21.71,
+      "total": 862,
+      "averageType": "average",
+      "fillPercentage": 46.1,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       58,
+       42
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "1.12",
+       "0.72"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       11
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       2,
+       1
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       2,
+       0
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       2
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       9,
+       7
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       11
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "1.12",
+       "0.72"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "0.82",
+       "0.36"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "0.30",
+       "0.36"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "1.12",
+       "0.72"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "0.91",
+       "0.69"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       2,
+       1
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       2
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       15,
+       9
+      ]
+     }
+    ]
+   }
+  },
+  "CHE": {
+   "fotmob": {
+    "match_id": "5795427",
+    "referee": "Michael Oliver",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 54,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 3.8,
+      "valueType": "perMatch",
+      "average": 4.02,
+      "total": 205,
+      "averageType": "average",
+      "fillPercentage": 41.78,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 2,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 5,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 6,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 23.37,
+      "valueType": "perMatch",
+      "average": 21.72,
+      "total": 1075,
+      "averageType": "above",
+      "fillPercentage": 80.32,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       26,
+       74
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "2.93",
+       "1.41"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       15
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       6,
+       5
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       3,
+       4
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       3
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       4,
+       7
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       15
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "2.93",
+       "1.41"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "1.90",
+       "0.74"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "1.03",
+       "0.67"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "2.93",
+       "1.41"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "2.60",
+       "2.61"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       3
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       6,
+       12
+      ]
+     }
+    ]
+   }
+  },
+  "BHA": {
+   "fotmob": {
+    "match_id": "5795427",
+    "referee": "Michael Oliver",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 54,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 3.8,
+      "valueType": "perMatch",
+      "average": 4.02,
+      "total": 205,
+      "averageType": "average",
+      "fillPercentage": 41.78,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 2,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 5,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 6,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 23.37,
+      "valueType": "perMatch",
+      "average": 21.72,
+      "total": 1075,
+      "averageType": "above",
+      "fillPercentage": 80.32,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       26,
+       74
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "2.93",
+       "1.41"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       15
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       6,
+       5
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       3,
+       4
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       3
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       4,
+       7
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       17,
+       15
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "2.93",
+       "1.41"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "1.90",
+       "0.74"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "1.03",
+       "0.67"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "2.93",
+       "1.41"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "2.60",
+       "2.61"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       3
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       6,
+       12
+      ]
+     }
+    ]
+   }
+  },
+  "LEE": {
+   "fotmob": {
+    "match_id": "5795430",
+    "referee": "Tony Harrington",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 10,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 4.5,
+      "valueType": "perMatch",
+      "average": 3.84,
+      "total": 45,
+      "averageType": "above",
+      "fillPercentage": 70.7,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 1,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 2,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 1,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 23.5,
+      "valueType": "perMatch",
+      "average": 22.09,
+      "total": 235,
+      "averageType": "above",
+      "fillPercentage": 59.96,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       47,
+       53
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "1.46",
+       "1.67"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       12,
+       22
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       1,
+       2
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       0,
+       2
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       0,
+       4
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       5,
+       6
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       12,
+       22
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "1.46",
+       "1.67"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "1.29",
+       "1.32"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "0.17",
+       "0.35"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "1.46",
+       "1.67"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "1.17",
+       "0.81"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       2,
+       0
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       0,
+       4
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       5,
+       13
+      ]
+     }
+    ]
+   }
+  },
+  "MUN": {
+   "fotmob": {
+    "match_id": "5795432",
+    "referee": "Craig Pawson",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 41,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 3.51,
+      "valueType": "perMatch",
+      "average": 4.02,
+      "total": 144,
+      "averageType": "below",
+      "fillPercentage": 31.27,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 3,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 1,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 11,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 21.65,
+      "valueType": "perMatch",
+      "average": 21.72,
+      "total": 801,
+      "averageType": "average",
+      "fillPercentage": 48.69,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       60,
+       40
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "4.77",
+       "2.06"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       33,
+       9
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       9,
+       4
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       5,
+       2
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       3
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       8,
+       4
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       33,
+       9
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "4.77",
+       "2.06"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "3.72",
+       "1.97"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "0.26",
+       "0.09"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "3.99",
+       "2.06"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "4.70",
+       "2.49"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       0,
+       1
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       1,
+       3
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       7,
+       12
+      ]
+     }
+    ]
+   }
+  },
+  "ARS": {
+   "fotmob": {
+    "match_id": "5795426",
+    "referee": "Jarred Gillett",
+    "referee_stats": [
+     {
+      "type": "matches",
+      "value": 38,
+      "valueType": "total"
+     },
+     {
+      "type": "yellowCards",
+      "value": 3.84,
+      "valueType": "perMatch",
+      "average": 4.02,
+      "total": 146,
+      "averageType": "average",
+      "fillPercentage": 43.56,
+      "averagePercentage": 50
+     },
+     {
+      "type": "redCards",
+      "value": 1,
+      "valueType": "total"
+     },
+     {
+      "type": "unknown",
+      "value": 0,
+      "valueType": "total"
+     },
+     {
+      "type": "penalties",
+      "value": 9,
+      "valueType": "total"
+     },
+     {
+      "type": "fouls",
+      "value": 20.29,
+      "valueType": "perMatch",
+      "average": 21.71,
+      "total": 710,
+      "averageType": "below",
+      "fillPercentage": 23.73,
+      "averagePercentage": 50
+     }
+    ],
+    "stats": [
+     {
+      "title": "Ball possession",
+      "stats": [
+       39,
+       61
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "0.33",
+       "1.04"
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       7,
+       7
+      ]
+     },
+     {
+      "title": "Big chances",
+      "stats": [
+       0,
+       2
+      ]
+     },
+     {
+      "title": "Big chances missed",
+      "stats": [
+       0,
+       1
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       3,
+       1
+      ]
+     },
+     {
+      "title": "Corners",
+      "stats": [
+       2,
+       4
+      ]
+     },
+     {
+      "title": "Total shots",
+      "stats": [
+       7,
+       7
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       null,
+       null
+      ]
+     },
+     {
+      "title": "Expected goals (xG)",
+      "stats": [
+       "0.33",
+       "1.04"
+      ]
+     },
+     {
+      "title": "xG open play",
+      "stats": [
+       "0.33",
+       "0.73"
+      ]
+     },
+     {
+      "title": "xG set play",
+      "stats": [
+       "0.00",
+       "0.31"
+      ]
+     },
+     {
+      "title": "xG non-penalty",
+      "stats": [
+       "0.33",
+       "1.04"
+      ]
+     },
+     {
+      "title": "xG on target (xGOT)",
+      "stats": [
+       "0.00",
+       "0.80"
+      ]
+     },
+     {
+      "title": "Offsides",
+      "stats": [
+       0,
+       8
+      ]
+     },
+     {
+      "title": "Yellow cards",
+      "stats": [
+       3,
+       1
+      ]
+     },
+     {
+      "title": "Red cards",
+      "stats": [
+       0,
+       0
+      ]
+     },
+     {
+      "title": "Fouls committed",
+      "stats": [
+       17,
+       6
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "consistency_flags": {
+  "minutes": [
+   [
+    "Shaw",
+    {
+     "fpl": 72,
+     "understat": null,
+     "fotmob": 73
+    }
+   ],
+   [
+    "Barry",
+    {
+     "fpl": 69,
+     "understat": null,
+     "fotmob": 70
+    }
+   ]
+  ],
+  "xg": [],
+  "points": []
+ },
+ "coverage": {
+  "C1": {
+   "status": "OK",
+   "source": "event/N/live minutes",
+   "note": "official FPL minutes"
+  },
+  "C2": {
+   "status": "PARTIAL",
+   "source": "Understat (0/15) + FotMob/Opta (15/15)",
+   "note": "SofaScore minutes are browser-only"
+  },
+  "C3": {
+   "status": "OK",
+   "source": "FotMob events (sub minute, injuredPlayerOut flag)",
+   "note": "the REASON (tactical/game state) is a MID-cadence report item"
+  },
+  "C4": {
+   "status": "OK",
+   "source": "live minutes/starts + bootstrap status/news",
+   "note": "why-absent text = FPL news; empty news → check reports"
+  },
+  "C5": {
+   "status": "PARTIAL",
+   "source": "derived across GWs",
+   "note": "needs a per-club regular-starter baseline — not yet computed"
+  },
+  "C6": {
+   "status": "OK",
+   "source": "event/N/live total_points",
+   "note": ""
+  },
+  "C7": {
+   "status": "OK",
+   "source": "event/N/live",
+   "note": ""
+  },
+  "C8": {
+   "status": "OK",
+   "source": "event/N/live bonus + bps",
+   "note": "final after data_checked"
+  },
+  "C9": {
+   "status": "OK",
+   "source": "event/N/live defensive_contribution, CBI, recoveries, tackles",
+   "note": ""
+  },
+  "C10": {
+   "status": "OK",
+   "source": "FPL saves; goals prevented needs xGOT faced (FotMob/SofaScore GK stats)",
+   "note": "GK-only"
+  },
+  "C11": {
+   "status": "PARTIAL",
+   "source": "FPL own xG/xA/xGI + Understat + FotMob(Opta)",
+   "note": "three models; FotMob and SofaScore share the Opta feed — count them as ONE provider"
+  },
+  "C12": {
+   "status": "OK",
+   "source": "FotMob total/on-target shots, big chances; Understat shots",
+   "note": ""
+  },
+  "C13": {
+   "status": "PARTIAL",
+   "source": "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat); passes into final third, touches in box (FotMob)",
+   "note": "xT, SCA, GCA, deep completions, zone-14: FBref only — Cloudflare-blocked, attended"
+  },
+  "C14": {
+   "status": "OK",
+   "source": "event/N/live cards",
+   "note": ""
+  },
+  "C15": {
+   "status": "PARTIAL",
+   "source": "Understat shot list (X, Y, xG, result, situation, body, last action) + FotMob shotmap (xGOT)",
+   "note": ""
+  },
+  "C16": {
+   "status": "MISSING",
+   "source": "SofaScore /event/{id}/player/{pid}/heatmap — browser only",
+   "note": "not scriptable; attended POST step or device-bound task"
+  },
+  "C17": {
+   "status": "OK",
+   "source": "fixtures/?event=N (opponent, venue)",
+   "note": "archetype comes from the team profile (F5)"
+  },
+  "C18": {
+   "status": "OK",
+   "source": "FotMob tackles/interceptions/clearances/blocks/aerials/recoveries",
+   "note": ""
+  },
+  "C19": {
+   "status": "PARTIAL",
+   "source": "FotMob accurate crosses, dribbles, passes into final third",
+   "note": "through balls, progressive carries, offsides per player: SofaScore (browser) or FBref (blocked)"
+  }
+ },
+ "fetch_log": [
+  {
+   "url": "https://fantasy.premierleague.com/api/bootstrap-static/",
+   "status": 200,
+   "bytes": 1733658,
+   "ms": 88
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/entry/6048651/event/2/picks/",
+   "status": 200,
+   "bytes": 1867,
+   "ms": 31
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/event/2/live/",
+   "status": 200,
+   "bytes": 444814,
+   "ms": 56
+  },
+  {
+   "url": "https://fantasy.premierleague.com/api/fixtures/",
+   "status": 200,
+   "bytes": 164155,
+   "ms": 48
+  },
+  {
+   "url": "https://understat.com/getTeamData/Arsenal/2026",
+   "status": 200,
+   "bytes": 3314,
+   "ms": 655
+  },
+  {
+   "url": "https://understat.com/getTeamData/Arsenal/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 655
+  },
+  {
+   "url": "https://understat.com/getTeamData/Brighton/2026",
+   "status": 200,
+   "bytes": 3668,
+   "ms": 428
+  },
+  {
+   "url": "https://understat.com/getTeamData/Brighton/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 428
+  },
+  {
+   "url": "https://understat.com/getTeamData/Chelsea/2026",
+   "status": 200,
+   "bytes": 3510,
+   "ms": 609
+  },
+  {
+   "url": "https://understat.com/getTeamData/Chelsea/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 609
+  },
+  {
+   "url": "https://understat.com/getTeamData/Everton/2026",
+   "status": 200,
+   "bytes": 3269,
+   "ms": 580
+  },
+  {
+   "url": "https://understat.com/getTeamData/Everton/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 580
+  },
+  {
+   "url": "https://understat.com/getTeamData/Hull/2026",
+   "status": 200,
+   "bytes": 3088,
+   "ms": 581
+  },
+  {
+   "url": "https://understat.com/getTeamData/Hull/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 581
+  },
+  {
+   "url": "https://understat.com/getTeamData/Leeds/2026",
+   "status": 200,
+   "bytes": 3310,
+   "ms": 419
+  },
+  {
+   "url": "https://understat.com/getTeamData/Leeds/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 419
+  },
+  {
+   "url": "https://understat.com/getTeamData/Manchester%20City/2026",
+   "status": 200,
+   "bytes": 3416,
+   "ms": 591
+  },
+  {
+   "url": "https://understat.com/getTeamData/Manchester%20City/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 591
+  },
+  {
+   "url": "https://understat.com/getTeamData/Manchester%20United/2026",
+   "status": 200,
+   "bytes": 3660,
+   "ms": 735
+  },
+  {
+   "url": "https://understat.com/getTeamData/Manchester%20United/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 735
+  },
+  {
+   "url": "https://understat.com/getTeamData/Tottenham/2026",
+   "status": 200,
+   "bytes": 3499,
+   "ms": 752
+  },
+  {
+   "url": "https://understat.com/getTeamData/Tottenham/2026",
+   "status": "ERR UnicodeDecodeError",
+   "bytes": 0,
+   "ms": 752
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/leagues?id=47&season=2026%2F2027",
+   "status": 200,
+   "bytes": 743150,
+   "ms": 414
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795429",
+   "status": 200,
+   "bytes": 327649,
+   "ms": 91
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795425",
+   "status": 200,
+   "bytes": 319158,
+   "ms": 49
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795428",
+   "status": 200,
+   "bytes": 275273,
+   "ms": 140
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795434",
+   "status": 200,
+   "bytes": 318587,
+   "ms": 110
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795427",
+   "status": 200,
+   "bytes": 337772,
+   "ms": 65
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795430",
+   "status": 200,
+   "bytes": 335305,
+   "ms": 50
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795432",
+   "status": 200,
+   "bytes": 365937,
+   "ms": 55
+  },
+  {
+   "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795426",
+   "status": 200,
+   "bytes": 268790,
+   "ms": 47
+  }
+ ]
+}
