@@ -28,8 +28,9 @@ UA = {"User-Agent": "Mozilla/5.0 (fpl-pre-pull; personal use)"}
 
 # ----------------------------------------------------------------------------- fetch layer
 class Source:
-    def __init__(self, offline_dir=None):
+    def __init__(self, offline_dir=None, prev_dir=None):
         self.offline = offline_dir
+        self.prev_dir = prev_dir
         self.log = []  # (url, status, bytes, ms)
 
     def _get(self, url):
@@ -66,6 +67,27 @@ class Source:
     def fixtures(self, gw):     return self._file("fixtures.json") if self.offline else self._get(FPL + f"fixtures/?event={gw}")
     def live(self, gw):         return self._file("live.json") if self.offline else self._get(FPL + f"event/{gw}/live/")
     def element_summary(self, i): return self._file(f"element_{i}.json") if self.offline else self._get(FPL + f"element-summary/{i}/")
+    def fixtures_all(self):   return self._file("fixtures_all.json") if self.offline else self._get(FPL + "fixtures/")
+    # ESPN hidden JSON (cups, European ties, odds) — open, no key
+    def espn(self, league, d1, d2):
+        key = {"uefa.champions": "ucl", "uefa.europa": "uel", "uefa.europa.conf": "uecl", "eng.league_cup": "efl", "eng.fa": "fa", "eng.1": "pl"}[league]
+        return self._file(f"espn_{key}.json") if self.offline else self._get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?dates={d1}-{d2}")
+    # Open-Meteo — open, no key; hourly forecast at a venue for one UTC day
+    def meteo(self, lat, lon, day):
+        if self.offline:
+            return self._file("meteo_sample.json")
+        return self._get(f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date={day}&end_date={day}")
+    # football-data.co.uk season CSV — open; referee, cards, shots, corners, xG, odds per finished match
+    def fdcsv(self, season="2627"):
+        if self.offline:
+            p = os.path.join(self.offline, "fdcsv_sample.csv")
+            return open(p).read() if os.path.exists(p) else None
+        t0 = time.time()
+        try:
+            with urllib.request.urlopen(urllib.request.Request(f"https://www.football-data.co.uk/mmz4281/{season}/E0.csv", headers=UA), timeout=30) as r:
+                body = r.read().decode("utf-8", "replace"); self.log.append((r.url, r.status, len(body), int((time.time() - t0) * 1000))); return body
+        except Exception as e:
+            self.log.append(("football-data.co.uk E0.csv", f"ERR {type(e).__name__}", 0, 0)); return None
     # LiveFPL (.us JSON)
     def lf(self, name, gw=None):
         fname = "livefpl_" + name.replace("api/", "").replace(".json", "").replace(f"_{gw}", "") + ".json"
@@ -81,6 +103,145 @@ def parse_ts(s):
 
 def pct(x, nd=1):
     return None if x is None else round(float(x), nd)
+
+
+# ----------------------------------------------------------------------------- group B reference tables
+# Stadium coordinates (home venue per FPL short_name), 2026/27. Everton = Hill Dickinson Stadium.
+VENUE = {"ARS": (51.5549, -0.1084), "AVL": (52.5092, -1.8847), "BOU": (50.7352, -1.8383), "BRE": (51.4907, -0.2889),
+         "BHA": (50.8616, -0.0837), "CHE": (51.4817, -0.1910), "COV": (52.4481, -1.4956), "CRY": (51.3983, -0.0855),
+         "EVE": (53.4109, -2.9925), "FUL": (51.4750, -0.2217), "HUL": (53.7466, -0.3677), "IPS": (52.0549, 1.1447),
+         "LEE": (53.7778, -1.5721), "LIV": (53.4308, -2.9608), "MCI": (53.4831, -2.2004), "MUN": (53.4631, -2.2913),
+         "NEW": (54.9756, -1.6217), "NFO": (52.9399, -1.1329), "SUN": (54.9144, -1.3882), "TOT": (51.6043, -0.0665)}
+# ESPN numeric team id -> FPL short_name (H7 crosswalk, verified 3 Sep 2026 from the eng.1 scoreboard).
+# Never map by abbreviation: ESPN uses "MUN" for Bayern Munich and "MAN" for Manchester United.
+ESPN_ID_TO_FPL = {"306": "HUL", "331": "BHA", "337": "BRE", "349": "BOU", "357": "LEE", "359": "ARS", "360": "MUN", "361": "NEW", "362": "AVL",
+                  "363": "CHE", "364": "LIV", "366": "SUN", "367": "TOT", "368": "EVE", "370": "FUL", "373": "IPS", "382": "MCI", "384": "CRY",
+                  "388": "COV", "393": "NFO"}
+# football-data.co.uk team names -> FPL short_name
+FD_TO_FPL = {"Arsenal": "ARS", "Aston Villa": "AVL", "Bournemouth": "BOU", "Brentford": "BRE", "Brighton": "BHA", "Chelsea": "CHE",
+             "Coventry": "COV", "Crystal Palace": "CRY", "Everton": "EVE", "Fulham": "FUL", "Hull": "HUL", "Ipswich": "IPS", "Leeds": "LEE",
+             "Liverpool": "LIV", "Man City": "MCI", "Man United": "MUN", "Newcastle": "NEW", "Nott'm Forest": "NFO", "Sunderland": "SUN", "Tottenham": "TOT"}
+# FIFA men's international windows touching 2026/27 (beIN Sports 24 Aug 2026; merged Sep/Oct window per FIFA 2025–30 calendar)
+FIFA_WINDOWS = [("2026-09-21", "2026-10-06", "Sep/Oct merged window (16 days, up to 4 matches)"), ("2026-11-09", "2026-11-17", "November window"),
+                ("2027-03-22", "2027-03-30", "March window [PROJECTED — confirm on FIFA calendar]")]
+
+
+def build_schedule(src, bs, N, teams, cov, warn, prev):
+    """Group B: fixtures, FDR, DGW/BGW, deadlines, breaks, cups, rest days, weather, referees."""
+    from datetime import timedelta
+    fx = src.fixtures_all() or []
+    ev = {e["id"]: e for e in bs["events"]}
+    horizon = [g for g in range(N, min(N + 6, 39))]
+    out = {}
+    # B1/B2/B3: next-6 per team, plus B4 map
+    per_team = {t: [] for t in teams.values()}
+    counts = {g: {} for g in horizon}
+    fdr_now = {}
+    for f in fx:
+        if f["event"] in horizon:
+            h, a = teams[f["team_h"]], teams[f["team_a"]]
+            per_team[h].append({"gw": f["event"], "opp": a, "home": True, "fdr": f["team_h_difficulty"], "ko": f["kickoff_time"], "fixture_id": f["id"]})
+            per_team[a].append({"gw": f["event"], "opp": h, "home": False, "fdr": f["team_a_difficulty"], "ko": f["kickoff_time"], "fixture_id": f["id"]})
+            counts[f["event"]][h] = counts[f["event"]].get(h, 0) + 1; counts[f["event"]][a] = counts[f["event"]].get(a, 0) + 1
+            fdr_now[str(f["id"])] = [f["team_h_difficulty"], f["team_a_difficulty"]]
+    for t in per_team: per_team[t].sort(key=lambda x: x["gw"])
+    out["fixtures_next6"] = per_team
+    out["dgw_bgw"] = {g: {"double": [t for t, c in counts[g].items() if c > 1], "blank": [t for t in teams.values() if t not in counts[g]]} for g in horizon}
+    unscheduled = [f["id"] for f in fx if f["event"] is None or not f["kickoff_time"]]
+    cov["B1"] = {"status": "OK", "source": "fixtures/ (380, all scheduled)" if not unscheduled else f"fixtures/ ({len(unscheduled)} unscheduled — postponed/TBC)", "note": ""}
+    cov["B2"] = {"status": "OK", "source": "fixtures/ kickoff_time; ESPN eng.1 and PL SDP API agreed to the minute on 3 Sep", "note": ""}
+    # B3 FDR + change detection vs previous snapshot
+    prev_fdr = ((prev or {}).get("B_schedule") or {}).get("fdr_by_fixture") or {}
+    changes = [{"fixture_id": k, "was": prev_fdr[k], "now": v} for k, v in fdr_now.items() if k in prev_fdr and prev_fdr[k] != v]
+    out["fdr_by_fixture"] = fdr_now
+    out["fdr_changes_since_last_snapshot"] = changes
+    if changes: warn.append(f"B3: FPL revised FDR on {len(changes)} fixture(s) since the last snapshot")
+    cov["B3"] = {"status": "OK", "source": "fixtures/ team_h/a_difficulty (= element-summary difficulty, 12/12 checked)", "note": "team strength_attack/defence fields are 0 in bootstrap — only strength_overall is populated; FDR revisions are diffed against the previous snapshot"}
+    cov["B4"] = {"status": "OK (DERIVED)", "source": "fixture count per team per event", "note": "none in the next 6 GW" if not any(v["double"] or v["blank"] for v in out["dgw_bgw"].values()) else "DGW/BGW present — see map"}
+    # B8 deadlines, B7 breaks
+    out["deadlines"] = [{"gw": g, "deadline_utc": ev[g]["deadline_time"]} for g in horizon]
+    gaps = []
+    ids = sorted(ev)
+    for i in range(1, len(ids)):
+        d = (parse_ts(ev[ids[i]]["deadline_time"]) - parse_ts(ev[ids[i - 1]]["deadline_time"])).total_seconds() / 86400
+        if d > 8.5:
+            a, b = ev[ids[i - 1]]["deadline_time"][:10], ev[ids[i]]["deadline_time"][:10]
+            label = next((w[2] for w in FIFA_WINDOWS if a <= w[0] <= b), "no FIFA window — cup round or scheduling gap")
+            gaps.append({"after_gw": ids[i - 1], "before_gw": ids[i], "days": round(d, 1), "label": label})
+    out["breaks"] = gaps
+    cov["B8"] = {"status": "OK", "source": "bootstrap events.deadline_time", "note": ""}
+    cov["B7"] = {"status": "PARTIAL", "source": "deadline gaps > 8.5 d labelled with the FIFA window table", "note": "break DATES are derived; per-player call-ups and return-travel distance (D16) are not fetched — manual per break"}
+    # B5 cups via ESPN (window: today .. last deadline in horizon + 8 d)
+    today = now_utc().strftime("%Y%m%d"); until = (parse_ts(ev[horizon[-1]]["deadline_time"]) + timedelta(days=8)).strftime("%Y%m%d")
+    cups = {t: [] for t in teams.values()}
+    espn_ok = 0
+    fpl_names = set(teams.values())
+    for league, label in [("uefa.champions", "UCL"), ("uefa.europa", "UEL"), ("uefa.europa.conf", "UECL"), ("eng.league_cup", "EFL Cup"), ("eng.fa", "FA Cup")]:
+        j = src.espn(league, today, until)
+        if not j: continue
+        espn_ok += 1
+        for e in j.get("events", []):
+            comp = e["competitions"][0]
+            sides = {c["homeAway"]: c["team"] for c in comp.get("competitors", [])}
+            for ha, team in sides.items():
+                ab = ESPN_ID_TO_FPL.get(str(team["id"]))
+                if ab and ab in fpl_names:
+                    opp = sides["away" if ha == "home" else "home"]
+                    cups[ab].append({"date": e["date"], "comp": label, "opp": opp["displayName"], "home": ha == "home", "espn_id": e["id"]})
+    for t in cups: cups[t].sort(key=lambda x: x["date"])
+    out["cup_fixtures"] = {t: v for t, v in cups.items() if v}
+    cov["B5"] = {"status": "OK" if espn_ok == 5 else ("PARTIAL" if espn_ok else "MISSING"), "source": "ESPN site.api.espn.com scoreboard (uefa.champions, uefa.europa, uefa.europa.conf, eng.league_cup, eng.fa)", "note": f"{espn_ok}/5 competitions fetched; FA Cup has no PL-club ties until January"}
+    # B6 rest days: last match of any competition before the next PL fixture, and next match after it
+    def esdate(s): return datetime.strptime(s[:16], "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
+    all_matches = {t: [] for t in teams.values()}
+    for f in fx:
+        if f.get("kickoff_time"):
+            for t in (teams[f["team_h"]], teams[f["team_a"]]): all_matches[t].append((parse_ts(f["kickoff_time"]), "PL"))
+    for t, v in cups.items():
+        for c in v: all_matches[t].append((esdate(c["date"]), c["comp"]))
+    rest = {}
+    for t, lst in all_matches.items():
+        nxt = next((x for x in per_team[t] if x["gw"] == N), None)
+        if not nxt: continue
+        ko = parse_ts(nxt["ko"]); lst.sort()
+        before = [m for m in lst if m[0] < ko]; after = [m for m in lst if m[0] > ko]
+        rest[t] = {"next_pl": nxt["ko"], "days_since_last": round((ko - before[-1][0]).total_seconds() / 86400, 1) if before else None, "last_comp": before[-1][1] if before else None,
+                   "days_to_next": round((after[0][0] - ko).total_seconds() / 86400, 1) if after else None, "next_comp": after[0][1] if after else None,
+                   "matches_in_7d_before": sum(1 for m in before if (ko - m[0]).total_seconds() < 7 * 86400)}
+    out["rest"] = rest
+    cov["B6"] = {"status": "OK (DERIVED)", "source": "fixtures/ + ESPN cup dates", "note": "days since last match (any comp) before the GW fixture; congestion flag = matches in the 7 days before"}
+    # B10 weather for GW N fixtures within 7 days
+    wx = []
+    for f in fx:
+        if f["event"] == N and f.get("kickoff_time"):
+            ko = parse_ts(f["kickoff_time"]); h = teams[f["team_h"]]
+            if 0 <= (ko - now_utc()).total_seconds() <= 7 * 86400 and h in VENUE:
+                j = src.meteo(VENUE[h][0], VENUE[h][1], ko.strftime("%Y-%m-%d"))
+                if j and "hourly" in j:
+                    key = ko.strftime("%Y-%m-%dT%H:00"); hh = j["hourly"]
+                    i = hh["time"].index(key) if key in hh["time"] else None
+                    if i is not None:
+                        wx.append({"fixture": f"{h} v {teams[f['team_a']]}", "kickoff": f["kickoff_time"], "temp_c": hh["temperature_2m"][i], "precip_prob": hh["precipitation_probability"][i],
+                                   "precip_mm": hh["precipitation"][i], "wind_kmh": hh["wind_speed_10m"][i], "gust_kmh": hh["wind_gusts_10m"][i],
+                                   "flag": "WINDY" if hh["wind_speed_10m"][i] >= 30 or hh["wind_gusts_10m"][i] >= 50 else ("WET" if hh["precipitation_probability"][i] >= 60 else "")})
+    out["weather"] = wx
+    cov["B10"] = {"status": "OK" if wx else "PARTIAL", "source": "Open-Meteo hourly at the home venue (no key)", "note": "only for kick-offs within 7 days; re-run at XI"}
+    # B9 referees: appointments not in any JSON found; football-data.co.uk gives referee + cards per finished match (G7 stats)
+    csv_txt = src.fdcsv()
+    refs = {}; last = []
+    if csv_txt:
+        import csv, io
+        for row in csv.DictReader(io.StringIO(csv_txt)):
+            r = row.get("Referee"); 
+            if not r: continue
+            d = refs.setdefault(r, {"matches": 0, "yellows": 0, "reds": 0, "fouls": 0})
+            d["matches"] += 1; d["yellows"] += int(row.get("HY") or 0) + int(row.get("AY") or 0); d["reds"] += int(row.get("HR") or 0) + int(row.get("AR") or 0); d["fouls"] += int(row.get("HF") or 0) + int(row.get("AF") or 0)
+            last.append({"date": row["Date"], "home": FD_TO_FPL.get(row["HomeTeam"], row["HomeTeam"]), "away": FD_TO_FPL.get(row["AwayTeam"], row["AwayTeam"]), "ref": r, "xg": [row.get("HxG"), row.get("AxG")]})
+        for r, d in refs.items(): d["yellows_per_match"] = round(d["yellows"] / d["matches"], 2)
+    out["referee_season_stats"] = refs
+    out["referee_last_matches"] = last[-10:]
+    cov["B9"] = {"status": "PARTIAL", "source": "football-data.co.uk E0.csv (referee per finished match, season card rates)", "note": "appointments for the coming GW are published by the PL (Tue/Wed) but exist in no JSON endpoint found — the PL SDP match API has no officials field and no 'Match officials' article appeared in the content feed; attended web step"}
+    return out
 
 
 # ----------------------------------------------------------------------------- main build
@@ -325,8 +486,16 @@ def build(src, force=False, window_h=30.0):
     else:
         cov["A11"] = {"status": "MISSING", "source": "event/N/live", "note": "unreachable"}
 
+    prev = None
+    try:
+        with open(os.path.join(src.prev_dir or "snapshots", "latest.json")) as f: prev = json.load(f)
+    except Exception:
+        pass
+    B = build_schedule(src, bs, N, teams, cov, warn, prev)
+
     snap = {
         "generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live",
+        "B_schedule": B,
         "gw_next": N, "gw_last": last_gw, "in_pre_window": in_window,
         "A1_owned": owned, "A2_bank_ft_chips": a2, "A7_flow": flow, "A9_rank": a9, "A10_flags": a10,
         "coverage": cov, "consistency": consistency, "warnings": warn,
@@ -361,9 +530,30 @@ def brief(s):
     L.append("\n## Next fixtures\n")
     for f in a10["fixtures_next"]:
         L.append(f"- {f['kickoff']}  {f['home']} (FDR {f['fdr_h']}) v {f['away']} (FDR {f['fdr_a']})")
-    L.append("\n## Coverage A1–A11\n")
+    B = s.get("B_schedule") or {}
+    if B:
+        owned_teams = sorted({o["team"] for o in s["A1_owned"]})
+        L.append("\n## Schedule (group B)\n")
+        L.append("Deadlines: " + ", ".join(f"GW{d['gw']} {d['deadline_utc']}" for d in B["deadlines"]))
+        if B["breaks"]: L.append("Breaks: " + "; ".join(f"after GW{g['after_gw']} ({g['days']} d — {g['label']})" for g in B["breaks"]))
+        dg = [(g, v) for g, v in B["dgw_bgw"].items() if v["double"] or v["blank"]]
+        L.append("DGW/BGW next 6: " + ("; ".join(f"GW{g}: double {v['double']} blank {v['blank']}" for g, v in dg) if dg else "none"))
+        if B["fdr_changes_since_last_snapshot"]: L.append(f"FDR revised on {len(B['fdr_changes_since_last_snapshot'])} fixtures since last snapshot: {B['fdr_changes_since_last_snapshot']}")
+        L.append("\n| Team (owned) | Next 6 (H/A, FDR) | Cup/Europe in window | Rest before GW | Matches 7 d before |\n|---|---|---|---|---|")
+        for t in owned_teams:
+            n6 = ", ".join(f"GW{x['gw']} {'v' if x['home'] else '@'} {x['opp']} ({x['fdr']})" for x in B["fixtures_next6"].get(t, []))
+            cups = "; ".join(f"{c['date'][:10]} {c['comp']} {'v' if c['home'] else '@'} {c['opp']}" for c in B["cup_fixtures"].get(t, [])) or "—"
+            r = B["rest"].get(t, {})
+            L.append(f"| {t} | {n6} | {cups} | {r.get('days_since_last')} d ({r.get('last_comp')}) | {r.get('matches_in_7d_before')} |")
+        if B["weather"]:
+            L.append("\nWeather at kick-off (Open-Meteo): " + "; ".join(f"{w['fixture']} {w['temp_c']}°C, rain {w['precip_prob']}%, wind {w['wind_kmh']} (gust {w['gust_kmh']}) km/h{' **' + w['flag'] + '**' if w['flag'] else ''}" for w in B["weather"]))
+        if B["referee_season_stats"]:
+            top = sorted(B["referee_season_stats"].items(), key=lambda kv: -kv[1]["matches"])[:6]
+            L.append("Referees this season (football-data.co.uk, POST): " + "; ".join(f"{r} {d['matches']} m, {d['yellows_per_match']} Y/m, {d['reds']} R" for r, d in top))
+            L.append("Appointments for this GW: not in any JSON source — check premierleague.com 'Match officials' (attended).")
+    L.append("\n## Coverage A1–A11, B1–B10\n")
     L.append("| # | Status | Source | Note |\n|---|---|---|---|")
-    for k in ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11"]:
+    for k in ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10"]:
         c = s["coverage"].get(k, {})
         L.append(f"| {k} | {c.get('status')} | {c.get('source')} | {c.get('note')} |")
     L.append("\n## Consistency\n")
@@ -384,7 +574,7 @@ def main():
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--window-hours", type=float, default=30.0)
     a = ap.parse_args()
-    snap = build(Source(a.offline), force=a.force, window_h=a.window_hours)
+    snap = build(Source(a.offline, prev_dir=a.out), force=a.force, window_h=a.window_hours)
     if snap is None:
         return
     os.makedirs(a.out, exist_ok=True)
