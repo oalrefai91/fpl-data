@@ -199,7 +199,7 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
             gaps.append({"after_gw": ids[i - 1], "before_gw": ids[i], "days": round(d, 1), "label": label})
     out["breaks"] = gaps
     cov["B8"] = {"status": "OK", "source": "bootstrap events.deadline_time", "note": ""}
-    cov["B7"] = {"status": "PARTIAL", "source": "deadline gaps > 8.5 d labelled with the FIFA window table", "note": "break DATES are derived; per-player call-ups and return-travel distance (D16) are not fetched — manual per break"}
+    cov["B7"] = {"status": "OK (dates) — call-ups in feeder intl.json", "source": "deadline gaps cross-checked against season-calendar.md (21 Sep–6 Oct, 9–17 Nov, 22–30 Mar 2027); call-ups: Tuesday feeder Block D (SofaScore national squads) + Dinnery pull", "note": "notes only — never a Minutes change (user rule 5 Sep 2026); gaps of ~10 d in Jan/Feb/Mar are cup rounds, not breaks"}
     # B5 cups via ESPN (window: today .. last deadline in horizon + 8 d)
     today = now_utc().strftime("%Y%m%d"); until = (parse_ts(ev[horizon[-1]]["deadline_time"]) + timedelta(days=8)).strftime("%Y%m%d")
     cups = {t: [] for t in teams.values()}
@@ -269,7 +269,41 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
         for r, d in refs.items(): d["yellows_per_match"] = round(d["yellows"] / d["matches"], 2)
     out["referee_season_stats"] = refs
     out["referee_last_matches"] = last[-10:]
-    cov["B9"] = {"status": "PARTIAL", "source": "football-data.co.uk E0.csv (referee per finished match, season card rates)", "note": "appointments for the coming GW are published by the PL (Tue/Wed) but exist in no JSON endpoint found — the PL SDP match API has no officials field and no 'Match officials' article appeared in the content feed; attended web step"}
+    # B9 appointments for GW N (added 6 Sep 2026): FotMob matchDetails carries the referee as soon as the PL publishes it (Wed/Thu);
+    # the same fotmob_league/fotmob_match calls already work from the runner for POST (9/9 on GW2). Joined with the football-data season rates.
+    appts = []; fm_n = 0; fm_ok = 0
+    try:
+        lg = src.fotmob_league()
+        gw_fx = {(teams[f["team_h"]], teams[f["team_a"]]): f for f in fx if f["event"] == N}
+        for m in ((lg or {}).get("fixtures", {}).get("allMatches") or []):
+            if str(m.get("round")) != str(N): continue
+            h, a = FOTMOB_ID_TO_FPL.get(str(m["home"]["id"])), FOTMOB_ID_TO_FPL.get(str(m["away"]["id"]))
+            if not h or not a: continue
+            fm_n += 1
+            j = src.fotmob_match(m["id"]) or {}
+            c = j.get("content", j)
+            info = (c.get("matchFacts", {}).get("infoBox") if "matchFacts" in c else c.get("infoBox")) or {}
+            r = info.get("Referee") or {}
+            name = r.get("text") if isinstance(r, dict) else (r or None)
+            # football-data spells "M Oliver"; FotMob "Michael Oliver" — match on surname + initial
+            st = None
+            if name:
+                fm_ok += 1
+                parts = name.split(); key = (parts[0][0] + " " + parts[-1]).lower() if len(parts) > 1 else name.lower()
+                st = next((v for k, v in refs.items() if k.lower() == key or k.lower().endswith(" " + parts[-1].lower())), None)
+            appts.append({"gw": N, "home": h, "away": a, "fotmob_match_id": m["id"], "kickoff": m.get("status", {}).get("utcTime") or m.get("utcTime"),
+                          "referee": name, "referee_country": (r.get("country") if isinstance(r, dict) else None),
+                          "season_stats": st, "fixture_id": (gw_fx.get((h, a)) or {}).get("id")})
+    except Exception as e:
+        warn.append(f"B9 FotMob appointments failed: {e}")
+    out["referee_appointments"] = appts
+    if fm_n and fm_ok == fm_n:
+        cov["B9"] = {"status": "OK", "source": "FotMob matchDetails infoBox.Referee (appointments) + football-data.co.uk E0.csv (season card rates)", "note": f"{fm_ok}/{fm_n} GW{N} fixtures have a named referee"}
+    elif fm_n:
+        missing = [f"{x['home']}-{x['away']}" for x in appts if not x["referee"]]
+        cov["B9"] = {"status": "PARTIAL", "source": "FotMob matchDetails + football-data.co.uk", "note": f"{fm_ok}/{fm_n} GW{N} fixtures named; not yet published for {', '.join(missing)} (PL publishes Wed/Thu — the 12:00/18:00 UTC runs pick them up)"}
+    else:
+        cov["B9"] = {"status": "PARTIAL", "source": "football-data.co.uk E0.csv only", "note": "FotMob league fixtures unavailable from the runner this run — appointments not read; attended browser-fill routine applies"}
     return out
 
 
@@ -768,6 +802,15 @@ def build(src, force=False, window_h=30.0):
         o["cap_overall"] = pct(cap_overall.get(i, 0) * 100, 2) if cap_overall else None
         if g and top10k and str(i) in top10k:
             diffs.append(abs(g["eo_idx1"] - top10k[str(i)] * 100))
+        # [PROJECTED] EO for GW N (decided 5 Sep 2026): last-GW cohort EO scaled by this week's net transfer flow relative to the player's owner base.
+        # Captaincy-share change is not projectable and is left out; the post-deadline actual scores this (model-health metric 8).
+        el = next((e for e in bs["elements"] if e["id"] == i), None)
+        if el and top10k and str(i) in top10k:
+            own_n = (float(el.get("selected_by_percent") or 0) / 100.0) * (bs.get("total_players") or 0)
+            net = (el.get("transfers_in_event") or 0) - (el.get("transfers_out_event") or 0)
+            scale = (1 + net / own_n) if own_n > 0 else 1.0
+            o["eo_top10k_projected"] = pct(top10k[str(i)] * 100 * max(0.0, scale), 2)
+            o["eo_projection_basis"] = f"GW{last_gw} top10k EO x (1 + net {net:+,} / owners {int(own_n):,})"
     if diffs:
         consistency["top10k_json_vs_games_idx1_max_abs_pp"] = round(max(diffs), 2)
     # elite.json staleness heuristic: if elite EO of the most-owned players sits far from top10k for several owned players, suspect stale
@@ -779,11 +822,11 @@ def build(src, force=False, window_h=30.0):
         if max(abs(v) for v in gaps.values()) > 30:
             warn.append("elite.json differs from top10k.json by >30 pp on a top-10-EO player — elite.json is probably STALE (previous GW). Do not use without a freshness check.")
 
-    cov["A4"] = {"status": "PARTIAL" if top10k else "MISSING", "source": "livefpl.us top10k.json (+ locals bands, + FPL selected_by_percent)",
-                 "note": "top10k cohort OK and cross-checked vs games.json idx1; OVERALL-cohort EO has no verified source: livefpl.net /EO Overall column renders 0% (GW1 and GW2), games.json idx2 does not match any displayed cohort. FPL selected_by_percent is raw ownership, not EO."}
+    cov["A4"] = {"status": ("OK (BASELINE GW%d + PROJECTED)" % last_gw) if top10k else "MISSING", "source": "livefpl.us top10k.json (+ locals bands, + FPL selected_by_percent, + bootstrap transfer flow)",
+                 "note": "Decided 5 Sep 2026: cohort EO for the coming GW cannot exist before the deadline (LiveFPL tracks managers only after it — founder AMA), so GW%d actuals are the BASELINE and eo_top10k_projected is the transfer-flow [PROJECTED] value for the captaincy tie-break; the post-deadline actual scores the projection. Not a gate question." % last_gw}
     cov["A5"] = {"status": "OK" if locals_ else "MISSING", "source": f"livefpl.us locals_{last_gw}.json captains per band",
                  "note": f"bands available: Top100…3M-6M, Top 1M, Elite, Overall. User band = {my_band}. locals_{N}.json for the coming GW appears only after its deadline."}
-    cov["A6"] = {"status": "PARTIAL" if top10k else "MISSING", "source": "top10k.json (= /EO Top10k column exactly)", "note": "same Overall-cohort gap as A4"}
+    cov["A6"] = {"status": ("OK (BASELINE GW%d + PROJECTED)" % last_gw) if top10k else "MISSING", "source": "top10k.json (= /EO Top10k column exactly)", "note": "same rule as A4"}
 
     # -------- A7 transfer flow
     cov["A7"] = {"status": "OK", "source": "bootstrap elements.transfers_in_event / transfers_out_event (all 650 players)",
@@ -833,26 +876,25 @@ def build(src, force=False, window_h=30.0):
         st = c["status"]
         if st.startswith("OK"):
             continue
-        need = {"A1": "log in to FPL in the browser pane and read my-team/, or confirm the derived prices against the Transfers page",
-                "A2": "confirm free transfers and chips on the FPL site (derived from history)",
+        need = {"A1": "ATTENDED: read first, do not ask — Account-read routine (my-team List view, Current Price column: CP/PP/SP, bank) via Osama's logged-in Chrome (browser-fill.md); compare with the derived values below; ask only if no logged-in tab exists or the read disagrees. UNATTENDED: derived values stand, labelled DERIVED",
+                "A2": "ATTENDED: same routine, /en/transfers (Free transfers N, chip buttons). UNATTENDED: derived",
                 "A4": "overall-cohort EO: no source — skip, or paste a figure from LiveFPL /EO if the Overall column is populated this week",
                 "A6": "overall-cohort EO: same as A4",
                 "A8": "read Safety Score and Template Rating from livefpl.net/6048651 in the browser pane, or paste them",
                 "B5": "cup/European fixtures: ESPN blocked — paste the owned clubs' midweek fixtures, or supply another source URL",
-                "B7": "player call-ups for the next break: paste, or skip until the break is within 10 days",
-                "B9": "referee appointments: read premierleague.com 'Match officials for Matchweek N' (check the season!) or skip",
+                "B7": "call-ups come from the Tuesday feeder's intl.json (SofaScore squads, notes only) and the Dinnery pull — read claude/feeder/intl.json and claude/season-calendar.md; ask only if intl.json is older than 8 days in a break week",
+                "B9": "referee appointments: FotMob did not return them this run — attended: browser-fill FotMob routine; or wait for the 12:00/18:00 UTC run",
                 "B10": "weather: kick-offs are beyond the 7-day forecast horizon — re-run closer, or skip"}.get(k, c.get("note", ""))
         hold.append({"param": k, "status": st, "source": c.get("source"), "needs": need,
                      "options": ["provide a source URL", "paste the data manually", "skip this GW (output is labelled with the gap)", "abort"]})
     # freshness: cohort data (A4–A6) is always the last finished GW; snapshot must be inside the PRE window
     freshness = {"snapshot_generated_utc": gen.strftime("%Y-%m-%dT%H:%M:%SZ"), "hours_to_deadline": round(hours_to_deadline, 1),
-                 "cohort_data_gw": last_gw, "cohort_note": f"EO/captaincy figures are GW{last_gw} actuals used as the GW{N} baseline — confirm or skip",
+                 "cohort_data_gw": last_gw, "cohort_note": f"EO/captaincy figures are GW{last_gw} actuals used as the GW{N} BASELINE (decided 5 Sep 2026; not a question); eo_top10k_projected = transfer-flow projection",
                  "in_pre_window": in_window}
     if not in_window and not src.offline:
         hold.append({"param": "FRESHNESS", "status": "STALE", "source": "snapshot timing", "needs": f"snapshot is {round(hours_to_deadline,1)} h from the deadline (outside the {window_h} h window) — re-run the pull",
                      "options": ["re-run the pull", "proceed with this snapshot (labelled STALE)", "abort"]})
-    hold.append({"param": "A4-A6 baseline", "status": f"GW{last_gw} actuals", "source": "livefpl.us", "needs": freshness["cohort_note"],
-                 "options": ["use as baseline", "skip cohort-dependent outputs", "abort"]})
+    # A4–A6 baseline is no longer a gate question (decided 5 Sep 2026): GW{last} actuals are the BASELINE, eo_top10k_projected the [PROJECTED] value.
     readiness = {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "freshness": freshness,
                  "rule": "The selection model must not run while verdict is HOLD. Each gate item needs an explicit human choice; PARTIAL and DERIVED are not silently accepted."}
 
@@ -887,7 +929,7 @@ def brief(s):
     a9 = s["A9_rank"]; a2 = s["A2_bank_ft_chips"]
     L.append(f"Overall rank **{a9['overall_rank']:,}**, total {a9['total_points']}, last GW {a9['gw_points']} (GW rank {a9['gw_rank']:,}). Team value {a9['team_value']}m, bank {a9['bank']}m, free transfers **{a2.get('free_transfers')}** (DERIVED, cap {a2.get('ft_cap')}). Chips this half: " + ", ".join(f"{c['chip']} {c['status']}" for c in a2.get('chips', []) if c['current_half']) + "\n")
     L.append("## Owned 15\n")
-    L.append("| # | Player | Pos | £ | Bought | Sell |Status | Price Δ% (proj tonight) | Net tr. | Own% | EO top10k | C% top10k | C% my band | Last GW |")
+    L.append("| # | Player | Pos | £ | Bought | Sell |Status | Price Δ% (proj tonight) | Net tr. | Own% | EO top10k GW-1 → [PROJECTED] | C% top10k | C% my band | Last GW |")
     L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for o in s["A1_owned"]:
         proj = (o.get("price_projections") or [{}])[0].get("projected_percent")
@@ -895,7 +937,7 @@ def brief(s):
         lg = o.get("last_gw") or {}
         st = o["status"] + (f" {o['chance_next']}%" if o.get("chance_next") not in (None, 100) else "") + (f" — {o['news']}" if o["news"] else "")
         L.append(f"| {o['slot']} | {o['name']}{role} | {o['pos']} {o['team']} | {o['now_cost']} | {o.get('purchase_price') if o.get('purchase_price') is not None else '—'} | {o.get('selling_price') if o.get('selling_price') is not None else '—'} | {st} | "
-                 f"{o.get('price_change_percent')} ({proj}) | {o.get('net_transfers_event'):+,} | {o['selected_by']} | {o.get('eo_top10k')} | {o.get('cap_top10k')} | {o.get('cap_myband')} | "
+                 f"{o.get('price_change_percent')} ({proj}) | {o.get('net_transfers_event'):+,} | {o['selected_by']} | {o.get('eo_top10k')} → {o.get('eo_top10k_projected','—')} [PROJ] | {o.get('cap_top10k')} | {o.get('cap_myband')} | "
                  f"{lg.get('pts','—')} pts / {lg.get('min','—')}' / bps {lg.get('bps','—')} |")
     if s.get("pool"):
         L.append(f"\n## Buying pool ({len(s['pool'])} players — watchlist + top transfers-in + top form per position + top-10k EO ≥ threshold; edit pool.json)\n")
@@ -932,7 +974,10 @@ def brief(s):
         if B["referee_season_stats"]:
             top = sorted(B["referee_season_stats"].items(), key=lambda kv: -kv[1]["matches"])[:6]
             L.append("Referees this season (football-data.co.uk, POST): " + "; ".join(f"{r} {d['matches']} m, {d['yellows_per_match']} Y/m, {d['reds']} R" for r, d in top))
-            L.append("Appointments for this GW: not in any JSON source — check premierleague.com 'Match officials' (attended).")
+        if B.get("referee_appointments"):
+            L.append("Referee appointments GW" + str(B["referee_appointments"][0]["gw"]) + " (FotMob): " + "; ".join(f"{x['home']}-{x['away']} {x['referee'] or 'TBC'}" + (f" ({x['season_stats']['matches']} m, {x['season_stats']['yellows_per_match']} Y/m, {x['season_stats']['reds']} R)" if x.get('season_stats') else "") for x in B["referee_appointments"]))
+        else:
+            L.append("Appointments for this GW: FotMob fixtures not read this run — attended browser-fill routine (browser-fill.md, FotMob referee).")
     L.append("\n## Coverage A1–A11, B1–B10\n")
     L.append("| # | Status | Source | Note |\n|---|---|---|---|")
     for k in ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10"]:
