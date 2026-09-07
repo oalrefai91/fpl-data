@@ -127,7 +127,7 @@ class Source:
         if not key:
             return None
         url = self.PITCH + path + (("?" + urllib.parse.urlencode(params)) if params else "")
-        return self._get(url, headers={"X-API-KEY": key, "Accept": "application/json"})
+        return self._get(url, headers={**UA, "X-API-KEY": key, "Accept": "application/json"})
     # LiveFPL (.us JSON)
     def lf(self, name, gw=None):
         fname = "livefpl_" + name.replace("api/", "").replace(".json", "").replace(f"_{gw}", "") + ".json"
@@ -572,7 +572,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                 for code, side in ((h, "home"), (a, "away")):
                     if code not in clubs: continue
                     for r in rows:
-                        if r["team"] != code or r.get("pitchapi"): continue
+                        if r["club"] != code or r.get("pitchapi"): continue
                         cand, sc = _match_name(el[r["id"]], plist, key=lambda p: ((p.get("player") or {}).get("name") or ""))
                         if cand and sc >= 1:
                             cr, pa, ca, pv = cand.get("creation") or {}, cand.get("passing") or {}, cand.get("carrying") or {}, cand.get("possession_value") or {}
@@ -584,7 +584,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                             fm = r["fpl"].get("minutes"); pm = r["pitchapi"]["min"]
                             if fm is not None and pm is not None and abs(fm - pm) > 5: cons.setdefault("pitch_minutes", []).append((r["name"], fm, pm))
             for r in rows:
-                if r["team"] in [c for pair in pitch_ids.values() for c in pair[:2]] and not r.get("pitchapi") and (r["fpl"].get("minutes") or 0) > 0:
+                if r["club"] in [c for pair in pitch_ids.values() for c in pair[:2]] and not r.get("pitchapi") and (r["fpl"].get("minutes") or 0) > 0:
                     r["pitchapi"] = {"unmatched": True}
         except Exception as e:
             warn["pitchapi"] = f"PitchAPI failed: {e}"
@@ -634,7 +634,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
             hold.append({"param": f"NAME-MATCH {r['name']}", "status": "UNMATCHED", "source": "provider roster", "needs": "confirm the provider's spelling of this player and add to the crosswalk", "options": ["paste the name", "skip", "abort"]})
     snap = {"generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live", "cadence": "POST", "gw": L,
             "readiness": {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "rule": "POST facts feed Form/Minutes; anything not OK needs a human decision before the next PRE run uses it"},
-            "sources_ok": {"understat_clubs": f"{us_ok}/{len(clubs)}", "fotmob_matches": f"{fm_ok}/{len(fm_ids)}"},
+            "sources_ok": {"understat_clubs": f"{us_ok}/{len(US_TITLE)}", "fotmob_matches": f"{fm_ok}/{len(fm_ids)}"},
             "tracked": {"owned": [el[i]["web_name"] for i in owned_ids if i in el], "pool": [el[i]["web_name"] for i in tracked if i not in owned_ids and i in el],
                         "pool_source": "pool.json (manual + auto rules)" if any(os.path.exists(c) for c in ("pool.json", os.path.join(out_dir, "..", "pool.json"))) else "auto rules only — pool.json not found in the repo"},
             "players": rows, "team_level": team_level, "consistency_flags": cons, "coverage": cov,
@@ -656,14 +656,14 @@ def brief_post(s):
     L.append("| # | Param | Status | What is needed |\n|---|---|---|---|")
     for i, g in enumerate(R["gate_items"], 1): L.append(f"| {i} | {g['param']} | {g['status']} | {g['needs']} |")
     L.append(f"\nSources: Understat clubs {s['sources_ok']['understat_clubs']}, FotMob matches {s['sources_ok']['fotmob_matches']}.\n")
-    pa_rows = [r for r in snap.get("players", []) if r.get("pitchapi") and not r["pitchapi"].get("unmatched")]
+    pa_rows = [r for r in s.get("players", []) if r.get("pitchapi") and not r["pitchapi"].get("unmatched")]
     if pa_rows:
         L.append("## PitchAPI (C13) — creation and progression, last GW\n")
         L.append("| Player | Min | SCA | GCA | xAG | xT off | xG chain / build-up | Prog passes | Into box | Prog carries | Carries into box | Take-ons |\n|---|---|---|---|---|---|---|---|---|---|---|---|")
         for r in pa_rows:
             p = r["pitchapi"]
-            L.append(f"| {r['name']} ({r['team']}) | {p.get('min')} | {p.get('sca')} | {p.get('gca')} | {p.get('xag')} | {p.get('xt_off')} | {p.get('xg_chain')} / {p.get('xg_buildup')} | {p.get('prog_passes')} | {p.get('passes_into_box')} | {p.get('prog_carries')} | {p.get('carries_into_box')} | {p.get('take_ons_won')}/{p.get('take_ons')} |")
-        tl = snap.get("team_level") or {}
+            L.append(f"| {r['name']} ({r['club']}) | {p.get('min')} | {p.get('sca')} | {p.get('gca')} | {p.get('xag')} | {p.get('xt_off')} | {p.get('xg_chain')} / {p.get('xg_buildup')} | {p.get('prog_passes')} | {p.get('passes_into_box')} | {p.get('prog_carries')} | {p.get('carries_into_box')} | {p.get('take_ons_won')}/{p.get('take_ons')} |")
+        tl = s.get("team_level") or {}
         tt = [(c, t["pitchapi"]) for c, t in tl.items() if t.get("pitchapi")]
         if tt: L.append("\nTeam (PitchAPI): " + "; ".join(f"{c} PPDA {t.get('ppda')}, field tilt {t.get('field_tilt')}, box entries {t.get('box_entries')}, direct speed {t.get('direct_speed')}" for c, t in tt) + "\n")
     L.append("## Tracked players — per-match facts (owned first, then pool)\n")
@@ -1124,17 +1124,18 @@ def main():
         snap, why = build_post(src, bs, owned, a.out, force=a.force, pool_ids=pool_ids)
         if snap is None:
             print(why); return
+        # Render everything in memory first, write files last: a renderer crash must never leave a 0-byte .md or a stale latest_post (7 Sep 2026 GW3 incident)
+        js_txt = json.dumps(snap, indent=1, ensure_ascii=False)
+        md_txt = brief_post(snap)
         os.makedirs(a.out, exist_ok=True)
         stem = os.path.join(a.out, f"GW{snap['gw']}_POST_{snap['generated_utc'].replace(':','').replace('-','')}")
-        with open(stem + ".json", "w") as f: json.dump(snap, f, indent=1, ensure_ascii=False)
-        with open(stem + ".md", "w") as f: f.write(brief_post(snap))
-        for ext in (".json", ".md"):
-            with open(os.path.join(a.out, "latest_post" + ext), "w") as f: f.write(open(stem + ext).read())
+        for path, txt in ((stem + ".json", js_txt), (stem + ".md", md_txt), (os.path.join(a.out, "latest_post.json"), js_txt), (os.path.join(a.out, "latest_post.md"), md_txt)):
+            with open(path, "w") as f: f.write(txt)
         # C13 compact per-GW file for the SofaScore feeder (gen.py reads snapshots/pitchapi_gw{N}.json)
         pa = {"gw": snap["gw"], "generated_utc": snap["generated_utc"], "players": dict(snap.get("pitchapi_all_players") or {}), "teams": {}}
         for r in snap.get("players", []):
             p = r.get("pitchapi")
-            if p and not p.get("unmatched"): pa["players"][f"{r['name']} ({r['team']})"] = p
+            if p and not p.get("unmatched"): pa["players"][f"{r['name']} ({r['club']})"] = p
         if snap.get("understat_all_shots"):
             with open(os.path.join(a.out, f"shots_gw{snap['gw']}.json"), "w") as f: json.dump({"gw": snap["gw"], "matches": snap["understat_all_shots"]}, f, ensure_ascii=False)
         for code, tl in (snap.get("team_level") or {}).items():
