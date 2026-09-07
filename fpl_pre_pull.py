@@ -420,7 +420,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     clubs = sorted({teams[el[i]["team"]] for i in tracked if i in el})
     us_matches = {}   # fpl_short -> (match_id, match json, side)
     us_ok = 0
-    for club in clubs:
+    us_all = {}       # every PL match of the GW (all 20 clubs) → shots for every player, for late-tracked players (decided 7 Sep 2026)
+    for club in US_TITLE:
         tj = src.understat_team(US_TITLE[club], season)
         if not tj: continue
         us_ok += 1
@@ -431,8 +432,10 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
             dt = datetime.strptime(d["datetime"], "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
             if any(abs((dt - k).total_seconds()) < 36 * 3600 for k in gw_kos):
                 side = "h" if d["h"]["title"] == US_TITLE[club] else "a"
-                mj = src.understat_match(d["id"])
-                us_matches[club] = {"id": d["id"], "side": side, "xG": d["xG"], "goals": d["goals"], "match": mj, "opp": d["a" if side == "h" else "h"]["title"]}
+                mj = us_all[d["id"]]["match"] if d["id"] in us_all else src.understat_match(d["id"])
+                us_all.setdefault(d["id"], {"match": mj, "home": d["h"]["title"], "away": d["a"]["title"], "xG": d["xG"], "goals": d["goals"], "date": d["datetime"]})
+                if club in clubs:
+                    us_matches[club] = {"id": d["id"], "side": side, "xG": d["xG"], "goals": d["goals"], "match": mj, "opp": d["a" if side == "h" else "h"]["title"]}
     # ----- FotMob per fixture involving an owned club
     fm_matches = {}
     lg = src.fotmob_league()
@@ -532,7 +535,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
         if fp[1] is not None and fp[0] != fp[1]: cons["points"].append((row["name"], fp))
         rows.append(row)
     # ----- PitchAPI (C13): SCA/GCA/xT/progressive actions per tracked player; PPDA/field tilt per club (added 6 Sep 2026)
-    pitch_players, pitch_teams, pitch_ids, pitch_ok = {}, {}, {}, 0
+    pitch_players, pitch_teams, pitch_ids, pitch_ok, pitch_all = {}, {}, {}, 0, {}
     if os.environ.get("PITCHAPI_KEY") or src.offline:
         try:
             lm = src.pitch(f"/leagues/{src.PITCH_PL}/matches", {"status": "played"}) or {}
@@ -544,16 +547,24 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                 ht = (m.get("home_team") or m.get("home") or {}); at = (m.get("away_team") or m.get("away") or {})
                 h = _pitch_code(ht.get("name") if isinstance(ht, dict) else ht); a = _pitch_code(at.get("name") if isinstance(at, dict) else at)
                 if d0 and d1 and not (d0 <= dt <= d1): continue
-                if h and a and (h in clubs or a in clubs): pitch_ids[str(m.get("id") or m.get("match_id"))] = (h, a)
-            for mid, (h, a) in pitch_ids.items():
+                if h and a: pitch_ids[str(m.get("id") or m.get("match_id"))] = (h, a, (ht.get("id") if isinstance(ht, dict) else None), (at.get("id") if isinstance(at, dict) else None))
+            # pitch_all: every player of every match → per-GW file, so a player tracked later still has his C13 history
+            for mid, (h, a, hid, aid) in pitch_ids.items():
                 adv = src.pitch(f"/matches/{mid}/advanced/players") or {}
                 plist = adv.get("players") if isinstance(adv, dict) else adv
                 if not plist: continue
                 pitch_ok += 1
+                for cand in plist:
+                    code = h if str(cand.get("team_id")) == str(hid) else (a if str(cand.get("team_id")) == str(aid) else None)
+                    cr, pa, ca, pv = cand.get("creation") or {}, cand.get("passing") or {}, cand.get("carrying") or {}, cand.get("possession_value") or {}
+                    nm = (cand.get("player") or {}).get("name") or ""
+                    pitch_all[f"{nm} ({code})"] = {"match_id": mid, "team": code, "min": cand.get("minutes_played"), "sca": cr.get("sca"), "gca": cr.get("gca"), "sca_breakdown": cr.get("sca_breakdown"), "chances_created": cr.get("chances_created"), "xag": cr.get("xag"), "xg_chain": cr.get("xg_chain"), "xg_buildup": cr.get("xg_buildup"),
+                                                  "xt_off": pv.get("pv_offensive"), "xt_def": pv.get("pv_defensive"), "prog_passes": pa.get("progressive_passes"), "passes_into_box": pa.get("passes_into_box"), "key_passes": pa.get("key_passes"),
+                                                  "prog_carries": ca.get("progressive_carries"), "carries_into_box": ca.get("carries_into_box"), "take_ons": ca.get("take_ons"), "take_ons_won": ca.get("take_ons_won")}
                 tm = src.pitch(f"/matches/{mid}/advanced") or {}
                 for t in (tm.get("teams") or []):
                     code = _pitch_code((t.get("team") or {}).get("name"))
-                    if code in clubs:
+                    if code:
                         pitch_teams[code] = {"match_id": mid, "ppda": (t.get("defending") or {}).get("ppda"), "field_tilt": (t.get("territory") or {}).get("field_tilt"), "possession_pct": (t.get("territory") or {}).get("possession_pct"),
                                              "final_third_entries": (t.get("territory") or {}).get("final_third_entries"), "box_entries": (t.get("territory") or {}).get("box_entries"),
                                              "direct_speed": (t.get("tempo") or {}).get("direct_speed"), "passes_per_sequence": (t.get("tempo") or {}).get("passes_per_sequence"),
@@ -573,7 +584,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                             fm = r["fpl"].get("minutes"); pm = r["pitchapi"]["min"]
                             if fm is not None and pm is not None and abs(fm - pm) > 5: cons.setdefault("pitch_minutes", []).append((r["name"], fm, pm))
             for r in rows:
-                if r["team"] in [c for pair in pitch_ids.values() for c in pair] and not r.get("pitchapi") and (r["fpl"].get("minutes") or 0) > 0:
+                if r["team"] in [c for pair in pitch_ids.values() for c in pair[:2]] and not r.get("pitchapi") and (r["fpl"].get("minutes") or 0) > 0:
                     r["pitchapi"] = {"unmatched": True}
         except Exception as e:
             warn["pitchapi"] = f"PitchAPI failed: {e}"
@@ -627,6 +638,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
             "tracked": {"owned": [el[i]["web_name"] for i in owned_ids if i in el], "pool": [el[i]["web_name"] for i in tracked if i not in owned_ids and i in el],
                         "pool_source": "pool.json (manual + auto rules)" if any(os.path.exists(c) for c in ("pool.json", os.path.join(out_dir, "..", "pool.json"))) else "auto rules only — pool.json not found in the repo"},
             "players": rows, "team_level": team_level, "consistency_flags": cons, "coverage": cov,
+            "pitchapi_all_players": pitch_all,
+            "understat_all_shots": {str(mid): {"home": v["home"], "away": v["away"], "date": v["date"], "shots": {side: [{k: sh.get(k) for k in ("id", "minute", "result", "X", "Y", "xG", "player", "player_id", "h_a", "situation", "shotType", "lastAction", "player_assisted")} for sh in ((v["match"] or {}).get("shots", {}) or {}).get(side, [])] for side in ("h", "a")}} for mid, v in us_all.items() if v.get("match")},
             # every player's official line for this GW — the raw material for the D-group percentiles (season store)
             "all_players_live": {str(pid): {k: st.get(k) for k in ["minutes", "total_points", "bps", "bonus", "goals_scored", "assists", "clean_sheets", "goals_conceded", "saves", "defensive_contribution",
                                                                      "clearances_blocks_interceptions", "recoveries", "tackles", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "starts"]}
@@ -1118,10 +1131,12 @@ def main():
         for ext in (".json", ".md"):
             with open(os.path.join(a.out, "latest_post" + ext), "w") as f: f.write(open(stem + ext).read())
         # C13 compact per-GW file for the SofaScore feeder (gen.py reads snapshots/pitchapi_gw{N}.json)
-        pa = {"gw": snap["gw"], "generated_utc": snap["generated_utc"], "players": {}, "teams": {}}
+        pa = {"gw": snap["gw"], "generated_utc": snap["generated_utc"], "players": dict(snap.get("pitchapi_all_players") or {}), "teams": {}}
         for r in snap.get("players", []):
             p = r.get("pitchapi")
             if p and not p.get("unmatched"): pa["players"][f"{r['name']} ({r['team']})"] = p
+        if snap.get("understat_all_shots"):
+            with open(os.path.join(a.out, f"shots_gw{snap['gw']}.json"), "w") as f: json.dump({"gw": snap["gw"], "matches": snap["understat_all_shots"]}, f, ensure_ascii=False)
         for code, tl in (snap.get("team_level") or {}).items():
             if tl.get("pitchapi"): pa["teams"][code] = tl["pitchapi"]
         if pa["players"] or pa["teams"]:
