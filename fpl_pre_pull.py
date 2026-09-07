@@ -32,6 +32,7 @@ class Source:
         self.offline = offline_dir
         self.prev_dir = prev_dir
         self.log = []  # (url, status, bytes, ms)
+        self.errs = {}  # url -> first 300 chars of a non-2xx body (diagnostics; added 7 Sep 2026 after the PitchAPI 403/500)
 
     def _get(self, url, headers=None):
         t0 = time.time()
@@ -49,6 +50,12 @@ class Source:
                 return json.loads(body.decode("utf-8", "replace"))
         except urllib.error.HTTPError as e:
             self.log.append((url, e.code, 0, int((time.time() - t0) * 1000)))
+            try:
+                eb = e.read()
+                if eb[:2] == b"\x1f\x8b": eb = gzip.decompress(eb)
+                self.errs[url] = eb.decode("utf-8", "replace")[:300]
+            except Exception:
+                pass
             return None
         except Exception as e:  # network / proxy / JSON
             self.log.append((url, f"ERR {type(e).__name__}", 0, int((time.time() - t0) * 1000)))
@@ -127,7 +134,14 @@ class Source:
         if not key:
             return None
         url = self.PITCH + path + (("?" + urllib.parse.urlencode(params)) if params else "")
-        return self._get(url, headers={**UA, "X-API-KEY": key, "Accept": "application/json"})
+        # docs: 500 = "retry with backoff", 429 = fair-use burst (Retry-After); two retries, 2 s then 6 s
+        for attempt in range(3):
+            j = self._get(url, headers={**UA, "X-API-KEY": key, "Accept": "application/json"})
+            if j is not None: return j
+            st = self.log[-1][1] if self.log and self.log[-1][0] == url else None
+            if not (isinstance(st, int) and (st >= 500 or st == 429)) or attempt == 2: return None
+            time.sleep(2 if attempt == 0 else 6)
+        return None
     # LiveFPL (.us JSON)
     def lf(self, name, gw=None):
         fname = "livefpl_" + name.replace("api/", "").replace(".json", "").replace(f"_{gw}", "") + ".json"
@@ -538,10 +552,21 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     pitch_players, pitch_teams, pitch_ids, pitch_ok, pitch_all = {}, {}, {}, 0, {}
     if os.environ.get("PITCHAPI_KEY") or src.offline:
         try:
-            lm = src.pitch(f"/leagues/{src.PITCH_PL}/matches", {"status": "played"}) or {}
-            mlist = lm.get("matches") if isinstance(lm, dict) else lm
             kos = [f["kickoff_time"][:10] for f in fx if f.get("kickoff_time")]
             d0, d1 = (min(kos), max(kos)) if kos else (None, None)
+            lm = src.pitch(f"/leagues/{src.PITCH_PL}/matches", {"status": "played"}) or {}
+            mlist = lm.get("matches") if isinstance(lm, dict) else lm
+            if not mlist:
+                # fallback (7 Sep 2026: the league list answered 403, then 500, from the runner): /v1/date/{date} per kickoff date of the GW, PL only
+                mlist = []
+                for d in sorted(set(kos)):
+                    dj = src.pitch(f"/date/{d}", {"status": "played"}) or {}
+                    for m in (dj.get("matches") if isinstance(dj, dict) else dj) or []:
+                        lg_ = m.get("league") or m.get("competition") or {}
+                        lid = lg_.get("id") if isinstance(lg_, dict) else lg_
+                        if lid and str(lid) != src.PITCH_PL: continue
+                        mlist.append(m)
+                if mlist: warn["pitchapi_source"] = f"league list unavailable — used /v1/date/{{d}} for {len(set(kos))} date(s)"
             for m in (mlist or []):
                 dt = str(m.get("date") or m.get("kickoff") or m.get("utc_date") or m.get("kickoff_time") or "")[:10]
                 ht = (m.get("home_team") or m.get("home") or {}); at = (m.get("away_team") or m.get("away") or {})
@@ -619,7 +644,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     st_("C12", n_fm == n, n_fm > 0, "FotMob total/on-target shots, big chances; Understat shots", "")
     n_pa = sum(1 for r in played if r.get("pitchapi") and not r["pitchapi"].get("unmatched"))
     if os.environ.get("PITCHAPI_KEY") or src.offline:
-        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + (f"; {warn.get('pitchapi')}" if warn.get("pitchapi") else ""))
+        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + (f"; {warn.get('pitchapi')}" if warn.get("pitchapi") else "") + (f"; {warn.get('pitchapi_source')}" if warn.get("pitchapi_source") else ""))
     else:
         st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat)", "PitchAPI integration present but PITCHAPI_KEY secret not set — add it to enable SCA/GCA/xT/progressive actions")
     st_("C14", True, True, "event/N/live cards", "")
@@ -644,7 +669,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
             "all_players_live": {str(pid): {k: st.get(k) for k in ["minutes", "total_points", "bps", "bonus", "goals_scored", "assists", "clean_sheets", "goals_conceded", "saves", "defensive_contribution",
                                                                      "clearances_blocks_interceptions", "recoveries", "tackles", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "starts"]}
                                  for pid, st in ((e_["id"], e_["stats"]) for e_ in live["elements"])},
-            "fetch_log": [{"url": u, "status": s_, "bytes": b, "ms": ms} for (u, s_, b, ms) in src.log]}
+            "fetch_log": [dict({"url": u, "status": s_, "bytes": b, "ms": ms}, **({"error_body": src.errs[u]} if u in src.errs else {})) for (u, s_, b, ms) in src.log]}
     return snap, None
 
 
@@ -1000,7 +1025,7 @@ def build(src, force=False, window_h=30.0):
         "gw_next": N, "gw_last": last_gw, "in_pre_window": in_window,
         "A1_owned": owned, "pool": pool, "A2_bank_ft_chips": a2, "A7_flow": flow, "A9_rank": a9, "A10_flags": a10,
         "coverage": cov, "consistency": consistency, "warnings": warn,
-        "fetch_log": [{"url": u, "status": s, "bytes": b, "ms": ms} for (u, s, b, ms) in src.log],
+        "fetch_log": [dict({"url": u, "status": s, "bytes": b, "ms": ms}, **({"error_body": src.errs[u]} if u in src.errs else {})) for (u, s, b, ms) in src.log],
         "transfers_made": transfers or [],
     }
     return snap
