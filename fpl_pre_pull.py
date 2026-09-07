@@ -137,7 +137,9 @@ class Source:
         # docs: 500 = "retry with backoff", 429 = fair-use burst (Retry-After); two retries, 2 s then 6 s
         for attempt in range(3):
             j = self._get(url, headers={**UA, "X-API-KEY": key, "Accept": "application/json"})
-            if j is not None: return j
+            if j is not None:
+                # every PitchAPI response is wrapped in {"data": ...} (docs; found 7 Sep 2026 — the callers read .matches/.players/.teams directly)
+                return j["data"] if isinstance(j, dict) and "data" in j else j
             st = self.log[-1][1] if self.log and self.log[-1][0] == url else None
             if not (isinstance(st, int) and (st >= 500 or st == 429)) or attempt == 2: return None
             time.sleep(2 if attempt == 0 else 6)
@@ -568,7 +570,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                         mlist.append(m)
                 if mlist: warn["pitchapi_source"] = f"league list unavailable — used /v1/date/{{d}} for {len(set(kos))} date(s)"
             for m in (mlist or []):
-                dt = str(m.get("date") or m.get("kickoff") or m.get("utc_date") or m.get("kickoff_time") or "")[:10]
+                dt = str(m.get("time_utc") or m.get("date") or m.get("kickoff") or m.get("utc_date") or m.get("kickoff_time") or "")[:10]
                 ht = (m.get("home_team") or m.get("home") or {}); at = (m.get("away_team") or m.get("away") or {})
                 h = _pitch_code(ht.get("name") if isinstance(ht, dict) else ht); a = _pitch_code(at.get("name") if isinstance(at, dict) else at)
                 if d0 and d1 and not (d0 <= dt <= d1): continue
