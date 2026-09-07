@@ -34,7 +34,7 @@ class Source:
         self.log = []  # (url, status, bytes, ms)
         self.errs = {}  # url -> first 300 chars of a non-2xx body (diagnostics; added 7 Sep 2026 after the PitchAPI 403/500)
 
-    def _get(self, url, headers=None):
+    def _get(self, url, headers=None, _retry=True):
         t0 = time.time()
         hdr = dict(headers or UA)
         try:
@@ -59,6 +59,9 @@ class Source:
             return None
         except Exception as e:  # network / proxy / JSON
             self.log.append((url, f"ERR {type(e).__name__}", 0, int((time.time() - t0) * 1000)))
+            if _retry and not isinstance(e, ValueError):   # one retry after 2 s on a transient network error (FotMob URLError, 7 Sep 2026); JSON errors are not retried
+                time.sleep(2)
+                return self._get(url, headers=headers, _retry=False)
             return None
 
     def _file(self, name):
@@ -615,7 +618,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                                              "prog_passes": pa.get("progressive_passes"), "passes_into_box": pa.get("passes_into_box"), "key_passes": pa.get("key_passes"),
                                              "prog_carries": ca.get("progressive_carries"), "carries_into_box": ca.get("carries_into_box"), "take_ons": ca.get("take_ons"), "take_ons_won": ca.get("take_ons_won")}
                             fm = r["fpl"].get("minutes"); pm = r["pitchapi"]["min"]
-                            if fm is not None and pm is not None and abs(fm - pm) > 5: cons.setdefault("pitch_minutes", []).append((r["name"], fm, pm))
+                            # PitchAPI minutes include stoppage time (96 for a full match); FPL caps at 90 — a full match on both sides is not a disagreement (decided 7 Sep 2026)
+                            if fm is not None and pm is not None and abs(fm - pm) > 5 and not (fm >= 90 and 90 <= pm <= 100): cons.setdefault("pitch_minutes", []).append((r["name"], fm, pm))
             for r in rows:
                 if r["club"] in [c for pair in pitch_ids.values() for c in pair[:2]] and not r.get("pitchapi") and (r["fpl"].get("minutes") or 0) > 0:
                     r["pitchapi"] = {"unmatched": True}
