@@ -117,6 +117,17 @@ class Source:
         return self._file("fotmob_leagues.json") if self.offline else self._get(f"https://www.fotmob.com/api/data/leagues?id=47&season={urllib.parse.quote(season, safe='')}", headers=self.FM_H)
     def fotmob_match(self, mid):
         return self._file(f"fotmob_match_{mid}.json") if self.offline else self._get(f"https://www.fotmob.com/api/data/matchDetails?matchId={mid}", headers=self.FM_H)
+    # PitchAPI (added 6 Sep 2026, C13): free key in env PITCHAPI_KEY (GitHub secret). SCA/GCA/xT/progressive actions per player per match; PPDA/field tilt per team.
+    PITCH = "https://api.pitchapi.dev/v1"
+    PITCH_PL = "l_4Kd0Wq"
+    def pitch(self, path, params=None):
+        key = os.environ.get("PITCHAPI_KEY")
+        if self.offline:
+            return self._file("pitch_" + path.strip("/").replace("/", "_") + ".json")
+        if not key:
+            return None
+        url = self.PITCH + path + (("?" + urllib.parse.urlencode(params)) if params else "")
+        return self._get(url, headers={"X-API-KEY": key, "Accept": "application/json"})
     # LiveFPL (.us JSON)
     def lf(self, name, gw=None):
         fname = "livefpl_" + name.replace("api/", "").replace(".json", "").replace(f"_{gw}", "") + ".json"
@@ -363,6 +374,15 @@ def load_pool(bs, top10k, out_dir, owned_ids):
     return sorted(pool), reasons
 
 
+PITCH_KEYS = [("arsenal","ARS"),("aston","AVL"),("bournemouth","BOU"),("brentford","BRE"),("brighton","BHA"),("chelsea","CHE"),("coventry","COV"),("palace","CRY"),
+              ("everton","EVE"),("fulham","FUL"),("hull","HUL"),("ipswich","IPS"),("leeds","LEE"),("liverpool","LIV"),("manchester city","MCI"),("man city","MCI"),
+              ("manchester united","MUN"),("man united","MUN"),("man utd","MUN"),("newcastle","NEW"),("forest","NFO"),("sunderland","SUN"),("tottenham","TOT"),("spurs","TOT")]
+def _pitch_code(name):
+    n = _norm(name or "")
+    for k, c in PITCH_KEYS:
+        if k in n: return c
+    return None
+
 def _norm(sname):
     return "".join(c for c in unicodedata.normalize("NFKD", sname or "") if not unicodedata.combining(c)).lower().replace(".", " ").replace("'", " ")
 
@@ -511,6 +531,52 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
         fp = row["consistency"]["fpl_points_vs_fotmob_fantasy"]
         if fp[1] is not None and fp[0] != fp[1]: cons["points"].append((row["name"], fp))
         rows.append(row)
+    # ----- PitchAPI (C13): SCA/GCA/xT/progressive actions per tracked player; PPDA/field tilt per club (added 6 Sep 2026)
+    pitch_players, pitch_teams, pitch_ids, pitch_ok = {}, {}, {}, 0
+    if os.environ.get("PITCHAPI_KEY") or src.offline:
+        try:
+            lm = src.pitch(f"/leagues/{src.PITCH_PL}/matches", {"status": "played"}) or {}
+            mlist = lm.get("matches") if isinstance(lm, dict) else lm
+            kos = [f["kickoff_time"][:10] for f in fx if f.get("kickoff_time")]
+            d0, d1 = (min(kos), max(kos)) if kos else (None, None)
+            for m in (mlist or []):
+                dt = str(m.get("date") or m.get("kickoff") or m.get("utc_date") or m.get("kickoff_time") or "")[:10]
+                ht = (m.get("home_team") or m.get("home") or {}); at = (m.get("away_team") or m.get("away") or {})
+                h = _pitch_code(ht.get("name") if isinstance(ht, dict) else ht); a = _pitch_code(at.get("name") if isinstance(at, dict) else at)
+                if d0 and d1 and not (d0 <= dt <= d1): continue
+                if h and a and (h in clubs or a in clubs): pitch_ids[str(m.get("id") or m.get("match_id"))] = (h, a)
+            for mid, (h, a) in pitch_ids.items():
+                adv = src.pitch(f"/matches/{mid}/advanced/players") or {}
+                plist = adv.get("players") if isinstance(adv, dict) else adv
+                if not plist: continue
+                pitch_ok += 1
+                tm = src.pitch(f"/matches/{mid}/advanced") or {}
+                for t in (tm.get("teams") or []):
+                    code = _pitch_code((t.get("team") or {}).get("name"))
+                    if code in clubs:
+                        pitch_teams[code] = {"match_id": mid, "ppda": (t.get("defending") or {}).get("ppda"), "field_tilt": (t.get("territory") or {}).get("field_tilt"), "possession_pct": (t.get("territory") or {}).get("possession_pct"),
+                                             "final_third_entries": (t.get("territory") or {}).get("final_third_entries"), "box_entries": (t.get("territory") or {}).get("box_entries"),
+                                             "direct_speed": (t.get("tempo") or {}).get("direct_speed"), "passes_per_sequence": (t.get("tempo") or {}).get("passes_per_sequence"),
+                                             "sca": (t.get("creation") or {}).get("sca"), "gca": (t.get("creation") or {}).get("gca"), "pv_offensive": (t.get("possession_value") or {}).get("pv_offensive")}
+                for code, side in ((h, "home"), (a, "away")):
+                    if code not in clubs: continue
+                    for r in rows:
+                        if r["team"] != code or r.get("pitchapi"): continue
+                        cand, sc = _match_name(el[r["id"]], plist, key=lambda p: ((p.get("player") or {}).get("name") or ""))
+                        if cand and sc >= 1:
+                            cr, pa, ca, pv = cand.get("creation") or {}, cand.get("passing") or {}, cand.get("carrying") or {}, cand.get("possession_value") or {}
+                            r["pitchapi"] = {"match_id": mid, "name": (cand.get("player") or {}).get("name"), "match_score": sc, "min": cand.get("minutes_played"),
+                                             "sca": cr.get("sca"), "gca": cr.get("gca"), "sca_breakdown": cr.get("sca_breakdown"), "chances_created": cr.get("chances_created"), "xag": cr.get("xag"), "xg_chain": cr.get("xg_chain"), "xg_buildup": cr.get("xg_buildup"),
+                                             "xt_off": pv.get("pv_offensive"), "xt_def": pv.get("pv_defensive"),
+                                             "prog_passes": pa.get("progressive_passes"), "passes_into_box": pa.get("passes_into_box"), "key_passes": pa.get("key_passes"),
+                                             "prog_carries": ca.get("progressive_carries"), "carries_into_box": ca.get("carries_into_box"), "take_ons": ca.get("take_ons"), "take_ons_won": ca.get("take_ons_won")}
+                            fm = r["fpl"].get("minutes"); pm = r["pitchapi"]["min"]
+                            if fm is not None and pm is not None and abs(fm - pm) > 5: cons.setdefault("pitch_minutes", []).append((r["name"], fm, pm))
+            for r in rows:
+                if r["team"] in [c for pair in pitch_ids.values() for c in pair] and not r.get("pitchapi") and (r["fpl"].get("minutes") or 0) > 0:
+                    r["pitchapi"] = {"unmatched": True}
+        except Exception as e:
+            warn["pitchapi"] = f"PitchAPI failed: {e}"
     # ----- team-level (free from the same calls)
     team_level = {}
     for club, um in us_matches.items():
@@ -520,6 +586,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
             if club in clubs:
                 tl = team_level.setdefault(club, {})
                 tl["fotmob"] = {"match_id": mid, "referee": m["referee"], "referee_stats": m["referee_stats"], "stats": [{"title": st.get("title"), "stats": st.get("stats")} for grp in m["stats"] for st in (grp.get("stats") or []) if any(k in (st.get("title") or "") for k in ("Expected goals", "xG", "Ball possession", "Total shots", "Corners", "Big chances", "Offsides", "Crosses", "Fouls", "Yellow", "Red"))]}
+    for code, t in pitch_teams.items():
+        team_level.setdefault(code, {})["pitchapi"] = t
     # ----- coverage C1–C19
     played = [r for r in rows if (r["fpl"].get("minutes") or 0) > 0]      # a player who did not appear has no provider row to match
     n_us = sum(1 for r in played if r.get("understat") and not r["understat"].get("unmatched")); n_fm = sum(1 for r in played if r.get("fotmob") and not r["fotmob"].get("unmatched"))
@@ -538,7 +606,11 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     st_("C10", n_fm == n, n_fm > 0, "FPL saves; goals prevented needs xGOT faced (FotMob/SofaScore GK stats)", "GK-only")
     st_("C11", n_us == n and n_fm == n, True, "FPL own xG/xA/xGI + Understat + FotMob(Opta)", "three models; FotMob and SofaScore share the Opta feed — count them as ONE provider")
     st_("C12", n_fm == n, n_fm > 0, "FotMob total/on-target shots, big chances; Understat shots", "")
-    st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat); passes into final third, touches in box (FotMob)", "xT, SCA, GCA, deep completions, zone-14: FBref only — Cloudflare-blocked, attended")
+    n_pa = sum(1 for r in played if r.get("pitchapi") and not r["pitchapi"].get("unmatched"))
+    if os.environ.get("PITCHAPI_KEY") or src.offline:
+        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + (f"; {warn.get('pitchapi')}" if warn.get("pitchapi") else ""))
+    else:
+        st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat)", "PitchAPI integration present but PITCHAPI_KEY secret not set — add it to enable SCA/GCA/xT/progressive actions")
     st_("C14", True, True, "event/N/live cards", "")
     st_("C15", n_us == n, n_us + n_fm > 0, "Understat shot list (X, Y, xG, result, situation, body, last action) + FotMob shotmap (xGOT)", "")
     st_("C16", False, False, "SofaScore /event/{id}/player/{pid}/heatmap — browser only", "not scriptable; attended POST step or device-bound task")
@@ -571,6 +643,16 @@ def brief_post(s):
     L.append("| # | Param | Status | What is needed |\n|---|---|---|---|")
     for i, g in enumerate(R["gate_items"], 1): L.append(f"| {i} | {g['param']} | {g['status']} | {g['needs']} |")
     L.append(f"\nSources: Understat clubs {s['sources_ok']['understat_clubs']}, FotMob matches {s['sources_ok']['fotmob_matches']}.\n")
+    pa_rows = [r for r in snap.get("players", []) if r.get("pitchapi") and not r["pitchapi"].get("unmatched")]
+    if pa_rows:
+        L.append("## PitchAPI (C13) — creation and progression, last GW\n")
+        L.append("| Player | Min | SCA | GCA | xAG | xT off | xG chain / build-up | Prog passes | Into box | Prog carries | Carries into box | Take-ons |\n|---|---|---|---|---|---|---|---|---|---|---|---|")
+        for r in pa_rows:
+            p = r["pitchapi"]
+            L.append(f"| {r['name']} ({r['team']}) | {p.get('min')} | {p.get('sca')} | {p.get('gca')} | {p.get('xag')} | {p.get('xt_off')} | {p.get('xg_chain')} / {p.get('xg_buildup')} | {p.get('prog_passes')} | {p.get('passes_into_box')} | {p.get('prog_carries')} | {p.get('carries_into_box')} | {p.get('take_ons_won')}/{p.get('take_ons')} |")
+        tl = snap.get("team_level") or {}
+        tt = [(c, t["pitchapi"]) for c, t in tl.items() if t.get("pitchapi")]
+        if tt: L.append("\nTeam (PitchAPI): " + "; ".join(f"{c} PPDA {t.get('ppda')}, field tilt {t.get('field_tilt')}, box entries {t.get('box_entries')}, direct speed {t.get('direct_speed')}" for c, t in tt) + "\n")
     L.append("## Tracked players — per-match facts (owned first, then pool)\n")
     L.append("| Player | Opp | Min FPL/US/FM | Pts | G/A | xG FPL / US / Opta | xA US / Opta | Shots (SoT) | KP | DefCon (CBI+R+T) | BPS/Bonus | Sub | Ref |")
     L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
@@ -1035,6 +1117,15 @@ def main():
         with open(stem + ".md", "w") as f: f.write(brief_post(snap))
         for ext in (".json", ".md"):
             with open(os.path.join(a.out, "latest_post" + ext), "w") as f: f.write(open(stem + ext).read())
+        # C13 compact per-GW file for the SofaScore feeder (gen.py reads snapshots/pitchapi_gw{N}.json)
+        pa = {"gw": snap["gw"], "generated_utc": snap["generated_utc"], "players": {}, "teams": {}}
+        for r in snap.get("players", []):
+            p = r.get("pitchapi")
+            if p and not p.get("unmatched"): pa["players"][f"{r['name']} ({r['team']})"] = p
+        for code, tl in (snap.get("team_level") or {}).items():
+            if tl.get("pitchapi"): pa["teams"][code] = tl["pitchapi"]
+        if pa["players"] or pa["teams"]:
+            with open(os.path.join(a.out, f"pitchapi_gw{snap['gw']}.json"), "w") as f: json.dump(pa, f, indent=1, ensure_ascii=False)
         print(f"wrote {stem}.json / .md  (coverage: " + ", ".join(f"{k}={v['status']}" for k, v in snap["coverage"].items()) + f") gate={snap['readiness']['verdict']}")
         return
     snap = build(src, force=a.force, window_h=a.window_hours)
