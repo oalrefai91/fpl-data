@@ -556,6 +556,11 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
         try:
             kos = [f["kickoff_time"][:10] for f in fx if f.get("kickoff_time")]
             d0, d1 = (min(kos), max(kos)) if kos else (None, None)
+            # resolve the real Premier League id from /v1/leagues (the docs' l_4Kd0Wq is a placeholder; a wrong id answers 500 "plan access check failed" — 7 Sep 2026)
+            lgs = src.pitch("/leagues") or {}
+            for lg_ in (lgs.get("leagues") if isinstance(lgs, dict) else lgs) or []:
+                if isinstance(lg_, dict) and lg_.get("name") == "Premier League" and str(lg_.get("country_code", "")).upper() in ("ENG", "GB-ENG", "ENGLAND"):
+                    src.PITCH_PL = lg_["id"]; warn["pitchapi_league"] = f"PL id resolved from /v1/leagues: {lg_['id']}"; break
             lm = src.pitch(f"/leagues/{src.PITCH_PL}/matches", {"status": "played"}) or {}
             mlist = lm.get("matches") if isinstance(lm, dict) else lm
             if not mlist:
@@ -569,6 +574,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
                         if lid and str(lid) != src.PITCH_PL: continue
                         mlist.append(m)
                 if mlist: warn["pitchapi_source"] = f"league list unavailable — used /v1/date/{{d}} for {len(set(kos))} date(s)"
+                else: warn["pitchapi_leagues_seen"] = sorted({f"{(m.get('league') or {}).get('id')}:{(m.get('league') or {}).get('name')}" for d in sorted(set(kos)) for m in ((src.pitch(f"/date/{d}", {"status": "played"}) or {}).get("matches") or []) if isinstance(m.get("league"), dict)})[:60]
             for m in (mlist or []):
                 dt = str(m.get("time_utc") or m.get("date") or m.get("kickoff") or m.get("utc_date") or m.get("kickoff_time") or "")[:10]
                 ht = (m.get("home_team") or m.get("home") or {}); at = (m.get("away_team") or m.get("away") or {})
@@ -646,7 +652,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None):
     st_("C12", n_fm == n, n_fm > 0, "FotMob total/on-target shots, big chances; Understat shots", "")
     n_pa = sum(1 for r in played if r.get("pitchapi") and not r["pitchapi"].get("unmatched"))
     if os.environ.get("PITCHAPI_KEY") or src.offline:
-        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + (f"; {warn.get('pitchapi')}" if warn.get("pitchapi") else "") + (f"; {warn.get('pitchapi_source')}" if warn.get("pitchapi_source") else ""))
+        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + "".join(f"; {warn[k]}" for k in ("pitchapi", "pitchapi_league", "pitchapi_source", "pitchapi_leagues_seen") if warn.get(k)))
     else:
         st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat)", "PitchAPI integration present but PITCHAPI_KEY secret not set — add it to enable SCA/GCA/xT/progressive actions")
     st_("C14", True, True, "event/N/live cards", "")
