@@ -36,13 +36,15 @@ jobs:
 
       - name: Pull group C (POST — last finished GW, once data_checked)
         # Runs on every cron; exits quietly until the last GW is finished+data_checked, and only writes one POST snapshot per GW.
+        # "Run workflow" with force=true also forces a POST re-pull of the current GW (a second GW{N}_POST stamp; latest_post is overwritten).
         # continue-on-error (not `|| true`): a crash shows as a red step in the Actions log while the PRE snapshot is still committed.
         # PITCHAPI_KEY (repo secret, free key from pitchapi.dev) enables C13 — SCA/GCA/xT/progressive actions; the script skips PitchAPI cleanly when it is absent.
         continue-on-error: true
         env:
           PITCHAPI_KEY: ${{ secrets.PITCHAPI_KEY }}
         run: |
-          python3 fpl_pre_pull.py --mode post --out snapshots
+          FORCE_ARG=""; [ "${{ inputs.force }}" = "true" ] && FORCE_ARG="--force"
+          python3 fpl_pre_pull.py --mode post --out snapshots $FORCE_ARG
 
       - name: Commit snapshot
         run: |
