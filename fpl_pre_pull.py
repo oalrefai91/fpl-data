@@ -185,6 +185,31 @@ FIFA_WINDOWS = [("2026-09-21", "2026-10-06", "Sep/Oct merged window (16 days, up
                 ("2027-03-22", "2027-03-30", "March window [PROJECTED — confirm on FIFA calendar]")]
 
 
+# ----------------------------------------------------------------------------- accepted states (user decisions)
+# A parameter listed here is EXPECTED to be non-OK in the runner's own coverage: it is automated elsewhere, read by the attended
+# session, note-only, or dropped by Osama. It never blocks the gate and is rendered under "Expected — accepted, no decision needed"
+# with the reason, so the same question is never asked twice (user request, 8 Sep 2026). Mirror of the register in data-inventory.md.
+ACCEPTED = {
+    "A1":  ("READ-FIRST", "attended session reads the my-team List view (CP/PP/SP, bank) from Osama's Chrome before the model (pre-gate rule 3a); the DERIVED value here is the unattended fallback — not a question"),
+    "A2":  ("READ-FIRST", "attended session reads free transfers and chips from /en/transfers; DERIVED here is the fallback — not a question"),
+    "A8":  ("ATTENDED READ", "LiveFPL Safety Score / Template Rating are read in the browser pane by the attended session; never scriptable — not a question"),
+    "A11": ("ONE-SHOT TEST", "live bonus/rank test decided as a one-shot on a match day; not a weekly gate item"),
+    "B7":  ("NOTE ONLY", "international call-ups come from the Tuesday SofaScore feeder (intl.json) and the Dinnery pull; notes only, never a Minutes change (user rule 5 Sep 2026)"),
+    "C3":  ("FEEDER", "substitution reasons are derived by gen.py from SofaScore incidents (Tuesday feeder); the runner only sees FotMob events"),
+    "C5":  ("FEEDER", "starter baseline (last-3 ×3, older ×1, injured excluded, contested slots) is computed by gen.py from SofaScore lineups; not a runner item"),
+    "C10": ("FEEDER", "goals prevented / saves / claims per match come from the SofaScore feeder gk rows; the runner has FPL saves only"),
+    "C16": ("FEEDER", "per-match heat maps for every player come from the SofaScore feeder (Block B-ext); the runner cannot reach SofaScore"),
+    "C19": ("FEEDER", "through balls, progressive carries, offsides per player come from the SofaScore feeder ext stats; the runner's FotMob part is the cross-check"),
+}
+def split_accepted(hold):
+    """Move accepted parameters out of the gate list; returns (gate_items, expected_items)."""
+    gate, exp = [], []
+    for g in hold:
+        a = ACCEPTED.get(g["param"])
+        if a: exp.append({"param": g["param"], "status": f"EXPECTED — {a[0]}", "source": g.get("source"), "why": a[1], "runner_status": g["status"]})
+        else: gate.append(g)
+    return gate, exp
+
 def build_schedule(src, bs, N, teams, cov, warn, prev):
     """Group B: fixtures, FDR, DGW/BGW, deadlines, breaks, cups, rest days, weather, referees."""
     from datetime import timedelta
@@ -667,11 +692,12 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
     st_("C18", n_fm == n, n_fm > 0, "FotMob tackles/interceptions/clearances/blocks/aerials/recoveries", "")
     st_("C19", False, n_fm > 0, "FotMob accurate crosses, dribbles, passes into final third", "through balls, progressive carries, offsides per player: SofaScore (browser) or FBref (blocked)")
     hold = [{"param": k, "status": c["status"], "source": c["source"], "needs": c["note"] or "confirm", "options": ["provide a source URL", "paste the data manually", "skip this GW (output is labelled with the gap)", "abort"]} for k, c in cov.items() if not c["status"].startswith("OK")]
+    hold, expected = split_accepted(hold)
     for r in played:
         if r.get("understat", {}).get("unmatched") or r.get("fotmob", {}).get("unmatched"):
             hold.append({"param": f"NAME-MATCH {r['name']}", "status": "UNMATCHED", "source": "provider roster", "needs": "confirm the provider's spelling of this player and add to the crosswalk", "options": ["paste the name", "skip", "abort"]})
     snap = {"generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live", "cadence": "POST", "gw": L,
-            "readiness": {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "rule": "POST facts feed Form/Minutes; anything not OK needs a human decision before the next PRE run uses it"},
+            "readiness": {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "expected_items": expected, "rule": "POST facts feed Form/Minutes; anything not OK needs a human decision before the next PRE run uses it. Items under Expected are accepted states (automated elsewhere / attended / note-only / dropped) and are never questions."},
             "sources_ok": {"understat_clubs": f"{us_ok}/{len(US_TITLE)}", "fotmob_matches": f"{fm_ok}/{len(fm_ids)}"},
             "tracked": {"owned": [el[i]["web_name"] for i in owned_ids if i in el], "pool": [el[i]["web_name"] for i in tracked if i not in owned_ids and i in el],
                         "pool_source": "pool.json (manual + auto rules)" if any(os.path.exists(c) for c in ("pool.json", os.path.join(out_dir, "..", "pool.json"))) else "auto rules only — pool.json not found in the repo"},
@@ -693,6 +719,10 @@ def brief_post(s):
     L.append(f"## ⛔ GATE: {R['verdict']} — {len(R['gate_items'])} item(s)\n")
     L.append("| # | Param | Status | What is needed |\n|---|---|---|---|")
     for i, g in enumerate(R["gate_items"], 1): L.append(f"| {i} | {g['param']} | {g['status']} | {g['needs']} |")
+    if R.get("expected_items"):
+        L.append("\n### Expected — accepted states, no decision needed (never ask about these)\n")
+        L.append("| Param | Tag | Runner sees | Why it is expected |\n|---|---|---|---|")
+        for g in R["expected_items"]: L.append(f"| {g['param']} | {g['status']} | {g['runner_status']} | {g['why']} |")
     L.append(f"\nSources: Understat clubs {s['sources_ok']['understat_clubs']}, FotMob matches {s['sources_ok']['fotmob_matches']}.\n")
     pa_rows = [r for r in s.get("players", []) if r.get("pitchapi") and not r["pitchapi"].get("unmatched")]
     if pa_rows:
@@ -1028,7 +1058,8 @@ def build(src, force=False, window_h=30.0):
         hold.append({"param": "FRESHNESS", "status": "STALE", "source": "snapshot timing", "needs": f"snapshot is {round(hours_to_deadline,1)} h from the deadline (outside the {window_h} h window) — re-run the pull",
                      "options": ["re-run the pull", "proceed with this snapshot (labelled STALE)", "abort"]})
     # A4–A6 baseline is no longer a gate question (decided 5 Sep 2026): GW{last} actuals are the BASELINE, eo_top10k_projected the [PROJECTED] value.
-    readiness = {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "freshness": freshness,
+    hold, expected = split_accepted(hold)
+    readiness = {"verdict": "HOLD" if hold else "GO", "gate_items": hold, "expected_items": expected, "freshness": freshness,
                  "rule": "The selection model must not run while verdict is HOLD. Each gate item needs an explicit human choice; PARTIAL and DERIVED are not silently accepted."}
 
     snap = {
@@ -1055,6 +1086,10 @@ def brief(s):
         L.append("| # | Param | Status | What is needed | Options |\n|---|---|---|---|---|")
         for i, g in enumerate(R["gate_items"], 1):
             L.append(f"| {i} | {g['param']} | {g['status']} | {g['needs']} | {' / '.join(g['options'])} |")
+        if R.get("expected_items"):
+            L.append("\n### Expected — accepted states, no decision needed (never ask about these)\n")
+            L.append("| Param | Tag | Runner sees | Why it is expected |\n|---|---|---|---|")
+            for g in R["expected_items"]: L.append(f"| {g['param']} | {g['status']} | {g['runner_status']} | {g['why']} |")
         fr = R["freshness"]
         L.append(f"\nFreshness: snapshot {fr['snapshot_generated_utc']}, {fr['hours_to_deadline']} h to deadline, in PRE window = {fr['in_pre_window']}; cohort data = GW{fr['cohort_data_gw']}.\n")
     a10 = s["A10_flags"]
