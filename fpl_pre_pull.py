@@ -543,12 +543,23 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
             mlist = lm.get("matches") if isinstance(lm, dict) else lm
             kos = [f["kickoff_time"][:10] for f in fx if f.get("kickoff_time")]
             d0, d1 = (min(kos), max(kos)) if kos else (None, None)
-            for m in (mlist or []):
+            def _add_pitch(m):
                 dt = str(m.get("date") or m.get("kickoff") or m.get("utc_date") or m.get("kickoff_time") or "")[:10]
                 ht = (m.get("home_team") or m.get("home") or {}); at = (m.get("away_team") or m.get("away") or {})
                 h = _pitch_code(ht.get("name") if isinstance(ht, dict) else ht); a = _pitch_code(at.get("name") if isinstance(at, dict) else at)
-                if d0 and d1 and not (d0 <= dt <= d1): continue
+                if d0 and d1 and not (d0 <= dt <= d1): return
                 if h and a: pitch_ids[str(m.get("id") or m.get("match_id"))] = (h, a, (ht.get("id") if isinstance(ht, dict) else None), (at.get("id") if isinstance(at, dict) else None))
+            for m in (mlist or []): _add_pitch(m)
+            if not pitch_ids and kos:
+                # back-fill fallback (8 Sep 2026): the league list did not return the GW's matches (GW1 back-fill found 0) — walk /v1/date/{date} for each kickoff date
+                for d in sorted(set(kos)):
+                    dm = src.pitch(f"/date/{d}") or {}
+                    dl = dm.get("matches") if isinstance(dm, dict) else dm
+                    for m in (dl or []):
+                        lg = m.get("league") or m.get("competition") or {}
+                        lname = (lg.get("name") if isinstance(lg, dict) else str(lg)) or ""; lid = str(lg.get("id")) if isinstance(lg, dict) else ""
+                        if lid == str(src.PITCH_PL) or "Premier League" in lname: _add_pitch(m)
+                warn["pitch_fallback"] = f"league list empty for the window {d0}..{d1}; /date walk found {len(pitch_ids)} matches"
             # pitch_all: every player of every match → per-GW file, so a player tracked later still has his C13 history
             for mid, (h, a, hid, aid) in pitch_ids.items():
                 adv = src.pitch(f"/matches/{mid}/advanced/players") or {}
@@ -620,7 +631,7 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
     st_("C12", n_fm == n, n_fm > 0, "FotMob total/on-target shots, big chances; Understat shots", "")
     n_pa = sum(1 for r in played if r.get("pitchapi") and not r["pitchapi"].get("unmatched"))
     if os.environ.get("PITCHAPI_KEY") or src.offline:
-        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + (f"; {warn.get('pitchapi')}" if warn.get("pitchapi") else ""))
+        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + (f"; {warn.get('pitchapi')}" if warn.get("pitchapi") else "") + (f"; {warn.get('pitch_fallback')}" if warn.get("pitch_fallback") else ""))
     else:
         st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat)", "PitchAPI integration present but PITCHAPI_KEY secret not set — add it to enable SCA/GCA/xT/progressive actions")
     st_("C14", True, True, "event/N/live cards", "")
@@ -1139,7 +1150,7 @@ def main():
             sp = os.path.join(a.out, f"shots_gw{snap['gw']}.json")
             if snap.get("understat_all_shots") and not os.path.exists(sp):
                 with open(sp, "w") as f: json.dump({"gw": snap["gw"], "matches": snap["understat_all_shots"]}, f, ensure_ascii=False)
-            print(f"back-fill GW{snap['gw']}: pitchapi players {len(pa['players'])}, teams {len(pa['teams'])}; C13={snap['coverage'].get('C13',{}).get('status')}")
+            print(f"back-fill GW{snap['gw']}: pitchapi players {len(pa['players'])}, teams {len(pa['teams'])}; C13={snap['coverage'].get('C13',{}).get('status')}; note: {snap['coverage'].get('C13',{}).get('note')}")
             return
         stem = os.path.join(a.out, f"GW{snap['gw']}_POST_{snap['generated_utc'].replace(':','').replace('-','')}")
         with open(stem + ".json", "w") as f: json.dump(snap, f, indent=1, ensure_ascii=False)
