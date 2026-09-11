@@ -1,7 +1,8 @@
 # Save as  .github/workflows/fpl-pre-pull.yml  in a PUBLIC GitHub repo that also contains fpl_pre_pull.py (public: the Claude scheduled task reads raw.githubusercontent.com without a token; the snapshot holds only data the FPL API already exposes publicly — the cookie stays in Secrets, never in the repo)
 #
 # Fires three times a day (UTC). The script itself decides whether it is inside the PRE window
-# (default: within 30 h of the next FPL deadline) and exits quietly otherwise, so a fixed cron
+# (set to 40 h below via --window-hours; the 30 h default missed the 06:00 UTC Friday cron when the
+# Saturday deadline moved to 12:30 UTC on 12 Sep 2026) and exits quietly otherwise, so a fixed cron
 # gives you deadline-relative snapshots at roughly T-28h, T-22h, T-16h, T-10h, T-4h for a Saturday
 # 11:00 UK deadline, and T-25h / T-19h / T-13h / T-7h / T-1h for a Friday 18:30 UK deadline.
 # Use "Run workflow" in the Actions tab with force=true to pull outside the window.
@@ -44,7 +45,7 @@ jobs:
         # transfers and chips are derived (see the script docstring for why my-team/ cannot be scripted).
         run: |
           FORCE_ARG=""; [ "${{ inputs.force }}" = "true" ] && FORCE_ARG="--force"
-          python3 fpl_pre_pull.py --out snapshots $FORCE_ARG
+          python3 fpl_pre_pull.py --out snapshots --window-hours 40 $FORCE_ARG
 
       - name: Pull group C (POST — last finished GW, once data_checked)
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.gw == '' }}
