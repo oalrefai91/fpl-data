@@ -1,6 +1,6 @@
 {
  "gw": 3,
- "generated_utc": "2026-10-02T16:23:46Z",
+ "generated_utc": "2026-10-02T21:26:48Z",
  "players": {
   "Alexander Isak (LIV)": {
    "match_id": "m_1rqNHl",
@@ -29461,5 +29461,6 @@
   "m_3lrPRU",
   "m_3mjltl",
   "m_44cwox"
- ]
+ ],
+ "late_tries": 1
 }

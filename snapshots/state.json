@@ -1,0 +1,9 @@
+{
+ "source": "FPL bootstrap-static events (runner, every run)",
+ "last_finished_gw": 5,
+ "last_finished_flag_gw": 5,
+ "current_gw": 5,
+ "next_gw": 6,
+ "next_deadline_utc": "2026-10-10T10:00:00Z",
+ "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait."
+}
