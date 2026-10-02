@@ -33,6 +33,7 @@ class Source:
         self.prev_dir = prev_dir
         self.log = []  # (url, status, bytes, ms)
         self.errs = {}  # url -> first 300 chars of a non-2xx body (diagnostics; added 7 Sep 2026 after the PitchAPI 403/500)
+        self.lastmod = {}  # url -> Last-Modified header (FX-41: elite.json freshness by file date)
 
     def _get(self, url, headers=None, _retry=True):
         t0 = time.time()
@@ -47,6 +48,7 @@ class Source:
                 elif enc == "deflate":
                     body = zlib.decompress(body)
                 self.log.append((url, r.status, len(body), int((time.time() - t0) * 1000)))
+                if r.headers.get("Last-Modified"): self.lastmod[url] = r.headers.get("Last-Modified")
                 return json.loads(body.decode("utf-8", "replace"))
         except urllib.error.HTTPError as e:
             self.log.append((url, e.code, 0, int((time.time() - t0) * 1000)))
@@ -184,7 +186,7 @@ ACCEPTED = {
     "A1":  ("READ-FIRST", "attended session reads the my-team List view (CP/PP/SP, bank) from Osama's Chrome before the model (pre-gate rule 3a); the DERIVED value here is the unattended fallback — not a question"),
     "A2":  ("READ-FIRST", "attended session reads free transfers and chips from /en/transfers; DERIVED here is the fallback — not a question"),
     "A8":  ("ATTENDED READ", "LiveFPL Safety Score / Template Rating are read in the browser pane by the attended session; never scriptable — not a question"),
-    "A11": ("ONE-SHOT TEST", "live bonus/rank test decided as a one-shot on a match day; not a weekly gate item"),
+    "A11": ("FPL-ONLY, ON DEMAND", "live bonus = top-3 BPS from FPL fixtures/?event=N, computed when asked during matches (FX-40); one live check GW6 Sat 10 Oct; not a weekly gate item"),
     "B7":  ("NOTE ONLY", "international call-ups come from the Tuesday SofaScore feeder (intl.json) and the Dinnery pull; notes only, never a Minutes change (user rule 5 Sep 2026)"),
     "C3":  ("FEEDER", "substitution reasons are derived by gen.py from SofaScore incidents (Tuesday feeder); the runner only sees FotMob events"),
     "C5":  ("FEEDER", "starter baseline (last-3 ×3, older ×1, injured excluded, contested slots) is computed by gen.py from SofaScore lineups; not a runner item"),
@@ -934,6 +936,29 @@ def brief_post(s):
     return "\n".join(L) + "\n"
 
 
+# ----------------------------------------------------------------------------- gameweek state (FX-42)
+def write_state(events, out_dir):
+    """snapshots/state.json — which GW is finished, current and next, straight from FPL, written on EVERY run (also outside the PRE
+    window, e.g. international breaks). FX-42 [USER DECISION 2 Oct 2026]: the Monday/Tuesday POST tasks read this first instead of
+    guessing from an old latest.md or the feeder's state file (Q-35). Contains no timestamp of its own, so the workflow commits it only
+    when FPL's state actually changes."""
+    fin = [e["id"] for e in events if e.get("finished") and e.get("data_checked")]
+    fin_prov = [e["id"] for e in events if e.get("finished")]
+    cur = next((e["id"] for e in events if e.get("is_current")), None)
+    nxt = next((e for e in events if e.get("is_next")), None)
+    st = {"source": "FPL bootstrap-static events (runner, every run)", "last_finished_gw": max(fin) if fin else 0,
+          "last_finished_flag_gw": max(fin_prov) if fin_prov else 0, "current_gw": cur,
+          "next_gw": nxt["id"] if nxt else None, "next_deadline_utc": nxt["deadline_time"] if nxt else None,
+          "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet — wait."}
+    try:
+        os.makedirs(out_dir, exist_ok=True)
+        p = os.path.join(out_dir, "state.json"); txt = json.dumps(st, indent=1)
+        if not os.path.exists(p) or open(p).read() != txt:
+            open(p, "w").write(txt)
+    except Exception as e:
+        print(f"state.json not written: {e}")
+    return st
+
 # ----------------------------------------------------------------------------- main build
 def build(src, force=False, window_h=30.0):
     cov = {}   # A1..A11 -> {"status": OK|PARTIAL|DERIVED|MISSING, "source": ..., "note": ...}
@@ -951,6 +976,7 @@ def build(src, force=False, window_h=30.0):
     deadline = parse_ts(nxt["deadline_time"])
     hours_to_deadline = (deadline - now_utc()).total_seconds() / 3600
     in_window = 0 <= hours_to_deadline <= window_h
+    write_state(events, src.prev_dir or "snapshots")
     if not in_window and not force and not src.offline:
         print(f"GW{N} deadline {nxt['deadline_time']} is {hours_to_deadline:.1f} h away — outside the {window_h} h PRE window. Exiting (use --force).")
         return None
@@ -1156,14 +1182,29 @@ def build(src, force=False, window_h=30.0):
         top_ids = sorted(top10k, key=lambda k: -top10k[k])[:10]
         gaps = {(players_lf or {}).get(k, k): round((elite.get(k, 0) - top10k[k]) * 100, 1) for k in top_ids}
         consistency["elite_json_minus_top10k_pp_top10_players"] = gaps
+        elite_stale_why = []
         if max(abs(v) for v in gaps.values()) > 30:
-            warn.append("elite.json differs from top10k.json by >30 pp on a top-10-EO player — elite.json is probably STALE (previous GW). Do not use without a freshness check.")
+            elite_stale_why.append("a top-10-EO player differs from top10k by >30 pp")
+        # FX-41 [USER DECISION 2 Oct 2026]: file dates first — LiveFPL rewrites both files together (2 Oct: 10 s apart); elite older by >12 h = not refreshed
+        from email.utils import parsedate_to_datetime
+        try:
+            lm_t, lm_e = src.lastmod.get(LFPL + "top10k.json"), src.lastmod.get(LFPL + "elite.json")
+            if lm_t and lm_e and (parsedate_to_datetime(lm_t) - parsedate_to_datetime(lm_e)).total_seconds() > 12 * 3600:
+                elite_stale_why.append(f"elite.json last modified {lm_e}, top10k.json {lm_t}")
+            consistency["elite_json_last_modified"] = lm_e; consistency["top10k_json_last_modified"] = lm_t
+        except Exception:
+            pass
+        if elite_stale_why:
+            consistency["elite_json_excluded"] = "; ".join(elite_stale_why)
+            for o in owned + pool:
+                o["eo_elite_json"] = None   # never offered to the model when stale
 
     cov["A4"] = {"status": ("OK (BASELINE GW%d + PROJECTED)" % last_gw) if top10k else "MISSING", "source": "livefpl.us top10k.json (+ locals bands, + FPL selected_by_percent, + bootstrap transfer flow)",
                  "note": "Decided 5 Sep 2026: cohort EO for the coming GW cannot exist before the deadline (LiveFPL tracks managers only after it — founder AMA), so GW%d actuals are the BASELINE and eo_top10k_projected is the transfer-flow [PROJECTED] value for the captaincy tie-break; the post-deadline actual scores the projection. Not a gate question." % last_gw}
     cov["A5"] = {"status": "OK" if locals_ else "MISSING", "source": f"livefpl.us locals_{last_gw}.json captains per band",
                  "note": f"bands available: Top100…3M-6M, Top 1M, Elite, Overall. User band = {my_band}. locals_{N}.json for the coming GW appears only after its deadline."}
-    cov["A6"] = {"status": ("OK (BASELINE GW%d + PROJECTED)" % last_gw) if top10k else "MISSING", "source": "top10k.json (= /EO Top10k column exactly)", "note": "same rule as A4"}
+    cov["A6"] = {"status": ("OK (BASELINE GW%d + PROJECTED)" % last_gw) if top10k else "MISSING", "source": "top10k.json (= /EO Top10k column exactly)",
+                 "note": "same rule as A4" + (f"; elite cohort EXCLUDED this run — {consistency['elite_json_excluded']} (accepted state, FX-41: top-10k stays the EO figure; not a question)" if consistency.get("elite_json_excluded") else "; elite.json fresh (file date and 30-pp check)")}
 
     # -------- A7 transfer flow
     cov["A7"] = {"status": "OK", "source": "bootstrap elements.transfers_in_event / transfers_out_event (all 650 players)",
@@ -1195,7 +1236,7 @@ def build(src, force=False, window_h=30.0):
         for o in owned:
             s = le.get(o["id"])
             o["last_gw"] = {"pts": s["total_points"], "min": s["minutes"], "bps": s["bps"], "bonus": s["bonus"]} if s else None
-        cov["A11"] = {"status": "OK (POST)", "source": f"event/{last_gw}/live bps+bonus", "note": "live top-3 BPS projection is a LIVE-cadence job; games.json idx 11 carries LiveFPL's provisional bonus during matches"}
+        cov["A11"] = {"status": "OK (POST)", "source": f"event/{last_gw}/live bps+bonus", "note": "FX-40 (2 Oct 2026): provisional bonus = top-3 BPS per fixture from FPL fixtures/?event=N (FPL tie rules), computed by the live-rank routine on demand; back-test GW1-5 50/50 vs official; LiveFPL games.json no longer used for bonus"}
     else:
         cov["A11"] = {"status": "MISSING", "source": "event/N/live", "note": "unreachable"}
 
