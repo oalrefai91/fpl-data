@@ -442,6 +442,37 @@ def _match_name(fpl_el, candidates, key):
     return (best, bs) if bs >= 1 else (None, 0)
 
 
+# ----- Understat roster/shot packing (2 Oct 2026, FX-29 [USER DECISION]): store the FULL getMatchData payload (rosters + every shot field),
+# not a cherry-pick. Before this the runner fetched the rosters (xA, xG chain, xG build-up) and threw them away, so C13b had to be rebuilt
+# in the browser (Block R). Format = Block R's {src, cols, h, a}: 'player' and 'player_id' stay columns 0 and 1; every other key Understat sends follows.
+US_COLS = ["player", "player_id", "position", "time", "goals", "own_goals", "shots", "xG", "key_passes", "assists", "xA", "xGChain", "xGBuildup", "yellow_card", "red_card"]
+US_NUM = {"time", "goals", "own_goals", "shots", "xG", "key_passes", "assists", "xA", "xGChain", "xGBuildup", "yellow_card", "red_card"}
+def _us_pack(v):
+    mj = v.get("match") or {}
+    ros = mj.get("rosters") or {}
+    extra = sorted({k for side in ("h", "a") for r in (ros.get(side) or {}).values() for k in r} - set(US_COLS))
+    cols = US_COLS + extra
+    def num(k, x):
+        if k not in US_NUM: return x
+        try: return float(x) if k in ("xG", "xA", "xGChain", "xGBuildup") else int(float(x))
+        except (TypeError, ValueError): return None
+    rosters = {"src": f"understat getMatchData (runner {now_utc().strftime('%Y-%m-%dT%H:%MZ')})", "cols": cols,
+               "h": [[num(k, r.get(k)) for k in cols] for r in (ros.get("h") or {}).values()],
+               "a": [[num(k, r.get(k)) for k in cols] for r in (ros.get("a") or {}).values()]}
+    return {"home": v["home"], "away": v["away"], "date": v["date"], "xG": v.get("xG"), "goals": v.get("goals"),
+            "shots": {side: list((mj.get("shots") or {}).get(side) or []) for side in ("h", "a")}, "rosters": rosters}
+
+# Late fields (2 Oct 2026, FX-29): PitchAPI fills xAG / xG chain / xG build-up hours-to-days after full time. GW3–5 were pulled straight after
+# the matches and kept nulls for 18 of 30 matches; GW1–2, back-filled a day later, were complete. A null in these fields is MISSING, never OK.
+LATE_FIELDS = ("xag", "xg_chain", "xg_buildup")
+def _late_missing(players):
+    """match ids where every player row has all late fields null (PitchAPI has not computed them yet)."""
+    seen, filled = set(), set()
+    for p in (players or {}).values():
+        m = str(p.get("match_id")); seen.add(m)
+        if any(p.get(f) is not None for f in LATE_FIELDS): filled.add(m)
+    return sorted(seen - filled)
+
 def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None):
     """Group C: per-player per-match facts for the last finished GW, three providers, consistency, gate.
     gw=N (back-fill, 8 Sep 2026): build the same snapshot for an earlier finished GW; main() then writes only pitchapi_gw{N}.json / shots_gw{N}.json."""
@@ -622,7 +653,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
                     nm = (cand.get("player") or {}).get("name") or ""
                     pitch_all[f"{nm} ({code})"] = {"match_id": mid, "team": code, "min": cand.get("minutes_played"), "sca": cr.get("sca"), "gca": cr.get("gca"), "sca_breakdown": cr.get("sca_breakdown"), "chances_created": cr.get("chances_created"), "xag": cr.get("xag"), "xg_chain": cr.get("xg_chain"), "xg_buildup": cr.get("xg_buildup"),
                                                   "xt_off": pv.get("pv_offensive"), "xt_def": pv.get("pv_defensive"), "prog_passes": pa.get("progressive_passes"), "passes_into_box": pa.get("passes_into_box"), "key_passes": pa.get("key_passes"),
-                                                  "prog_carries": ca.get("progressive_carries"), "carries_into_box": ca.get("carries_into_box"), "take_ons": ca.get("take_ons"), "take_ons_won": ca.get("take_ons_won")}
+                                                  "prog_carries": ca.get("progressive_carries"), "carries_into_box": ca.get("carries_into_box"), "take_ons": ca.get("take_ons"), "take_ons_won": ca.get("take_ons_won"),
+                                                  "raw": cand}   # full payload (2 Oct 2026, FX-29): fields we do not read today are still kept
                 tm = src.pitch(f"/matches/{mid}/advanced") or {}
                 for t in (tm.get("teams") or []):
                     code = _pitch_code((t.get("team") or {}).get("name"))
@@ -630,7 +662,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
                         pitch_teams[code] = {"match_id": mid, "ppda": (t.get("defending") or {}).get("ppda"), "field_tilt": (t.get("territory") or {}).get("field_tilt"), "possession_pct": (t.get("territory") or {}).get("possession_pct"),
                                              "final_third_entries": (t.get("territory") or {}).get("final_third_entries"), "box_entries": (t.get("territory") or {}).get("box_entries"),
                                              "direct_speed": (t.get("tempo") or {}).get("direct_speed"), "passes_per_sequence": (t.get("tempo") or {}).get("passes_per_sequence"),
-                                             "sca": (t.get("creation") or {}).get("sca"), "gca": (t.get("creation") or {}).get("gca"), "pv_offensive": (t.get("possession_value") or {}).get("pv_offensive")}
+                                             "sca": (t.get("creation") or {}).get("sca"), "gca": (t.get("creation") or {}).get("gca"), "pv_offensive": (t.get("possession_value") or {}).get("pv_offensive"),
+                                             "raw": t}
                 for code, side in ((h, "home"), (a, "away")):
                     if code not in clubs: continue
                     for r in rows:
@@ -681,10 +714,14 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
     st_("C11", n_us == n and n_fm == n, True, "FPL own xG/xA/xGI + Understat + FotMob(Opta)", "three models; FotMob and SofaScore share the Opta feed — count them as ONE provider")
     st_("C12", n_fm == n, n_fm > 0, "FotMob total/on-target shots, big chances; Understat shots", "")
     n_pa = sum(1 for r in played if r.get("pitchapi") and not r["pitchapi"].get("unmatched"))
+    late = _late_missing(pitch_all)
+    late_txt = (f"; NULL = MISSING: xAG / xG chain / xG build-up empty for {len(late)}/{len(pitch_ids)} matches (" + ", ".join(f"{pitch_ids[m][0]} v {pitch_ids[m][1]}" for m in late if m in pitch_ids) + ") — re-pulled automatically by later runs (late-field refresh)") if late else ""
     if os.environ.get("PITCHAPI_KEY") or src.offline:
-        st_("C13", n_pa == n and n > 0, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + "".join(f"; {warn[k]}" for k in ("pitchapi", "pitchapi_league", "pitchapi_source", "pitchapi_leagues_seen") if warn.get(k)))
+        st_("C13", n_pa == n and n > 0 and not late, n_pa > 0, f"PitchAPI advanced/players ({n_pa}/{n} matched, {pitch_ok}/{len(pitch_ids)} matches) — SCA, GCA, xT (possession value), progressive passes/carries, carries into box, take-ons, xG chain/build-up, xAG; team PPDA/field tilt", "free key in secret PITCHAPI_KEY; zone-14 and deep completions not provided" + late_txt + "".join(f"; {warn[k]}" for k in ("pitchapi", "pitchapi_league", "pitchapi_source", "pitchapi_leagues_seen") if warn.get(k)))
     else:
         st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat)", "PitchAPI integration present but PITCHAPI_KEY secret not set — add it to enable SCA/GCA/xT/progressive actions")
+    n_ros = sum(1 for v in us_all.values() if ((v.get("match") or {}).get("rosters") or {}).get("h"))
+    st_("C13b", n_ros == len(us_all) == len(fx) and n_ros > 0, n_ros > 0, f"Understat match rosters ({n_ros}/{len(fx)} matches) — xA, xG chain, xG build-up, key passes for every player; stored in shots_gw{L}.json", "")
     st_("C14", True, True, "event/N/live cards", "")
     st_("C15", n_us == n, n_us + n_fm > 0, "Understat shot list (X, Y, xG, result, situation, body, last action) + FotMob shotmap (xGOT)", "")
     st_("C16", False, False, "SofaScore /event/{id}/player/{pid}/heatmap — browser only", "not scriptable; attended POST step or device-bound task")
@@ -703,13 +740,79 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
                         "pool_source": "pool.json (manual + auto rules)" if any(os.path.exists(c) for c in ("pool.json", os.path.join(out_dir, "..", "pool.json"))) else "auto rules only — pool.json not found in the repo"},
             "players": rows, "team_level": team_level, "consistency_flags": cons, "coverage": cov,
             "pitchapi_all_players": pitch_all,
-            "understat_all_shots": {str(mid): {"home": v["home"], "away": v["away"], "date": v["date"], "shots": {side: [{k: sh.get(k) for k in ("id", "minute", "result", "X", "Y", "xG", "player", "player_id", "h_a", "situation", "shotType", "lastAction", "player_assisted")} for sh in ((v["match"] or {}).get("shots", {}) or {}).get(side, [])] for side in ("h", "a")}} for mid, v in us_all.items() if v.get("match")},
+            "understat_all_shots": {str(mid): _us_pack(v) for mid, v in us_all.items() if v.get("match")},
             # every player's official line for this GW — the raw material for the D-group percentiles (season store)
             "all_players_live": {str(pid): {k: st.get(k) for k in ["minutes", "total_points", "bps", "bonus", "goals_scored", "assists", "clean_sheets", "goals_conceded", "saves", "defensive_contribution",
                                                                      "clearances_blocks_interceptions", "recoveries", "tackles", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "starts"]}
                                  for pid, st in ((e_["id"], e_["stats"]) for e_ in live["elements"])},
             "fetch_log": [dict({"url": u, "status": s_, "bytes": b, "ms": ms}, **({"error_body": src.errs[u]} if u in src.errs else {})) for (u, s_, b, ms) in src.log]}
     return snap, None
+
+
+def write_side_files(snap, out, refresh=False):
+    """pitchapi_gw{N}.json + shots_gw{N}.json (2 Oct 2026, FX-29). Never regresses: an existing file is replaced only when the new pull has
+    at least as many players with late fields filled (pitchapi) / rosters for at least as many matches (shots). Returns a one-line report."""
+    os.makedirs(out, exist_ok=True); g = snap["gw"]; rep_ = []
+    pa = {"gw": g, "generated_utc": snap["generated_utc"], "players": dict(snap.get("pitchapi_all_players") or {}), "teams": {}}
+    for r in snap.get("players", []):
+        p = r.get("pitchapi")
+        if p and not p.get("unmatched"): pa["players"][f"{r['name']} ({r['club']})"] = p
+    for code, tl in (snap.get("team_level") or {}).items():
+        if tl.get("pitchapi"): pa["teams"][code] = tl["pitchapi"]
+    pa["late_missing"] = _late_missing(snap.get("pitchapi_all_players"))
+    pp = os.path.join(out, f"pitchapi_gw{g}.json")
+    filled = lambda d: sum(1 for p in (d.get("players") or {}).values() if any(p.get(f) is not None for f in LATE_FIELDS))
+    old = json.load(open(pp)) if os.path.exists(pp) else None
+    if old and refresh: pa["late_tries"] = int(old.get("late_tries") or 0) + 1
+    if pa["players"] or pa["teams"]:
+        if old is None or (filled(pa) >= filled(old) and len(pa["players"]) >= 0.9 * len(old.get("players") or {})):
+            with open(pp, "w") as f: json.dump(pa, f, indent=1, ensure_ascii=False)
+            rep_.append(f"pitchapi_gw{g}: {len(pa['players'])} players, late fields filled {filled(pa)} (was {filled(old) if old else '—'}), still empty in {len(pa['late_missing'])} match(es)")
+        else:
+            if refresh:   # keep the better old file, but count the try so the refresh stops after LATE_MAX_TRIES
+                old["late_tries"] = pa.get("late_tries", 1)
+                with open(pp, "w") as f: json.dump(old, f, indent=1, ensure_ascii=False)
+            rep_.append(f"pitchapi_gw{g}: new pull worse ({filled(pa)} filled v {filled(old)}) — kept the old file")
+    sh = snap.get("understat_all_shots") or {}
+    sp = os.path.join(out, f"shots_gw{g}.json")
+    nros = lambda m: sum(1 for v in (m or {}).values() if ((v.get("rosters") or {}).get("h")))
+    olds = json.load(open(sp)).get("matches") if os.path.exists(sp) else None
+    if sh and (olds is None or nros(sh) >= max(nros(olds), 1) and len(sh) >= len(olds)):
+        with open(sp, "w") as f: json.dump({"gw": g, "matches": sh}, f, ensure_ascii=False)
+        rep_.append(f"shots_gw{g}: {len(sh)} matches, rosters {nros(sh)}")
+    elif sh:
+        rep_.append(f"shots_gw{g}: kept the old file (rosters {nros(olds)} v new {nros(sh)})")
+    return "; ".join(rep_)
+
+
+LATE_MAX_TRIES, LATE_MAX_DAYS = 12, 42   # 3 runs a day → about 4 days of retries per GW; never chase a GW older than 6 weeks
+def refresh_late(src, bs, owned, out, pool_ids):
+    """Re-pull late fields (2 Oct 2026, FX-29 [USER DECISION]): every POST cron, re-run the back-fill for any finished GW whose
+    pitchapi_gw{N}.json still has matches with xAG/xG chain/xG build-up all empty, or whose shots_gw{N}.json has no Understat rosters.
+    At most 2 GWs per run; stops after LATE_MAX_TRIES tries or LATE_MAX_DAYS days. Never blocks the normal POST pull."""
+    done = []
+    fin = [e for e in bs["events"] if e.get("finished") and e.get("data_checked")]
+    for e in sorted(fin, key=lambda e: -e["id"]):
+        if len(done) >= 2: break
+        g = e["id"]
+        try:
+            age = (now_utc() - parse_ts(e["deadline_time"])).days
+        except Exception:
+            age = 0
+        if age > LATE_MAX_DAYS: continue
+        pp, sp = os.path.join(out, f"pitchapi_gw{g}.json"), os.path.join(out, f"shots_gw{g}.json")
+        if not os.path.exists(pp) and not os.path.exists(sp): continue   # never pulled: the --gw back-fill is a deliberate manual step
+        pa = json.load(open(pp)) if os.path.exists(pp) else {}
+        need_pa = os.environ.get("PITCHAPI_KEY") and bool(_late_missing(pa.get("players"))) and int(pa.get("late_tries") or 0) < LATE_MAX_TRIES
+        shm = json.load(open(sp)).get("matches", {}) if os.path.exists(sp) else {}
+        need_sh = any(not (v.get("rosters") or {}).get("h") for v in shm.values())
+        if not (need_pa or need_sh): continue
+        try:
+            snap, why = build_post(src, bs, owned, out, pool_ids=pool_ids, gw=g)
+            done.append(f"GW{g}: " + (write_side_files(snap, out, refresh=True) if snap else why))
+        except Exception as ex:
+            done.append(f"GW{g}: refresh failed {type(ex).__name__}: {ex}")
+    return done
 
 
 def brief_post(s):
@@ -1195,23 +1298,14 @@ def main():
         owned = [p["element"] for p in (picks or {}).get("picks", [])]
         top10k = src.lf("top10k.json")
         pool_ids, _ = load_pool(bs, top10k, os.path.dirname(os.path.abspath(a.out)), owned)
+        if not a.gw and not src.offline:
+            for line in refresh_late(src, bs, owned, a.out, pool_ids):
+                print("late-field refresh " + line)
         snap, why = build_post(src, bs, owned, a.out, force=a.force, pool_ids=pool_ids, gw=a.gw)
         if snap is None:
             print(why); return
-        if a.gw:   # back-fill: side files only (never touches latest_post or the GW POST snapshots)
-            os.makedirs(a.out, exist_ok=True)
-            pa = {"gw": snap["gw"], "generated_utc": snap["generated_utc"], "players": dict(snap.get("pitchapi_all_players") or {}), "teams": {}}
-            for r in snap.get("players", []):
-                p = r.get("pitchapi")
-                if p and not p.get("unmatched"): pa["players"][f"{r['name']} ({r['club']})"] = p
-            for code, tl in (snap.get("team_level") or {}).items():
-                if tl.get("pitchapi"): pa["teams"][code] = tl["pitchapi"]
-            if pa["players"] or pa["teams"]:
-                with open(os.path.join(a.out, f"pitchapi_gw{snap['gw']}.json"), "w") as f: json.dump(pa, f, indent=1, ensure_ascii=False)
-            sp = os.path.join(a.out, f"shots_gw{snap['gw']}.json")
-            if snap.get("understat_all_shots") and not os.path.exists(sp):
-                with open(sp, "w") as f: json.dump({"gw": snap["gw"], "matches": snap["understat_all_shots"]}, f, ensure_ascii=False)
-            print(f"back-fill GW{snap['gw']}: pitchapi players {len(pa['players'])}, teams {len(pa['teams'])}; C13={snap['coverage'].get('C13',{}).get('status')}; note: {snap['coverage'].get('C13',{}).get('note')}")
+        if a.gw:   # back-fill: side files only (never touches latest_post or the GW POST snapshots); same no-regress writer as the late-field refresh
+            print(f"back-fill GW{snap['gw']}: {write_side_files(snap, a.out)}; C13={snap['coverage'].get('C13',{}).get('status')}; C13b={snap['coverage'].get('C13b',{}).get('status')}; note: {snap['coverage'].get('C13',{}).get('note')}")
             return
         # Render everything in memory first, write files last: a renderer crash must never leave a 0-byte .md or a stale latest_post (7 Sep 2026 GW3 incident)
         js_txt = json.dumps(snap, indent=1, ensure_ascii=False)
@@ -1220,17 +1314,8 @@ def main():
         stem = os.path.join(a.out, f"GW{snap['gw']}_POST_{snap['generated_utc'].replace(':','').replace('-','')}")
         for path, txt in ((stem + ".json", js_txt), (stem + ".md", md_txt), (os.path.join(a.out, "latest_post.json"), js_txt), (os.path.join(a.out, "latest_post.md"), md_txt)):
             with open(path, "w") as f: f.write(txt)
-        # C13 compact per-GW file for the SofaScore feeder (gen.py reads snapshots/pitchapi_gw{N}.json)
-        pa = {"gw": snap["gw"], "generated_utc": snap["generated_utc"], "players": dict(snap.get("pitchapi_all_players") or {}), "teams": {}}
-        for r in snap.get("players", []):
-            p = r.get("pitchapi")
-            if p and not p.get("unmatched"): pa["players"][f"{r['name']} ({r['club']})"] = p
-        if snap.get("understat_all_shots"):
-            with open(os.path.join(a.out, f"shots_gw{snap['gw']}.json"), "w") as f: json.dump({"gw": snap["gw"], "matches": snap["understat_all_shots"]}, f, ensure_ascii=False)
-        for code, tl in (snap.get("team_level") or {}).items():
-            if tl.get("pitchapi"): pa["teams"][code] = tl["pitchapi"]
-        if pa["players"] or pa["teams"]:
-            with open(os.path.join(a.out, f"pitchapi_gw{snap['gw']}.json"), "w") as f: json.dump(pa, f, indent=1, ensure_ascii=False)
+        # C13 compact per-GW files for the SofaScore feeder (gen.py reads snapshots/pitchapi_gw{N}.json and shots_gw{N}.json)
+        print(write_side_files(snap, a.out))
         print(f"wrote {stem}.json / .md  (coverage: " + ", ".join(f"{k}={v['status']}" for k, v in snap["coverage"].items()) + f") gate={snap['readiness']['verdict']}")
         return
     snap = build(src, force=a.force, window_h=a.window_hours)
