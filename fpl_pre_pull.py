@@ -84,19 +84,6 @@ class Source:
     def live(self, gw):         return self._file("live.json") if self.offline else self._get(FPL + f"event/{gw}/live/")
     def element_summary(self, i): return self._file(f"element_{i}.json") if self.offline else self._get(FPL + f"element-summary/{i}/")
     def fixtures_all(self):   return self._file("fixtures_all.json") if self.offline else self._get(FPL + "fixtures/")
-    # ESPN hidden JSON (cups, European ties, odds) — open, no key
-    def espn(self, league, d1, d2):
-        key = {"uefa.champions": "ucl", "uefa.europa": "uel", "uefa.europa.conf": "uecl", "eng.league_cup": "efl", "eng.fa": "fa", "eng.1": "pl"}[league]
-        if self.offline:
-            return self._file(f"espn_{key}.json")
-        # ESPN's edge returned 403 to the GitHub runner with a plain UA (3 Sep 2026); send browser-like headers and fall back to the core host
-        h = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-             "Accept": "application/json, text/plain, */*", "Accept-Language": "en-GB,en;q=0.9", "Referer": "https://www.espn.com/", "Origin": "https://www.espn.com"}
-        j = self._get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?dates={d1}-{d2}", headers=h)
-        if j: return j
-        j = self._get(f"https://site.web.api.espn.com/apis/site/v2/sports/soccer/{league}/scoreboard?dates={d1}-{d2}", headers=h)
-        if j: return j
-        return self._get(f"https://cdn.espn.com/core/soccer/scoreboard?xhr=1&league={league}&dates={d1}-{d2}", headers=h)
     # Open-Meteo — open, no key; hourly forecast at a venue for one UTC day
     def meteo(self, lat, lon, day):
         if self.offline:
@@ -128,6 +115,9 @@ class Source:
     FM_H = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36", "Accept": "application/json", "Referer": "https://www.fotmob.com/"}
     def fotmob_league(self, season="2026/2027"):
         return self._file("fotmob_leagues.json") if self.offline else self._get(f"https://www.fotmob.com/api/data/leagues?id=47&season={urllib.parse.quote(season, safe='')}", headers=self.FM_H)
+    # FotMob competition lists (B5, FX-36, 2 Oct 2026): same endpoint as fotmob_league, other ids. ESPN 403'd every GitHub run; FotMob 11/11 OK.
+    def fotmob_comp(self, cid, season="2026/2027"):
+        return self._file(f"fotmob_comp_{cid}.json") if self.offline else self._get(f"https://www.fotmob.com/api/data/leagues?id={cid}&season={urllib.parse.quote(season, safe='')}", headers=self.FM_H)
     def fotmob_match(self, mid):
         return self._file(f"fotmob_match_{mid}.json") if self.offline else self._get(f"https://www.fotmob.com/api/data/matchDetails?matchId={mid}", headers=self.FM_H)
     # PitchAPI (added 6 Sep 2026, C13): free key in env PITCHAPI_KEY (GitHub secret). SCA/GCA/xT/progressive actions per player per match; PPDA/field tilt per team.
@@ -174,11 +164,6 @@ VENUE = {"ARS": (51.5549, -0.1084), "AVL": (52.5092, -1.8847), "BOU": (50.7352, 
          "EVE": (53.4109, -2.9925), "FUL": (51.4750, -0.2217), "HUL": (53.7466, -0.3677), "IPS": (52.0549, 1.1447),
          "LEE": (53.7778, -1.5721), "LIV": (53.4308, -2.9608), "MCI": (53.4831, -2.2004), "MUN": (53.4631, -2.2913),
          "NEW": (54.9756, -1.6217), "NFO": (52.9399, -1.1329), "SUN": (54.9144, -1.3882), "TOT": (51.6043, -0.0665)}
-# ESPN numeric team id -> FPL short_name (H7 crosswalk, verified 3 Sep 2026 from the eng.1 scoreboard).
-# Never map by abbreviation: ESPN uses "MUN" for Bayern Munich and "MAN" for Manchester United.
-ESPN_ID_TO_FPL = {"306": "HUL", "331": "BHA", "337": "BRE", "349": "BOU", "357": "LEE", "359": "ARS", "360": "MUN", "361": "NEW", "362": "AVL",
-                  "363": "CHE", "364": "LIV", "366": "SUN", "367": "TOT", "368": "EVE", "370": "FUL", "373": "IPS", "382": "MCI", "384": "CRY",
-                  "388": "COV", "393": "NFO"}
 # football-data.co.uk team names -> FPL short_name
 FD_TO_FPL = {"Arsenal": "ARS", "Aston Villa": "AVL", "Bournemouth": "BOU", "Brentford": "BRE", "Brighton": "BHA", "Chelsea": "CHE",
              "Coventry": "COV", "Crystal Palace": "CRY", "Everton": "EVE", "Fulham": "FUL", "Hull": "HUL", "Ipswich": "IPS", "Leeds": "LEE",
@@ -213,6 +198,40 @@ def split_accepted(hold):
         else: gate.append(g)
     return gate, exp
 
+FM_CUPS = [(42, "UCL"), (73, "UEL"), (10216, "UECL"), (133, "EFL Cup"), (132, "FA Cup"),
+           (10611, "UCL qual"), (10613, "UEL qual"), (10615, "UECL qual")]   # qualifying rounds sit in separate FotMob lists (Brighton v Tromsø, Aug 2026)
+SEASON_START = "2026-07-01"
+
+def fetch_cups(src, start, until, fpl_names):
+    """B5: PL-club cup and European matches with kick-off in [start, until], from FotMob competition lists (FX-36).
+    Returns ({FPL short_name: [ {date, comp, opp, home, fotmob_id, finished, score} ]}, stats).
+    A list whose newest match predates SEASON_START is last season's (FotMob serves 2025/26 for the FA Cup until the 2026/27 draw) -> stats['stale']."""
+    cups = {t: [] for t in fpl_names}
+    st_ = {"ok": 0, "n": 0, "failed": [], "stale": []}
+    for cid, label in FM_CUPS:
+        j = src.fotmob_comp(cid)
+        ms = ((j or {}).get("fixtures") or {}).get("allMatches")
+        if not isinstance(ms, list):
+            st_["failed"].append(label); continue
+        st_["ok"] += 1
+        if not any((m.get("status") or {}).get("utcTime", "") >= SEASON_START for m in ms):
+            st_["stale"].append(label)
+        for m in ms:
+            s = m.get("status") or {}
+            ts = s.get("utcTime")
+            if not ts or s.get("cancelled"): continue
+            try: d = parse_ts(ts[:19] + "Z")
+            except ValueError: continue
+            if not (start <= d <= until): continue
+            h, a = FOTMOB_ID_TO_FPL.get(str((m.get("home") or {}).get("id"))), FOTMOB_ID_TO_FPL.get(str((m.get("away") or {}).get("id")))
+            for ab, opp, home in ((h, (m.get("away") or {}).get("name"), True), (a, (m.get("home") or {}).get("name"), False)):
+                if ab and ab in fpl_names:
+                    cups[ab].append({"date": ts, "comp": label, "opp": opp, "home": home, "fotmob_id": str(m.get("id")),
+                                     "finished": bool(s.get("finished")), "score": s.get("scoreStr") or None})
+                    st_["n"] += 1
+    for t in cups: cups[t].sort(key=lambda x: x["date"])
+    return {t: v for t, v in cups.items() if v}, st_
+
 def build_schedule(src, bs, N, teams, cov, warn, prev):
     """Group B: fixtures, FDR, DGW/BGW, deadlines, breaks, cups, rest days, weather, referees."""
     from datetime import timedelta
@@ -236,7 +255,7 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
     out["dgw_bgw"] = {g: {"double": [t for t, c in counts[g].items() if c > 1], "blank": [t for t in teams.values() if t not in counts[g]]} for g in horizon}
     unscheduled = [f["id"] for f in fx if f["event"] is None or not f["kickoff_time"]]
     cov["B1"] = {"status": "OK", "source": "fixtures/ (380, all scheduled)" if not unscheduled else f"fixtures/ ({len(unscheduled)} unscheduled — postponed/TBC)", "note": ""}
-    cov["B2"] = {"status": "OK", "source": "fixtures/ kickoff_time; ESPN eng.1 and PL SDP API agreed to the minute on 3 Sep", "note": ""}
+    cov["B2"] = {"status": "OK", "source": "fixtures/ kickoff_time; matched the PL SDP API to the minute on 3 Sep", "note": ""}
     # B3 FDR + change detection vs previous snapshot
     prev_fdr = ((prev or {}).get("B_schedule") or {}).get("fdr_by_fixture") or {}
     changes = [{"fixture_id": k, "was": prev_fdr[k], "now": v} for k, v in fdr_now.items() if k in prev_fdr and prev_fdr[k] != v]
@@ -258,26 +277,13 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
     out["breaks"] = gaps
     cov["B8"] = {"status": "OK", "source": "bootstrap events.deadline_time", "note": ""}
     cov["B7"] = {"status": "OK (dates) — call-ups in feeder intl.json", "source": "deadline gaps cross-checked against season-calendar.md (21 Sep–6 Oct, 9–17 Nov, 22–30 Mar 2027); call-ups: Tuesday feeder Block D (SofaScore national squads) + Dinnery pull", "note": "notes only — never a Minutes change (user rule 5 Sep 2026); gaps of ~10 d in Jan/Feb/Mar are cup rounds, not breaks"}
-    # B5 cups via ESPN (window: today .. last deadline in horizon + 8 d)
-    today = now_utc().strftime("%Y%m%d"); until = (parse_ts(ev[horizon[-1]]["deadline_time"]) + timedelta(days=8)).strftime("%Y%m%d")
-    cups = {t: [] for t in teams.values()}
-    espn_ok = 0
-    fpl_names = set(teams.values())
-    for league, label in [("uefa.champions", "UCL"), ("uefa.europa", "UEL"), ("uefa.europa.conf", "UECL"), ("eng.league_cup", "EFL Cup"), ("eng.fa", "FA Cup")]:
-        j = src.espn(league, today, until)
-        if not j: continue
-        espn_ok += 1
-        for e in j.get("events", []):
-            comp = e["competitions"][0]
-            sides = {c["homeAway"]: c["team"] for c in comp.get("competitors", [])}
-            for ha, team in sides.items():
-                ab = ESPN_ID_TO_FPL.get(str(team["id"]))
-                if ab and ab in fpl_names:
-                    opp = sides["away" if ha == "home" else "home"]
-                    cups[ab].append({"date": e["date"], "comp": label, "opp": opp["displayName"], "home": ha == "home", "espn_id": e["id"]})
-    for t in cups: cups[t].sort(key=lambda x: x["date"])
-    out["cup_fixtures"] = {t: v for t, v in cups.items() if v}
-    cov["B5"] = {"status": "OK" if espn_ok == 5 else ("PARTIAL" if espn_ok else "MISSING"), "source": "ESPN site.api.espn.com scoreboard (uefa.champions, uefa.europa, uefa.europa.conf, eng.league_cup, eng.fa)", "note": f"{espn_ok}/5 competitions fetched; FA Cup has no PL-club ties until January"}
+    # B5 cups via FotMob (FX-36). Window: today - 10 d (so B6 sees last midweek's tie) .. last deadline in horizon + 8 d
+    cups, b5 = fetch_cups(src, now_utc() - timedelta(days=10), parse_ts(ev[horizon[-1]]["deadline_time"]) + timedelta(days=8), set(teams.values()))
+    out["cup_fixtures"] = cups
+    stale_hit = [c for c in b5["stale"] if c != "FA Cup" or now_utc().month in (12, 1, 2, 3, 4, 5)]   # PL clubs enter the FA Cup in round 3 (January)
+    cov["B5"] = {"status": "OK" if b5["ok"] == len(FM_CUPS) and not stale_hit else ("PARTIAL" if b5["ok"] else "MISSING"),
+                 "source": "FotMob api/data/leagues (ids 42 UCL, 73 UEL, 10216 UECL, 133 EFL Cup, 132 FA Cup; qualifying 10611, 10613, 10615); cross-checked weekly against SofaScore teams.json next fixtures (feeder)",
+                 "note": f"{b5['ok']}/{len(FM_CUPS)} competition lists fetched; {b5['n']} PL-club matches in window" + (f"; last-season list only: {', '.join(b5['stale'])}" if b5["stale"] else "") + (f"; failed: {', '.join(b5['failed'])}" if b5["failed"] else "")}
     # B6 rest days: last match of any competition before the next PL fixture, and next match after it
     def esdate(s): return datetime.strptime(s[:16], "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
     all_matches = {t: [] for t in teams.values()}
@@ -296,7 +302,7 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
                    "days_to_next": round((after[0][0] - ko).total_seconds() / 86400, 1) if after else None, "next_comp": after[0][1] if after else None,
                    "matches_in_7d_before": sum(1 for m in before if (ko - m[0]).total_seconds() < 7 * 86400)}
     out["rest"] = rest
-    cov["B6"] = {"status": "OK (DERIVED)", "source": "fixtures/ + ESPN cup dates", "note": "days since last match (any comp) before the GW fixture; congestion flag = matches in the 7 days before"}
+    cov["B6"] = {"status": "OK (DERIVED)", "source": "fixtures/ + FotMob cup dates (B5)", "note": "days since last match (any comp) before the GW fixture; congestion flag = matches in the 7 days before"}
     # B10 weather for GW N fixtures within 7 days
     wx = []
     for f in fx:
@@ -1169,7 +1175,7 @@ def build(src, force=False, window_h=30.0):
                 "A4": "overall-cohort EO: no source — skip, or paste a figure from LiveFPL /EO if the Overall column is populated this week",
                 "A6": "overall-cohort EO: same as A4",
                 "A8": "read Safety Score and Template Rating from livefpl.net/6048651 in the browser pane, or paste them",
-                "B5": "cup/European fixtures: ESPN blocked — paste the owned clubs' midweek fixtures, or supply another source URL",
+                "B5": "cup/European fixtures: a FotMob competition list failed or is last season's (see note) — attended: read the owned clubs' next fixtures from the Tuesday feeder teams.json (SofaScore, all competitions); unattended: wait for the next run",
                 "B7": "call-ups come from the Tuesday feeder's intl.json (SofaScore squads, notes only) and the Dinnery pull — read claude/feeder/intl.json and claude/season-calendar.md; ask only if intl.json is older than 8 days in a break week",
                 "B9": "referee appointments: FotMob did not return them this run — attended: browser-fill FotMob routine; or wait for the 12:00/18:00 UTC run",
                 "B10": "weather: kick-offs are beyond the 7-day forecast horizon — re-run closer, or skip"}.get(k, c.get("note", ""))
@@ -1259,7 +1265,7 @@ def brief(s):
         L.append("\n| Team (owned) | Next 6 (H/A, FDR) | Cup/Europe in window | Rest before GW | Matches 7 d before |\n|---|---|---|---|---|")
         for t in owned_teams:
             n6 = ", ".join(f"GW{x['gw']} {'v' if x['home'] else '@'} {x['opp']} ({x['fdr']})" for x in B["fixtures_next6"].get(t, []))
-            cups = "; ".join(f"{c['date'][:10]} {c['comp']} {'v' if c['home'] else '@'} {c['opp']}" for c in B["cup_fixtures"].get(t, [])) or "—"
+            cups = "; ".join(f"{c['date'][:10]} {c['comp']} {'v' if c['home'] else '@'} {c['opp']}" + (f" ({c.get('score')})" if c.get("finished") else "") for c in B["cup_fixtures"].get(t, [])) or "—"
             r = B["rest"].get(t, {})
             L.append(f"| {t} | {n6} | {cups} | {r.get('days_since_last')} d ({r.get('last_comp')}) | {r.get('matches_in_7d_before')} |")
         if B["weather"]:
