@@ -761,13 +761,15 @@ def write_side_files(snap, out, refresh=False):
         if tl.get("pitchapi"): pa["teams"][code] = tl["pitchapi"]
     pa["late_missing"] = _late_missing(snap.get("pitchapi_all_players"))
     pp = os.path.join(out, f"pitchapi_gw{g}.json")
-    filled = lambda d: sum(1 for p in (d.get("players") or {}).values() if any(p.get(f) is not None for f in LATE_FIELDS))
+    # compare MATCHES with late fields filled, not player rows: tracked-player rows ('Shaw (MUN)' beside 'Luke Shaw (MUN)') change with the
+    # pool, so a row count made GW5's 2 Oct back-fill look worse (164 v 166) with the same 5/10 matches filled
+    filled = lambda d: len({str(p.get("match_id")) for p in (d.get("players") or {}).values() if any(p.get(f) is not None for f in LATE_FIELDS)})
     old = json.load(open(pp)) if os.path.exists(pp) else None
     if old and refresh: pa["late_tries"] = int(old.get("late_tries") or 0) + 1
     if pa["players"] or pa["teams"]:
         if old is None or (filled(pa) >= filled(old) and len(pa["players"]) >= 0.9 * len(old.get("players") or {})):
             with open(pp, "w") as f: json.dump(pa, f, indent=1, ensure_ascii=False)
-            rep_.append(f"pitchapi_gw{g}: {len(pa['players'])} players, late fields filled {filled(pa)} (was {filled(old) if old else '—'}), still empty in {len(pa['late_missing'])} match(es)")
+            rep_.append(f"pitchapi_gw{g}: {len(pa['players'])} players, matches with late fields {filled(pa)} (was {filled(old) if old else '—'}), still empty in {len(pa['late_missing'])} match(es)")
         else:
             if refresh:   # keep the better old file, but count the try so the refresh stops after LATE_MAX_TRIES
                 old["late_tries"] = pa.get("late_tries", 1)
@@ -785,11 +787,11 @@ def write_side_files(snap, out, refresh=False):
     return "; ".join(rep_)
 
 
-LATE_MAX_TRIES, LATE_MAX_DAYS = 12, 42   # 3 runs a day → about 4 days of retries per GW; never chase a GW older than 6 weeks
+LATE_MAX_TRIES, LATE_MAX_DAYS = 3, 42   # 3 runs a day → one day of retries per GW (user, 2 Oct 2026: the GW3–5 xAG nulls were still null 25 days later — a coverage gap, not a delay); never chase a GW older than 6 weeks
 def refresh_late(src, bs, owned, out, pool_ids):
     """Re-pull late fields (2 Oct 2026, FX-29 [USER DECISION]): every POST cron, re-run the back-fill for any finished GW whose
     pitchapi_gw{N}.json still has matches with xAG/xG chain/xG build-up all empty, or whose shots_gw{N}.json has no Understat rosters.
-    At most 2 GWs per run; stops after LATE_MAX_TRIES tries or LATE_MAX_DAYS days. Never blocks the normal POST pull."""
+    At most 2 GWs per run; stops after LATE_MAX_TRIES tries (3) or LATE_MAX_DAYS days. Never blocks the normal POST pull."""
     done = []
     fin = [e for e in bs["events"] if e.get("finished") and e.get("data_checked")]
     for e in sorted(fin, key=lambda e: -e["id"]):
