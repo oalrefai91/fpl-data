@@ -90,16 +90,19 @@ class Source:
             return self._file("meteo_sample.json")
         return self._get(f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date={day}&end_date={day}")
     # football-data.co.uk season CSV — open; referee, cards, shots, corners, xG, odds per finished match
-    def fdcsv(self, season="2627"):
+    # div E0 = Premier League, E1 = Championship (both carry a Referee column); E1 and last season feed the referee prior (FX-39)
+    def fdcsv(self, season="2627", div="E0"):
         if self.offline:
-            p = os.path.join(self.offline, "fdcsv_sample.csv")
-            return open(p).read() if os.path.exists(p) else None
+            for name in (f"fdcsv_{div}_{season}.csv",) + (("fdcsv_sample.csv",) if (div, season) == ("E0", "2627") else ()):
+                p = os.path.join(self.offline, name)
+                if os.path.exists(p): return open(p).read()
+            return None
         t0 = time.time()
         try:
-            with urllib.request.urlopen(urllib.request.Request(f"https://www.football-data.co.uk/mmz4281/{season}/E0.csv", headers=UA), timeout=30) as r:
+            with urllib.request.urlopen(urllib.request.Request(f"https://www.football-data.co.uk/mmz4281/{season}/{div}.csv", headers=UA), timeout=30) as r:
                 body = r.read().decode("utf-8", "replace"); self.log.append((r.url, r.status, len(body), int((time.time() - t0) * 1000))); return body
         except Exception as e:
-            self.log.append(("football-data.co.uk E0.csv", f"ERR {type(e).__name__}", 0, 0)); return None
+            self.log.append((f"football-data.co.uk {season}/{div}.csv", f"ERR {type(e).__name__}", 0, 0)); return None
     # Understat — JSON endpoints behind the site pages; the X-Requested-With header is required (3 Sep 2026). 3–12 calls per GW.
     US_H = {"X-Requested-With": "XMLHttpRequest", "Accept": "application/json", "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36", "Referer": "https://understat.com/"}
     def understat_team(self, title, season):
@@ -333,6 +336,46 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
         for r, d in refs.items(): d["yellows_per_match"] = round(d["yellows"] / d["matches"], 2)
     out["referee_season_stats"] = refs
     out["referee_last_matches"] = last[-10:]
+    # Referee prior (FX-39, 2 Oct 2026 [USER DECISION]): 2025/26 PL + Championship and 2026/27 Championship from the same site.
+    # A referee with n < 3 PL matches this season gets  rate = (PL yellows + prior rate x (3 - n)) / 3 ; from 3 PL matches, PL only.
+    prior = {}; prior_src = []
+    for season, div in (("2526", "E0"), ("2526", "E1"), ("2627", "E1")):
+        txt = src.fdcsv(season, div)
+        if not txt: continue
+        import csv, io
+        k = 0
+        for row in csv.DictReader(io.StringIO(txt)):
+            r = (row.get("Referee") or "").strip()
+            if not r: continue
+            d = prior.setdefault(r, {"matches": 0, "yellows": 0, "reds": 0, "by": {}})
+            d["matches"] += 1; d["yellows"] += int(row.get("HY") or 0) + int(row.get("AY") or 0); d["reds"] += int(row.get("HR") or 0) + int(row.get("AR") or 0)
+            tag = f"{'PL' if div == 'E0' else 'Ch'} {season[:2]}/{season[2:]}"; d["by"][tag] = d["by"].get(tag, 0) + 1; k += 1
+        prior_src.append(f"{season}/{div} ({k})")
+    for r, d in prior.items(): d["yellows_per_match"] = round(d["yellows"] / d["matches"], 2); d["reds_per_match"] = round(d["reds"] / d["matches"], 3)
+    def ref_key(name, table):
+        """football-data spells 'M Oliver'; FotMob 'Michael Oliver'. Initial + surname first; surname alone only if unique in the table."""
+        parts = (name or "").split()
+        if not parts: return None
+        if len(parts) > 1:
+            k = (parts[0][0] + " " + parts[-1]).lower()
+            hit = [t for t in table if t.lower() == k]
+            if hit: return hit[0]
+        hit = [t for t in table if t.lower().split()[-1:] == [parts[-1].lower()]]
+        return hit[0] if len(hit) == 1 else None
+    def card_rate(name):
+        pk = ref_key(name, refs); qk = ref_key(name, prior)
+        st = refs.get(pk) if pk else None; pr = prior.get(qk) if qk else None
+        n = st["matches"] if st else 0
+        if n >= 3 or (n and not pr):
+            return {"yellows_per_match": st["yellows_per_match"], "reds": st["reds"], "basis": f"PL 26/27 {n} m", "prior": None}
+        if pr:
+            y = ((st["yellows"] if st else 0) + pr["yellows_per_match"] * (3 - n)) / 3
+            return {"yellows_per_match": round(y, 2), "reds": (st["reds"] if st else 0), "basis": f"PL 26/27 {n} m + prior {pr['matches']} m at {pr['yellows_per_match']} Y/m ({', '.join(f'{k} {v}' for k, v in pr['by'].items())}) [PRIOR]", "prior": qk}
+        return None
+    out["referee_prior_source"] = "football-data.co.uk " + ", ".join(prior_src) if prior_src else "not reached"
+    # referees likely to get a PL game who still have under 3 PL matches this season (any PL match in 2025/26 or 2026/27): their blended rate, ready before appointments
+    pl_any = {r for r, d in prior.items() if any(k.startswith("PL") for k in d["by"])} | set(refs)
+    out["referee_low_sample"] = {r: card_rate(r) for r in sorted(pl_any) if (refs.get(r, {}).get("matches", 0) < 3) and card_rate(r)}
     # B9 appointments for GW N (added 6 Sep 2026): FotMob matchDetails carries the referee as soon as the PL publishes it (Wed/Thu);
     # the same fotmob_league/fotmob_match calls already work from the runner for POST (9/9 on GW2). Joined with the football-data season rates.
     appts = []; fm_n = 0; fm_ok = 0
@@ -357,12 +400,12 @@ def build_schedule(src, bs, N, teams, cov, warn, prev):
                 st = next((v for k, v in refs.items() if k.lower() == key or k.lower().endswith(" " + parts[-1].lower())), None)
             appts.append({"gw": N, "home": h, "away": a, "fotmob_match_id": m["id"], "kickoff": m.get("status", {}).get("utcTime") or m.get("utcTime"),
                           "referee": name, "referee_country": (r.get("country") if isinstance(r, dict) else None),
-                          "season_stats": st, "fixture_id": (gw_fx.get((h, a)) or {}).get("id")})
+                          "season_stats": st, "card_rate": card_rate(name) if name else None, "fixture_id": (gw_fx.get((h, a)) or {}).get("id")})
     except Exception as e:
         warn.append(f"B9 FotMob appointments failed: {e}")
     out["referee_appointments"] = appts
     if fm_n and fm_ok == fm_n:
-        cov["B9"] = {"status": "OK", "source": "FotMob matchDetails infoBox.Referee (appointments) + football-data.co.uk E0.csv (season card rates)", "note": f"{fm_ok}/{fm_n} GW{N} fixtures have a named referee"}
+        cov["B9"] = {"status": "OK", "source": "FotMob matchDetails infoBox.Referee (appointments) + football-data.co.uk E0.csv (season card rates) + prior 2025/26 PL/Championship and 2026/27 Championship for referees under 3 PL matches (FX-39)", "note": f"{fm_ok}/{fm_n} GW{N} fixtures have a named referee" + (f"; {sum(1 for x in appts if (x.get('card_rate') or {}).get('prior'))} rate(s) use the prior" if appts else "") + ("; no card rate for: " + ", ".join(x["referee"] for x in appts if x["referee"] and not x.get("card_rate")) if any(x["referee"] and not x.get("card_rate") for x in appts) else "")}
     elif fm_n:
         missing = [f"{x['home']}-{x['away']}" for x in appts if not x["referee"]]
         cov["B9"] = {"status": "PARTIAL", "source": "FotMob matchDetails + football-data.co.uk", "note": f"{fm_ok}/{fm_n} GW{N} fixtures named; not yet published for {', '.join(missing)} (PL publishes Wed/Thu — the 12:00/18:00 UTC runs pick them up)"}
@@ -1274,7 +1317,7 @@ def brief(s):
             top = sorted(B["referee_season_stats"].items(), key=lambda kv: -kv[1]["matches"])[:6]
             L.append("Referees this season (football-data.co.uk, POST): " + "; ".join(f"{r} {d['matches']} m, {d['yellows_per_match']} Y/m, {d['reds']} R" for r, d in top))
         if B.get("referee_appointments"):
-            L.append("Referee appointments GW" + str(B["referee_appointments"][0]["gw"]) + " (FotMob): " + "; ".join(f"{x['home']}-{x['away']} {x['referee'] or 'TBC'}" + (f" ({x['season_stats']['matches']} m, {x['season_stats']['yellows_per_match']} Y/m, {x['season_stats']['reds']} R)" if x.get('season_stats') else "") for x in B["referee_appointments"]))
+            L.append("Referee appointments GW" + str(B["referee_appointments"][0]["gw"]) + " (FotMob): " + "; ".join(f"{x['home']}-{x['away']} {x['referee'] or 'TBC'}" + (f" ({x['card_rate']['yellows_per_match']} Y/m — {x['card_rate']['basis']})" if x.get('card_rate') else (" (no card rate)" if x['referee'] else "")) for x in B["referee_appointments"]))
         else:
             L.append("Appointments for this GW: FotMob fixtures not read this run — attended browser-fill routine (browser-fill.md, FotMob referee).")
     L.append("\n## Coverage A1–A11, B1–B10\n")
