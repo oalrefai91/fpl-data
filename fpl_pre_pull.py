@@ -119,6 +119,9 @@ class Source:
         if self.offline:
             return self._file(f"understat_team_{title}.json")
         return self._get(f"https://understat.com/getTeamData/{urllib.parse.quote(title)}/{season}", headers=self.US_H)
+    def understat_league(self, season):
+        # getLeagueData (FX-31, 2 Oct 2026): per team per match deep / deep_allowed (passes completed within ~20 m of goal, crosses excluded) and PPDA
+        return self._file(f"understat_league_{season}.json") if self.offline else self._get(f"https://understat.com/getLeagueData/EPL/{season}", headers=self.US_H)
     def understat_match(self, mid):
         return self._file(f"understat_match_{mid}.json") if self.offline else self._get(f"https://understat.com/getMatchData/{mid}", headers=self.US_H)
     # FotMob — same-origin data proxy used by the site; Opta-fed. Untested from GitHub (3 Sep 2026); fails gracefully.
@@ -460,7 +463,8 @@ def _us_pack(v):
                "h": [[num(k, r.get(k)) for k in cols] for r in (ros.get("h") or {}).values()],
                "a": [[num(k, r.get(k)) for k in cols] for r in (ros.get("a") or {}).values()]}
     return {"home": v["home"], "away": v["away"], "date": v["date"], "xG": v.get("xG"), "goals": v.get("goals"),
-            "shots": {side: list((mj.get("shots") or {}).get(side) or []) for side in ("h", "a")}, "rosters": rosters}
+            "shots": {side: list((mj.get("shots") or {}).get(side) or []) for side in ("h", "a")}, "rosters": rosters,
+            "team_stats": v.get("team_stats")}   # FX-31: Understat getLeagueData row per side (deep, deep_allowed, ppda{att,def}, ppda_value …)
 
 # Late fields (2 Oct 2026, FX-29): PitchAPI fills xAG / xG chain / xG build-up hours-to-days after full time. GW3–5 were pulled straight after
 # the matches and kept nulls for 18 of 30 matches; GW1–2, back-filled a day later, were complete. A null in these fields is MISSING, never OK.
@@ -512,6 +516,21 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
                 us_all.setdefault(d["id"], {"match": mj, "home": d["h"]["title"], "away": d["a"]["title"], "xG": d["xG"], "goals": d["goals"], "date": d["datetime"]})
                 if club in clubs:
                     us_matches[club] = {"id": d["id"], "side": side, "xG": d["xG"], "goals": d["goals"], "match": mj, "opp": d["a" if side == "h" else "h"]["title"]}
+    # ----- Understat team per-match stats (FX-31): deep completions, deep allowed, PPDA — one call, matched on team title + kickoff
+    lgd = src.understat_league(season) or {}
+    us_hist = {}
+    for t_ in ((lgd.get("teams") or {}).values() if isinstance(lgd.get("teams"), dict) else []):
+        for h_ in t_.get("history") or []:
+            us_hist[(t_.get("title"), h_.get("date"))] = h_
+    def _ts(h_):
+        if not h_: return None
+        d_ = dict(h_)
+        for k_ in ("ppda", "ppda_allowed"):
+            v_ = h_.get(k_) or {}
+            d_[k_ + "_value"] = round(v_["att"] / v_["def"], 2) if v_.get("def") else None
+        return d_
+    for v in us_all.values():
+        v["team_stats"] = {"h": _ts(us_hist.get((v["home"], v["date"]))), "a": _ts(us_hist.get((v["away"], v["date"])))}
     # ----- FotMob per fixture involving an owned club
     fm_matches = {}
     lg = src.fotmob_league()
@@ -721,7 +740,8 @@ def build_post(src, bs, owned_ids, out_dir, force=False, pool_ids=None, gw=None)
     else:
         st_("C13", False, n_us + n_fm > 0, "key passes/chances created (Understat, FotMob); xGChain/xGBuildup (Understat)", "PitchAPI integration present but PITCHAPI_KEY secret not set — add it to enable SCA/GCA/xT/progressive actions")
     n_ros = sum(1 for v in us_all.values() if ((v.get("match") or {}).get("rosters") or {}).get("h"))
-    st_("C13b", n_ros == len(us_all) == len(fx) and n_ros > 0, n_ros > 0, f"Understat match rosters ({n_ros}/{len(fx)} matches) — xA, xG chain, xG build-up, key passes for every player; stored in shots_gw{L}.json", "")
+    n_deep = sum(1 for v in us_all.values() if all((v.get("team_stats") or {}).get(s) for s in ("h", "a")))
+    st_("C13b", n_ros == len(us_all) == len(fx) and n_ros > 0 and n_deep == n_ros, n_ros > 0, f"Understat match rosters ({n_ros}/{len(fx)} matches) — xA, xG chain, xG build-up, key passes for every player; team deep completions / deep allowed / PPDA ({n_deep}/{len(fx)} matches, FX-31); stored in shots_gw{L}.json", "")
     st_("C14", True, True, "event/N/live cards", "")
     st_("C15", n_us == n, n_us + n_fm > 0, "Understat shot list (X, Y, xG, result, situation, body, last action) + FotMob shotmap (xGOT)", "")
     st_("C16", False, False, "SofaScore /event/{id}/player/{pid}/heatmap — browser only", "not scriptable; attended POST step or device-bound task")
@@ -777,7 +797,7 @@ def write_side_files(snap, out, refresh=False):
             rep_.append(f"pitchapi_gw{g}: new pull worse ({filled(pa)} filled v {filled(old)}) — kept the old file")
     sh = snap.get("understat_all_shots") or {}
     sp = os.path.join(out, f"shots_gw{g}.json")
-    nros = lambda m: sum(1 for v in (m or {}).values() if ((v.get("rosters") or {}).get("h")))
+    nros = lambda m: sum(1 for v in (m or {}).values() if ((v.get("rosters") or {}).get("h"))) + sum(1 for v in (m or {}).values() if all((v.get("team_stats") or {}).get(s) for s in ("h", "a")))   # rosters + team stats (FX-31)
     olds = json.load(open(sp)).get("matches") if os.path.exists(sp) else None
     if sh and (olds is None or nros(sh) >= max(nros(olds), 1) and len(sh) >= len(olds)):
         with open(sp, "w") as f: json.dump({"gw": g, "matches": sh}, f, ensure_ascii=False)
@@ -807,7 +827,7 @@ def refresh_late(src, bs, owned, out, pool_ids):
         pa = json.load(open(pp)) if os.path.exists(pp) else {}
         need_pa = os.environ.get("PITCHAPI_KEY") and bool(_late_missing(pa.get("players"))) and int(pa.get("late_tries") or 0) < LATE_MAX_TRIES
         shm = json.load(open(sp)).get("matches", {}) if os.path.exists(sp) else {}
-        need_sh = any(not (v.get("rosters") or {}).get("h") for v in shm.values())
+        need_sh = any(not (v.get("rosters") or {}).get("h") or not all((v.get("team_stats") or {}).get(s) for s in ("h", "a")) for v in shm.values())
         if not (need_pa or need_sh): continue
         try:
             snap, why = build_post(src, bs, owned, out, pool_ids=pool_ids, gw=g)
