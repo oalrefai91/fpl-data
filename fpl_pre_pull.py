@@ -86,6 +86,20 @@ class Source:
     def live(self, gw):         return self._file("live.json") if self.offline else self._get(FPL + f"event/{gw}/live/")
     def element_summary(self, i): return self._file(f"element_{i}.json") if self.offline else self._get(FPL + f"element-summary/{i}/")
     def fixtures_all(self):   return self._file("fixtures_all.json") if self.offline else self._get(FPL + "fixtures/")
+    # RotoWire predicted / confirmed line-ups + injury tags (G2/G4, FX-43) — server-rendered HTML
+    def rotowire(self):
+        if self.offline:
+            p = os.path.join(self.offline, "rotowire_lineups.html")
+            return open(p, encoding="utf-8").read() if os.path.exists(p) else None
+        t0 = time.time(); url = "https://www.rotowire.com/soccer/lineups.php"
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128.0.0.0 Safari/537.36", "Accept": "text/html", "Accept-Language": "en-GB,en;q=0.9"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                body = r.read().decode("utf-8", "replace"); self.log.append((url, r.status, len(body), int((time.time() - t0) * 1000))); return body
+        except urllib.error.HTTPError as e:
+            self.log.append((url, e.code, 0, int((time.time() - t0) * 1000))); return None
+        except Exception as e:
+            self.log.append((url, f"ERR {type(e).__name__}", 0, 0)); return None
     # Open-Meteo — open, no key; hourly forecast at a venue for one UTC day
     def meteo(self, lat, lon, day):
         if self.offline:
@@ -936,8 +950,97 @@ def brief_post(s):
     return "\n".join(L) + "\n"
 
 
+# ----------------------------------------------------------------------------- group G: pre-match team news (FX-43, 3 Oct 2026)
+RW_TO_FPL = {"Arsenal": "ARS", "Aston Villa": "AVL", "AFC Bournemouth": "BOU", "Bournemouth": "BOU", "Brentford": "BRE", "Brighton & Hove Albion": "BHA",
+             "Chelsea": "CHE", "Coventry City": "COV", "Crystal Palace": "CRY", "Everton": "EVE", "Fulham": "FUL", "Hull City": "HUL", "Ipswich Town": "IPS",
+             "Leeds United": "LEE", "Liverpool": "LIV", "Manchester City": "MCI", "Manchester United": "MUN", "Newcastle United": "NEW",
+             "Nottingham Forest": "NFO", "Sunderland": "SUN", "Tottenham Hotspur": "TOT"}
+
+def _fold(s):
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    return [t for t in "".join(c if c.isalnum() else " " for c in s).split() if t]
+
+def parse_rotowire(html):
+    """RotoWire soccer/lineups.php (server-rendered): one block per match with kick-off (ET), both teams, 'Predicted/Confirmed Lineup',
+    the XI (position, name, optional QUES/OUT/SUS tag) and an 'Injuries' list. Returns [] when the layout is not recognised."""
+    import html as H, re
+    out = []
+    for blk in html.split('class="lineup is-soccer')[1:]:
+        tm = re.search(r'lineup__time">\s*<b>(.*?)</b>(?:&nbsp;|\s)*([^<]*)<', blk, re.S)
+        names = re.findall(r'lineup__mteam is-(?:home|visit)">\s*([^<]+?)\s*<', blk)
+        if len(names) < 2: continue
+        lists = re.split(r'class="lineup__list is-(home|visit)"', blk)
+        sides = {}
+        for k in range(1, len(lists) - 1, 2):
+            side, body = lists[k], lists[k + 1].split("</ul>")[0]
+            st = re.search(r'lineup__status[^>]*>.*?</div>\s*([^<]+?)\s*</li>', body, re.S)
+            xi, inj, in_inj = [], [], False
+            for kind, li in re.findall(r'<li class="lineup__(player|title[^"]*)"[^>]*>(.*?)</li>', body, re.S):
+                if kind.startswith("title"):
+                    in_inj = "injur" in li.lower(); continue
+                nm = re.search(r'title="([^"]+)"', li); pos = re.search(r'lineup__pos[^"]*">([^<]*)<', li); tag = re.search(r'lineup__inj">([^<]*)<', li)
+                row = {"name": H.unescape(nm.group(1)) if nm else None, "pos": (pos.group(1).strip() if pos else None), "tag": (tag.group(1).strip() if tag else None)}
+                (inj if in_inj else xi).append(row)
+            sides[side] = {"status": (st.group(1).strip() if st else None), "xi": xi, "injuries": inj}
+        out.append({"date": H.unescape(tm.group(1)).strip() if tm else None, "time_et": H.unescape(tm.group(2)).strip() if tm else None,
+                    "home": H.unescape(names[0]), "away": H.unescape(names[1]), "sides": sides})
+    return out
+
+def g_team_news(src, bs, N, teams, B, owned_ids, pool_ids, cov):
+    """G2 predicted XI + G4 injury status from RotoWire, joined to FPL elements and compared with FPL's own status / chance / news.
+    FX-43 [USER DECISION 3 Oct 2026]: two weekly sources (RotoWire + FPL flags); disagreements listed; Dinnery stays a separate pull."""
+    html = src.rotowire()
+    games = parse_rotowire(html) if html else []
+    els = bs["elements"]; by_team = {}
+    for e in els: by_team.setdefault(teams[e["team"]], []).append(e)
+    def match(name, team):
+        nt = _fold(name); best = []; top = 0
+        for e in by_team.get(team, []):
+            full = set(_fold(e["first_name"] + " " + e["second_name"])) | set(_fold(e["web_name"]))
+            wn = _fold(e["web_name"])
+            sc = 3 if nt and set(nt) <= full else (2 if nt and wn and nt[-1] == wn[-1] else (1 if nt and nt[-1] in full else 0))
+            if sc > top: top, best = sc, [e]
+            elif sc and sc == top: best.append(e)
+        return best[0] if len(best) == 1 else None
+    gw_pairs = {(x["opp"], t) if not x["home"] else (t, x["opp"]) for t, v in (B.get("fixtures_next6") or {}).items() for x in v if x["gw"] == N}
+    matches, dis, unmatched, n_gw = [], [], 0, 0
+    tracked = set(owned_ids) | set(pool_ids)
+    for g in games:
+        h, a = RW_TO_FPL.get(g["home"]), RW_TO_FPL.get(g["away"])
+        in_gw = (h, a) in gw_pairs
+        n_gw += in_gw
+        m = {"home": h, "away": a, "date": g["date"], "time_et": g["time_et"], "in_gw": in_gw, "sides": {}}
+        for side, team in (("home", h), ("visit", a)):
+            sd = g["sides"].get(side) or {}
+            rows = []
+            for kind, lst in (("xi", sd.get("xi") or []), ("inj", sd.get("injuries") or [])):
+                for r in lst:
+                    e = match(r["name"], team) if team else None
+                    if not e: unmatched += 1
+                    row = {"name": r["name"], "pos": r["pos"], "tag": r["tag"], "list": kind, "fpl_id": e["id"] if e else None,
+                           "fpl_status": e["status"] if e else None, "fpl_chance": e.get("chance_of_playing_next_round") if e else None,
+                           "fpl_news": (e.get("news") or "")[:120] if e else None}
+                    rows.append(row)
+                    if not e: continue
+                    fpl_out = e["status"] in ("i", "s", "u", "n") or (e.get("chance_of_playing_next_round") is not None and e["chance_of_playing_next_round"] <= 25)
+                    fpl_fit = e["status"] == "a" and e.get("chance_of_playing_next_round") in (None, 100)
+                    why = None
+                    if r["tag"] in ("OUT", "SUS") and fpl_fit: why = f"RotoWire {r['tag']}, FPL available"
+                    elif kind == "xi" and not r["tag"] and fpl_out: why = f"RotoWire predicted XI, FPL {e['status']} {e.get('chance_of_playing_next_round')}%"
+                    elif r["tag"] == "QUES" and fpl_fit and e["id"] in tracked: why = "RotoWire QUES, FPL available (tracked player)"
+                    if why: dis.append({"team": team, "player": e["web_name"], "fpl_id": e["id"], "owned": e["id"] in owned_ids, "why": why, "fpl_news": (e.get("news") or "")[:120]})
+            m["sides"][team or side] = {"status": sd.get("status"), "rows": rows}
+        matches.append(m)
+    n_exp = len(gw_pairs)
+    ok = bool(games) and n_gw == n_exp
+    cov["G2"] = {"status": "OK" if ok else ("PARTIAL" if games else "MISSING"), "source": "RotoWire soccer/lineups.php (predicted / confirmed XI)",
+                 "note": f"{n_gw}/{n_exp} GW{N} matches on the page; {sum(1 for m in matches for s in m['sides'].values() if (s['status'] or '').lower().startswith('confirmed'))} sides confirmed; {unmatched} RotoWire names not matched to FPL"}
+    cov["G4"] = {"status": "OK" if ok else ("PARTIAL" if games else "MISSING"), "source": "RotoWire injury tags (OUT/QUES/SUS) vs FPL status / chance_of_playing / news",
+                 "note": f"{len(dis)} disagreement(s) between RotoWire and FPL ({sum(1 for d in dis if d['owned'])} on owned players); FPL stays the official flag, RotoWire is the second reading"}
+    return {"source": "https://www.rotowire.com/soccer/lineups.php", "matches": matches, "disagreements": dis}
+
 # ----------------------------------------------------------------------------- gameweek state (FX-42)
-def write_state(events, out_dir):
+def write_state(events, out_dir, src=None, bs=None):
     """snapshots/state.json — which GW is finished, current and next, straight from FPL, written on EVERY run (also outside the PRE
     window, e.g. international breaks). FX-42 [USER DECISION 2 Oct 2026]: the Monday/Tuesday POST tasks read this first instead of
     guessing from an old latest.md or the feeder's state file (Q-35). Contains no timestamp of its own, so the workflow commits it only
@@ -950,6 +1053,33 @@ def write_state(events, out_dir):
           "last_finished_flag_gw": max(fin_prov) if fin_prov else 0, "current_gw": cur,
           "next_gw": nxt["id"] if nxt else None, "next_deadline_utc": nxt["deadline_time"] if nxt else None,
           "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet — wait."}
+    # FX-44 (3 Oct 2026): each club's last played match, any competition — the cut-off for the twice-weekly Dinnery team-news pull
+    if src is not None and bs is not None:
+        try:
+            from datetime import timedelta
+            tm = {t["id"]: t["short_name"] for t in bs["teams"]}; now = now_utc(); last = {}
+            def upd(code, when, comp, opp):
+                if code and when < now and (code not in last or when > parse_ts(last[code]["utc"])):
+                    last[code] = {"utc": when.strftime("%Y-%m-%dT%H:%M:%SZ"), "comp": comp, "opp": opp}
+            for f in (src.fixtures_all() or []):
+                if f.get("kickoff_time") and f.get("started"):
+                    k = parse_ts(f["kickoff_time"]); upd(tm[f["team_h"]], k, "PL", tm[f["team_a"]]); upd(tm[f["team_a"]], k, "PL", tm[f["team_h"]])
+            cups, _ = fetch_cups(src, now - timedelta(days=21), now, set(tm.values()))
+            for code, v in cups.items():
+                for c in v:
+                    upd(code, parse_ts(c["date"][:19] + "Z"), c["comp"], c["opp"])
+            st["club_last_match"] = dict(sorted(last.items()))
+        except Exception as e:
+            st["club_last_match_error"] = f"{type(e).__name__}: {e}"
+        # FX-45: FPL id table for the H7 crosswalk (all elements; commits only when FPL adds or renames a player)
+        try:
+            ids = [{"id": e["id"], "code": e["code"], "web_name": e["web_name"], "first_name": e["first_name"], "second_name": e["second_name"],
+                    "team": tm[e["team"]], "pos": e["element_type"]} for e in sorted(bs["elements"], key=lambda e: e["id"])]
+            p2 = os.path.join(out_dir, "fpl_ids.json"); txt2 = json.dumps(ids, ensure_ascii=False, indent=0)
+            if not os.path.exists(p2) or open(p2, encoding="utf-8").read() != txt2:
+                os.makedirs(out_dir, exist_ok=True); open(p2, "w", encoding="utf-8").write(txt2)
+        except Exception as e:
+            print(f"fpl_ids.json not written: {e}")
     try:
         os.makedirs(out_dir, exist_ok=True)
         p = os.path.join(out_dir, "state.json"); txt = json.dumps(st, indent=1)
@@ -976,7 +1106,7 @@ def build(src, force=False, window_h=30.0):
     deadline = parse_ts(nxt["deadline_time"])
     hours_to_deadline = (deadline - now_utc()).total_seconds() / 3600
     in_window = 0 <= hours_to_deadline <= window_h
-    write_state(events, src.prev_dir or "snapshots")
+    write_state(events, src.prev_dir or "snapshots", src, bs)
     if not in_window and not force and not src.offline:
         print(f"GW{N} deadline {nxt['deadline_time']} is {hours_to_deadline:.1f} h away — outside the {window_h} h PRE window. Exiting (use --force).")
         return None
@@ -1246,6 +1376,10 @@ def build(src, force=False, window_h=30.0):
     except Exception:
         pass
     B = build_schedule(src, bs, N, teams, cov, warn, prev)
+    try:
+        G = g_team_news(src, bs, N, teams, B, [o["id"] for o in owned], [p["id"] for p in pool], cov)
+    except Exception as e:
+        G = {"error": f"{type(e).__name__}: {e}"}; cov["G2"] = cov["G4"] = {"status": "MISSING", "source": "RotoWire", "note": G["error"]}
 
     # -------- readiness gate: every parameter is GO only if fully fetched for THIS gameweek; everything else needs a human decision
     gen = now_utc()
@@ -1262,7 +1396,9 @@ def build(src, force=False, window_h=30.0):
                 "B5": "cup/European fixtures: a FotMob competition list failed or is last season's (see note) — attended: read the owned clubs' next fixtures from the Tuesday feeder teams.json (SofaScore, all competitions); unattended: wait for the next run",
                 "B7": "call-ups come from the Tuesday feeder's intl.json (SofaScore squads, notes only) and the Dinnery pull — read claude/feeder/intl.json and claude/season-calendar.md; ask only if intl.json is older than 8 days in a break week",
                 "B9": "referee appointments: FotMob did not return them this run — attended: browser-fill FotMob routine; or wait for the 12:00/18:00 UTC run",
-                "B10": "weather: kick-offs are beyond the 7-day forecast horizon — re-run closer, or skip"}.get(k, c.get("note", ""))
+                "B10": "weather: kick-offs are beyond the 7-day forecast horizon — re-run closer, or skip",
+                "G2": "predicted line-ups: RotoWire page not read or not covering every GW fixture this run — attended: open rotowire.com/soccer/lineups.php in the pane; unattended: next run",
+                "G4": "injury cross-check: same as G2 — FPL flags still stand as the official status"}.get(k, c.get("note", ""))
         hold.append({"param": k, "status": st, "source": c.get("source"), "needs": need,
                      "options": ["provide a source URL", "paste the data manually", "skip this GW (output is labelled with the gap)", "abort"]})
     # freshness: cohort data (A4–A6) is always the last finished GW; snapshot must be inside the PRE window
@@ -1280,7 +1416,7 @@ def build(src, force=False, window_h=30.0):
     snap = {
         "generated_utc": now_utc().strftime("%Y-%m-%dT%H:%M:%SZ"), "mode": "offline" if src.offline else "live",
         "readiness": readiness,
-        "B_schedule": B,
+        "B_schedule": B, "G_team_news": G,
         "gw_next": N, "gw_last": last_gw, "in_pre_window": in_window,
         "A1_owned": owned, "pool": pool, "A2_bank_ft_chips": a2, "A7_flow": flow, "A9_rank": a9, "A10_flags": a10,
         "coverage": cov, "consistency": consistency, "warnings": warn,
@@ -1361,9 +1497,22 @@ def brief(s):
             L.append("Referee appointments GW" + str(B["referee_appointments"][0]["gw"]) + " (FotMob): " + "; ".join(f"{x['home']}-{x['away']} {x['referee'] or 'TBC'}" + (f" ({x['card_rate']['yellows_per_match']} Y/m — {x['card_rate']['basis']})" if x.get('card_rate') else (" (no card rate)" if x['referee'] else "")) for x in B["referee_appointments"]))
         else:
             L.append("Appointments for this GW: FotMob fixtures not read this run — attended browser-fill routine (browser-fill.md, FotMob referee).")
-    L.append("\n## Coverage A1–A11, B1–B10\n")
+    G = s.get("G_team_news") or {}
+    if G.get("matches") is not None:
+        owned_ids = {o["id"] for o in s["A1_owned"]}
+        L.append("\n## Team news (G2/G4 — RotoWire predicted XI + injury tags vs FPL flags)\n")
+        own = []
+        for m in G["matches"]:
+            for team, sd in m["sides"].items():
+                for r in sd["rows"]:
+                    if r["fpl_id"] in owned_ids:
+                        own.append(f"{r['name']} ({team}): {'predicted XI' if r['list'] == 'xi' else 'not in predicted XI'}{' — ' + r['tag'] if r['tag'] else ''}; FPL {r['fpl_status']} {r['fpl_chance'] if r['fpl_chance'] is not None else ''}".strip())
+        L.append("Owned players on the page: " + ("; ".join(own) if own else "none listed"))
+        L.append("Disagreements RotoWire vs FPL: " + ("; ".join(f"{'**' if d['owned'] else ''}{d['player']} ({d['team']}){'**' if d['owned'] else ''} — {d['why']}" + (f" (FPL news: {d['fpl_news']})" if d['fpl_news'] else "") for d in G["disagreements"]) or "none"))
+        L.append("Line-up status per side: " + "; ".join(f"{t} {(sd['status'] or '?').replace(' Lineup', '')}" for m in G["matches"] if m["in_gw"] for t, sd in m["sides"].items()))
+    L.append("\n## Coverage A1–A11, B1–B10, G2, G4\n")
     L.append("| # | Status | Source | Note |\n|---|---|---|---|")
-    for k in ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10"]:
+    for k in ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10", "G2", "G4"]:
         c = s["coverage"].get(k, {})
         L.append(f"| {k} | {c.get('status')} | {c.get('source')} | {c.get('note')} |")
     L.append("\n## Consistency\n")
