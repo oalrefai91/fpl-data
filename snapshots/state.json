@@ -5,5 +5,107 @@
  "current_gw": 5,
  "next_gw": 6,
  "next_deadline_utc": "2026-10-10T10:00:00Z",
- "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait."
+ "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
+ "club_last_match": {
+  "ARS": {
+   "utc": "2026-09-19T14:00:00Z",
+   "comp": "PL",
+   "opp": "BHA"
+  },
+  "AVL": {
+   "utc": "2026-09-19T11:30:00Z",
+   "comp": "PL",
+   "opp": "TOT"
+  },
+  "BHA": {
+   "utc": "2026-09-19T14:00:00Z",
+   "comp": "PL",
+   "opp": "ARS"
+  },
+  "BOU": {
+   "utc": "2026-09-20T13:00:00Z",
+   "comp": "PL",
+   "opp": "LIV"
+  },
+  "BRE": {
+   "utc": "2026-09-18T19:00:00Z",
+   "comp": "PL",
+   "opp": "CHE"
+  },
+  "CHE": {
+   "utc": "2026-09-18T19:00:00Z",
+   "comp": "PL",
+   "opp": "BRE"
+  },
+  "COV": {
+   "utc": "2026-09-19T16:30:00Z",
+   "comp": "PL",
+   "opp": "NFO"
+  },
+  "CRY": {
+   "utc": "2026-09-20T13:00:00Z",
+   "comp": "PL",
+   "opp": "LEE"
+  },
+  "EVE": {
+   "utc": "2026-09-19T14:00:00Z",
+   "comp": "PL",
+   "opp": "IPS"
+  },
+  "FUL": {
+   "utc": "2026-09-20T15:30:00Z",
+   "comp": "PL",
+   "opp": "MUN"
+  },
+  "HUL": {
+   "utc": "2026-09-19T14:00:00Z",
+   "comp": "PL",
+   "opp": "NEW"
+  },
+  "IPS": {
+   "utc": "2026-09-19T14:00:00Z",
+   "comp": "PL",
+   "opp": "EVE"
+  },
+  "LEE": {
+   "utc": "2026-09-20T13:00:00Z",
+   "comp": "PL",
+   "opp": "CRY"
+  },
+  "LIV": {
+   "utc": "2026-09-20T13:00:00Z",
+   "comp": "PL",
+   "opp": "BOU"
+  },
+  "MCI": {
+   "utc": "2026-09-20T13:00:00Z",
+   "comp": "PL",
+   "opp": "SUN"
+  },
+  "MUN": {
+   "utc": "2026-09-20T15:30:00Z",
+   "comp": "PL",
+   "opp": "FUL"
+  },
+  "NEW": {
+   "utc": "2026-09-19T14:00:00Z",
+   "comp": "PL",
+   "opp": "HUL"
+  },
+  "NFO": {
+   "utc": "2026-09-19T16:30:00Z",
+   "comp": "PL",
+   "opp": "COV"
+  },
+  "SUN": {
+   "utc": "2026-09-20T13:00:00Z",
+   "comp": "PL",
+   "opp": "MCI"
+  },
+  "TOT": {
+   "utc": "2026-09-19T11:30:00Z",
+   "comp": "PL",
+   "opp": "AVL"
+  }
+ }
 }
