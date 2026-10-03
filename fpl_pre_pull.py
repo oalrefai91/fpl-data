@@ -957,7 +957,8 @@ RW_TO_FPL = {"Arsenal": "ARS", "Aston Villa": "AVL", "AFC Bournemouth": "BOU", "
              "Nottingham Forest": "NFO", "Sunderland": "SUN", "Tottenham Hotspur": "TOT"}
 
 def _fold(s):
-    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    s = (s or "").translate(str.maketrans({"ø": "o", "Ø": "O", "ß": "ss", "ı": "i", "æ": "ae", "Æ": "AE", "đ": "d", "ł": "l", "Ł": "L"}))
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     return [t for t in "".join(c if c.isalnum() else " " for c in s).split() if t]
 
 def parse_rotowire(html):
@@ -993,12 +994,15 @@ def g_team_news(src, bs, N, teams, B, owned_ids, pool_ids, cov):
     games = parse_rotowire(html) if html else []
     els = bs["elements"]; by_team = {}
     for e in els: by_team.setdefault(teams[e["team"]], []).append(e)
+    import difflib
     def match(name, team):
         nt = _fold(name); best = []; top = 0
         for e in by_team.get(team, []):
             full = set(_fold(e["first_name"] + " " + e["second_name"])) | set(_fold(e["web_name"]))
             wn = _fold(e["web_name"])
-            sc = 3 if nt and set(nt) <= full else (2 if nt and wn and nt[-1] == wn[-1] else (1 if nt and nt[-1] in full else 0))
+            sim = max((difflib.SequenceMatcher(None, nt[-1], t).ratio() for t in full), default=0) if nt else 0
+            sc = (4 if nt and nt == wn else 3 if nt and set(nt) <= full else 2 if nt and wn and nt[-1] == wn[-1]
+                  else 1.5 if sim >= 0.85 else 1 if nt and nt[-1] in full else 0)
             if sc > top: top, best = sc, [e]
             elif sc and sc == top: best.append(e)
         return best[0] if len(best) == 1 else None
@@ -1026,6 +1030,7 @@ def g_team_news(src, bs, N, teams, B, owned_ids, pool_ids, cov):
                     fpl_fit = e["status"] == "a" and e.get("chance_of_playing_next_round") in (None, 100)
                     why = None
                     if r["tag"] in ("OUT", "SUS") and fpl_fit: why = f"RotoWire {r['tag']}, FPL available"
+                    elif r["tag"] in ("OUT", "SUS") and not fpl_out: why = f"RotoWire {r['tag']}, FPL {e['status']} {e.get('chance_of_playing_next_round')}%"
                     elif kind == "xi" and not r["tag"] and fpl_out: why = f"RotoWire predicted XI, FPL {e['status']} {e.get('chance_of_playing_next_round')}%"
                     elif r["tag"] == "QUES" and fpl_fit and e["id"] in tracked: why = "RotoWire QUES, FPL available (tracked player)"
                     if why: dis.append({"team": team, "player": e["web_name"], "fpl_id": e["id"], "owned": e["id"] in owned_ids, "why": why, "fpl_news": (e.get("news") or "")[:120]})
