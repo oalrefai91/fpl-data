@@ -1,16 +1,16 @@
 {
  "source": "FPL bootstrap-static events (runner, every run)",
- "last_finished_gw": 5,
- "last_finished_flag_gw": 5,
+ "last_finished_gw": 6,
+ "last_finished_flag_gw": 6,
  "current_gw": 6,
  "next_gw": 7,
  "next_deadline_utc": "2026-10-17T10:00:00Z",
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
-   "utc": "2026-10-10T11:30:00Z",
-   "comp": "PL",
-   "opp": "LEE"
+   "utc": "2026-10-13T19:00:00Z",
+   "comp": "UCL",
+   "opp": "Lille"
   },
   "AVL": {
    "utc": "2026-10-10T14:00:00Z",
@@ -83,9 +83,9 @@
    "opp": "LIV"
   },
   "MUN": {
-   "utc": "2026-10-10T16:30:00Z",
-   "comp": "PL",
-   "opp": "TOT"
+   "utc": "2026-10-13T19:00:00Z",
+   "comp": "UCL",
+   "opp": "Atl\u00e9tico Madrid"
   },
   "NEW": {
    "utc": "2026-10-12T19:00:00Z",
