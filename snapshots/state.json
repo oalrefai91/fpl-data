@@ -13,9 +13,9 @@
    "opp": "Lille"
   },
   "AVL": {
-   "utc": "2026-10-10T14:00:00Z",
-   "comp": "PL",
-   "opp": "BRE"
+   "utc": "2026-10-14T19:00:00Z",
+   "comp": "UCL",
+   "opp": "Fenerbah\u00e7e"
   },
   "BHA": {
    "utc": "2026-10-10T14:00:00Z",
@@ -73,14 +73,14 @@
    "opp": "ARS"
   },
   "LIV": {
-   "utc": "2026-10-11T15:30:00Z",
-   "comp": "PL",
-   "opp": "MCI"
+   "utc": "2026-10-14T16:45:00Z",
+   "comp": "UCL",
+   "opp": "LASK"
   },
   "MCI": {
-   "utc": "2026-10-11T15:30:00Z",
-   "comp": "PL",
-   "opp": "LIV"
+   "utc": "2026-10-14T19:00:00Z",
+   "comp": "UCL",
+   "opp": "Paris Saint-Germain"
   },
   "MUN": {
    "utc": "2026-10-13T19:00:00Z",
