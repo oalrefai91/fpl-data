@@ -18,14 +18,14 @@
    "opp": "Fenerbah\u00e7e"
   },
   "BHA": {
-   "utc": "2026-10-10T14:00:00Z",
-   "comp": "PL",
-   "opp": "SUN"
+   "utc": "2026-10-15T19:00:00Z",
+   "comp": "UECL",
+   "opp": "FK Kauno \u017dalgiris"
   },
   "BOU": {
-   "utc": "2026-10-10T14:00:00Z",
-   "comp": "PL",
-   "opp": "CHE"
+   "utc": "2026-10-15T19:00:00Z",
+   "comp": "UEL",
+   "opp": "Sturm Graz"
   },
   "BRE": {
    "utc": "2026-10-10T14:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "NEW"
   },
   "CRY": {
-   "utc": "2026-10-11T13:00:00Z",
-   "comp": "PL",
-   "opp": "NFO"
+   "utc": "2026-10-15T16:45:00Z",
+   "comp": "UEL",
+   "opp": "Lyon"
   },
   "EVE": {
    "utc": "2026-10-11T13:00:00Z",
@@ -98,9 +98,9 @@
    "opp": "CRY"
   },
   "SUN": {
-   "utc": "2026-10-10T14:00:00Z",
-   "comp": "PL",
-   "opp": "BHA"
+   "utc": "2026-10-15T16:45:00Z",
+   "comp": "UEL",
+   "opp": "Torreense"
   },
   "TOT": {
    "utc": "2026-10-10T16:30:00Z",
