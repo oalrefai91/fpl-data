@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-15T20:56:34Z",
+ "generated_utc": "2026-10-16T10:43:48Z",
  "mode": "live",
  "readiness": {
   "verdict": "GO",
@@ -28,8 +28,8 @@
    }
   ],
   "freshness": {
-   "snapshot_generated_utc": "2026-10-15T20:56:34Z",
-   "hours_to_deadline": 37.1,
+   "snapshot_generated_utc": "2026-10-16T10:43:48Z",
+   "hours_to_deadline": 23.3,
    "cohort_data_gw": 6,
    "cohort_note": "EO/captaincy figures are GW6 actuals used as the GW7 BASELINE (decided 5 Sep 2026; not a question); eo_top10k_projected = transfer-flow projection",
    "in_pre_window": true
@@ -1373,147 +1373,6 @@
    }
   ],
   "cup_fixtures": {
-   "BOU": [
-    {
-     "date": "2026-10-15T19:00:00.000Z",
-     "comp": "UEL",
-     "opp": "Sturm Graz",
-     "home": true,
-     "fotmob_id": "6112328",
-     "finished": true,
-     "score": "3 - 0"
-    },
-    {
-     "date": "2026-10-22T19:00:00Z",
-     "comp": "UEL",
-     "opp": "Milan",
-     "home": true,
-     "fotmob_id": "6112326",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-10-28T19:45:00Z",
-     "comp": "EFL Cup",
-     "opp": "Aston Villa",
-     "home": true,
-     "fotmob_id": "6275374",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-05T17:45:00Z",
-     "comp": "UEL",
-     "opp": "Sparta Prague",
-     "home": false,
-     "fotmob_id": "6112304",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-26T17:45:00Z",
-     "comp": "UEL",
-     "opp": "Celta Vigo",
-     "home": false,
-     "fotmob_id": "6112348",
-     "finished": false,
-     "score": null
-    }
-   ],
-   "LIV": [
-    {
-     "date": "2026-10-14T16:45:00Z",
-     "comp": "UCL",
-     "opp": "LASK",
-     "home": false,
-     "fotmob_id": "6106405",
-     "finished": true,
-     "score": "3 - 6"
-    },
-    {
-     "date": "2026-10-20T19:00:00Z",
-     "comp": "UCL",
-     "opp": "Villarreal",
-     "home": true,
-     "fotmob_id": "6106248",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-10-28T20:00:00Z",
-     "comp": "EFL Cup",
-     "opp": "Chelsea",
-     "home": true,
-     "fotmob_id": "6275371",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-04T17:45:00Z",
-     "comp": "UCL",
-     "opp": "Fenerbahçe",
-     "home": false,
-     "fotmob_id": "6106330",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-25T20:00:00Z",
-     "comp": "UCL",
-     "opp": "Club Brugge",
-     "home": false,
-     "fotmob_id": "6106294",
-     "finished": false,
-     "score": null
-    }
-   ],
-   "BHA": [
-    {
-     "date": "2026-10-15T19:00:00.000Z",
-     "comp": "UECL",
-     "opp": "FK Kauno Žalgiris",
-     "home": true,
-     "fotmob_id": "6112422",
-     "finished": true,
-     "score": "4 - 0"
-    },
-    {
-     "date": "2026-10-22T16:45:00Z",
-     "comp": "UECL",
-     "opp": "Jablonec",
-     "home": false,
-     "fotmob_id": "6112526",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-10-28T19:30:00Z",
-     "comp": "EFL Cup",
-     "opp": "Manchester City",
-     "home": false,
-     "fotmob_id": "6275368",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-05T20:00:00Z",
-     "comp": "UECL",
-     "opp": "Getafe",
-     "home": false,
-     "fotmob_id": "6112474",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-26T17:45:00Z",
-     "comp": "UECL",
-     "opp": "Universitatea Craiova",
-     "home": true,
-     "fotmob_id": "6112421",
-     "finished": false,
-     "score": null
-    }
-   ],
    "EVE": [
     {
      "date": "2026-10-29T19:45:00Z",
@@ -1563,6 +1422,17 @@
      "score": null
     }
    ],
+   "BRE": [
+    {
+     "date": "2026-10-28T19:45:00Z",
+     "comp": "EFL Cup",
+     "opp": "Sunderland",
+     "home": false,
+     "fotmob_id": "6275370",
+     "finished": false,
+     "score": null
+    }
+   ],
    "FUL": [
     {
      "date": "2026-10-28T19:45:00Z",
@@ -1574,24 +1444,49 @@
      "score": null
     }
    ],
-   "CHE": [
+   "BOU": [
     {
-     "date": "2026-10-28T20:00:00Z",
-     "comp": "EFL Cup",
-     "opp": "Liverpool",
-     "home": false,
-     "fotmob_id": "6275371",
+     "date": "2026-10-15T19:00:00Z",
+     "comp": "UEL",
+     "opp": "Sturm Graz",
+     "home": true,
+     "fotmob_id": "6112328",
+     "finished": true,
+     "score": "3 - 0"
+    },
+    {
+     "date": "2026-10-22T19:00:00Z",
+     "comp": "UEL",
+     "opp": "Milan",
+     "home": true,
+     "fotmob_id": "6112326",
      "finished": false,
      "score": null
-    }
-   ],
-   "BRE": [
+    },
     {
      "date": "2026-10-28T19:45:00Z",
      "comp": "EFL Cup",
-     "opp": "Sunderland",
+     "opp": "Aston Villa",
+     "home": true,
+     "fotmob_id": "6275374",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-05T17:45:00Z",
+     "comp": "UEL",
+     "opp": "Sparta Prague",
      "home": false,
-     "fotmob_id": "6275370",
+     "fotmob_id": "6112304",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-26T17:45:00Z",
+     "comp": "UEL",
+     "opp": "Celta Vigo",
+     "home": false,
+     "fotmob_id": "6112348",
      "finished": false,
      "score": null
     }
@@ -1643,154 +1538,49 @@
      "score": null
     }
    ],
-   "MCI": [
+   "LIV": [
     {
-     "date": "2026-10-14T19:00:00Z",
+     "date": "2026-10-14T16:45:00Z",
      "comp": "UCL",
-     "opp": "Paris Saint-Germain",
-     "home": true,
-     "fotmob_id": "6106254",
+     "opp": "LASK",
+     "home": false,
+     "fotmob_id": "6106405",
      "finished": true,
-     "score": "2 - 4"
+     "score": "3 - 6"
     },
     {
      "date": "2026-10-20T19:00:00Z",
      "comp": "UCL",
-     "opp": "AEK Athens",
+     "opp": "Villarreal",
      "home": true,
-     "fotmob_id": "6106257",
+     "fotmob_id": "6106248",
      "finished": false,
      "score": null
     },
     {
-     "date": "2026-10-28T19:30:00Z",
+     "date": "2026-10-28T20:00:00Z",
      "comp": "EFL Cup",
-     "opp": "Brighton & Hove Albion",
+     "opp": "Chelsea",
      "home": true,
-     "fotmob_id": "6275368",
+     "fotmob_id": "6275371",
      "finished": false,
      "score": null
     },
     {
-     "date": "2026-11-04T20:00:00Z",
+     "date": "2026-11-04T17:45:00Z",
      "comp": "UCL",
-     "opp": "RB Leipzig",
+     "opp": "Fenerbahçe",
      "home": false,
-     "fotmob_id": "6106322",
+     "fotmob_id": "6106330",
      "finished": false,
      "score": null
     },
     {
-     "date": "2026-11-24T20:00:00Z",
+     "date": "2026-11-25T20:00:00Z",
      "comp": "UCL",
-     "opp": "Napoli",
-     "home": true,
-     "fotmob_id": "6106256",
-     "finished": false,
-     "score": null
-    }
-   ],
-   "SUN": [
-    {
-     "date": "2026-10-15T16:45:00.000Z",
-     "comp": "UEL",
-     "opp": "Torreense",
+     "opp": "Club Brugge",
      "home": false,
-     "fotmob_id": "6112360",
-     "finished": true,
-     "score": "1 - 2"
-    },
-    {
-     "date": "2026-10-22T16:45:00Z",
-     "comp": "UEL",
-     "opp": "Lech Poznań",
-     "home": false,
-     "fotmob_id": "6112320",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-10-28T19:45:00Z",
-     "comp": "EFL Cup",
-     "opp": "Brentford",
-     "home": true,
-     "fotmob_id": "6275370",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-05T20:00:00Z",
-     "comp": "UEL",
-     "opp": "Dinamo Zagreb",
-     "home": true,
-     "fotmob_id": "6112331",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-26T20:00:00Z",
-     "comp": "UEL",
-     "opp": "Jagiellonia Białystok",
-     "home": true,
-     "fotmob_id": "6112332",
-     "finished": false,
-     "score": null
-    }
-   ],
-   "CRY": [
-    {
-     "date": "2026-10-15T16:45:00.000Z",
-     "comp": "UEL",
-     "opp": "Lyon",
-     "home": false,
-     "fotmob_id": "6112260",
-     "finished": true,
-     "score": "3 - 2"
-    },
-    {
-     "date": "2026-10-22T19:00:00Z",
-     "comp": "UEL",
-     "opp": "Beşiktaş",
-     "home": false,
-     "fotmob_id": "6112356",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-10-28T19:45:00Z",
-     "comp": "EFL Cup",
-     "opp": "Fulham",
-     "home": false,
-     "fotmob_id": "6275373",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-05T17:45:00Z",
-     "comp": "UEL",
-     "opp": "Hoffenheim",
-     "home": true,
-     "fotmob_id": "6112325",
-     "finished": false,
-     "score": null
-    },
-    {
-     "date": "2026-11-26T20:00:00Z",
-     "comp": "UEL",
-     "opp": "Real Sociedad",
-     "home": true,
-     "fotmob_id": "6112322",
-     "finished": false,
-     "score": null
-    }
-   ],
-   "NEW": [
-    {
-     "date": "2026-10-29T19:45:00Z",
-     "comp": "EFL Cup",
-     "opp": "Everton",
-     "home": false,
-     "fotmob_id": "6275369",
+     "fotmob_id": "6106294",
      "finished": false,
      "score": null
     }
@@ -1838,6 +1628,216 @@
      "opp": "Galatasaray",
      "home": false,
      "fotmob_id": "6106339",
+     "finished": false,
+     "score": null
+    }
+   ],
+   "CRY": [
+    {
+     "date": "2026-10-15T16:45:00Z",
+     "comp": "UEL",
+     "opp": "Lyon",
+     "home": false,
+     "fotmob_id": "6112260",
+     "finished": true,
+     "score": "3 - 2"
+    },
+    {
+     "date": "2026-10-22T19:00:00Z",
+     "comp": "UEL",
+     "opp": "Beşiktaş",
+     "home": false,
+     "fotmob_id": "6112356",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-10-28T19:45:00Z",
+     "comp": "EFL Cup",
+     "opp": "Fulham",
+     "home": false,
+     "fotmob_id": "6275373",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-05T17:45:00Z",
+     "comp": "UEL",
+     "opp": "Hoffenheim",
+     "home": true,
+     "fotmob_id": "6112325",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-26T20:00:00Z",
+     "comp": "UEL",
+     "opp": "Real Sociedad",
+     "home": true,
+     "fotmob_id": "6112322",
+     "finished": false,
+     "score": null
+    }
+   ],
+   "BHA": [
+    {
+     "date": "2026-10-15T19:00:00Z",
+     "comp": "UECL",
+     "opp": "FK Kauno Žalgiris",
+     "home": true,
+     "fotmob_id": "6112422",
+     "finished": true,
+     "score": "4 - 0"
+    },
+    {
+     "date": "2026-10-22T16:45:00Z",
+     "comp": "UECL",
+     "opp": "Jablonec",
+     "home": false,
+     "fotmob_id": "6112526",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-10-28T19:30:00Z",
+     "comp": "EFL Cup",
+     "opp": "Manchester City",
+     "home": false,
+     "fotmob_id": "6275368",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-05T20:00:00Z",
+     "comp": "UECL",
+     "opp": "Getafe",
+     "home": false,
+     "fotmob_id": "6112474",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-26T17:45:00Z",
+     "comp": "UECL",
+     "opp": "Universitatea Craiova",
+     "home": true,
+     "fotmob_id": "6112421",
+     "finished": false,
+     "score": null
+    }
+   ],
+   "CHE": [
+    {
+     "date": "2026-10-28T20:00:00Z",
+     "comp": "EFL Cup",
+     "opp": "Liverpool",
+     "home": false,
+     "fotmob_id": "6275371",
+     "finished": false,
+     "score": null
+    }
+   ],
+   "SUN": [
+    {
+     "date": "2026-10-15T16:45:00Z",
+     "comp": "UEL",
+     "opp": "Torreense",
+     "home": false,
+     "fotmob_id": "6112360",
+     "finished": true,
+     "score": "1 - 2"
+    },
+    {
+     "date": "2026-10-22T16:45:00Z",
+     "comp": "UEL",
+     "opp": "Lech Poznań",
+     "home": false,
+     "fotmob_id": "6112320",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-10-28T19:45:00Z",
+     "comp": "EFL Cup",
+     "opp": "Brentford",
+     "home": true,
+     "fotmob_id": "6275370",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-05T20:00:00Z",
+     "comp": "UEL",
+     "opp": "Dinamo Zagreb",
+     "home": true,
+     "fotmob_id": "6112331",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-26T20:00:00Z",
+     "comp": "UEL",
+     "opp": "Jagiellonia Białystok",
+     "home": true,
+     "fotmob_id": "6112332",
+     "finished": false,
+     "score": null
+    }
+   ],
+   "MCI": [
+    {
+     "date": "2026-10-14T19:00:00Z",
+     "comp": "UCL",
+     "opp": "Paris Saint-Germain",
+     "home": true,
+     "fotmob_id": "6106254",
+     "finished": true,
+     "score": "2 - 4"
+    },
+    {
+     "date": "2026-10-20T19:00:00Z",
+     "comp": "UCL",
+     "opp": "AEK Athens",
+     "home": true,
+     "fotmob_id": "6106257",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-10-28T19:30:00Z",
+     "comp": "EFL Cup",
+     "opp": "Brighton & Hove Albion",
+     "home": true,
+     "fotmob_id": "6275368",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-04T20:00:00Z",
+     "comp": "UCL",
+     "opp": "RB Leipzig",
+     "home": false,
+     "fotmob_id": "6106322",
+     "finished": false,
+     "score": null
+    },
+    {
+     "date": "2026-11-24T20:00:00Z",
+     "comp": "UCL",
+     "opp": "Napoli",
+     "home": true,
+     "fotmob_id": "6106256",
+     "finished": false,
+     "score": null
+    }
+   ],
+   "NEW": [
+    {
+     "date": "2026-10-29T19:45:00Z",
+     "comp": "EFL Cup",
+     "opp": "Everton",
+     "home": false,
+     "fotmob_id": "6275369",
      "finished": false,
      "score": null
     }
@@ -2009,101 +2009,101 @@
    {
     "fixture": "EVE v CHE",
     "kickoff": "2026-10-17T11:30:00Z",
-    "temp_c": 10.4,
+    "temp_c": 10.6,
     "precip_prob": 0,
     "precip_mm": 0.0,
-    "wind_kmh": 10.4,
-    "gust_kmh": 20.9,
+    "wind_kmh": 10.1,
+    "gust_kmh": 19.4,
     "flag": ""
    },
    {
     "fixture": "BRE v LIV",
     "kickoff": "2026-10-17T14:00:00Z",
-    "temp_c": 13.3,
-    "precip_prob": 0,
+    "temp_c": 13.6,
+    "precip_prob": 3,
     "precip_mm": 0.0,
-    "wind_kmh": 18.0,
-    "gust_kmh": 37.4,
+    "wind_kmh": 16.9,
+    "gust_kmh": 35.3,
     "flag": ""
    },
    {
     "fixture": "FUL v HUL",
     "kickoff": "2026-10-17T14:00:00Z",
-    "temp_c": 13.4,
-    "precip_prob": 0,
+    "temp_c": 13.6,
+    "precip_prob": 3,
     "precip_mm": 0.0,
-    "wind_kmh": 17.3,
-    "gust_kmh": 36.4,
+    "wind_kmh": 16.2,
+    "gust_kmh": 34.6,
     "flag": ""
    },
    {
     "fixture": "MCI v IPS",
     "kickoff": "2026-10-17T14:00:00Z",
-    "temp_c": 12.1,
+    "temp_c": 12.3,
     "precip_prob": 0,
     "precip_mm": 0.0,
-    "wind_kmh": 11.9,
-    "gust_kmh": 26.3,
+    "wind_kmh": 13.7,
+    "gust_kmh": 29.9,
     "flag": ""
    },
    {
     "fixture": "NEW v AVL",
     "kickoff": "2026-10-17T16:30:00Z",
-    "temp_c": 10.8,
-    "precip_prob": 1,
+    "temp_c": 11.0,
+    "precip_prob": 0,
     "precip_mm": 0.0,
-    "wind_kmh": 11.9,
+    "wind_kmh": 11.2,
     "gust_kmh": 24.8,
     "flag": ""
    },
    {
     "fixture": "BOU v SUN",
     "kickoff": "2026-10-18T13:00:00Z",
-    "temp_c": 13.1,
-    "precip_prob": 3,
+    "temp_c": 13.2,
+    "precip_prob": 4,
     "precip_mm": 0.0,
-    "wind_kmh": 23.0,
-    "gust_kmh": 42.1,
+    "wind_kmh": 21.6,
+    "gust_kmh": 39.2,
     "flag": ""
    },
    {
     "fixture": "BHA v CRY",
     "kickoff": "2026-10-18T13:00:00Z",
-    "temp_c": 12.3,
-    "precip_prob": 25,
+    "temp_c": 12.2,
+    "precip_prob": 32,
     "precip_mm": 0.1,
-    "wind_kmh": 20.5,
-    "gust_kmh": 40.3,
+    "wind_kmh": 19.8,
+    "gust_kmh": 38.2,
     "flag": ""
    },
    {
     "fixture": "LEE v MUN",
     "kickoff": "2026-10-18T13:00:00Z",
-    "temp_c": 11.9,
-    "precip_prob": 14,
-    "precip_mm": 0.0,
-    "wind_kmh": 16.9,
-    "gust_kmh": 33.8,
+    "temp_c": 10.7,
+    "precip_prob": 7,
+    "precip_mm": 0.1,
+    "wind_kmh": 18.7,
+    "gust_kmh": 36.7,
     "flag": ""
    },
    {
     "fixture": "NFO v ARS",
     "kickoff": "2026-10-18T15:30:00Z",
-    "temp_c": 12.0,
-    "precip_prob": 20,
-    "precip_mm": 0.0,
-    "wind_kmh": 16.2,
-    "gust_kmh": 30.6,
+    "temp_c": 11.1,
+    "precip_prob": 33,
+    "precip_mm": 0.1,
+    "wind_kmh": 18.0,
+    "gust_kmh": 33.5,
     "flag": ""
    },
    {
     "fixture": "TOT v COV",
     "kickoff": "2026-10-19T19:00:00Z",
-    "temp_c": 13.3,
-    "precip_prob": 16,
+    "temp_c": 11.4,
+    "precip_prob": 17,
     "precip_mm": 0.0,
-    "wind_kmh": 10.8,
-    "gust_kmh": 21.6,
+    "wind_kmh": 10.1,
+    "gust_kmh": 19.8,
     "flag": ""
    }
   ],
@@ -2899,16 +2899,6 @@
         "fpl_news": "Hamstring injury - Expected back 17 Oct"
        },
        {
-        "name": "Reece James",
-        "pos": "M/D",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 142,
-        "fpl_status": "d",
-        "fpl_chance": 75,
-        "fpl_news": "Unspecified injury - 75% chance of playing"
-       },
-       {
         "name": "Jamie Gittens",
         "pos": "F",
         "tag": "OUT",
@@ -2917,6 +2907,16 @@
         "fpl_status": "i",
         "fpl_chance": 0,
         "fpl_news": "Ankle injury - Unknown return date"
+       },
+       {
+        "name": "Reece James",
+        "pos": "M/D",
+        "tag": "OUT",
+        "list": "inj",
+        "fpl_id": 142,
+        "fpl_status": "i",
+        "fpl_chance": 0,
+        "fpl_news": "Knee injury - Unknown return date"
        }
       ]
      }
@@ -3300,6 +3300,16 @@
         "fpl_status": "i",
         "fpl_chance": 0,
         "fpl_news": "Knee injury - Expected back 17 Oct"
+       },
+       {
+        "name": "Hugo Larsson",
+        "pos": "M",
+        "tag": "QUES",
+        "list": "inj",
+        "fpl_id": 635,
+        "fpl_status": "a",
+        "fpl_chance": null,
+        "fpl_news": ""
        },
        {
         "name": "Antonee Robinson",
@@ -3831,9 +3841,9 @@
         "tag": "QUES",
         "list": "inj",
         "fpl_id": 367,
-        "fpl_status": "i",
-        "fpl_chance": 0,
-        "fpl_news": "Ankle injury - Unknown return date"
+        "fpl_status": "d",
+        "fpl_chance": 25,
+        "fpl_news": "Ankle injury - 25% chance of playing"
        },
        {
         "name": "Alexander Isak",
@@ -3841,9 +3851,9 @@
         "tag": "QUES",
         "list": "inj",
         "fpl_id": 379,
-        "fpl_status": "i",
-        "fpl_chance": 0,
-        "fpl_news": "Thigh injury - Unknown return date"
+        "fpl_status": "d",
+        "fpl_chance": 25,
+        "fpl_news": "Thigh injury - 25% chance of playing"
        },
        {
         "name": "Dominik Szoboszlai",
@@ -3852,8 +3862,8 @@
         "list": "inj",
         "fpl_id": 368,
         "fpl_status": "d",
-        "fpl_chance": 75,
-        "fpl_news": "Hamstring injury - 75% chance of playing"
+        "fpl_chance": 25,
+        "fpl_news": "Hamstring injury - 25% chance of playing"
        },
        {
         "name": "Ryan Gravenberch",
@@ -4047,7 +4057,7 @@
         "fpl_id": 454,
         "fpl_status": "i",
         "fpl_chance": 0,
-        "fpl_news": "Unspecified injury - Unknown return date"
+        "fpl_news": "Unspecified injury - Expected back 25 Oct"
        },
        {
         "name": "Ewen Jaouen",
@@ -4718,46 +4728,6 @@
         "fpl_news": ""
        },
        {
-        "name": "Jack Hinshelwood",
-        "pos": "M",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 123,
-        "fpl_status": "a",
-        "fpl_chance": 100,
-        "fpl_news": ""
-       },
-       {
-        "name": "Yankuba Minteh",
-        "pos": "F",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 122,
-        "fpl_status": "i",
-        "fpl_chance": 0,
-        "fpl_news": "Leg injury - Expected back 28 Nov"
-       },
-       {
-        "name": "Kaoru Mitoma",
-        "pos": "F/M",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 121,
-        "fpl_status": "i",
-        "fpl_chance": 0,
-        "fpl_news": "Hamstring injury - Expected back 18 Oct"
-       },
-       {
-        "name": "Ibrahim Osman",
-        "pos": "F/M",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 600,
-        "fpl_status": "a",
-        "fpl_chance": null,
-        "fpl_news": ""
-       },
-       {
         "name": "Pascal Struijk",
         "pos": "D",
         "tag": "QUES",
@@ -4766,26 +4736,6 @@
         "fpl_status": "a",
         "fpl_chance": 100,
         "fpl_news": ""
-       },
-       {
-        "name": "Mats Wieffer",
-        "pos": "M/D",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 130,
-        "fpl_status": "i",
-        "fpl_chance": 0,
-        "fpl_news": "Knee injury - Unknown return date"
-       },
-       {
-        "name": "Zadok Yohanna",
-        "pos": "F/M",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 135,
-        "fpl_status": "i",
-        "fpl_chance": 0,
-        "fpl_news": "Unspecified injury - Expected back 18 Oct"
        },
        {
         "name": "Femi Azeez",
@@ -4808,6 +4758,26 @@
         "fpl_news": "Ankle injury - Expected back 18 Oct"
        },
        {
+        "name": "Yankuba Minteh",
+        "pos": "F",
+        "tag": "OUT",
+        "list": "inj",
+        "fpl_id": 122,
+        "fpl_status": "i",
+        "fpl_chance": 0,
+        "fpl_news": "Leg injury - Expected back 28 Nov"
+       },
+       {
+        "name": "Kaoru Mitoma",
+        "pos": "F/M",
+        "tag": "OUT",
+        "list": "inj",
+        "fpl_id": 121,
+        "fpl_status": "i",
+        "fpl_chance": 0,
+        "fpl_news": "Hamstring injury - Expected back 18 Oct"
+       },
+       {
         "name": "Stefanos Tzimas",
         "pos": "F",
         "tag": "OUT",
@@ -4816,6 +4786,26 @@
         "fpl_status": "i",
         "fpl_chance": 0,
         "fpl_news": "Knee injury - Unknown return date"
+       },
+       {
+        "name": "Mats Wieffer",
+        "pos": "M/D",
+        "tag": "OUT",
+        "list": "inj",
+        "fpl_id": 130,
+        "fpl_status": "i",
+        "fpl_chance": 0,
+        "fpl_news": "Knee injury - Unknown return date"
+       },
+       {
+        "name": "Zadok Yohanna",
+        "pos": "F/M",
+        "tag": "OUT",
+        "list": "inj",
+        "fpl_id": 135,
+        "fpl_status": "i",
+        "fpl_chance": 0,
+        "fpl_news": "Unspecified injury - Expected back 18 Oct"
        }
       ]
      },
@@ -4931,6 +4921,16 @@
         "fpl_status": "a",
         "fpl_chance": null,
         "fpl_news": ""
+       },
+       {
+        "name": "Ben Chilwell",
+        "pos": "M/D",
+        "tag": "QUES",
+        "list": "inj",
+        "fpl_id": 643,
+        "fpl_status": "i",
+        "fpl_chance": 0,
+        "fpl_news": "Unspecified injury - Unknown return date"
        },
        {
         "name": "Dean Henderson",
@@ -5107,6 +5107,16 @@
         "fpl_news": ""
        },
        {
+        "name": "Veljko Milosavljevic",
+        "pos": "D",
+        "tag": "QUES",
+        "list": "inj",
+        "fpl_id": 63,
+        "fpl_status": "i",
+        "fpl_chance": 0,
+        "fpl_news": "Thigh injury - Unknown return date"
+       },
+       {
         "name": "Julian Araujo",
         "pos": "D",
         "tag": "OUT",
@@ -5125,16 +5135,6 @@
         "fpl_status": "i",
         "fpl_chance": 0,
         "fpl_news": "Foot injury - Expected back 7 Nov"
-       },
-       {
-        "name": "Veljko Milosavljevic",
-        "pos": "D",
-        "tag": "OUT",
-        "list": "inj",
-        "fpl_id": 63,
-        "fpl_status": "i",
-        "fpl_chance": 0,
-        "fpl_news": "Thigh injury - Unknown return date"
        },
        {
         "name": "Alex Scott",
@@ -5272,16 +5272,6 @@
         "fpl_news": "Knock - 50% chance of playing"
        },
        {
-        "name": "Thomas Meunier",
-        "pos": "M/D",
-        "tag": "QUES",
-        "list": "inj",
-        "fpl_id": 541,
-        "fpl_status": "d",
-        "fpl_chance": 75,
-        "fpl_news": "Groin injury - 75% chance of playing"
-       },
-       {
         "name": "Daniel Ballard",
         "pos": "D",
         "tag": "OUT",
@@ -5290,6 +5280,16 @@
         "fpl_status": "i",
         "fpl_chance": 0,
         "fpl_news": "Hamstring injury - Unknown return date"
+       },
+       {
+        "name": "Thomas Meunier",
+        "pos": "M/D",
+        "tag": "OUT",
+        "list": "inj",
+        "fpl_id": 541,
+        "fpl_status": "d",
+        "fpl_chance": 75,
+        "fpl_news": "Groin injury - 75% chance of playing"
        },
        {
         "name": "Romaine Mundle",
@@ -5926,8 +5926,8 @@
         "list": "inj",
         "fpl_id": 177,
         "fpl_status": "d",
-        "fpl_chance": 50,
-        "fpl_news": "Hamstring injury - 50% chance of playing"
+        "fpl_chance": 75,
+        "fpl_news": "Hamstring injury - 75% chance of playing"
        },
        {
         "name": "Aurele Amenda",
@@ -5947,7 +5947,7 @@
         "fpl_id": 187,
         "fpl_status": "i",
         "fpl_chance": 0,
-        "fpl_news": "Unspecified injury - Unknown return date"
+        "fpl_news": "Ankle injury - Unknown return date"
        },
        {
         "name": "Luke Woolfenden",
@@ -6065,6 +6065,14 @@
     "owned": false,
     "why": "RotoWire OUT, FPL d 50%",
     "fpl_news": "Unspecified injury - 50% chance of playing"
+   },
+   {
+    "team": "SUN",
+    "player": "Meunier",
+    "fpl_id": 541,
+    "owned": false,
+    "why": "RotoWire OUT, FPL d 75%",
+    "fpl_news": "Groin injury - 75% chance of playing"
    },
    {
     "team": "ARS",
@@ -6216,29 +6224,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 15.7,
-   "price_change_percent": -80.7,
-   "price_change_hourly": 13,
+   "price_change_percent": -81.6,
+   "price_change_hourly": 12,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-80.7",
+     "projected_percent": "-81.5",
      "likelihood": -3
     },
     {
      "offset": 1,
-     "projected_percent": "-80.6",
+     "projected_percent": "-81.4",
      "likelihood": -3
     },
     {
      "offset": 2,
-     "projected_percent": "-80.4",
+     "projected_percent": "-81.2",
      "likelihood": -3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 17156,
-   "transfers_out_event": 30186,
-   "net_transfers_event": -13030,
+   "transfers_in_event": 20005,
+   "transfers_out_event": 34210,
+   "net_transfers_event": -14205,
    "form": "2.5",
    "total_points": 21,
    "event_points": 3,
@@ -6256,8 +6264,8 @@
    "cap_top10k": 0.0,
    "cap_myband": 0.0,
    "cap_overall": 0.0,
-   "eo_top10k_projected": 8.08,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -13,030 / owners 1,741,626)",
+   "eo_top10k_projected": 8.07,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -14,205 / owners 1,742,025)",
    "last_gw": {
     "pts": 3,
     "min": 90,
@@ -6400,30 +6408,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 21.7,
-   "price_change_percent": -7.5,
-   "price_change_hourly": -348,
+   "selected_by": 21.6,
+   "price_change_percent": -8.6,
+   "price_change_hourly": -973,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-7.6",
+     "projected_percent": "-11.1",
      "likelihood": -1
     },
     {
      "offset": 1,
-     "projected_percent": "-9.3",
+     "projected_percent": "-15.9",
      "likelihood": -1
     },
     {
      "offset": 2,
-     "projected_percent": "-11.0",
-     "likelihood": -1
+     "projected_percent": "-20.8",
+     "likelihood": -2
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 12364,
-   "transfers_out_event": 88968,
-   "net_transfers_event": -76604,
+   "transfers_in_event": 13568,
+   "transfers_out_event": 98596,
+   "net_transfers_event": -85028,
    "form": "1.5",
    "total_points": 27,
    "event_points": 2,
@@ -6441,8 +6449,8 @@
    "cap_top10k": 0.25,
    "cap_myband": 0.42,
    "cap_overall": 0.44,
-   "eo_top10k_projected": 6.21,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -76,604 / owners 2,407,215)",
+   "eo_top10k_projected": 6.18,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -85,028 / owners 2,396,671)",
    "last_gw": {
     "pts": 2,
     "min": 90,
@@ -6585,30 +6593,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 36.1,
-   "price_change_percent": 55.4,
-   "price_change_hourly": 3234,
+   "selected_by": 36.7,
+   "price_change_percent": 67.9,
+   "price_change_hourly": 9511,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "57.3",
-     "likelihood": 3
+     "projected_percent": "100.0",
+     "likelihood": 5
     },
     {
      "offset": 1,
-     "projected_percent": "78.2",
-     "likelihood": 3
+     "projected_percent": "162.1",
+     "likelihood": 5
     },
     {
      "offset": 2,
-     "projected_percent": "99.1",
-     "likelihood": 4
+     "projected_percent": "224.2",
+     "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 505549,
-   "transfers_out_event": 4393,
-   "net_transfers_event": 501156,
+   "transfers_in_event": 561972,
+   "transfers_out_event": 5017,
+   "net_transfers_event": 556955,
    "form": "10.5",
    "total_points": 53,
    "event_points": 15,
@@ -6626,8 +6634,8 @@
    "cap_top10k": 0.14,
    "cap_myband": 0.22,
    "cap_overall": 0.19,
-   "eo_top10k_projected": 59.68,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +501,156 / owners 4,004,631)",
+   "eo_top10k_projected": 60.29,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +556,955 / owners 4,072,122)",
    "last_gw": {
     "pts": 15,
     "min": 67,
@@ -6770,30 +6778,30 @@
    "chance_next": 75,
    "news": "Unspecified injury - 75% chance of playing",
    "news_added": "2026-10-12T21:30:08.995810Z",
-   "selected_by": 6.6,
-   "price_change_percent": -20.9,
-   "price_change_hourly": -480,
+   "selected_by": 6.5,
+   "price_change_percent": -25.6,
+   "price_change_hourly": -1513,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-21.6",
+     "projected_percent": "-37.6",
      "likelihood": -2
     },
     {
      "offset": 1,
-     "projected_percent": "-28.7",
-     "likelihood": -2
+     "projected_percent": "-60.7",
+     "likelihood": -3
     },
     {
      "offset": 2,
-     "projected_percent": "-35.9",
-     "likelihood": -2
+     "projected_percent": "-83.9",
+     "likelihood": -3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 2973,
-   "transfers_out_event": 45369,
-   "net_transfers_event": -42396,
+   "transfers_in_event": 3043,
+   "transfers_out_event": 54911,
+   "net_transfers_event": -51868,
    "form": "2.5",
    "total_points": 12,
    "event_points": 3,
@@ -6811,8 +6819,8 @@
    "cap_top10k": 0.0,
    "cap_myband": 0.0,
    "cap_overall": 0.0,
-   "eo_top10k_projected": 1.77,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -42,396 / owners 732,148)",
+   "eo_top10k_projected": 1.74,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -51,868 / owners 721,220)",
    "last_gw": {
     "pts": 3,
     "min": 90,
@@ -6956,29 +6964,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 4.6,
-   "price_change_percent": 42.9,
-   "price_change_hourly": 33,
+   "price_change_percent": 43.5,
+   "price_change_hourly": 29,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "43.0",
+     "projected_percent": "43.8",
      "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "43.6",
+     "projected_percent": "44.3",
      "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "44.1",
+     "projected_percent": "44.8",
      "likelihood": 3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 15272,
-   "transfers_out_event": 13341,
-   "net_transfers_event": 1931,
+   "transfers_in_event": 18081,
+   "transfers_out_event": 15041,
+   "net_transfers_event": 3040,
    "form": "4.0",
    "total_points": 29,
    "event_points": 2,
@@ -6996,8 +7004,8 @@
    "cap_top10k": 0.0,
    "cap_myband": 0.02,
    "cap_overall": 0.0,
-   "eo_top10k_projected": 2.96,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +1,931 / owners 510,285)",
+   "eo_top10k_projected": 2.97,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +3,040 / owners 510,402)",
    "last_gw": {
     "pts": 2,
     "min": 90,
@@ -7140,30 +7148,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 34.0,
-   "price_change_percent": -62.3,
-   "price_change_hourly": -2712,
+   "selected_by": 33.5,
+   "price_change_percent": -72.1,
+   "price_change_hourly": -7776,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-63.7",
+     "projected_percent": "-94.2",
      "likelihood": -3
     },
     {
      "offset": 1,
-     "projected_percent": "-78.2",
-     "likelihood": -3
+     "projected_percent": "-137.0",
+     "likelihood": -5
     },
     {
      "offset": 2,
-     "projected_percent": "-92.8",
-     "likelihood": -3
+     "projected_percent": "-179.7",
+     "likelihood": -5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 9200,
-   "transfers_out_event": 351057,
-   "net_transfers_event": -341857,
+   "transfers_in_event": 9851,
+   "transfers_out_event": 397910,
+   "net_transfers_event": -388059,
    "form": "1.5",
    "total_points": 32,
    "event_points": 1,
@@ -7181,8 +7189,8 @@
    "cap_top10k": 14.9,
    "cap_myband": 10.48,
    "cap_overall": 10.35,
-   "eo_top10k_projected": 38.95,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -341,857 / owners 3,771,674)",
+   "eo_top10k_projected": 38.36,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -388,059 / owners 3,717,060)",
    "last_gw": {
     "pts": 1,
     "min": 90,
@@ -7326,29 +7334,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 19.8,
-   "price_change_percent": -91.8,
-   "price_change_hourly": -269,
+   "price_change_percent": -94.6,
+   "price_change_hourly": -845,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-92.0",
-     "likelihood": -3
+     "projected_percent": "-98.6",
+     "likelihood": -4
     },
     {
      "offset": 1,
-     "projected_percent": "-94.5",
-     "likelihood": -3
+     "projected_percent": "-106.5",
+     "likelihood": -5
     },
     {
      "offset": 2,
-     "projected_percent": "-97.0",
-     "likelihood": -4
+     "projected_percent": "-114.4",
+     "likelihood": -5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 51315,
-   "transfers_out_event": 57419,
-   "net_transfers_event": -6104,
+   "transfers_in_event": 56165,
+   "transfers_out_event": 68161,
+   "net_transfers_event": -11996,
    "form": "5.0",
    "total_points": 33,
    "event_points": 8,
@@ -7366,8 +7374,8 @@
    "cap_top10k": 0.84,
    "cap_myband": 0.94,
    "cap_overall": 0.72,
-   "eo_top10k_projected": 15.26,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -6,104 / owners 2,196,445)",
+   "eo_top10k_projected": 15.22,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -11,996 / owners 2,196,948)",
    "last_gw": {
     "pts": 8,
     "min": 90,
@@ -7510,30 +7518,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 40.2,
-   "price_change_percent": 85.2,
-   "price_change_hourly": 3348,
+   "selected_by": 40.7,
+   "price_change_percent": 98.4,
+   "price_change_hourly": 10663,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "87.2",
-     "likelihood": 3
+     "projected_percent": "134.5",
+     "likelihood": 5
     },
     {
      "offset": 1,
-     "projected_percent": "108.8",
+     "projected_percent": "204.1",
      "likelihood": 5
     },
     {
      "offset": 2,
-     "projected_percent": "130.4",
+     "projected_percent": "273.7",
      "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 464436,
-   "transfers_out_event": 8626,
-   "net_transfers_event": 455810,
+   "transfers_in_event": 519137,
+   "transfers_out_event": 9785,
+   "net_transfers_event": 509352,
    "form": "10.0",
    "total_points": 53,
    "event_points": 6,
@@ -7551,8 +7559,8 @@
    "cap_top10k": 4.61,
    "cap_myband": 4.6,
    "cap_overall": 3.15,
-   "eo_top10k_projected": 98.12,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +455,810 / owners 4,459,450)",
+   "eo_top10k_projected": 99.06,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +509,352 / owners 4,515,950)",
    "last_gw": {
     "pts": 6,
     "min": 90,
@@ -7695,30 +7703,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 75.4,
-   "price_change_percent": 86.7,
-   "price_change_hourly": 681,
+   "selected_by": 75.6,
+   "price_change_percent": 94.8,
+   "price_change_hourly": 1809,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "87.7",
-     "likelihood": 3
+     "projected_percent": "111.3",
+     "likelihood": 5
     },
     {
      "offset": 1,
-     "projected_percent": "99.6",
-     "likelihood": 4
+     "projected_percent": "143.3",
+     "likelihood": 5
     },
     {
      "offset": 2,
-     "projected_percent": "111.6",
+     "projected_percent": "175.4",
      "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 107413,
-   "transfers_out_event": 6712,
-   "net_transfers_event": 100701,
+   "transfers_in_event": 122392,
+   "transfers_out_event": 7191,
+   "net_transfers_event": 115201,
    "form": "6.0",
    "total_points": 45,
    "event_points": 6,
@@ -7736,8 +7744,8 @@
    "cap_top10k": 30.26,
    "cap_myband": 44.32,
    "cap_overall": 43.42,
-   "eo_top10k_projected": 124.76,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +100,701 / owners 8,364,243)",
+   "eo_top10k_projected": 124.97,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +115,201 / owners 8,388,350)",
    "last_gw": {
     "pts": 6,
     "min": 79,
@@ -7881,29 +7889,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 8.7,
-   "price_change_percent": 7.5,
-   "price_change_hourly": 17,
+   "price_change_percent": 7.8,
+   "price_change_hourly": 91,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "7.5",
+     "projected_percent": "8.7",
      "likelihood": 1
     },
     {
      "offset": 1,
-     "projected_percent": "7.8",
+     "projected_percent": "10.3",
      "likelihood": 1
     },
     {
      "offset": 2,
-     "projected_percent": "8.1",
+     "projected_percent": "11.9",
      "likelihood": 1
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 54039,
-   "transfers_out_event": 47800,
-   "net_transfers_event": 6239,
+   "transfers_in_event": 61194,
+   "transfers_out_event": 53963,
+   "net_transfers_event": 7231,
    "form": "6.0",
    "total_points": 26,
    "event_points": 6,
@@ -7921,8 +7929,8 @@
    "cap_top10k": 0.25,
    "cap_myband": 0.3,
    "cap_overall": 0.32,
-   "eo_top10k_projected": 16.93,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +6,239 / owners 965,105)",
+   "eo_top10k_projected": 16.95,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +7,231 / owners 965,326)",
    "last_gw": {
     "pts": 6,
     "min": 85,
@@ -8065,30 +8073,30 @@
    "chance_next": 100,
    "news": "",
    "news_added": "2026-09-16T19:00:09.919929Z",
-   "selected_by": 70.2,
-   "price_change_percent": 47.0,
-   "price_change_hourly": 2320,
+   "selected_by": 70.6,
+   "price_change_percent": 56.1,
+   "price_change_hourly": 6498,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "48.4",
+     "projected_percent": "78.1",
      "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "63.4",
-     "likelihood": 3
+     "projected_percent": "120.5",
+     "likelihood": 5
     },
     {
      "offset": 2,
-     "projected_percent": "78.4",
-     "likelihood": 3
+     "projected_percent": "162.9",
+     "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 437613,
-   "transfers_out_event": 5935,
-   "net_transfers_event": 431678,
+   "transfers_in_event": 475685,
+   "transfers_out_event": 6967,
+   "net_transfers_event": 468718,
    "form": "6.0",
    "total_points": 45,
    "event_points": 12,
@@ -8106,8 +8114,8 @@
    "cap_top10k": 8.09,
    "cap_myband": 10.16,
    "cap_overall": 9.6,
-   "eo_top10k_projected": 91.18,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +431,678 / owners 7,787,399)",
+   "eo_top10k_projected": 91.56,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +468,718 / owners 7,833,565)",
    "last_gw": {
     "pts": 12,
     "min": 71,
@@ -8251,29 +8259,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 16.8,
-   "price_change_percent": -36.0,
-   "price_change_hourly": -79,
+   "price_change_percent": -37.0,
+   "price_change_hourly": -205,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-36.1",
+     "projected_percent": "-38.1",
      "likelihood": -2
     },
     {
      "offset": 1,
-     "projected_percent": "-37.0",
-     "likelihood": -2
+     "projected_percent": "-40.4",
+     "likelihood": -3
     },
     {
      "offset": 2,
-     "projected_percent": "-37.8",
-     "likelihood": -2
+     "projected_percent": "-42.6",
+     "likelihood": -3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 12642,
-   "transfers_out_event": 29516,
-   "net_transfers_event": -16874,
+   "transfers_in_event": 14291,
+   "transfers_out_event": 33262,
+   "net_transfers_event": -18971,
    "form": "0.0",
    "total_points": 0,
    "event_points": 0,
@@ -8292,7 +8300,7 @@
    "cap_myband": 0.0,
    "cap_overall": 0.0,
    "eo_top10k_projected": 0.1,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -16,874 / owners 1,863,651)",
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -18,971 / owners 1,864,077)",
    "last_gw": {
     "pts": 0,
     "min": 0,
@@ -8436,29 +8444,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 5.0,
-   "price_change_percent": 72.5,
-   "price_change_hourly": -73,
+   "price_change_percent": 72.8,
+   "price_change_hourly": -104,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "72.4",
+     "projected_percent": "71.8",
      "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "71.1",
+     "projected_percent": "70.0",
      "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "69.8",
+     "projected_percent": "68.1",
      "likelihood": 3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 15798,
-   "transfers_out_event": 24453,
-   "net_transfers_event": -8655,
+   "transfers_in_event": 18133,
+   "transfers_out_event": 27503,
+   "net_transfers_event": -9370,
    "form": "2.0",
    "total_points": 17,
    "event_points": 2,
@@ -8477,7 +8485,7 @@
    "cap_myband": 0.02,
    "cap_overall": 0.0,
    "eo_top10k_projected": 0.4,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -8,655 / owners 554,658)",
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -9,370 / owners 554,785)",
    "last_gw": {
     "pts": 2,
     "min": 74,
@@ -8621,29 +8629,29 @@
    "news": "",
    "news_added": "2026-10-05T09:30:09.853316Z",
    "selected_by": 17.3,
-   "price_change_percent": -17.1,
-   "price_change_hourly": 108,
+   "price_change_percent": -16.5,
+   "price_change_hourly": 266,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-16.9",
+     "projected_percent": "-14.0",
      "likelihood": -1
     },
     {
      "offset": 1,
-     "projected_percent": "-15.0",
+     "projected_percent": "-9.3",
      "likelihood": -1
     },
     {
      "offset": 2,
-     "projected_percent": "-13.1",
+     "projected_percent": "-4.6",
      "likelihood": -1
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 34807,
-   "transfers_out_event": 31643,
-   "net_transfers_event": 3164,
+   "transfers_in_event": 39970,
+   "transfers_out_event": 35324,
+   "net_transfers_event": 4646,
    "form": "2.5",
    "total_points": 16,
    "event_points": 4,
@@ -8661,8 +8669,8 @@
    "cap_top10k": 0.0,
    "cap_myband": 0.0,
    "cap_overall": 0.0,
-   "eo_top10k_projected": 21.59,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +3,164 / owners 1,919,116)",
+   "eo_top10k_projected": 21.6,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +4,646 / owners 1,919,556)",
    "last_gw": {
     "pts": 4,
     "min": 90,
@@ -8806,29 +8814,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 0.4,
-   "price_change_percent": -34.9,
-   "price_change_hourly": -8,
+   "price_change_percent": -38.1,
+   "price_change_hourly": -23,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-35.2",
-     "likelihood": -2
+     "projected_percent": "-43.3",
+     "likelihood": -3
     },
     {
      "offset": 1,
-     "projected_percent": "-38.6",
-     "likelihood": -2
+     "projected_percent": "-53.4",
+     "likelihood": -3
     },
     {
      "offset": 2,
-     "projected_percent": "-42.0",
+     "projected_percent": "-63.4",
      "likelihood": -3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 201,
-   "transfers_out_event": 1717,
-   "net_transfers_event": -1516,
+   "transfers_in_event": 219,
+   "transfers_out_event": 1942,
+   "net_transfers_event": -1723,
    "form": "1.0",
    "total_points": 8,
    "event_points": 1,
@@ -8847,7 +8855,7 @@
    "cap_myband": 0.0,
    "cap_overall": 0.0,
    "eo_top10k_projected": 0.0,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -1,516 / owners 44,372)",
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -1,723 / owners 44,382)",
    "last_gw": {
     "pts": 1,
     "min": 19,
@@ -8994,16 +9002,16 @@
    "news_added": null,
    "selected_by": 43.7,
    "price_change_percent": 7.1,
-   "price_change_hourly": 57,
+   "price_change_hourly": 49,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "7.2",
+     "projected_percent": "7.5",
      "likelihood": 1
     },
     {
      "offset": 1,
-     "projected_percent": "8.2",
+     "projected_percent": "8.4",
      "likelihood": 1
     },
     {
@@ -9013,9 +9021,9 @@
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 43623,
-   "transfers_out_event": 40554,
-   "net_transfers_event": 3069,
+   "transfers_in_event": 49054,
+   "transfers_out_event": 45398,
+   "net_transfers_event": 3656,
    "form": "2.0",
    "total_points": 33,
    "event_points": 3,
@@ -9036,8 +9044,8 @@
    "cap_top10k": 0.07,
    "cap_myband": 0.2,
    "cap_overall": 0.46,
-   "eo_top10k_projected": 52.47,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +3,069 / owners 4,847,711)"
+   "eo_top10k_projected": 52.48,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +3,656 / owners 4,848,821)"
   },
   {
    "id": 8,
@@ -9174,30 +9182,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 52.5,
-   "price_change_percent": 69.9,
-   "price_change_hourly": 621,
+   "selected_by": 52.6,
+   "price_change_percent": 75.8,
+   "price_change_hourly": 1570,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "70.9",
+     "projected_percent": "90.2",
      "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "81.7",
-     "likelihood": 3
+     "projected_percent": "118.0",
+     "likelihood": 5
     },
     {
      "offset": 2,
-     "projected_percent": "92.6",
-     "likelihood": 3
+     "projected_percent": "145.8",
+     "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 131720,
-   "transfers_out_event": 12300,
-   "net_transfers_event": 119420,
+   "transfers_in_event": 145633,
+   "transfers_out_event": 14355,
+   "net_transfers_event": 131278,
    "form": "5.0",
    "total_points": 38,
    "event_points": 9,
@@ -9220,8 +9228,8 @@
    "cap_top10k": 0.78,
    "cap_myband": 0.56,
    "cap_overall": 0.46,
-   "eo_top10k_projected": 88.37,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +119,420 / owners 5,823,909)"
+   "eo_top10k_projected": 88.54,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +131,278 / owners 5,836,339)"
   },
   {
    "id": 12,
@@ -9359,29 +9367,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 16.7,
-   "price_change_percent": -10.6,
-   "price_change_hourly": -70,
+   "price_change_percent": -11.9,
+   "price_change_hourly": -82,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-10.7",
+     "projected_percent": "-12.6",
      "likelihood": -1
     },
     {
      "offset": 1,
-     "projected_percent": "-11.9",
+     "projected_percent": "-14.1",
      "likelihood": -1
     },
     {
      "offset": 2,
-     "projected_percent": "-13.2",
+     "projected_percent": "-15.5",
      "likelihood": -1
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 43071,
-   "transfers_out_event": 94519,
-   "net_transfers_event": -51448,
+   "transfers_in_event": 53547,
+   "transfers_out_event": 104316,
+   "net_transfers_event": -50769,
    "form": "2.0",
    "total_points": 34,
    "event_points": 2,
@@ -9402,8 +9410,8 @@
    "cap_top10k": 16.86,
    "cap_myband": 7.64,
    "cap_overall": 4.87,
-   "eo_top10k_projected": 44.53,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -51,448 / owners 1,852,557)"
+   "eo_top10k_projected": 44.55,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -50,769 / owners 1,852,982)"
   },
   {
    "id": 40,
@@ -9540,30 +9548,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 45.3,
-   "price_change_percent": 28.1,
-   "price_change_hourly": 1462,
+   "selected_by": 45.6,
+   "price_change_percent": 33.8,
+   "price_change_hourly": 4733,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "29.0",
-     "likelihood": 2
+     "projected_percent": "49.8",
+     "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "38.4",
-     "likelihood": 2
+     "projected_percent": "80.7",
+     "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "47.9",
-     "likelihood": 3
+     "projected_percent": "111.6",
+     "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 303367,
-   "transfers_out_event": 15554,
-   "net_transfers_event": 287813,
+   "transfers_in_event": 332674,
+   "transfers_out_event": 18595,
+   "net_transfers_event": 314079,
    "form": "5.5",
    "total_points": 38,
    "event_points": 9,
@@ -9585,8 +9593,8 @@
    "cap_top10k": 3.09,
    "cap_myband": 3.02,
    "cap_overall": 2.59,
-   "eo_top10k_projected": 69.44,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +287,813 / owners 5,025,201)"
+   "eo_top10k_projected": 69.76,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +314,079 / owners 5,059,640)"
   },
   {
    "id": 109,
@@ -9723,30 +9731,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 22.0,
-   "price_change_percent": 2.2,
-   "price_change_hourly": 303,
+   "selected_by": 22.1,
+   "price_change_percent": 3.3,
+   "price_change_hourly": 751,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "2.4",
+     "projected_percent": "5.8",
      "likelihood": 1
     },
     {
      "offset": 1,
-     "projected_percent": "4.3",
+     "projected_percent": "10.7",
      "likelihood": 1
     },
     {
      "offset": 2,
-     "projected_percent": "6.3",
+     "projected_percent": "15.6",
      "likelihood": 1
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 88816,
-   "transfers_out_event": 17849,
-   "net_transfers_event": 70967,
+   "transfers_in_event": 97810,
+   "transfers_out_event": 20505,
+   "net_transfers_event": 77305,
    "form": "7.5",
    "total_points": 32,
    "event_points": 9,
@@ -9767,8 +9775,8 @@
    "cap_top10k": 0.0,
    "cap_myband": 0.02,
    "cap_overall": 0.0,
-   "eo_top10k_projected": 25.93,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +70,967 / owners 2,440,495)"
+   "eo_top10k_projected": 25.99,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +77,305 / owners 2,452,150)"
   },
   {
    "id": 154,
@@ -9905,30 +9913,30 @@
    "chance_next": 100,
    "news": "",
    "news_added": "2026-09-21T13:00:09.022726Z",
-   "selected_by": 25.4,
-   "price_change_percent": -19.2,
-   "price_change_hourly": 658,
+   "selected_by": 25.5,
+   "price_change_percent": -12.9,
+   "price_change_hourly": 2134,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-18.2",
-     "likelihood": -1
+     "projected_percent": "6.7",
+     "likelihood": 1
     },
     {
      "offset": 1,
-     "projected_percent": "-6.7",
-     "likelihood": -1
+     "projected_percent": "44.4",
+     "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "4.8",
-     "likelihood": 1
+     "projected_percent": "82.2",
+     "likelihood": 3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 154186,
-   "transfers_out_event": 33878,
-   "net_transfers_event": 120308,
+   "transfers_in_event": 170026,
+   "transfers_out_event": 39148,
+   "net_transfers_event": 130878,
    "form": "5.0",
    "total_points": 36,
    "event_points": 8,
@@ -9951,8 +9959,8 @@
    "cap_top10k": 11.19,
    "cap_myband": 5.02,
    "cap_overall": 3.73,
-   "eo_top10k_projected": 53.82,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +120,308 / owners 2,817,662)"
+   "eo_top10k_projected": 54.01,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +130,878 / owners 2,829,404)"
   },
   {
    "id": 166,
@@ -10089,30 +10097,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 3.0,
-   "price_change_percent": 16.1,
-   "price_change_hourly": 1323,
+   "selected_by": 3.2,
+   "price_change_percent": 20.3,
+   "price_change_hourly": 3123,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "16.9",
-     "likelihood": 1
+     "projected_percent": "30.9",
+     "likelihood": 2
     },
     {
      "offset": 1,
-     "projected_percent": "25.4",
-     "likelihood": 2
+     "projected_percent": "51.3",
+     "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "34.0",
-     "likelihood": 2
+     "projected_percent": "71.7",
+     "likelihood": 3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 115357,
-   "transfers_out_event": 10225,
-   "net_transfers_event": 105132,
+   "transfers_in_event": 134987,
+   "transfers_out_event": 11724,
+   "net_transfers_event": 123263,
    "form": "7.5",
    "total_points": 19,
    "event_points": 9,
@@ -10133,8 +10141,8 @@
    "cap_top10k": 0.02,
    "cap_myband": 0.08,
    "cap_overall": 0.14,
-   "eo_top10k_projected": 0.45,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +105,132 / owners 332,794)"
+   "eo_top10k_projected": 0.46,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +123,263 / owners 355,062)"
   },
   {
    "id": 229,
@@ -10272,29 +10280,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 18.4,
-   "price_change_percent": 27.7,
-   "price_change_hourly": -58,
+   "price_change_percent": 27.1,
+   "price_change_hourly": -105,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "27.6",
+     "projected_percent": "26.1",
      "likelihood": 2
     },
     {
      "offset": 1,
-     "projected_percent": "26.6",
+     "projected_percent": "24.3",
      "likelihood": 2
     },
     {
      "offset": 2,
-     "projected_percent": "25.6",
+     "projected_percent": "22.4",
      "likelihood": 2
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 71085,
-   "transfers_out_event": 48331,
-   "net_transfers_event": 22754,
+   "transfers_in_event": 77678,
+   "transfers_out_event": 54990,
+   "net_transfers_event": 22688,
    "form": "8.5",
    "total_points": 46,
    "event_points": 3,
@@ -10316,7 +10324,7 @@
    "cap_myband": 0.3,
    "cap_overall": 0.33,
    "eo_top10k_projected": 27.6,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +22,754 / owners 2,041,141)"
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +22,688 / owners 2,041,609)"
   },
   {
    "id": 286,
@@ -10453,30 +10461,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 7.5,
-   "price_change_percent": 19.8,
-   "price_change_hourly": 1037,
+   "selected_by": 7.7,
+   "price_change_percent": 24.3,
+   "price_change_hourly": 3520,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "20.4",
+     "projected_percent": "36.2",
      "likelihood": 2
     },
     {
      "offset": 1,
-     "projected_percent": "27.1",
-     "likelihood": 2
+     "projected_percent": "59.2",
+     "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "33.8",
-     "likelihood": 2
+     "projected_percent": "82.1",
+     "likelihood": 3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 168808,
-   "transfers_out_event": 14943,
-   "net_transfers_event": 153865,
+   "transfers_in_event": 191102,
+   "transfers_out_event": 16828,
+   "net_transfers_event": 174274,
    "form": "5.0",
    "total_points": 37,
    "event_points": 6,
@@ -10497,8 +10505,8 @@
    "cap_top10k": 0.01,
    "cap_myband": 0.0,
    "cap_overall": 0.08,
-   "eo_top10k_projected": 2.51,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +153,865 / owners 831,987)"
+   "eo_top10k_projected": 2.55,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +174,274 / owners 854,369)"
   },
   {
    "id": 368,
@@ -10632,33 +10640,33 @@
     }
    ],
    "status": "d",
-   "chance_next": 75,
-   "news": "Hamstring injury - 75% chance of playing",
+   "chance_next": 25,
+   "news": "Hamstring injury - 25% chance of playing",
    "news_added": "2026-10-11T15:00:09.494018Z",
-   "selected_by": 27.1,
-   "price_change_percent": -46.9,
-   "price_change_hourly": -3725,
+   "selected_by": 26.5,
+   "price_change_percent": -56.8,
+   "price_change_hourly": -17008,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-48.1",
+     "projected_percent": "-89.8",
      "likelihood": -3
     },
     {
      "offset": 1,
-     "projected_percent": "-61.7",
-     "likelihood": -3
+     "projected_percent": "-153.7",
+     "likelihood": -5
     },
     {
      "offset": 2,
-     "projected_percent": "-75.2",
-     "likelihood": -3
+     "projected_percent": "-217.5",
+     "likelihood": -5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 14673,
-   "transfers_out_event": 334191,
-   "net_transfers_event": -319518,
+   "transfers_in_event": 14940,
+   "transfers_out_event": 395843,
+   "net_transfers_event": -380903,
    "form": "1.0",
    "total_points": 20,
    "event_points": 0,
@@ -10679,8 +10687,8 @@
    "cap_top10k": 0.07,
    "cap_myband": 0.14,
    "cap_overall": 0.58,
-   "eo_top10k_projected": 16.19,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -319,518 / owners 3,006,246)"
+   "eo_top10k_projected": 15.77,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -380,903 / owners 2,940,361)"
   },
   {
    "id": 384,
@@ -10818,29 +10826,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 7.6,
-   "price_change_percent": -56.9,
-   "price_change_hourly": 90,
+   "price_change_percent": -55.7,
+   "price_change_hourly": 366,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-56.8",
+     "projected_percent": "-51.1",
      "likelihood": -3
     },
     {
      "offset": 1,
-     "projected_percent": "-54.6",
+     "projected_percent": "-42.3",
      "likelihood": -3
     },
     {
      "offset": 2,
-     "projected_percent": "-52.4",
-     "likelihood": -3
+     "projected_percent": "-33.5",
+     "likelihood": -2
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 29739,
-   "transfers_out_event": 12865,
-   "net_transfers_event": 16874,
+   "transfers_in_event": 33198,
+   "transfers_out_event": 14396,
+   "net_transfers_event": 18802,
    "form": "5.5",
    "total_points": 28,
    "event_points": 9,
@@ -10862,7 +10870,7 @@
    "cap_myband": 0.0,
    "cap_overall": 0.02,
    "eo_top10k_projected": 0.44,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +16,874 / owners 843,080)"
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +18,802 / owners 843,273)"
   },
   {
    "id": 385,
@@ -11000,29 +11008,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 5.6,
-   "price_change_percent": 42.0,
-   "price_change_hourly": 35,
+   "price_change_percent": 42.7,
+   "price_change_hourly": 117,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "42.1",
+     "projected_percent": "43.8",
      "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "42.7",
+     "projected_percent": "45.9",
      "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "43.3",
+     "projected_percent": "47.9",
      "likelihood": 3
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 16665,
-   "transfers_out_event": 10333,
-   "net_transfers_event": 6332,
+   "transfers_in_event": 18992,
+   "transfers_out_event": 11567,
+   "net_transfers_event": 7425,
    "form": "6.0",
    "total_points": 30,
    "event_points": 2,
@@ -11044,7 +11052,7 @@
    "cap_myband": 0.0,
    "cap_overall": 0.0,
    "eo_top10k_projected": 0.88,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +6,332 / owners 621,217)"
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +7,425 / owners 621,359)"
   },
   {
    "id": 397,
@@ -11181,30 +11189,30 @@
    "chance_next": 100,
    "news": "",
    "news_added": "2026-09-24T12:00:09.848000Z",
-   "selected_by": 13.9,
-   "price_change_percent": 24.6,
-   "price_change_hourly": 732,
+   "selected_by": 14.0,
+   "price_change_percent": 32.3,
+   "price_change_hourly": 2234,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "25.7",
-     "likelihood": 2
+     "projected_percent": "52.7",
+     "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "38.5",
-     "likelihood": 2
+     "projected_percent": "92.3",
+     "likelihood": 3
     },
     {
      "offset": 2,
-     "projected_percent": "51.3",
-     "likelihood": 3
+     "projected_percent": "131.8",
+     "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 81929,
-   "transfers_out_event": 52727,
-   "net_transfers_event": 29202,
+   "transfers_in_event": 96714,
+   "transfers_out_event": 57228,
+   "net_transfers_event": 39486,
    "form": "10.0",
    "total_points": 36,
    "event_points": 3,
@@ -11225,8 +11233,8 @@
    "cap_top10k": 0.04,
    "cap_myband": 0.34,
    "cap_overall": 0.23,
-   "eo_top10k_projected": 9.11,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +29,202 / owners 1,541,949)"
+   "eo_top10k_projected": 9.17,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +39,486 / owners 1,553,398)"
   },
   {
    "id": 399,
@@ -11363,30 +11371,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 32.7,
-   "price_change_percent": 25.5,
-   "price_change_hourly": 3892,
+   "selected_by": 33.3,
+   "price_change_percent": 41.1,
+   "price_change_hourly": 12678,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "27.8",
-     "likelihood": 2
+     "projected_percent": "83.9",
+     "likelihood": 3
     },
     {
      "offset": 1,
-     "projected_percent": "52.9",
-     "likelihood": 3
+     "projected_percent": "166.7",
+     "likelihood": 5
     },
     {
      "offset": 2,
-     "projected_percent": "78.0",
-     "likelihood": 3
+     "projected_percent": "249.5",
+     "likelihood": 5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 445825,
-   "transfers_out_event": 19391,
-   "net_transfers_event": 426434,
+   "transfers_in_event": 513383,
+   "transfers_out_event": 21514,
+   "net_transfers_event": 491869,
    "form": "9.0",
    "total_points": 44,
    "event_points": 10,
@@ -11408,8 +11416,8 @@
    "cap_top10k": 0.08,
    "cap_myband": 0.24,
    "cap_overall": 0.73,
-   "eo_top10k_projected": 11.21,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +426,434 / owners 3,627,463)"
+   "eo_top10k_projected": 11.37,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +491,869 / owners 3,694,868)"
   },
   {
    "id": 428,
@@ -11547,29 +11555,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 6.5,
-   "price_change_percent": -37.3,
-   "price_change_hourly": 163,
+   "price_change_percent": -34.9,
+   "price_change_hourly": 606,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-36.9",
+     "projected_percent": "-26.1",
      "likelihood": -2
     },
     {
      "offset": 1,
-     "projected_percent": "-32.4",
-     "likelihood": -2
+     "projected_percent": "-9.0",
+     "likelihood": -1
     },
     {
      "offset": 2,
-     "projected_percent": "-27.8",
-     "likelihood": -2
+     "projected_percent": "5.1",
+     "likelihood": 1
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 55712,
-   "transfers_out_event": 15015,
-   "net_transfers_event": 40697,
+   "transfers_in_event": 60914,
+   "transfers_out_event": 17267,
+   "net_transfers_event": 43647,
    "form": "10.0",
    "total_points": 36,
    "event_points": 10,
@@ -11591,7 +11599,7 @@
    "cap_myband": 0.12,
    "cap_overall": 0.17,
    "eo_top10k_projected": 0.94,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +40,697 / owners 721,055)"
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +43,647 / owners 721,220)"
   },
   {
    "id": 449,
@@ -11729,29 +11737,29 @@
    "news": "",
    "news_added": null,
    "selected_by": 20.6,
-   "price_change_percent": 32.7,
-   "price_change_hourly": -442,
+   "price_change_percent": 28.9,
+   "price_change_hourly": -740,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "32.0",
+     "projected_percent": "22.1",
      "likelihood": 2
     },
     {
      "offset": 1,
-     "projected_percent": "24.3",
-     "likelihood": 2
+     "projected_percent": "9.0",
+     "likelihood": 1
     },
     {
      "offset": 2,
-     "projected_percent": "16.6",
-     "likelihood": 1
+     "projected_percent": "-4.1",
+     "likelihood": -1
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 55672,
-   "transfers_out_event": 67163,
-   "net_transfers_event": -11491,
+   "transfers_in_event": 61164,
+   "transfers_out_event": 78602,
+   "net_transfers_event": -17438,
    "form": "6.5",
    "total_points": 31,
    "event_points": 0,
@@ -11772,8 +11780,8 @@
    "cap_top10k": 0.4,
    "cap_myband": 0.36,
    "cap_overall": 0.23,
-   "eo_top10k_projected": 46.38,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -11,491 / owners 2,285,191)"
+   "eo_top10k_projected": 46.25,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -17,438 / owners 2,285,714)"
   },
   {
    "id": 464,
@@ -11910,30 +11918,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 17.6,
-   "price_change_percent": -50.5,
-   "price_change_hourly": -1837,
+   "selected_by": 17.4,
+   "price_change_percent": -62.6,
+   "price_change_hourly": -5021,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "-52.2",
+     "projected_percent": "-90.2",
      "likelihood": -3
     },
     {
      "offset": 1,
-     "projected_percent": "-71.2",
-     "likelihood": -3
+     "projected_percent": "-143.5",
+     "likelihood": -5
     },
     {
      "offset": 2,
-     "projected_percent": "-90.2",
-     "likelihood": -3
+     "projected_percent": "-196.8",
+     "likelihood": -5
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 23491,
-   "transfers_out_event": 174097,
-   "net_transfers_event": -150606,
+   "transfers_in_event": 24660,
+   "transfers_out_event": 204292,
+   "net_transfers_event": -179632,
    "form": "1.0",
    "total_points": 17,
    "event_points": 2,
@@ -11954,8 +11962,8 @@
    "cap_top10k": 1.11,
    "cap_myband": 1.5,
    "cap_overall": 1.36,
-   "eo_top10k_projected": 16.95,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -150,606 / owners 1,952,396)"
+   "eo_top10k_projected": 16.66,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -179,632 / owners 1,930,652)"
   },
   {
    "id": 504,
@@ -12092,30 +12100,30 @@
    "chance_next": null,
    "news": "",
    "news_added": null,
-   "selected_by": 4.7,
-   "price_change_percent": 2.3,
-   "price_change_hourly": 330,
+   "selected_by": 4.8,
+   "price_change_percent": 3.4,
+   "price_change_hourly": 886,
    "price_projections": [
     {
      "offset": 0,
-     "projected_percent": "2.5",
+     "projected_percent": "6.4",
      "likelihood": 1
     },
     {
      "offset": 1,
-     "projected_percent": "4.6",
+     "projected_percent": "12.2",
      "likelihood": 1
     },
     {
      "offset": 2,
-     "projected_percent": "6.8",
+     "projected_percent": "18.0",
      "likelihood": 1
     }
    ],
    "price_locked_until": null,
-   "transfers_in_event": 62175,
-   "transfers_out_event": 9645,
-   "net_transfers_event": 52530,
+   "transfers_in_event": 68584,
+   "transfers_out_event": 10869,
+   "net_transfers_event": 57715,
    "form": "8.0",
    "total_points": 40,
    "event_points": 8,
@@ -12136,8 +12144,8 @@
    "cap_top10k": 0.0,
    "cap_myband": 0.0,
    "cap_overall": 0.02,
-   "eo_top10k_projected": 8.16,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net +52,530 / owners 521,378)"
+   "eo_top10k_projected": 8.21,
+   "eo_projection_basis": "GW6 top10k EO x (1 + net +57,715 / owners 532,593)"
   },
   {
    "id": 552,
@@ -12295,9 +12303,9 @@
     }
    ],
    "price_locked_until": "2026-10-23T16:00:08.695443Z",
-   "transfers_in_event": 7956,
-   "transfers_out_event": 79107,
-   "net_transfers_event": -71151,
+   "transfers_in_event": 16698,
+   "transfers_out_event": 80865,
+   "net_transfers_event": -64167,
    "form": "8.5",
    "total_points": 24,
    "event_points": 0,
@@ -12319,7 +12327,7 @@
    "cap_myband": 0.12,
    "cap_overall": 0.23,
    "eo_top10k_projected": 0.24,
-   "eo_projection_basis": "GW6 top10k EO x (1 + net -71,151 / owners 565,751)"
+   "eo_projection_basis": "GW6 top10k EO x (1 + net -64,167 / owners 565,880)"
   }
  ],
  "A2_bank_ft_chips": {
@@ -12383,84 +12391,84 @@
    [
     "De Cuyper",
     "BHA",
-    501156
+    556955
    ],
    [
     "Groß",
     "BHA",
-    455810
-   ],
-   [
-    "João Pedro",
-    "CHE",
-    431678
+    509352
    ],
    [
     "Cherki",
     "MCI",
-    426434
+    491869
+   ],
+   [
+    "João Pedro",
+    "CHE",
+    468718
    ],
    [
     "Rogers",
     "CHE",
-    287813
+    314079
    ],
    [
     "Belloumi",
     "HUL",
-    153865
-   ],
-   [
-    "Palmer",
-    "CHE",
-    120308
+    174274
    ],
    [
     "Calafiori",
     "ARS",
-    119420
+    131278
+   ],
+   [
+    "Palmer",
+    "CHE",
+    130878
    ]
   ],
   "top_out": [
    [
     "B.Fernandes",
     "MUN",
-    -341857
-   ],
-   [
-    "Isak",
-    "LIV",
-    -325149
+    -388059
    ],
    [
     "Szoboszlai",
     "LIV",
-    -319518
+    -380903
+   ],
+   [
+    "Isak",
+    "LIV",
+    -358120
    ],
    [
     "Gakpo",
     "LIV",
-    -224353
-   ],
-   [
-    "Tzolis",
-    "ARS",
-    -153142
+    -241303
    ],
    [
     "Wissa",
     "NEW",
-    -150606
+    -179632
+   ],
+   [
+    "Tzolis",
+    "ARS",
+    -168877
    ],
    [
     "Gibbs-White",
     "NFO",
-    -129079
+    -150029
    ],
    [
     "Schade",
     "BRE",
-    -112202
+    -132954
    ]
   ]
  },
@@ -12480,7 +12488,7 @@
   "data_checked": true,
   "next_gw": 7,
   "deadline_utc": "2026-10-17T10:00:00Z",
-  "hours_to_deadline": 37.1,
+  "hours_to_deadline": 23.3,
   "fixtures_next": [
    {
     "id": 64,
@@ -12698,7 +12706,7 @@
   "G4": {
    "status": "OK",
    "source": "RotoWire injury tags (OUT/QUES/SUS) vs FPL status / chance_of_playing / news",
-   "note": "5 disagreement(s) between RotoWire and FPL (0 on owned players); FPL stays the official flag, RotoWire is the second reading"
+   "note": "6 disagreement(s) between RotoWire and FPL (0 on owned players); FPL stays the official flag, RotoWire is the second reading"
   }
  },
  "consistency": {
@@ -12715,8 +12723,8 @@
    "Hall": -0.8,
    "Saka": 35.0
   },
-  "elite_json_last_modified": "Thu, 15 Oct 2026 20:35:41 GMT",
-  "top10k_json_last_modified": "Thu, 15 Oct 2026 20:35:51 GMT",
+  "elite_json_last_modified": "Fri, 16 Oct 2026 10:35:35 GMT",
+  "top10k_json_last_modified": "Fri, 16 Oct 2026 10:35:45 GMT",
   "elite_json_excluded": "a top-10-EO player differs from top10k by >30 pp"
  },
  "warnings": [],
@@ -12724,374 +12732,374 @@
   {
    "url": "https://fantasy.premierleague.com/api/bootstrap-static/",
    "status": 200,
-   "bytes": 1780622,
-   "ms": 209
+   "bytes": 1781359,
+   "ms": 144
   },
   {
    "url": "https://fantasy.premierleague.com/api/fixtures/",
    "status": 200,
    "bytes": 255194,
-   "ms": 17
+   "ms": 28
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=42&season=2026%2F2027",
    "status": 200,
-   "bytes": 505320,
-   "ms": 241
+   "bytes": 520444,
+   "ms": 352
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=73&season=2026%2F2027",
    "status": 200,
-   "bytes": 502120,
-   "ms": 406
+   "bytes": 513843,
+   "ms": 411
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=10216&season=2026%2F2027",
    "status": 200,
-   "bytes": 376340,
-   "ms": 315
+   "bytes": 411221,
+   "ms": 279
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=133&season=2026%2F2027",
    "status": 200,
    "bytes": 236377,
-   "ms": 457
+   "ms": 628
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=132&season=2026%2F2027",
    "status": 200,
    "bytes": 556886,
-   "ms": 1341
+   "ms": 938
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=10611&season=2026%2F2027",
    "status": 200,
-   "bytes": 238083,
-   "ms": 442
+   "bytes": 238173,
+   "ms": 331
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=10613&season=2026%2F2027",
    "status": 200,
    "bytes": 226798,
-   "ms": 423
+   "ms": 625
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=10615&season=2026%2F2027",
    "status": 200,
    "bytes": 496448,
-   "ms": 691
+   "ms": 764
   },
   {
    "url": "https://fantasy.premierleague.com/api/entry/6048651/",
    "status": 200,
    "bytes": 15868,
-   "ms": 140
+   "ms": 137
   },
   {
    "url": "https://fantasy.premierleague.com/api/entry/6048651/history/",
    "status": 200,
    "bytes": 1970,
-   "ms": 99
+   "ms": 14
   },
   {
    "url": "https://fantasy.premierleague.com/api/entry/6048651/event/6/picks/",
    "status": 200,
    "bytes": 1867,
-   "ms": 17
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/entry/6048651/transfers/",
    "status": 200,
    "bytes": 144,
-   "ms": 95
+   "ms": 93
   },
   {
    "url": "https://fantasy.premierleague.com/api/fixtures/?event=7",
    "status": 200,
    "bytes": 3092,
-   "ms": 14
+   "ms": 30
   },
   {
    "url": "https://fantasy.premierleague.com/api/event/6/live/",
    "status": 200,
    "bytes": 474577,
-   "ms": 20
+   "ms": 13
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/496/",
    "status": 200,
    "bytes": 13973,
-   "ms": 30
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/4/",
    "status": 200,
    "bytes": 16337,
-   "ms": 14
+   "ms": 13
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/115/",
    "status": 200,
    "bytes": 13378,
-   "ms": 19
+   "ms": 10
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/423/",
    "status": 200,
    "bytes": 21043,
-   "ms": 21
+   "ms": 11
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/334/",
    "status": 200,
    "bytes": 12797,
-   "ms": 18
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/426/",
    "status": 200,
    "bytes": 17027,
-   "ms": 16
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/427/",
    "status": 200,
    "bytes": 15811,
-   "ms": 15
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/124/",
    "status": 200,
    "bytes": 18117,
-   "ms": 13
+   "ms": 14
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/411/",
    "status": 200,
    "bytes": 15233,
-   "ms": 14
+   "ms": 15
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/249/",
    "status": 200,
    "bytes": 13369,
-   "ms": 37
+   "ms": 13
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/165/",
    "status": 200,
    "bytes": 15756,
-   "ms": 83
+   "ms": 14
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/497/",
    "status": 200,
    "bytes": 18069,
-   "ms": 12
+   "ms": 10
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/290/",
    "status": 200,
    "bytes": 12789,
-   "ms": 16
+   "ms": 15
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/31/",
    "status": 200,
    "bytes": 16918,
-   "ms": 17
+   "ms": 31
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/337/",
    "status": 200,
    "bytes": 13953,
-   "ms": 18
+   "ms": 11
   },
   {
    "url": "https://livefpl.us/top10k.json",
    "status": 200,
    "bytes": 8648,
-   "ms": 174
+   "ms": 222
   },
   {
    "url": "https://livefpl.us/elite.json",
    "status": 200,
    "bytes": 8123,
-   "ms": 187
+   "ms": 157
   },
   {
    "url": "https://livefpl.us/locals_6.json",
    "status": 200,
    "bytes": 26490,
-   "ms": 228
+   "ms": 190
   },
   {
    "url": "https://livefpl.us/api/games.json",
    "status": 200,
    "bytes": 54413,
-   "ms": 142
+   "ms": 149
   },
   {
    "url": "https://livefpl.us/players.json",
    "status": 200,
    "bytes": 12195,
-   "ms": 231
+   "ms": 154
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/1/",
    "status": 200,
    "bytes": 15728,
-   "ms": 19
+   "ms": 18
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/8/",
    "status": 200,
    "bytes": 13956,
-   "ms": 14
+   "ms": 10
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/12/",
    "status": 200,
    "bytes": 17545,
-   "ms": 22
+   "ms": 10
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/40/",
    "status": 200,
    "bytes": 14579,
-   "ms": 16
+   "ms": 33
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/109/",
    "status": 200,
    "bytes": 14548,
-   "ms": 18
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/154/",
    "status": 200,
    "bytes": 16923,
-   "ms": 15
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/166/",
    "status": 200,
    "bytes": 14531,
-   "ms": 19
+   "ms": 9
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/229/",
    "status": 200,
    "bytes": 18708,
-   "ms": 20
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/286/",
    "status": 200,
    "bytes": 12800,
-   "ms": 16
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/368/",
    "status": 200,
    "bytes": 14606,
-   "ms": 26
+   "ms": 25
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/384/",
    "status": 200,
    "bytes": 13383,
-   "ms": 14
+   "ms": 11
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/385/",
    "status": 200,
    "bytes": 14540,
-   "ms": 21
+   "ms": 11
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/397/",
    "status": 200,
    "bytes": 15201,
-   "ms": 18
+   "ms": 11
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/399/",
    "status": 200,
    "bytes": 13419,
-   "ms": 16
+   "ms": 26
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/428/",
    "status": 200,
    "bytes": 15193,
-   "ms": 12
+   "ms": 11
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/449/",
    "status": 200,
    "bytes": 15762,
-   "ms": 16
+   "ms": 12
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/464/",
    "status": 200,
    "bytes": 15771,
-   "ms": 14
+   "ms": 13
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/504/",
    "status": 200,
    "bytes": 13343,
-   "ms": 15
+   "ms": 11
   },
   {
    "url": "https://fantasy.premierleague.com/api/element-summary/552/",
    "status": 200,
    "bytes": 13397,
-   "ms": 17
+   "ms": 25
   },
   {
    "url": "https://fantasy.premierleague.com/api/fixtures/",
    "status": 200,
    "bytes": 255194,
-   "ms": 67
+   "ms": 15
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=42&season=2026%2F2027",
    "status": 200,
-   "bytes": 505320,
-   "ms": 24
+   "bytes": 520444,
+   "ms": 100
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=73&season=2026%2F2027",
    "status": 200,
-   "bytes": 502120,
-   "ms": 48
+   "bytes": 513843,
+   "ms": 88
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=10216&season=2026%2F2027",
    "status": 200,
-   "bytes": 376340,
-   "ms": 30
+   "bytes": 411221,
+   "ms": 91
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=133&season=2026%2F2027",
    "status": 200,
    "bytes": 236377,
-   "ms": 55
+   "ms": 91
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=132&season=2026%2F2027",
    "status": 200,
    "bytes": 556886,
-   "ms": 54
+   "ms": 20
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=10611&season=2026%2F2027",
    "status": 200,
-   "bytes": 238083,
-   "ms": 20
+   "bytes": 238173,
+   "ms": 18
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=10613&season=2026%2F2027",
@@ -13103,163 +13111,163 @@
    "url": "https://www.fotmob.com/api/data/leagues?id=10615&season=2026%2F2027",
    "status": 200,
    "bytes": 496448,
-   "ms": 92
+   "ms": 21
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=53.4109&longitude=-2.9925&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-17&end_date=2026-10-17",
    "status": 200,
-   "bytes": 1406,
-   "ms": 197
+   "bytes": 1403,
+   "ms": 419
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=51.4907&longitude=-0.2889&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-17&end_date=2026-10-17",
    "status": 200,
-   "bytes": 1425,
-   "ms": 65
+   "bytes": 1420,
+   "ms": 468
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=51.475&longitude=-0.2217&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-17&end_date=2026-10-17",
    "status": 200,
-   "bytes": 1426,
-   "ms": 66
+   "bytes": 1428,
+   "ms": 454
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=53.4831&longitude=-2.2004&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-17&end_date=2026-10-17",
    "status": 200,
-   "bytes": 1399,
-   "ms": 101
+   "bytes": 1393,
+   "ms": 430
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=54.9756&longitude=-1.6217&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-17&end_date=2026-10-17",
    "status": 200,
-   "bytes": 1421,
-   "ms": 67
+   "bytes": 1424,
+   "ms": 411
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=50.7352&longitude=-1.8383&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-18&end_date=2026-10-18",
    "status": 200,
    "bytes": 1429,
-   "ms": 71
+   "ms": 430
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=50.8616&longitude=-0.0837&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-18&end_date=2026-10-18",
    "status": 200,
-   "bytes": 1439,
-   "ms": 69
+   "bytes": 1436,
+   "ms": 408
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=53.7778&longitude=-1.5721&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-18&end_date=2026-10-18",
    "status": 200,
-   "bytes": 1428,
-   "ms": 64
+   "bytes": 1419,
+   "ms": 419
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=52.9399&longitude=-1.1329&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-18&end_date=2026-10-18",
    "status": 200,
-   "bytes": 1430,
-   "ms": 69
+   "bytes": 1435,
+   "ms": 409
   },
   {
    "url": "https://api.open-meteo.com/v1/forecast?latitude=51.6043&longitude=-0.0665&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-19&end_date=2026-10-19",
    "status": 200,
-   "bytes": 1440,
-   "ms": 67
+   "bytes": 1439,
+   "ms": 434
   },
   {
    "url": "https://football-data.co.uk/mmz4281/2627/E0.csv",
    "status": 200,
    "bytes": 29657,
-   "ms": 1074
+   "ms": 1031
   },
   {
    "url": "https://football-data.co.uk/mmz4281/2526/E0.csv",
    "status": 200,
    "bytes": 203436,
-   "ms": 1115
+   "ms": 1090
   },
   {
    "url": "https://football-data.co.uk/mmz4281/2526/E1.csv",
    "status": 200,
    "bytes": 294388,
-   "ms": 1104
+   "ms": 1098
   },
   {
    "url": "https://football-data.co.uk/mmz4281/2627/E1.csv",
    "status": 200,
    "bytes": 58347,
-   "ms": 878
+   "ms": 854
   },
   {
    "url": "https://www.fotmob.com/api/data/leagues?id=47&season=2026%2F2027",
    "status": 200,
    "bytes": 843709,
-   "ms": 414
+   "ms": 396
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795478",
    "status": 200,
-   "bytes": 53562,
-   "ms": 24
+   "bytes": 54725,
+   "ms": 76
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795476",
    "status": 200,
-   "bytes": 42304,
-   "ms": 19
+   "bytes": 43601,
+   "ms": 328
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795479",
    "status": 200,
-   "bytes": 41819,
-   "ms": 18
+   "bytes": 42848,
+   "ms": 88
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795481",
    "status": 200,
-   "bytes": 35519,
-   "ms": 22
+   "bytes": 35838,
+   "ms": 59
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795482",
    "status": 200,
-   "bytes": 52999,
-   "ms": 25
+   "bytes": 54342,
+   "ms": 80
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795475",
    "status": 200,
-   "bytes": 34122,
-   "ms": 21
+   "bytes": 33120,
+   "ms": 66
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795477",
    "status": 200,
-   "bytes": 46190,
-   "ms": 57
+   "bytes": 45961,
+   "ms": 101
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795480",
    "status": 200,
-   "bytes": 43904,
-   "ms": 87
+   "bytes": 43905,
+   "ms": 167
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795483",
    "status": 200,
-   "bytes": 36706,
-   "ms": 27
+   "bytes": 36689,
+   "ms": 119
   },
   {
    "url": "https://www.fotmob.com/api/data/matchDetails?matchId=5795484",
    "status": 200,
-   "bytes": 36579,
-   "ms": 45
+   "bytes": 37365,
+   "ms": 57
   },
   {
    "url": "https://www.rotowire.com/soccer/lineups.php",
    "status": 200,
-   "bytes": 485429,
-   "ms": 514
+   "bytes": 485404,
+   "ms": 478
   }
  ],
  "transfers_made": [
