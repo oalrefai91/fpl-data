@@ -13,9 +13,9 @@
    "opp": "Lille"
   },
   "AVL": {
-   "utc": "2026-10-14T19:00:00Z",
-   "comp": "UCL",
-   "opp": "Fenerbah\u00e7e"
+   "utc": "2026-10-17T16:30:00Z",
+   "comp": "PL",
+   "opp": "NEW"
   },
   "BHA": {
    "utc": "2026-10-15T19:00:00Z",
@@ -88,9 +88,9 @@
    "opp": "Atl\u00e9tico Madrid"
   },
   "NEW": {
-   "utc": "2026-10-12T19:00:00Z",
+   "utc": "2026-10-17T16:30:00Z",
    "comp": "PL",
-   "opp": "COV"
+   "opp": "AVL"
   },
   "NFO": {
    "utc": "2026-10-11T13:00:00Z",
