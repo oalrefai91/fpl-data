@@ -2,9 +2,9 @@
  "source": "FPL bootstrap-static events (runner, every run)",
  "last_finished_gw": 6,
  "last_finished_flag_gw": 6,
- "current_gw": 6,
- "next_gw": 7,
- "next_deadline_utc": "2026-10-17T10:00:00Z",
+ "current_gw": 7,
+ "next_gw": 8,
+ "next_deadline_utc": "2026-10-23T17:30:00Z",
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
@@ -28,14 +28,14 @@
    "opp": "Sturm Graz"
   },
   "BRE": {
-   "utc": "2026-10-10T14:00:00Z",
+   "utc": "2026-10-17T14:00:00Z",
    "comp": "PL",
-   "opp": "AVL"
+   "opp": "LIV"
   },
   "CHE": {
-   "utc": "2026-10-10T14:00:00Z",
+   "utc": "2026-10-17T11:30:00Z",
    "comp": "PL",
-   "opp": "BOU"
+   "opp": "EVE"
   },
   "COV": {
    "utc": "2026-10-12T19:00:00Z",
@@ -48,24 +48,24 @@
    "opp": "Lyon"
   },
   "EVE": {
-   "utc": "2026-10-11T13:00:00Z",
+   "utc": "2026-10-17T11:30:00Z",
+   "comp": "PL",
+   "opp": "CHE"
+  },
+  "FUL": {
+   "utc": "2026-10-17T14:00:00Z",
    "comp": "PL",
    "opp": "HUL"
   },
-  "FUL": {
-   "utc": "2026-10-10T14:00:00Z",
-   "comp": "PL",
-   "opp": "IPS"
-  },
   "HUL": {
-   "utc": "2026-10-11T13:00:00Z",
-   "comp": "PL",
-   "opp": "EVE"
-  },
-  "IPS": {
-   "utc": "2026-10-10T14:00:00Z",
+   "utc": "2026-10-17T14:00:00Z",
    "comp": "PL",
    "opp": "FUL"
+  },
+  "IPS": {
+   "utc": "2026-10-17T14:00:00Z",
+   "comp": "PL",
+   "opp": "MCI"
   },
   "LEE": {
    "utc": "2026-10-10T11:30:00Z",
@@ -73,14 +73,14 @@
    "opp": "ARS"
   },
   "LIV": {
-   "utc": "2026-10-14T16:45:00Z",
-   "comp": "UCL",
-   "opp": "LASK"
+   "utc": "2026-10-17T14:00:00Z",
+   "comp": "PL",
+   "opp": "BRE"
   },
   "MCI": {
-   "utc": "2026-10-14T19:00:00Z",
-   "comp": "UCL",
-   "opp": "Paris Saint-Germain"
+   "utc": "2026-10-17T14:00:00Z",
+   "comp": "PL",
+   "opp": "IPS"
   },
   "MUN": {
    "utc": "2026-10-13T19:00:00Z",
