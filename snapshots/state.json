@@ -18,14 +18,14 @@
    "opp": "NEW"
   },
   "BHA": {
-   "utc": "2026-10-15T19:00:00Z",
-   "comp": "UECL",
-   "opp": "FK Kauno \u017dalgiris"
+   "utc": "2026-10-18T13:00:00Z",
+   "comp": "PL",
+   "opp": "CRY"
   },
   "BOU": {
-   "utc": "2026-10-15T19:00:00Z",
-   "comp": "UEL",
-   "opp": "Sturm Graz"
+   "utc": "2026-10-18T13:00:00Z",
+   "comp": "PL",
+   "opp": "SUN"
   },
   "BRE": {
    "utc": "2026-10-17T14:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "NEW"
   },
   "CRY": {
-   "utc": "2026-10-15T16:45:00Z",
-   "comp": "UEL",
-   "opp": "Lyon"
+   "utc": "2026-10-18T13:00:00Z",
+   "comp": "PL",
+   "opp": "BHA"
   },
   "EVE": {
    "utc": "2026-10-17T11:30:00Z",
@@ -68,9 +68,9 @@
    "opp": "MCI"
   },
   "LEE": {
-   "utc": "2026-10-10T11:30:00Z",
+   "utc": "2026-10-18T13:00:00Z",
    "comp": "PL",
-   "opp": "ARS"
+   "opp": "MUN"
   },
   "LIV": {
    "utc": "2026-10-17T14:00:00Z",
@@ -83,9 +83,9 @@
    "opp": "IPS"
   },
   "MUN": {
-   "utc": "2026-10-13T19:00:00Z",
-   "comp": "UCL",
-   "opp": "Atl\u00e9tico Madrid"
+   "utc": "2026-10-18T13:00:00Z",
+   "comp": "PL",
+   "opp": "LEE"
   },
   "NEW": {
    "utc": "2026-10-17T16:30:00Z",
@@ -98,9 +98,9 @@
    "opp": "CRY"
   },
   "SUN": {
-   "utc": "2026-10-15T16:45:00Z",
-   "comp": "UEL",
-   "opp": "Torreense"
+   "utc": "2026-10-18T13:00:00Z",
+   "comp": "PL",
+   "opp": "BOU"
   },
   "TOT": {
    "utc": "2026-10-10T16:30:00Z",
