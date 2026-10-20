@@ -1,6 +1,6 @@
 {
  "gw": 7,
- "generated_utc": "2026-10-20T16:22:30Z",
+ "generated_utc": "2026-10-20T21:16:05Z",
  "players": {
   "Pedro Neto (CHE)": {
    "match_id": "m_3fEVzy",
@@ -26841,30 +26841,6 @@
    "take_ons": 1,
    "take_ons_won": 0
   },
-  "Kostoulas (BHA)": {
-   "match_id": "m_2Qu6Lk",
-   "name": "Charalampos Kostoulas",
-   "match_score": 2,
-   "min": 70,
-   "sca": 1,
-   "gca": 1,
-   "sca_breakdown": {
-    "pass_live": 1
-   },
-   "chances_created": 1,
-   "xag": 0.0908,
-   "xg_chain": 0.6744,
-   "xg_buildup": 0.1284,
-   "xt_off": 0.6064,
-   "xt_def": -0.0046,
-   "prog_passes": 0,
-   "passes_into_box": 0,
-   "key_passes": 1,
-   "prog_carries": 3,
-   "carries_into_box": 0,
-   "take_ons": 6,
-   "take_ons_won": 3
-  },
   "Palmer (CHE)": {
    "match_id": "m_3fEVzy",
    "name": "Cole Palmer",
@@ -29071,5 +29047,6 @@
   "m_1308RP",
   "m_2Ca87d",
   "m_3fEVzy"
- ]
+ ],
+ "late_tries": 1
 }
