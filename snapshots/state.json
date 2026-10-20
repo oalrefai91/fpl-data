@@ -1,7 +1,7 @@
 {
  "source": "FPL bootstrap-static events (runner, every run)",
- "last_finished_gw": 6,
- "last_finished_flag_gw": 6,
+ "last_finished_gw": 7,
+ "last_finished_flag_gw": 7,
  "current_gw": 7,
  "next_gw": 8,
  "next_deadline_utc": "2026-10-23T17:30:00Z",
