@@ -18,14 +18,14 @@
    "opp": "Viking"
   },
   "BHA": {
-   "utc": "2026-10-18T13:00:00Z",
-   "comp": "PL",
-   "opp": "CRY"
+   "utc": "2026-10-22T16:45:00Z",
+   "comp": "UECL",
+   "opp": "Jablonec"
   },
   "BOU": {
-   "utc": "2026-10-18T13:00:00Z",
-   "comp": "PL",
-   "opp": "SUN"
+   "utc": "2026-10-22T19:00:00Z",
+   "comp": "UEL",
+   "opp": "Milan"
   },
   "BRE": {
    "utc": "2026-10-17T14:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "TOT"
   },
   "CRY": {
-   "utc": "2026-10-18T13:00:00Z",
-   "comp": "PL",
-   "opp": "BHA"
+   "utc": "2026-10-22T19:00:00Z",
+   "comp": "UEL",
+   "opp": "Be\u015fikta\u015f"
   },
   "EVE": {
    "utc": "2026-10-17T11:30:00Z",
@@ -98,9 +98,9 @@
    "opp": "ARS"
   },
   "SUN": {
-   "utc": "2026-10-18T13:00:00Z",
-   "comp": "PL",
-   "opp": "BOU"
+   "utc": "2026-10-22T16:45:00Z",
+   "comp": "UEL",
+   "opp": "Lech Pozna\u0144"
   },
   "TOT": {
    "utc": "2026-10-19T19:00:00Z",
