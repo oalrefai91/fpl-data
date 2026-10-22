@@ -1,4 +1,4 @@
-# PRE snapshot — GW8 (generated 2026-10-22T11:10:57Z, live)
+# PRE snapshot — GW8 (generated 2026-10-22T16:39:18Z, live)
 
 ## ⛔ GATE: GO — 0 item(s) need a decision before the model runs
 
@@ -15,54 +15,54 @@ The selection model must not run while verdict is HOLD. Each gate item needs an 
 | A2 | EXPECTED — READ-FIRST | DERIVED | attended session reads free transfers and chips from /en/transfers; DERIVED here is the fallback — not a question |
 | A8 | EXPECTED — ATTENDED READ | MISSING | LiveFPL Safety Score / Template Rating are read in the browser pane by the attended session; never scriptable — not a question |
 
-Freshness: snapshot 2026-10-22T11:10:57Z, 30.3 h to deadline, in PRE window = True; cohort data = GW7.
+Freshness: snapshot 2026-10-22T16:39:18Z, 24.9 h to deadline, in PRE window = True; cohort data = GW7.
 
-Deadline **2026-10-23T17:30:00Z** — 30.3 h away. Last GW7: finished=True, data_checked=True.
+Deadline **2026-10-23T17:30:00Z** — 24.9 h away. Last GW7: finished=True, data_checked=True.
 Overall rank **1,415,256**, total 470, last GW 72 (GW rank 1,790,334). Team value 100.9m, bank 2.9m, free transfers **5** (DERIVED, cap 5). Chips this half: wildcard used GW7, freehit available, bboost available, 3xc available
 
 ## Owned 15
 
 | # | Player | Pos | £ | Bought | Sell |Status | Price Δ% (proj tonight) | Net tr. | Own% | EO top10k GW-1 → [PROJECTED] | C% top10k | C% my band | Last GW |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Verbruggen | GKP BHA | 4.6 | 4.5 | 4.5 | a | 20.4 (20.7) | +23,695 | 22.6 | 36.99 → 37.34 [PROJ] | 0.0 | 0.0 | 6 pts / 90' / bps 22 |
-| 2 | Calafiori | DEF ARS | 6.0 | 5.9 | 5.9 | a | 16.3 (18.7) | +87,291 | 54.0 | 95.13 → 96.51 [PROJ] | 0.02 | 0.2 | 6 pts / 90' / bps 23 |
-| 3 | De Cuyper | DEF BHA | 5.3 | 4.5 | 4.9 | a | 11.2 (14.1) | +168,907 | 41.3 | 88.72 → 91.98 [PROJ] | 0.83 | 0.98 | 6 pts / 90' / bps 29 |
-| 4 | Konsa | DEF ARS | 4.6 | 4.5 | 4.5 | a | 22.5 (28.1) | +53,328 | 17.9 | 45.66 → 46.88 [PROJ] | 0.0 | 0.0 | 9 pts / 90' / bps 29 |
-| 5 | Bogle | DEF LEE | 4.7 | 4.7 | 4.7 | a | 52.4 (57.0) | +73,510 | 10.2 | 2.03 → 2.16 [PROJ] | 0.0 | 0.0 | 2 pts / 90' / bps 12 |
-| 6 | Rogers | MID CHE | 8.0 | 7.9 | 7.9 | a | 11.6 (16.7) | +132,678 | 48.3 | 82.04 → 84.06 [PROJ] | 0.3 | 0.64 | 2 pts / 90' / bps 11 |
-| 7 | Ndiaye | MID MCI | 5.8 | 5.8 | 5.8 | a | -81.2 (-81.4) | -922 | 5.4 | 1.69 → 1.69 [PROJ] | 0.01 | 0.02 | 5 pts / 90' / bps 30 |
-| 8 | Groß (V) | MID BHA | 6.2 | 5.9 | 6.0 | a | 12.0 (15.2) | +183,086 | 45.5 | 94.32 → 97.73 [PROJ] | 0.8 | 1.72 | 5 pts / 70' / bps 17 |
-| 9 | Saka | MID ARS | 9.6 | 9.6 | 9.6 | d 50% — Thigh injury - 50% chance of playing | -42.2 (-76.9) | -104,988 | 16.0 | 23.83 → 22.43 [PROJ] | 0.22 | 0.76 | 3 pts / 90' / bps 16 |
-| 10 | Haaland (C) | FWD MCI | 15.7 | 15.5 | 15.6 | a | 39.7 (43.4) | +68,815 | 76.9 | 204.05 → 205.69 [PROJ] | 93.15 | 82.86 | 13 pts / 90' / bps 71 |
-| 11 | João Pedro | FWD CHE | 7.9 | 7.5 | 7.7 | a | 11.3 (14.1) | +84,672 | 73.0 | 100.02 → 101.06 [PROJ] | 2.23 | 5.46 | 2 pts / 90' / bps 4 |
-| 12 | Rushworth | GKP COV | 4.5 | 4.5 | 4.5 | a | -9.2 (-4.6) | +4,503 | 0.9 | 0.06 → 0.06 [PROJ] | 0.0 | 0.0 | 1 pts / 90' / bps -2 |
-| 13 | Manzambi | MID AVL | 6.0 | 5.9 | 5.9 | d 75% — Calf injury - 75% chance of playing | 12.2 (12.9) | +84,822 | 2.8 | 2.26 → 2.87 [PROJ] | 0.0 | 0.02 | 11 pts / 71' / bps 35 |
-| 14 | Barry | FWD EVE | 5.7 | 5.5 | 5.6 | a | -30.5 (-37.0) | -50,123 | 8.3 | 12.36 → 11.69 [PROJ] | 0.02 | 0.02 | 2 pts / 90' / bps 11 |
-| 15 | Davis | DEF IPS | 4.0 | 4.0 | 4.0 | a | 88.5 (87.7) | -9,568 | 7.4 | 0.27 → 0.27 [PROJ] | 0.0 | 0.0 | 0 pts / 90' / bps -2 |
+| 1 | Verbruggen | GKP BHA | 4.6 | 4.5 | 4.5 | a | 20.6 (21.0) | +24,074 | 22.6 | 36.99 → 37.34 [PROJ] | 0.0 | 0.0 | 6 pts / 90' / bps 22 |
+| 2 | Calafiori | DEF ARS | 6.0 | 5.9 | 5.9 | a | 17.7 (19.7) | +93,561 | 54.1 | 95.13 → 96.61 [PROJ] | 0.02 | 0.2 | 6 pts / 90' / bps 23 |
+| 3 | De Cuyper | DEF BHA | 5.3 | 4.5 | 4.9 | a | 12.5 (14.7) | +175,772 | 41.3 | 88.72 → 92.11 [PROJ] | 0.83 | 0.98 | 6 pts / 90' / bps 29 |
+| 4 | Konsa | DEF ARS | 4.6 | 4.5 | 4.5 | a | 25.5 (30.2) | +58,526 | 18.0 | 45.66 → 46.99 [PROJ] | 0.0 | 0.0 | 9 pts / 90' / bps 29 |
+| 5 | Bogle | DEF LEE | 4.7 | 4.7 | 4.7 | a | 54.7 (58.3) | +77,926 | 10.3 | 2.03 → 2.17 [PROJ] | 0.0 | 0.0 | 2 pts / 90' / bps 12 |
+| 6 | Rogers | MID CHE | 8.0 | 7.9 | 7.9 | a | 14.1 (17.7) | +142,960 | 48.4 | 82.04 → 84.21 [PROJ] | 0.3 | 0.64 | 2 pts / 90' / bps 11 |
+| 7 | Ndiaye | MID MCI | 5.8 | 5.8 | 5.8 | a | -81.4 (-81.8) | -1,257 | 5.4 | 1.69 → 1.69 [PROJ] | 0.01 | 0.02 | 5 pts / 90' / bps 30 |
+| 8 | Groß (V) | MID BHA | 6.2 | 5.9 | 6.0 | a | 13.5 (15.7) | +189,591 | 45.6 | 94.32 → 97.84 [PROJ] | 0.8 | 1.72 | 5 pts / 70' / bps 17 |
+| 9 | Saka | MID ARS | 9.6 | 9.6 | 9.6 | d 50% — Thigh injury - 50% chance of playing | -58.3 (-80.0) | -146,519 | 15.6 | 23.83 → 21.82 [PROJ] | 0.22 | 0.76 | 3 pts / 90' / bps 16 |
+| 10 | Haaland (C) | FWD MCI | 15.7 | 15.5 | 15.6 | a | 41.4 (43.9) | +72,634 | 76.9 | 204.05 → 205.78 [PROJ] | 93.15 | 82.86 | 13 pts / 90' / bps 71 |
+| 11 | João Pedro | FWD CHE | 7.9 | 7.5 | 7.7 | a | 12.7 (14.9) | +90,440 | 73.0 | 100.02 → 101.13 [PROJ] | 2.23 | 5.46 | 2 pts / 90' / bps 4 |
+| 12 | Rushworth | GKP COV | 4.5 | 4.5 | 4.5 | a | -7.2 (-5.0) | +4,752 | 0.9 | 0.06 → 0.06 [PROJ] | 0.0 | 0.0 | 1 pts / 90' / bps -2 |
+| 13 | Manzambi | MID AVL | 6.0 | 5.9 | 5.9 | d 75% — Calf injury - 75% chance of playing | 12.4 (12.7) | +86,161 | 2.8 | 2.26 → 2.88 [PROJ] | 0.0 | 0.02 | 11 pts / 71' / bps 35 |
+| 14 | Barry | FWD EVE | 5.7 | 5.5 | 5.6 | a | -33.9 (-38.6) | -54,051 | 8.2 | 12.36 → 11.63 [PROJ] | 0.02 | 0.02 | 2 pts / 90' / bps 11 |
+| 15 | Davis | DEF IPS | 4.0 | 4.0 | 4.0 | a | 88.0 (87.3) | -10,291 | 7.4 | 0.27 → 0.27 [PROJ] | 0.0 | 0.0 | 0 pts / 90' / bps -2 |
 
 ## Buying pool (14 players — watchlist + top transfers-in + top form per position + top-10k EO ≥ threshold; edit pool.json)
 
 | Player | Pos | £ | Status | Price Δ% (proj) | Net tr. | Own% | EO top10k | Form | Pts | Why in pool | Next 3 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Vuskovic (BHA) | DEF | 5.1 | a | 56.6 (60.9) | +78,415 | 5.8 | 6.62 | 9.5 | 51 | top form in position | @LIV(4), @MCI(5), vBRE(3) |
-| Evanilson (BOU) | FWD | 6.1 | a | 48.1 (56.4) | +69,495 | 4.6 | 0.94 | 9.5 | 37 | top form in position | @MUN(4), vLEE(3), @IPS(2) |
-| Isak (LIV) | FWD | 9.0 | a | 0.0 (0.0) | +113,376 | 13.1 | 0.73 | 4.5 | 42 | top net transfers in | vBHA(3), vARS(4), @CRY(3) |
-| Wissa (NEW) | FWD | 6.1 | a | -24.8 (-29.9) | -192,235 | 13.8 | 5.82 | 1.5 | 18 | manual/watchlist | @CRY(3), vEVE(3), @FUL(3) |
-| Raya (ARS) | GKP | 6.1 | a | 45.6 (53.8) | +65,460 | 44.5 | 41.92 | 6.0 | 42 | top form in position; top-10k EO 41.9% | vEVE(3), @LIV(4), vHUL(2) |
-| Donnarumma (MCI) | GKP | 5.5 | a | -48.9 (-49.1) | -4,853 | 7.7 | 1.16 | 5.0 | 29 | top form in position | @AVL(3), vBHA(3), @NFO(3) |
-| Neto (CHE) | MID | 6.5 | a | 87.2 (96.3) | +122,648 | 2.7 | 0.09 | 10.0 | 34 | top net transfers in | vTOT(2), vMUN(4), @SUN(3) |
-| Rice (ARS) | MID | 7.3 | a | 35.2 (43.6) | +43,027 | 11.3 | 0.49 | 8.0 | 36 | top form in position | vEVE(3), @LIV(4), vHUL(2) |
-| Mbeumo (MUN) | MID | 7.8 | a | 82.3 (92.4) | +121,786 | 20.6 | 15.31 | 8.0 | 41 | top net transfers in; top form in position | vBOU(3), @CHE(4), vAVL(3) |
-| Dewsbury-Hall (EVE) | MID | 6.6 | a | 32.2 (30.6) | -2,726 | 6.1 | 7.86 | 7.5 | 35 | top form in position | @ARS(5), @NEW(3), vCOV(2) |
-| Tavernier (BOU) | MID | 6.2 | a | 35.8 (46.6) | +211,179 | 9.8 | 6.79 | 5.5 | 42 | top net transfers in | @MUN(4), vLEE(3), @IPS(2) |
-| Palmer (CHE) | MID | 9.7 | a | 74.8 (97.8) | +65,270 | 26.6 | 63.28 | 5.0 | 38 | manual/watchlist (Palmer); top-10k EO 63.3% | vTOT(2), vMUN(4), @SUN(3) |
-| Cherki (MCI) | MID | 8.0 | a | 33.2 (39.9) | +139,775 | 38.1 | 35.1 | 5.0 | 44 | manual/watchlist; top net transfers in | @AVL(3), vBHA(3), @NFO(3) |
-| Szoboszlai (LIV) | MID | 6.8 | i 0% — Hamstring injury - Unknown return date | -45.0 (-49.4) | -332,481 | 18.7 | 2.44 | 0.5 | 21 | manual/watchlist | vBHA(3), vARS(4), @CRY(3) |
+| Vuskovic (BHA) | DEF | 5.1 | a | 58.7 (62.4) | +82,341 | 5.8 | 6.62 | 9.5 | 51 | top form in position | @LIV(4), @MCI(5), vBRE(3) |
+| Evanilson (BOU) | FWD | 6.1 | a | 51.8 (56.7) | +75,281 | 4.7 | 0.94 | 9.5 | 37 | top form in position | @MUN(4), vLEE(3), @IPS(2) |
+| Isak (LIV) | FWD | 9.0 | a | 0.0 (0.0) | +118,469 | 13.2 | 0.73 | 4.5 | 42 | top net transfers in | vBHA(3), vARS(4), @CRY(3) |
+| Wissa (NEW) | FWD | 6.1 | a | -27.5 (-31.4) | -201,242 | 13.7 | 5.82 | 1.5 | 18 | manual/watchlist | @CRY(3), vEVE(3), @FUL(3) |
+| Raya (ARS) | GKP | 6.1 | a | 49.6 (55.1) | +72,440 | 44.5 | 41.92 | 6.0 | 42 | top form in position; top-10k EO 41.9% | vEVE(3), @LIV(4), vHUL(2) |
+| Donnarumma (MCI) | GKP | 5.5 | a | -49.0 (-49.1) | -5,067 | 7.7 | 1.16 | 5.0 | 29 | top form in position | @AVL(3), vBHA(3), @NFO(3) |
+| Neto (CHE) | MID | 6.5 | a | 91.6 (98.0) | +129,304 | 2.7 | 0.09 | 10.0 | 34 | top net transfers in | vTOT(2), vMUN(4), @SUN(3) |
+| Rice (ARS) | MID | 7.3 | a | 39.5 (45.6) | +49,311 | 11.4 | 0.49 | 8.0 | 36 | top form in position | vEVE(3), @LIV(4), vHUL(2) |
+| Mbeumo (MUN) | MID | 7.8 | a | 87.6 (95.9) | +129,152 | 20.7 | 15.31 | 8.0 | 41 | top net transfers in; top form in position | vBOU(3), @CHE(4), vAVL(3) |
+| Dewsbury-Hall (EVE) | MID | 6.6 | a | 31.2 (29.8) | -4,182 | 6.1 | 7.86 | 7.5 | 35 | top form in position | @ARS(5), @NEW(3), vCOV(2) |
+| Tavernier (BOU) | MID | 6.2 | a | 41.2 (48.5) | +233,093 | 10.0 | 6.79 | 5.5 | 42 | top net transfers in | @MUN(4), vLEE(3), @IPS(2) |
+| Palmer (CHE) | MID | 9.7 | a | 86.4 (102.2) | +81,654 | 26.8 | 63.28 | 5.0 | 38 | manual/watchlist (Palmer); top-10k EO 63.3% | vTOT(2), vMUN(4), @SUN(3) |
+| Cherki (MCI) | MID | 8.0 | a | 35.8 (39.4) | +150,010 | 38.2 | 35.1 | 5.0 | 44 | manual/watchlist; top net transfers in | @AVL(3), vBHA(3), @NFO(3) |
+| Szoboszlai (LIV) | MID | 6.8 | i 0% — Hamstring injury - Unknown return date | -47.7 (-51.1) | -349,068 | 18.6 | 2.44 | 0.5 | 21 | manual/watchlist | vBHA(3), vARS(4), @CRY(3) |
 
 ## Market flow (net transfers this GW, all players)
 
-In: Tavernier (BOU) +211,179, Groß (BHA) +183,086, De Cuyper (BHA) +168,907, Cherki (MCI) +139,775, Rogers (CHE) +132,678, Neto (CHE) +122,648, Mbeumo (MUN) +121,786, Isak (LIV) +113,376
-Out: Szoboszlai (LIV) -332,481, Semenyo (MCI) -318,160, B.Fernandes (MUN) -239,783, Wissa (NEW) -192,235, Saka (ARS) -104,988, Gibbs-White (NFO) -95,915, Gvardiol (MCI) -83,217, Tzolis (ARS) -57,399
+In: Tavernier (BOU) +233,093, Groß (BHA) +189,591, De Cuyper (BHA) +175,772, Cherki (MCI) +150,010, Rogers (CHE) +142,960, Neto (CHE) +129,304, Mbeumo (MUN) +129,152, Isak (LIV) +118,469
+Out: Szoboszlai (LIV) -349,068, Semenyo (MCI) -338,894, B.Fernandes (MUN) -257,452, Wissa (NEW) -201,242, Saka (ARS) -146,519, Gibbs-White (NFO) -90,871, Gvardiol (MCI) -88,077, Tzolis (ARS) -59,799
 
 ## Next fixtures
 
@@ -95,7 +95,7 @@ DGW/BGW next 6: none
 | LEE | GW8 @ SUN (3), GW9 @ BOU (3), GW10 v TOT (2), GW11 @ CHE (4), GW12 v COV (2), GW13 @ MCI (5) | — | 7.1 d (PL) | 0 |
 | MCI | GW8 @ AVL (3), GW9 v BHA (3), GW10 @ NFO (3), GW11 v FUL (2), GW12 @ ARS (5), GW13 v LEE (3) | 2026-10-14 UCL v Paris Saint-Germain (2 - 4); 2026-10-20 UCL v AEK Athens (5 - 1); 2026-10-28 EFL Cup v Brighton & Hove Albion; 2026-11-04 UCL @ RB Leipzig; 2026-11-24 UCL v Napoli; 2026-12-08 UCL @ Barcelona | 3.7 d (UCL) | 2 |
 
-Weather at kick-off (Open-Meteo): IPS v NFO 8.5°C, rain 57%, wind 32.4 (gust 65.2) km/h **WINDY**; AVL v MCI 9.5°C, rain 94%, wind 27.2 (gust 53.6) km/h **WINDY**; ARS v EVE 12.0°C, rain 95%, wind 27.7 (gust 55.1) km/h **WINDY**; COV v FUL 11.1°C, rain 100%, wind 32.0 (gust 61.2) km/h **WINDY**; CHE v TOT 13.6°C, rain 100%, wind 32.8 (gust 66.2) km/h **WINDY**; CRY v NEW 12.5°C, rain 4%, wind 31.3 (gust 64.1) km/h **WINDY**; HUL v BRE 11.2°C, rain 9%, wind 41.8 (gust 79.9) km/h **WINDY**; LIV v BHA 10.1°C, rain 76%, wind 44.3 (gust 81.4) km/h **WINDY**; MUN v BOU 9.9°C, rain 83%, wind 30.6 (gust 61.6) km/h **WINDY**; SUN v LEE 9.7°C, rain 3%, wind 51.8 (gust 85.3) km/h **WINDY**
+Weather at kick-off (Open-Meteo): IPS v NFO 8.8°C, rain 59%, wind 32.4 (gust 65.2) km/h **WINDY**; AVL v MCI 9.7°C, rain 98%, wind 22.0 (gust 45.4) km/h **WET**; ARS v EVE 11.8°C, rain 100%, wind 22.0 (gust 47.9) km/h **WET**; COV v FUL 10.7°C, rain 100%, wind 32.8 (gust 63.4) km/h **WINDY**; CHE v TOT 12.9°C, rain 100%, wind 30.9 (gust 65.1) km/h **WINDY**; CRY v NEW 12.5°C, rain 2%, wind 31.3 (gust 64.1) km/h **WINDY**; HUL v BRE 11.2°C, rain 11%, wind 41.8 (gust 79.9) km/h **WINDY**; LIV v BHA 10.1°C, rain 84%, wind 44.3 (gust 81.4) km/h **WINDY**; MUN v BOU 9.9°C, rain 93%, wind 30.6 (gust 61.6) km/h **WINDY**; SUN v LEE 9.7°C, rain 11%, wind 51.8 (gust 85.3) km/h **WINDY**
 Referees this season (football-data.co.uk, POST): M Oliver 6 m, 2.67 Y/m, 1 R; D England 5 m, 3.6 Y/m, 0 R; J Gillett 5 m, 4.6 Y/m, 0 R; J Brooks 5 m, 5.6 Y/m, 3 R; C Kavanagh 5 m, 5.0 Y/m, 3 R; T Bramall 4 m, 2.25 Y/m, 1 R
 Referee appointments GW8 (FotMob): IPS-NFO Thomas Bramall (2.25 Y/m — PL 26/27 4 m); AVL-MCI Peter Bankes (3.75 Y/m — PL 26/27 4 m); ARS-EVE Tony Harrington (3.0 Y/m — PL 26/27 3 m); COV-FUL Adam Herczeg (4.17 Y/m — PL 26/27 1 m + prior 29 m at 3.76 Y/m (Ch 25/26 23, Ch 26/27 6) [PRIOR]); CHE-TOT Chris Kavanagh (5.0 Y/m — PL 26/27 5 m); CRY-NEW Paul Tierney (4.0 Y/m — PL 26/27 4 m); HUL-BRE Robert Jones (3.0 Y/m — PL 26/27 4 m); LIV-BHA Samuel Barrott (3.25 Y/m — PL 26/27 4 m); MUN-BOU Jarred Gillett (4.6 Y/m — PL 26/27 5 m); SUN-LEE Stuart Attwell (6.0 Y/m — PL 26/27 4 m)
 
@@ -137,93 +137,93 @@ Line-up status per side: IPS Predicted; NFO Predicted; AVL Predicted; MCI Predic
 
 - top10k_json_vs_games_idx1_max_abs_pp: 2.73
 - elite_json_minus_top10k_pp_top10_players: {'Haaland': 0.8, 'João Pedro': -12.2, 'Calafiori': -7.4, 'Groß': -10.5, 'De Cuyper': -17.5, 'Rogers': -10.1, 'Palmer': 12.3, 'Konsa': 13.5, 'Raya': -0.2, 'Verbruggen': -15.8}
-- elite_json_last_modified: Thu, 22 Oct 2026 10:35:37 GMT
-- top10k_json_last_modified: Thu, 22 Oct 2026 10:35:48 GMT
+- elite_json_last_modified: Thu, 22 Oct 2026 16:35:47 GMT
+- top10k_json_last_modified: Thu, 22 Oct 2026 16:35:59 GMT
 
 ## Fetch log
 
-- 200 1785784B 173ms https://fantasy.premierleague.com/api/bootstrap-static/
-- 200 278235B 35ms https://fantasy.premierleague.com/api/fixtures/
-- 200 574864B 847ms https://www.fotmob.com/api/data/leagues?id=42&season=2026%2F2027
-- 200 521645B 846ms https://www.fotmob.com/api/data/leagues?id=73&season=2026%2F2027
-- 200 419994B 404ms https://www.fotmob.com/api/data/leagues?id=10216&season=2026%2F2027
-- 200 236377B 881ms https://www.fotmob.com/api/data/leagues?id=133&season=2026%2F2027
-- 200 136534B 329ms https://www.fotmob.com/api/data/leagues?id=132&season=2026%2F2027
-- 200 238173B 634ms https://www.fotmob.com/api/data/leagues?id=10611&season=2026%2F2027
-- 200 226798B 744ms https://www.fotmob.com/api/data/leagues?id=10613&season=2026%2F2027
-- 200 496448B 987ms https://www.fotmob.com/api/data/leagues?id=10615&season=2026%2F2027
-- 200 15975B 169ms https://fantasy.premierleague.com/api/entry/6048651/
-- 200 2278B 162ms https://fantasy.premierleague.com/api/entry/6048651/history/
-- 200 1872B 165ms https://fantasy.premierleague.com/api/entry/6048651/event/7/picks/
-- 200 2138B 171ms https://fantasy.premierleague.com/api/entry/6048651/transfers/
-- 200 3092B 33ms https://fantasy.premierleague.com/api/fixtures/?event=8
-- 200 474148B 30ms https://fantasy.premierleague.com/api/event/7/live/
-- 200 15061B 26ms https://fantasy.premierleague.com/api/element-summary/109/
-- 200 14466B 29ms https://fantasy.premierleague.com/api/element-summary/8/
-- 200 13891B 27ms https://fantasy.premierleague.com/api/element-summary/115/
-- 200 17428B 27ms https://fantasy.premierleague.com/api/element-summary/31/
-- 200 15083B 30ms https://fantasy.premierleague.com/api/element-summary/330/
-- 200 15094B 31ms https://fantasy.premierleague.com/api/element-summary/40/
-- 200 15672B 30ms https://fantasy.premierleague.com/api/element-summary/237/
-- 200 18631B 27ms https://fantasy.premierleague.com/api/element-summary/124/
-- 200 18059B 31ms https://fantasy.premierleague.com/api/element-summary/12/
-- 200 15750B 26ms https://fantasy.premierleague.com/api/element-summary/411/
-- 200 16268B 25ms https://fantasy.premierleague.com/api/element-summary/165/
-- 200 14411B 30ms https://fantasy.premierleague.com/api/element-summary/110/
-- 200 13240B 25ms https://fantasy.premierleague.com/api/element-summary/53/
-- 200 13881B 26ms https://fantasy.premierleague.com/api/element-summary/249/
-- 200 14477B 36ms https://fantasy.premierleague.com/api/element-summary/305/
-- 200 8577B 381ms https://livefpl.us/top10k.json
-- 200 8116B 333ms https://livefpl.us/elite.json
-- 200 23446B 384ms https://livefpl.us/locals_7.json
-- 200 52699B 365ms https://livefpl.us/api/games.json
-- 200 12214B 285ms https://livefpl.us/players.json
-- 200 16238B 35ms https://fantasy.premierleague.com/api/element-summary/1/
-- 200 19209B 25ms https://fantasy.premierleague.com/api/element-summary/13/
-- 200 15669B 30ms https://fantasy.premierleague.com/api/element-summary/68/
-- 200 14468B 25ms https://fantasy.premierleague.com/api/element-summary/79/
-- 200 17437B 26ms https://fantasy.premierleague.com/api/element-summary/154/
-- 200 17427B 25ms https://fantasy.premierleague.com/api/element-summary/156/
-- 200 15661B 24ms https://fantasy.premierleague.com/api/element-summary/236/
-- 200 15117B 28ms https://fantasy.premierleague.com/api/element-summary/368/
-- 200 15713B 25ms https://fantasy.premierleague.com/api/element-summary/379/
-- 200 13891B 25ms https://fantasy.premierleague.com/api/element-summary/384/
-- 200 13928B 26ms https://fantasy.premierleague.com/api/element-summary/399/
-- 200 16324B 33ms https://fantasy.premierleague.com/api/element-summary/427/
-- 200 16283B 26ms https://fantasy.premierleague.com/api/element-summary/464/
-- 200 13859B 26ms https://fantasy.premierleague.com/api/element-summary/504/
-- 200 278235B 36ms https://fantasy.premierleague.com/api/fixtures/
-- 200 574864B 71ms https://www.fotmob.com/api/data/leagues?id=42&season=2026%2F2027
-- 200 521645B 81ms https://www.fotmob.com/api/data/leagues?id=73&season=2026%2F2027
-- 200 419994B 48ms https://www.fotmob.com/api/data/leagues?id=10216&season=2026%2F2027
-- 200 236377B 97ms https://www.fotmob.com/api/data/leagues?id=133&season=2026%2F2027
-- 200 136534B 50ms https://www.fotmob.com/api/data/leagues?id=132&season=2026%2F2027
-- 200 238173B 139ms https://www.fotmob.com/api/data/leagues?id=10611&season=2026%2F2027
-- 200 226798B 45ms https://www.fotmob.com/api/data/leagues?id=10613&season=2026%2F2027
-- 200 496448B 47ms https://www.fotmob.com/api/data/leagues?id=10615&season=2026%2F2027
-- 200 1458B 675ms https://api.open-meteo.com/v1/forecast?latitude=52.0549&longitude=1.1447&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-23&end_date=2026-10-23
-- 200 1448B 655ms https://api.open-meteo.com/v1/forecast?latitude=52.5092&longitude=-1.8847&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
-- 200 1449B 642ms https://api.open-meteo.com/v1/forecast?latitude=51.5549&longitude=-0.1084&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
-- 200 1448B 644ms https://api.open-meteo.com/v1/forecast?latitude=52.4481&longitude=-1.4956&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
-- 200 1446B 629ms https://api.open-meteo.com/v1/forecast?latitude=51.4817&longitude=-0.191&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
-- 200 1446B 612ms https://api.open-meteo.com/v1/forecast?latitude=51.3983&longitude=-0.0855&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
-- 200 1440B 649ms https://api.open-meteo.com/v1/forecast?latitude=53.7466&longitude=-0.3677&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
-- 200 1449B 648ms https://api.open-meteo.com/v1/forecast?latitude=53.4308&longitude=-2.9608&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
-- 200 1443B 649ms https://api.open-meteo.com/v1/forecast?latitude=53.4631&longitude=-2.2913&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
-- 200 1432B 691ms https://api.open-meteo.com/v1/forecast?latitude=54.9144&longitude=-1.3882&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
-- 200 34514B 1454ms https://football-data.co.uk/mmz4281/2627/E0.csv
-- 200 203436B 1646ms https://football-data.co.uk/mmz4281/2526/E0.csv
-- 200 294388B 1661ms https://football-data.co.uk/mmz4281/2526/E1.csv
-- 200 64636B 1343ms https://football-data.co.uk/mmz4281/2627/E1.csv
-- 200 853035B 756ms https://www.fotmob.com/api/data/leagues?id=47&season=2026%2F2027
-- 200 48089B 199ms https://www.fotmob.com/api/data/matchDetails?matchId=5795491
-- 200 46914B 385ms https://www.fotmob.com/api/data/matchDetails?matchId=5795486
-- 200 46689B 187ms https://www.fotmob.com/api/data/matchDetails?matchId=5795485
-- 200 36938B 320ms https://www.fotmob.com/api/data/matchDetails?matchId=5795488
-- 200 60549B 468ms https://www.fotmob.com/api/data/matchDetails?matchId=5795487
-- 200 49717B 531ms https://www.fotmob.com/api/data/matchDetails?matchId=5795489
-- 200 40662B 301ms https://www.fotmob.com/api/data/matchDetails?matchId=5795490
-- 200 50130B 435ms https://www.fotmob.com/api/data/matchDetails?matchId=5795492
-- 200 47712B 302ms https://www.fotmob.com/api/data/matchDetails?matchId=5795493
-- 200 40657B 604ms https://www.fotmob.com/api/data/matchDetails?matchId=5795494
-- 200 482174B 575ms https://www.rotowire.com/soccer/lineups.php
+- 200 1785959B 171ms https://fantasy.premierleague.com/api/bootstrap-static/
+- 200 278235B 63ms https://fantasy.premierleague.com/api/fixtures/
+- 200 574902B 803ms https://www.fotmob.com/api/data/leagues?id=42&season=2026%2F2027
+- 200 521619B 770ms https://www.fotmob.com/api/data/leagues?id=73&season=2026%2F2027
+- 200 422775B 304ms https://www.fotmob.com/api/data/leagues?id=10216&season=2026%2F2027
+- 200 236377B 667ms https://www.fotmob.com/api/data/leagues?id=133&season=2026%2F2027
+- 200 136534B 458ms https://www.fotmob.com/api/data/leagues?id=132&season=2026%2F2027
+- 200 238173B 370ms https://www.fotmob.com/api/data/leagues?id=10611&season=2026%2F2027
+- 200 226798B 573ms https://www.fotmob.com/api/data/leagues?id=10613&season=2026%2F2027
+- 200 496448B 929ms https://www.fotmob.com/api/data/leagues?id=10615&season=2026%2F2027
+- 200 15975B 197ms https://fantasy.premierleague.com/api/entry/6048651/
+- 200 2278B 189ms https://fantasy.premierleague.com/api/entry/6048651/history/
+- 200 1872B 178ms https://fantasy.premierleague.com/api/entry/6048651/event/7/picks/
+- 200 2138B 193ms https://fantasy.premierleague.com/api/entry/6048651/transfers/
+- 200 3092B 48ms https://fantasy.premierleague.com/api/fixtures/?event=8
+- 200 474148B 41ms https://fantasy.premierleague.com/api/event/7/live/
+- 200 15061B 48ms https://fantasy.premierleague.com/api/element-summary/109/
+- 200 14466B 40ms https://fantasy.premierleague.com/api/element-summary/8/
+- 200 13891B 39ms https://fantasy.premierleague.com/api/element-summary/115/
+- 200 17428B 39ms https://fantasy.premierleague.com/api/element-summary/31/
+- 200 15083B 39ms https://fantasy.premierleague.com/api/element-summary/330/
+- 200 15094B 39ms https://fantasy.premierleague.com/api/element-summary/40/
+- 200 15672B 49ms https://fantasy.premierleague.com/api/element-summary/237/
+- 200 18631B 40ms https://fantasy.premierleague.com/api/element-summary/124/
+- 200 18059B 40ms https://fantasy.premierleague.com/api/element-summary/12/
+- 200 15750B 55ms https://fantasy.premierleague.com/api/element-summary/411/
+- 200 16268B 41ms https://fantasy.premierleague.com/api/element-summary/165/
+- 200 14411B 41ms https://fantasy.premierleague.com/api/element-summary/110/
+- 200 13240B 38ms https://fantasy.premierleague.com/api/element-summary/53/
+- 200 13881B 40ms https://fantasy.premierleague.com/api/element-summary/249/
+- 200 14477B 48ms https://fantasy.premierleague.com/api/element-summary/305/
+- 200 8577B 271ms https://livefpl.us/top10k.json
+- 200 8116B 261ms https://livefpl.us/elite.json
+- 200 23446B 230ms https://livefpl.us/locals_7.json
+- 200 52699B 199ms https://livefpl.us/api/games.json
+- 200 12214B 202ms https://livefpl.us/players.json
+- 200 16238B 40ms https://fantasy.premierleague.com/api/element-summary/1/
+- 200 19209B 175ms https://fantasy.premierleague.com/api/element-summary/13/
+- 200 15669B 39ms https://fantasy.premierleague.com/api/element-summary/68/
+- 200 14468B 40ms https://fantasy.premierleague.com/api/element-summary/79/
+- 200 17437B 39ms https://fantasy.premierleague.com/api/element-summary/154/
+- 200 17427B 40ms https://fantasy.premierleague.com/api/element-summary/156/
+- 200 15661B 39ms https://fantasy.premierleague.com/api/element-summary/236/
+- 200 15117B 39ms https://fantasy.premierleague.com/api/element-summary/368/
+- 200 15713B 40ms https://fantasy.premierleague.com/api/element-summary/379/
+- 200 13891B 39ms https://fantasy.premierleague.com/api/element-summary/384/
+- 200 13928B 39ms https://fantasy.premierleague.com/api/element-summary/399/
+- 200 16324B 39ms https://fantasy.premierleague.com/api/element-summary/427/
+- 200 16283B 40ms https://fantasy.premierleague.com/api/element-summary/464/
+- 200 13859B 41ms https://fantasy.premierleague.com/api/element-summary/504/
+- 200 278235B 42ms https://fantasy.premierleague.com/api/fixtures/
+- 200 574902B 58ms https://www.fotmob.com/api/data/leagues?id=42&season=2026%2F2027
+- 200 521619B 102ms https://www.fotmob.com/api/data/leagues?id=73&season=2026%2F2027
+- 200 422775B 59ms https://www.fotmob.com/api/data/leagues?id=10216&season=2026%2F2027
+- 200 236377B 65ms https://www.fotmob.com/api/data/leagues?id=133&season=2026%2F2027
+- 200 136534B 35ms https://www.fotmob.com/api/data/leagues?id=132&season=2026%2F2027
+- 200 238173B 38ms https://www.fotmob.com/api/data/leagues?id=10611&season=2026%2F2027
+- 200 226798B 36ms https://www.fotmob.com/api/data/leagues?id=10613&season=2026%2F2027
+- 200 496448B 40ms https://www.fotmob.com/api/data/leagues?id=10615&season=2026%2F2027
+- 200 1458B 555ms https://api.open-meteo.com/v1/forecast?latitude=52.0549&longitude=1.1447&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-23&end_date=2026-10-23
+- 200 1448B 548ms https://api.open-meteo.com/v1/forecast?latitude=52.5092&longitude=-1.8847&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
+- 200 1453B 553ms https://api.open-meteo.com/v1/forecast?latitude=51.5549&longitude=-0.1084&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
+- 200 1450B 547ms https://api.open-meteo.com/v1/forecast?latitude=52.4481&longitude=-1.4956&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
+- 200 1451B 547ms https://api.open-meteo.com/v1/forecast?latitude=51.4817&longitude=-0.191&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-24&end_date=2026-10-24
+- 200 1441B 546ms https://api.open-meteo.com/v1/forecast?latitude=51.3983&longitude=-0.0855&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
+- 200 1437B 548ms https://api.open-meteo.com/v1/forecast?latitude=53.7466&longitude=-0.3677&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
+- 200 1449B 548ms https://api.open-meteo.com/v1/forecast?latitude=53.4308&longitude=-2.9608&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
+- 200 1445B 555ms https://api.open-meteo.com/v1/forecast?latitude=53.4631&longitude=-2.2913&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
+- 200 1434B 551ms https://api.open-meteo.com/v1/forecast?latitude=54.9144&longitude=-1.3882&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=UTC&start_date=2026-10-25&end_date=2026-10-25
+- 200 34514B 1488ms https://football-data.co.uk/mmz4281/2627/E0.csv
+- 200 203436B 1551ms https://football-data.co.uk/mmz4281/2526/E0.csv
+- 200 294388B 1637ms https://football-data.co.uk/mmz4281/2526/E1.csv
+- 200 64636B 1167ms https://football-data.co.uk/mmz4281/2627/E1.csv
+- 200 853035B 1034ms https://www.fotmob.com/api/data/leagues?id=47&season=2026%2F2027
+- 200 48062B 81ms https://www.fotmob.com/api/data/matchDetails?matchId=5795491
+- 200 52815B 172ms https://www.fotmob.com/api/data/matchDetails?matchId=5795486
+- 200 46974B 311ms https://www.fotmob.com/api/data/matchDetails?matchId=5795485
+- 200 36940B 149ms https://www.fotmob.com/api/data/matchDetails?matchId=5795488
+- 200 60549B 419ms https://www.fotmob.com/api/data/matchDetails?matchId=5795487
+- 200 44926B 168ms https://www.fotmob.com/api/data/matchDetails?matchId=5795489
+- 200 36209B 179ms https://www.fotmob.com/api/data/matchDetails?matchId=5795490
+- 200 44560B 820ms https://www.fotmob.com/api/data/matchDetails?matchId=5795492
+- 200 41957B 154ms https://www.fotmob.com/api/data/matchDetails?matchId=5795493
+- 200 40684B 194ms https://www.fotmob.com/api/data/matchDetails?matchId=5795494
+- 200 481787B 614ms https://www.rotowire.com/soccer/lineups.php
