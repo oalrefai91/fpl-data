@@ -2,9 +2,9 @@
  "source": "FPL bootstrap-static events (runner, every run)",
  "last_finished_gw": 7,
  "last_finished_flag_gw": 7,
- "current_gw": 7,
- "next_gw": 8,
- "next_deadline_utc": "2026-10-23T17:30:00Z",
+ "current_gw": 8,
+ "next_gw": 9,
+ "next_deadline_utc": "2026-10-31T11:00:00Z",
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
@@ -63,9 +63,9 @@
    "opp": "FUL"
   },
   "IPS": {
-   "utc": "2026-10-17T14:00:00Z",
+   "utc": "2026-10-23T19:00:00Z",
    "comp": "PL",
-   "opp": "MCI"
+   "opp": "NFO"
   },
   "LEE": {
    "utc": "2026-10-18T13:00:00Z",
@@ -93,9 +93,9 @@
    "opp": "AVL"
   },
   "NFO": {
-   "utc": "2026-10-18T15:30:00Z",
+   "utc": "2026-10-23T19:00:00Z",
    "comp": "PL",
-   "opp": "ARS"
+   "opp": "IPS"
   },
   "SUN": {
    "utc": "2026-10-22T16:45:00Z",
