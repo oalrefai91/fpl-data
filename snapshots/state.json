@@ -8,14 +8,14 @@
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
-   "utc": "2026-10-21T19:00:00Z",
-   "comp": "UCL",
-   "opp": "Bayern M\u00fcnchen"
+   "utc": "2026-10-24T14:00:00Z",
+   "comp": "PL",
+   "opp": "EVE"
   },
   "AVL": {
-   "utc": "2026-10-21T19:00:00Z",
-   "comp": "UCL",
-   "opp": "Viking"
+   "utc": "2026-10-24T11:30:00Z",
+   "comp": "PL",
+   "opp": "MCI"
   },
   "BHA": {
    "utc": "2026-10-22T16:45:00Z",
@@ -38,9 +38,9 @@
    "opp": "EVE"
   },
   "COV": {
-   "utc": "2026-10-19T19:00:00Z",
+   "utc": "2026-10-24T14:00:00Z",
    "comp": "PL",
-   "opp": "TOT"
+   "opp": "FUL"
   },
   "CRY": {
    "utc": "2026-10-22T19:00:00Z",
@@ -48,14 +48,14 @@
    "opp": "Be\u015fikta\u015f"
   },
   "EVE": {
-   "utc": "2026-10-17T11:30:00Z",
+   "utc": "2026-10-24T14:00:00Z",
    "comp": "PL",
-   "opp": "CHE"
+   "opp": "ARS"
   },
   "FUL": {
-   "utc": "2026-10-17T14:00:00Z",
+   "utc": "2026-10-24T14:00:00Z",
    "comp": "PL",
-   "opp": "HUL"
+   "opp": "COV"
   },
   "HUL": {
    "utc": "2026-10-17T14:00:00Z",
@@ -78,9 +78,9 @@
    "opp": "Villarreal"
   },
   "MCI": {
-   "utc": "2026-10-20T19:00:00Z",
-   "comp": "UCL",
-   "opp": "AEK Athens"
+   "utc": "2026-10-24T11:30:00Z",
+   "comp": "PL",
+   "opp": "AVL"
   },
   "MUN": {
    "utc": "2026-10-21T16:45:00Z",
