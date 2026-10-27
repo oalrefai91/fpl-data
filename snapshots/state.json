@@ -8,9 +8,9 @@
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
-   "utc": "2026-10-24T14:00:00Z",
-   "comp": "PL",
-   "opp": "EVE"
+   "utc": "2026-10-27T20:00:00Z",
+   "comp": "EFL Cup",
+   "opp": "Fleetwood Town"
   },
   "AVL": {
    "utc": "2026-10-24T11:30:00Z",
