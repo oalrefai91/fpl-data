@@ -1094,6 +1094,55 @@ def write_state(events, out_dir, src=None, bs=None):
         print(f"state.json not written: {e}")
     return st
 
+# ----------------------------------------------------------------------------- score-log actuals (FX-69)
+def write_scorelog(src, bs, out_dir):
+    """snapshots/scorelog_gw{N}.json for every finished + data_checked GW — the actuals the E10 collector's step 0b needs.
+    FX-69 [USER DECISION 27 Oct 2026]: the unattended cloud collector cannot reach fantasy.premierleague.com (WebFetch needs an
+    approval nobody is there to give), but it can read raw.githubusercontent.com. So the runner, which reaches FPL on every run,
+    writes the facts and the collector reads them. Source is entry/{id}/history/ (NOT picks.entry_history, which lags: GW8 read
+    35/5 there v 41/6 in history on 27 Oct). live = every element's total_points and minutes for that GW, so the collector can
+    score the logged captain and the logged Free Hit XI (names via fpl_ids.json). Top-10k average: LiveFPL publishes no cohort
+    points figure (checked locals_N, calc_N, top10k, games, elite on 27 Oct), so it is not written. Commits only when content changes."""
+    try:
+        hist = src.history() or {}
+        rows = {r["event"]: r for r in hist.get("current", [])}
+        chips = {}
+        for c in hist.get("chips", []):
+            chips.setdefault(c["event"], []).append(c["name"])
+        done = []
+        fin = [e["id"] for e in bs["events"] if e.get("finished") and e.get("data_checked")]
+        last = max(fin) if fin else 0
+        for e in bs["events"]:
+            n = e["id"]
+            if not (e.get("finished") and e.get("data_checked")) or n not in rows:
+                continue
+            path = os.path.join(out_dir, f"scorelog_gw{n}.json")
+            if os.path.exists(path) and n != last:   # older GWs are final once written; only the latest is re-checked for late corrections
+                continue
+            live = src.live(n)
+            if not live or not live.get("elements"):
+                print(f"scorelog_gw{n}.json not written: event/{n}/live empty"); continue
+            picks = src.picks(n) or {}
+            r = rows[n]
+            d = {"gw": n, "source": "runner FX-69: entry/history (own/bench/hit/rank), bootstrap events (average), event/N/live (points), entry/event/N/picks (captain)",
+                 "own_pts": r.get("points"), "bench_pts": r.get("points_on_bench"), "hit_cost": r.get("event_transfers_cost"),
+                 "transfers": r.get("event_transfers"), "gw_rank": r.get("rank"), "overall_rank": r.get("overall_rank"),
+                 "total_points": r.get("total_points"), "bank": r.get("bank"), "value": r.get("value"),
+                 "chip": ",".join(chips.get(n, [])) or None,
+                 "overall_avg": e.get("average_entry_score"), "highest_score": e.get("highest_score"),
+                 "top10k_avg": None, "top10k_note": "LiveFPL publishes no cohort points average; leave the column empty, never estimate",
+                 "picks": [{"element": p["element"], "position": p["position"], "multiplier": p["multiplier"], "is_captain": p["is_captain"],
+                            "is_vice_captain": p["is_vice_captain"]} for p in picks.get("picks", [])],
+                 "automatic_subs": picks.get("automatic_subs", []),
+                 "live": {str(x["id"]): [x["stats"].get("total_points"), x["stats"].get("minutes")] for x in live["elements"]},
+                 "live_key": "element id -> [total_points, minutes]; names in fpl_ids.json"}
+            txt = json.dumps(d, separators=(",", ":"))
+            if not os.path.exists(path) or open(path).read() != txt:
+                os.makedirs(out_dir, exist_ok=True); open(path, "w").write(txt); done.append(n)
+        if done: print(f"scorelog written for GW {done}")
+    except Exception as ex:
+        print(f"scorelog not written: {type(ex).__name__}: {ex}")
+
 # ----------------------------------------------------------------------------- main build
 def build(src, force=False, window_h=30.0):
     cov = {}   # A1..A11 -> {"status": OK|PARTIAL|DERIVED|MISSING, "source": ..., "note": ...}
@@ -1112,6 +1161,7 @@ def build(src, force=False, window_h=30.0):
     hours_to_deadline = (deadline - now_utc()).total_seconds() / 3600
     in_window = 0 <= hours_to_deadline <= window_h
     write_state(events, src.prev_dir or "snapshots", src, bs)
+    write_scorelog(src, bs, src.prev_dir or "snapshots")
     if not in_window and not force and not src.offline:
         print(f"GW{N} deadline {nxt['deadline_time']} is {hours_to_deadline:.1f} h away — outside the {window_h} h PRE window. Exiting (use --force).")
         return None
