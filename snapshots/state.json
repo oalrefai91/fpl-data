@@ -13,29 +13,29 @@
    "opp": "Fleetwood Town"
   },
   "AVL": {
-   "utc": "2026-10-24T11:30:00Z",
-   "comp": "PL",
-   "opp": "MCI"
+   "utc": "2026-10-28T19:45:00Z",
+   "comp": "EFL Cup",
+   "opp": "AFC Bournemouth"
   },
   "BHA": {
-   "utc": "2026-10-25T14:00:00Z",
-   "comp": "PL",
-   "opp": "LIV"
+   "utc": "2026-10-28T19:30:00Z",
+   "comp": "EFL Cup",
+   "opp": "Manchester City"
   },
   "BOU": {
-   "utc": "2026-10-25T14:00:00Z",
-   "comp": "PL",
-   "opp": "MUN"
+   "utc": "2026-10-28T19:45:00Z",
+   "comp": "EFL Cup",
+   "opp": "Aston Villa"
   },
   "BRE": {
-   "utc": "2026-10-25T14:00:00Z",
-   "comp": "PL",
-   "opp": "HUL"
+   "utc": "2026-10-28T19:45:00Z",
+   "comp": "EFL Cup",
+   "opp": "Sunderland"
   },
   "CHE": {
-   "utc": "2026-10-24T16:30:00Z",
-   "comp": "PL",
-   "opp": "TOT"
+   "utc": "2026-10-28T20:00:00Z",
+   "comp": "EFL Cup",
+   "opp": "Liverpool"
   },
   "COV": {
    "utc": "2026-10-24T14:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "FUL"
   },
   "CRY": {
-   "utc": "2026-10-25T14:00:00Z",
-   "comp": "PL",
-   "opp": "NEW"
+   "utc": "2026-10-28T19:45:00Z",
+   "comp": "EFL Cup",
+   "opp": "Fulham"
   },
   "EVE": {
    "utc": "2026-10-24T14:00:00Z",
@@ -53,9 +53,9 @@
    "opp": "ARS"
   },
   "FUL": {
-   "utc": "2026-10-24T14:00:00Z",
-   "comp": "PL",
-   "opp": "COV"
+   "utc": "2026-10-28T19:45:00Z",
+   "comp": "EFL Cup",
+   "opp": "Crystal Palace"
   },
   "HUL": {
    "utc": "2026-10-25T14:00:00Z",
@@ -73,14 +73,14 @@
    "opp": "SUN"
   },
   "LIV": {
-   "utc": "2026-10-25T14:00:00Z",
-   "comp": "PL",
-   "opp": "BHA"
+   "utc": "2026-10-28T20:00:00Z",
+   "comp": "EFL Cup",
+   "opp": "Chelsea"
   },
   "MCI": {
-   "utc": "2026-10-24T11:30:00Z",
-   "comp": "PL",
-   "opp": "AVL"
+   "utc": "2026-10-28T19:30:00Z",
+   "comp": "EFL Cup",
+   "opp": "Brighton & Hove Albion"
   },
   "MUN": {
    "utc": "2026-10-25T14:00:00Z",
@@ -98,9 +98,9 @@
    "opp": "IPS"
   },
   "SUN": {
-   "utc": "2026-10-25T16:30:00Z",
-   "comp": "PL",
-   "opp": "LEE"
+   "utc": "2026-10-28T19:45:00Z",
+   "comp": "EFL Cup",
+   "opp": "Brentford"
   },
   "TOT": {
    "utc": "2026-10-24T16:30:00Z",
