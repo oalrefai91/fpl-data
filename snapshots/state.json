@@ -13,9 +13,9 @@
    "opp": "Fleetwood Town"
   },
   "AVL": {
-   "utc": "2026-10-28T19:45:00Z",
-   "comp": "EFL Cup",
-   "opp": "AFC Bournemouth"
+   "utc": "2026-10-31T20:00:00Z",
+   "comp": "PL",
+   "opp": "FUL"
   },
   "BHA": {
    "utc": "2026-10-31T15:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "SUN"
   },
   "CRY": {
-   "utc": "2026-10-28T19:45:00Z",
-   "comp": "EFL Cup",
-   "opp": "Fulham"
+   "utc": "2026-10-31T17:30:00Z",
+   "comp": "PL",
+   "opp": "TOT"
   },
   "EVE": {
    "utc": "2026-10-29T19:45:00Z",
@@ -53,9 +53,9 @@
    "opp": "Newcastle United"
   },
   "FUL": {
-   "utc": "2026-10-28T19:45:00Z",
-   "comp": "EFL Cup",
-   "opp": "Crystal Palace"
+   "utc": "2026-10-31T20:00:00Z",
+   "comp": "PL",
+   "opp": "AVL"
   },
   "HUL": {
    "utc": "2026-10-31T15:00:00Z",
@@ -103,9 +103,9 @@
    "opp": "COV"
   },
   "TOT": {
-   "utc": "2026-10-24T16:30:00Z",
+   "utc": "2026-10-31T17:30:00Z",
    "comp": "PL",
-   "opp": "CHE"
+   "opp": "CRY"
   }
  }
 }
