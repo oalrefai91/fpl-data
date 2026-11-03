@@ -1,7 +1,7 @@
 {
  "source": "FPL bootstrap-static events (runner, every run)",
- "last_finished_gw": 8,
- "last_finished_flag_gw": 8,
+ "last_finished_gw": 9,
+ "last_finished_flag_gw": 9,
  "current_gw": 9,
  "next_gw": 10,
  "next_deadline_utc": "2026-11-06T18:30:00Z",
@@ -13,9 +13,9 @@
    "opp": "LIV"
   },
   "AVL": {
-   "utc": "2026-10-31T20:00:00Z",
-   "comp": "PL",
-   "opp": "FUL"
+   "utc": "2026-11-03T20:00:00Z",
+   "comp": "UCL",
+   "opp": "Barcelona"
   },
   "BHA": {
    "utc": "2026-10-31T15:00:00Z",
@@ -83,9 +83,9 @@
    "opp": "BHA"
   },
   "MUN": {
-   "utc": "2026-10-31T12:30:00Z",
-   "comp": "PL",
-   "opp": "CHE"
+   "utc": "2026-11-03T20:00:00Z",
+   "comp": "UCL",
+   "opp": "Roma"
   },
   "NEW": {
    "utc": "2026-11-02T20:00:00Z",
