@@ -48,9 +48,9 @@
    "opp": "TOT"
   },
   "EVE": {
-   "utc": "2026-10-29T19:45:00Z",
-   "comp": "EFL Cup",
-   "opp": "Newcastle United"
+   "utc": "2026-11-02T20:00:00Z",
+   "comp": "PL",
+   "opp": "NEW"
   },
   "FUL": {
    "utc": "2026-10-31T20:00:00Z",
@@ -88,9 +88,9 @@
    "opp": "CHE"
   },
   "NEW": {
-   "utc": "2026-10-29T19:45:00Z",
-   "comp": "EFL Cup",
-   "opp": "Everton"
+   "utc": "2026-11-02T20:00:00Z",
+   "comp": "PL",
+   "opp": "EVE"
   },
   "NFO": {
    "utc": "2026-10-31T15:00:00Z",
