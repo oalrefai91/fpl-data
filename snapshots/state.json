@@ -18,14 +18,14 @@
    "opp": "Barcelona"
   },
   "BHA": {
-   "utc": "2026-10-31T15:00:00Z",
-   "comp": "PL",
-   "opp": "MCI"
+   "utc": "2026-11-05T20:00:00Z",
+   "comp": "UECL",
+   "opp": "Getafe"
   },
   "BOU": {
-   "utc": "2026-10-31T15:00:00Z",
-   "comp": "PL",
-   "opp": "LEE"
+   "utc": "2026-11-05T17:45:00Z",
+   "comp": "UEL",
+   "opp": "Sparta Prague"
   },
   "BRE": {
    "utc": "2026-10-31T15:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "SUN"
   },
   "CRY": {
-   "utc": "2026-10-31T17:30:00Z",
-   "comp": "PL",
-   "opp": "TOT"
+   "utc": "2026-11-05T17:45:00Z",
+   "comp": "UEL",
+   "opp": "Hoffenheim"
   },
   "EVE": {
    "utc": "2026-11-02T20:00:00Z",
@@ -98,9 +98,9 @@
    "opp": "BRE"
   },
   "SUN": {
-   "utc": "2026-10-31T15:00:00Z",
-   "comp": "PL",
-   "opp": "COV"
+   "utc": "2026-11-05T20:00:00Z",
+   "comp": "UEL",
+   "opp": "Dinamo Zagreb"
   },
   "TOT": {
    "utc": "2026-10-31T17:30:00Z",
