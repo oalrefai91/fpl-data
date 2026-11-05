@@ -851,16 +851,20 @@ def write_side_files(snap, out, refresh=False):
     filled = lambda d: len({str(p.get("match_id")) for p in (d.get("players") or {}).values() if any(p.get(f) is not None for f in LATE_FIELDS)})
     old = json.load(open(pp)) if os.path.exists(pp) else None
     if old and refresh: pa["late_tries"] = int(old.get("late_tries") or 0) + 1
+    sh = snap.get("understat_all_shots") or {}
+    # Q-93 (5 Nov 2026 [USER DECISION]): Understat keeps its own counter. On 3 Nov understat.com was down ("We will come back soon"), the GW9 POST got
+    # 0/20 clubs, and the shared late_tries was then spent by PitchAPI's permanent gap — so GW9's shots file was never retried. An empty Understat
+    # answer (site down) does not count as a try; a non-empty one does.
+    if old: pa["us_tries"] = int(old.get("us_tries") or 0) + (1 if refresh and sh else 0)
     if pa["players"] or pa["teams"]:
         if old is None or (filled(pa) >= filled(old) and len(pa["players"]) >= 0.9 * len(old.get("players") or {})):
             with open(pp, "w") as f: json.dump(pa, f, indent=1, ensure_ascii=False)
             rep_.append(f"pitchapi_gw{g}: {len(pa['players'])} players, matches with late fields {filled(pa)} (was {filled(old) if old else '—'}), still empty in {len(pa['late_missing'])} match(es)")
         else:
             if refresh:   # keep the better old file, but count the try so the refresh stops after LATE_MAX_TRIES
-                old["late_tries"] = pa.get("late_tries", 1)
+                old["late_tries"] = pa.get("late_tries", 1); old["us_tries"] = pa.get("us_tries", 0)
                 with open(pp, "w") as f: json.dump(old, f, indent=1, ensure_ascii=False)
             rep_.append(f"pitchapi_gw{g}: new pull worse ({filled(pa)} filled v {filled(old)}) — kept the old file")
-    sh = snap.get("understat_all_shots") or {}
     sp = os.path.join(out, f"shots_gw{g}.json")
     nros = lambda m: sum(1 for v in (m or {}).values() if ((v.get("rosters") or {}).get("h"))) + sum(1 for v in (m or {}).values() if all((v.get("team_stats") or {}).get(s) for s in ("h", "a")))   # rosters + team stats (FX-31)
     olds = json.load(open(sp)).get("matches") if os.path.exists(sp) else None
@@ -872,7 +876,8 @@ def write_side_files(snap, out, refresh=False):
     return "; ".join(rep_)
 
 
-LATE_MAX_TRIES, LATE_MAX_DAYS = 3, 42   # 3 runs a day → one day of retries per GW (user, 2 Oct 2026: the GW3–5 xAG nulls were still null 25 days later — a coverage gap, not a delay); never chase a GW older than 6 weeks
+LATE_MAX_TRIES, LATE_MAX_DAYS = 3, 42
+US_MAX_TRIES = 30   # Q-93 (5 Nov 2026): Understat retries (3 runs a day → ~10 days); only non-empty answers count, so an outage never exhausts it   # 3 runs a day → one day of retries per GW (user, 2 Oct 2026: the GW3–5 xAG nulls were still null 25 days later — a coverage gap, not a delay); never chase a GW older than 6 weeks
 def refresh_late(src, bs, owned, out, pool_ids):
     """Re-pull late fields (2 Oct 2026, FX-29 [USER DECISION]): every POST cron, re-run the back-fill for any finished GW whose
     pitchapi_gw{N}.json still has matches with xAG/xG chain/xG build-up all empty, or whose shots_gw{N}.json has no Understat rosters.
@@ -892,7 +897,9 @@ def refresh_late(src, bs, owned, out, pool_ids):
         pa = json.load(open(pp)) if os.path.exists(pp) else {}
         need_pa = os.environ.get("PITCHAPI_KEY") and bool(_late_missing(pa.get("players"))) and int(pa.get("late_tries") or 0) < LATE_MAX_TRIES
         shm = json.load(open(sp)).get("matches", {}) if os.path.exists(sp) else {}
-        need_sh = any(not (v.get("rosters") or {}).get("h") or not all((v.get("team_stats") or {}).get(s) for s in ("h", "a")) for v in shm.values())
+        # Q-93 (5 Nov 2026): a shots file that was never written (Understat down at POST time) is retried like an incomplete one, on Understat's own counter
+        need_sh = (not os.path.exists(sp) or any(not (v.get("rosters") or {}).get("h") or not all((v.get("team_stats") or {}).get(s) for s in ("h", "a")) for v in shm.values())) \
+                  and int(pa.get("us_tries") or 0) < US_MAX_TRIES
         if not (need_pa or need_sh): continue
         try:
             snap, why = build_post(src, bs, owned, out, pool_ids=pool_ids, gw=g)
