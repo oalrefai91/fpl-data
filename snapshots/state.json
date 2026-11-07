@@ -8,9 +8,9 @@
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
-   "utc": "2026-11-04T20:00:00Z",
-   "comp": "UCL",
-   "opp": "Slavia Prague"
+   "utc": "2026-11-07T15:00:00Z",
+   "comp": "PL",
+   "opp": "HUL"
   },
   "AVL": {
    "utc": "2026-11-03T20:00:00Z",
@@ -53,14 +53,14 @@
    "opp": "COV"
   },
   "FUL": {
-   "utc": "2026-10-31T20:00:00Z",
+   "utc": "2026-11-07T15:00:00Z",
    "comp": "PL",
-   "opp": "AVL"
+   "opp": "NEW"
   },
   "HUL": {
-   "utc": "2026-10-31T15:00:00Z",
+   "utc": "2026-11-07T15:00:00Z",
    "comp": "PL",
-   "opp": "IPS"
+   "opp": "ARS"
   },
   "IPS": {
    "utc": "2026-10-31T15:00:00Z",
@@ -68,9 +68,9 @@
    "opp": "HUL"
   },
   "LEE": {
-   "utc": "2026-10-31T15:00:00Z",
+   "utc": "2026-11-07T12:30:00Z",
    "comp": "PL",
-   "opp": "BOU"
+   "opp": "TOT"
   },
   "LIV": {
    "utc": "2026-11-04T17:45:00Z",
@@ -78,9 +78,9 @@
    "opp": "Fenerbah\u00e7e"
   },
   "MCI": {
-   "utc": "2026-11-04T20:00:00Z",
-   "comp": "UCL",
-   "opp": "RB Leipzig"
+   "utc": "2026-11-07T17:30:00Z",
+   "comp": "PL",
+   "opp": "NFO"
   },
   "MUN": {
    "utc": "2026-11-03T20:00:00Z",
@@ -88,14 +88,14 @@
    "opp": "Roma"
   },
   "NEW": {
-   "utc": "2026-11-02T20:00:00Z",
+   "utc": "2026-11-07T15:00:00Z",
    "comp": "PL",
-   "opp": "EVE"
+   "opp": "FUL"
   },
   "NFO": {
-   "utc": "2026-10-31T15:00:00Z",
+   "utc": "2026-11-07T17:30:00Z",
    "comp": "PL",
-   "opp": "BRE"
+   "opp": "MCI"
   },
   "SUN": {
    "utc": "2026-11-05T20:00:00Z",
@@ -103,9 +103,9 @@
    "opp": "Dinamo Zagreb"
   },
   "TOT": {
-   "utc": "2026-10-31T17:30:00Z",
+   "utc": "2026-11-07T12:30:00Z",
    "comp": "PL",
-   "opp": "CRY"
+   "opp": "LEE"
   }
  }
 }
