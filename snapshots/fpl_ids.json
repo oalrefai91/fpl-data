@@ -6037,5 +6037,14 @@
 "second_name": "Gunter",
 "team": "TOT",
 "pos": 1
+},
+{
+"id": 672,
+"code": 671103,
+"web_name": "Cissé",
+"first_name": "Modou Kéba",
+"second_name": "Cissé",
+"team": "AVL",
+"pos": 2
 }
 ]

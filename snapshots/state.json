@@ -13,29 +13,29 @@
    "opp": "HUL"
   },
   "AVL": {
-   "utc": "2026-11-03T20:00:00Z",
-   "comp": "UCL",
-   "opp": "Barcelona"
-  },
-  "BHA": {
-   "utc": "2026-11-05T20:00:00Z",
-   "comp": "UECL",
-   "opp": "Getafe"
-  },
-  "BOU": {
-   "utc": "2026-11-05T17:45:00Z",
-   "comp": "UEL",
-   "opp": "Sparta Prague"
-  },
-  "BRE": {
-   "utc": "2026-10-31T15:00:00Z",
-   "comp": "PL",
-   "opp": "NFO"
-  },
-  "CHE": {
-   "utc": "2026-10-31T12:30:00Z",
+   "utc": "2026-11-08T16:30:00Z",
    "comp": "PL",
    "opp": "MUN"
+  },
+  "BHA": {
+   "utc": "2026-11-08T14:00:00Z",
+   "comp": "PL",
+   "opp": "BRE"
+  },
+  "BOU": {
+   "utc": "2026-11-08T14:00:00Z",
+   "comp": "PL",
+   "opp": "IPS"
+  },
+  "BRE": {
+   "utc": "2026-11-08T14:00:00Z",
+   "comp": "PL",
+   "opp": "BHA"
+  },
+  "CHE": {
+   "utc": "2026-11-08T14:00:00Z",
+   "comp": "PL",
+   "opp": "SUN"
   },
   "COV": {
    "utc": "2026-11-06T20:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "EVE"
   },
   "CRY": {
-   "utc": "2026-11-05T17:45:00Z",
-   "comp": "UEL",
-   "opp": "Hoffenheim"
+   "utc": "2026-11-08T14:00:00Z",
+   "comp": "PL",
+   "opp": "LIV"
   },
   "EVE": {
    "utc": "2026-11-06T20:00:00Z",
@@ -63,9 +63,9 @@
    "opp": "ARS"
   },
   "IPS": {
-   "utc": "2026-10-31T15:00:00Z",
+   "utc": "2026-11-08T14:00:00Z",
    "comp": "PL",
-   "opp": "HUL"
+   "opp": "BOU"
   },
   "LEE": {
    "utc": "2026-11-07T12:30:00Z",
@@ -73,9 +73,9 @@
    "opp": "TOT"
   },
   "LIV": {
-   "utc": "2026-11-04T17:45:00Z",
-   "comp": "UCL",
-   "opp": "Fenerbah\u00e7e"
+   "utc": "2026-11-08T14:00:00Z",
+   "comp": "PL",
+   "opp": "CRY"
   },
   "MCI": {
    "utc": "2026-11-07T17:30:00Z",
@@ -83,9 +83,9 @@
    "opp": "NFO"
   },
   "MUN": {
-   "utc": "2026-11-03T20:00:00Z",
-   "comp": "UCL",
-   "opp": "Roma"
+   "utc": "2026-11-08T16:30:00Z",
+   "comp": "PL",
+   "opp": "AVL"
   },
   "NEW": {
    "utc": "2026-11-07T15:00:00Z",
@@ -98,9 +98,9 @@
    "opp": "MCI"
   },
   "SUN": {
-   "utc": "2026-11-05T20:00:00Z",
-   "comp": "UEL",
-   "opp": "Dinamo Zagreb"
+   "utc": "2026-11-08T14:00:00Z",
+   "comp": "PL",
+   "opp": "CHE"
   },
   "TOT": {
    "utc": "2026-11-07T12:30:00Z",
