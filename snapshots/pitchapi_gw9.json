@@ -1,6 +1,6 @@
 {
  "gw": 9,
- "generated_utc": "2026-11-10T01:12:23Z",
+ "generated_utc": "2026-11-10T14:21:52Z",
  "players": {
   "Morgan Rogers (CHE)": {
    "match_id": "m_0C3yM3",
@@ -27471,31 +27471,29 @@
    "take_ons": 3,
    "take_ons_won": 3
   },
-  "Dewsbury-Hall (EVE)": {
-   "match_id": "m_0eAA1g",
-   "name": "Kiernan Dewsbury-Hall",
-   "match_score": 3,
-   "min": 99,
-   "sca": 8,
-   "gca": 1,
+  "Wirtz (LIV)": {
+   "match_id": "m_1cQmo2",
+   "name": "Florian Wirtz",
+   "match_score": 2,
+   "min": 80,
+   "sca": 2,
+   "gca": 0,
    "sca_breakdown": {
-    "pass_live": 5,
-    "pass_dead": 2,
-    "shot": 1
+    "pass_live": 2
    },
-   "chances_created": 3,
-   "xag": null,
-   "xg_chain": null,
-   "xg_buildup": null,
-   "xt_off": 0.3108,
-   "xt_def": -0.0092,
-   "prog_passes": 6,
-   "passes_into_box": 5,
-   "key_passes": 3,
-   "prog_carries": 4,
+   "chances_created": 0,
+   "xag": 0,
+   "xg_chain": 0.7565,
+   "xg_buildup": 0.5386,
+   "xt_off": -0.3016,
+   "xt_def": 0.0063,
+   "prog_passes": 3,
+   "passes_into_box": 3,
+   "key_passes": 0,
+   "prog_carries": 1,
    "carries_into_box": 0,
    "take_ons": 2,
-   "take_ons_won": 2
+   "take_ons_won": 0
   },
   "Szoboszlai (LIV)": {
    "match_id": "m_1cQmo2",
@@ -29606,6 +29604,6 @@
   "m_1Gc5Hh",
   "m_4RvJ1j"
  ],
- "late_tries": 12,
+ "late_tries": 13,
  "us_tries": 0
 }
