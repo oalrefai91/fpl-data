@@ -1,6 +1,6 @@
 {
  "gw": 10,
- "generated_utc": "2026-11-12T00:04:14Z",
+ "generated_utc": "2026-11-12T14:39:09Z",
  "players": {
   "Thierno Barry (EVE)": {
    "match_id": "m_0ZFoVd",
@@ -29566,6 +29566,6 @@
   "m_4Ct268",
   "m_4L4kXH"
  ],
- "late_tries": 5,
+ "late_tries": 6,
  "us_tries": 0
 }
