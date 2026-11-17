@@ -1,6 +1,6 @@
 {
  "gw": 10,
- "generated_utc": "2026-11-17T01:35:59Z",
+ "generated_utc": "2026-11-17T15:30:21Z",
  "players": {
   "Thierno Barry (EVE)": {
    "match_id": "m_0ZFoVd",
@@ -27356,6 +27356,31 @@
    "take_ons": 3,
    "take_ons_won": 2
   },
+  "McGinn (AVL)": {
+   "match_id": "m_1hg20L",
+   "name": "John McGinn",
+   "match_score": 2,
+   "min": 70,
+   "sca": 5,
+   "gca": 2,
+   "sca_breakdown": {
+    "pass_live": 1,
+    "pass_dead": 4
+   },
+   "chances_created": 2,
+   "xag": 0.1243,
+   "xg_chain": 2.7172,
+   "xg_buildup": 1.8441,
+   "xt_off": 0.5363,
+   "xt_def": 0.0183,
+   "prog_passes": 2,
+   "passes_into_box": 2,
+   "key_passes": 2,
+   "prog_carries": 3,
+   "carries_into_box": 0,
+   "take_ons": 2,
+   "take_ons_won": 1
+  },
   "Van Hecke (TOT)": {
    "match_id": "m_4L4kXH",
    "name": "Jan Paul van Hecke",
@@ -29566,6 +29591,6 @@
   "m_4Ct268",
   "m_4L4kXH"
  ],
- "late_tries": 15,
+ "late_tries": 16,
  "us_tries": 0
 }

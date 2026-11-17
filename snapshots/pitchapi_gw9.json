@@ -1,6 +1,6 @@
 {
  "gw": 9,
- "generated_utc": "2026-11-17T01:36:17Z",
+ "generated_utc": "2026-11-17T15:30:37Z",
  "players": {
   "Morgan Rogers (CHE)": {
    "match_id": "m_0C3yM3",
@@ -27397,6 +27397,31 @@
    "take_ons": 2,
    "take_ons_won": 1
   },
+  "McGinn (AVL)": {
+   "match_id": "m_14WeHI",
+   "name": "John McGinn",
+   "match_score": 2,
+   "min": 86,
+   "sca": 8,
+   "gca": 0,
+   "sca_breakdown": {
+    "pass_live": 4,
+    "pass_dead": 4
+   },
+   "chances_created": 4,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": -0.8199,
+   "xt_def": 0.0009,
+   "prog_passes": 3,
+   "passes_into_box": 3,
+   "key_passes": 4,
+   "prog_carries": 1,
+   "carries_into_box": 0,
+   "take_ons": 1,
+   "take_ons_won": 0
+  },
   "Van Hecke (TOT)": {
    "match_id": "m_0GIRbd",
    "name": "Jan Paul van Hecke",
@@ -29604,6 +29629,6 @@
   "m_1Gc5Hh",
   "m_4RvJ1j"
  ],
- "late_tries": 26,
+ "late_tries": 27,
  "us_tries": 0
 }
