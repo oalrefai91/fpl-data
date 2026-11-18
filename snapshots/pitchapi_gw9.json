@@ -1,6 +1,6 @@
 {
  "gw": 9,
- "generated_utc": "2026-11-17T15:30:37Z",
+ "generated_utc": "2026-11-18T00:33:27Z",
  "players": {
   "Morgan Rogers (CHE)": {
    "match_id": "m_0C3yM3",
@@ -27373,29 +27373,30 @@
    "take_ons": 0,
    "take_ons_won": 0
   },
-  "Rice (ARS)": {
+  "Ødegaard (ARS)": {
    "match_id": "m_1cQmo2",
-   "name": "Declan Rice",
+   "name": "Martin Ødegaard",
    "match_score": 2,
-   "min": 96,
-   "sca": 3,
-   "gca": 1,
+   "min": 87,
+   "sca": 2,
+   "gca": 0,
    "sca_breakdown": {
-    "pass_live": 3
+    "pass_live": 1,
+    "pass_dead": 1
    },
    "chances_created": 2,
-   "xag": 0.655,
-   "xg_chain": 0.8264,
-   "xg_buildup": 0.1391,
-   "xt_off": 0.083,
-   "xt_def": 0.0263,
+   "xag": 0.0995,
+   "xg_chain": 0.8311,
+   "xg_buildup": 0.7746,
+   "xt_off": 0.1499,
+   "xt_def": -0.025,
    "prog_passes": 3,
-   "passes_into_box": 1,
+   "passes_into_box": 2,
    "key_passes": 2,
-   "prog_carries": 0,
+   "prog_carries": 1,
    "carries_into_box": 0,
-   "take_ons": 2,
-   "take_ons_won": 1
+   "take_ons": 1,
+   "take_ons_won": 0
   },
   "McGinn (AVL)": {
    "match_id": "m_14WeHI",
@@ -29629,6 +29630,6 @@
   "m_1Gc5Hh",
   "m_4RvJ1j"
  ],
- "late_tries": 27,
+ "late_tries": 28,
  "us_tries": 0
 }
