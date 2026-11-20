@@ -1,6 +1,6 @@
 {
  "gw": 9,
- "generated_utc": "2026-11-20T14:55:05Z",
+ "generated_utc": "2026-11-20T23:41:36Z",
  "players": {
   "Morgan Rogers (CHE)": {
    "match_id": "m_0C3yM3",
@@ -27398,31 +27398,6 @@
    "take_ons": 1,
    "take_ons_won": 0
   },
-  "McGinn (AVL)": {
-   "match_id": "m_14WeHI",
-   "name": "John McGinn",
-   "match_score": 2,
-   "min": 86,
-   "sca": 8,
-   "gca": 0,
-   "sca_breakdown": {
-    "pass_live": 4,
-    "pass_dead": 4
-   },
-   "chances_created": 4,
-   "xag": null,
-   "xg_chain": null,
-   "xg_buildup": null,
-   "xt_off": -0.8199,
-   "xt_def": 0.0009,
-   "prog_passes": 3,
-   "passes_into_box": 3,
-   "key_passes": 4,
-   "prog_carries": 1,
-   "carries_into_box": 0,
-   "take_ons": 1,
-   "take_ons_won": 0
-  },
   "Van Hecke (TOT)": {
    "match_id": "m_0GIRbd",
    "name": "Jan Paul van Hecke",
@@ -27636,6 +27611,32 @@
    "carries_into_box": 0,
    "take_ons": 0,
    "take_ons_won": 0
+  },
+  "E.Le Fée (SUN)": {
+   "match_id": "m_0IHgwr",
+   "name": "Enzo Le Fée",
+   "match_score": 2,
+   "min": 99,
+   "sca": 5,
+   "gca": 0,
+   "sca_breakdown": {
+    "pass_live": 1,
+    "pass_dead": 3,
+    "take_on": 1
+   },
+   "chances_created": 0,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": 0.2055,
+   "xt_def": 0.013,
+   "prog_passes": 3,
+   "passes_into_box": 0,
+   "key_passes": 0,
+   "prog_carries": 0,
+   "carries_into_box": 1,
+   "take_ons": 4,
+   "take_ons_won": 3
   }
  },
  "teams": {
@@ -28032,6 +28033,105 @@
      "direct_speed": 2.81,
      "buildup_attacks": 4,
      "direct_attacks": 7
+    }
+   }
+  },
+  "SUN": {
+   "match_id": "m_0IHgwr",
+   "ppda": 11.78,
+   "field_tilt": 56.2,
+   "possession_pct": 56.2,
+   "final_third_entries": 34,
+   "box_entries": 15,
+   "direct_speed": 2.25,
+   "passes_per_sequence": 3.61,
+   "sca": 34,
+   "gca": 2,
+   "pv_offensive": 0.3925,
+   "raw": {
+    "team": {
+     "id": "t_2xPV6y",
+     "name": "Sunderland"
+    },
+    "actions": 707,
+    "possession_value": {
+     "xt_total": 0.9238,
+     "vaep_total": 0.5495,
+     "vaep_offensive": 0.7561,
+     "vaep_defensive": -0.2066,
+     "pv_total": 0.5536,
+     "pv_offensive": 0.3925,
+     "pv_defensive": 0.1611
+    },
+    "passing": {
+     "passes": 440,
+     "pass_accuracy": 79.3,
+     "progressive_passes": 34,
+     "progressive_pass_distance": 763.6,
+     "passes_into_box": 11,
+     "key_passes": 9,
+     "assists": 0,
+     "through_balls": 0,
+     "crosses": 19,
+     "switches": 6
+    },
+    "carrying": {
+     "carries": 102,
+     "carry_distance": 1151.5,
+     "progressive_carries": 11,
+     "progressive_carry_distance": 628.5,
+     "carries_into_final_third": 6,
+     "carries_into_box": 5,
+     "take_ons": 13,
+     "take_ons_won": 8,
+     "miscontrols": 15,
+     "dispossessed": 8
+    },
+    "creation": {
+     "sca": 34,
+     "gca": 2,
+     "chances_created": 9,
+     "second_assists": 0,
+     "sca_breakdown": {
+      "pass_live": 20,
+      "pass_dead": 5,
+      "take_on": 2,
+      "shot": 3,
+      "foul_drawn": 3,
+      "defensive": 1
+     },
+     "xag": null
+    },
+    "defending": {
+     "tackles": 10,
+     "interceptions": 12,
+     "blocks": 4,
+     "clearances": 31,
+     "duels_won": 17,
+     "aerials": 39,
+     "aerials_won": 23,
+     "ppda": 11.78,
+     "opponent_passes": 271,
+     "defensive_actions": 23,
+     "challenges": 2,
+     "avg_defensive_action_x": 30.3,
+     "high_turnovers": 7,
+     "counterpress_regains_5s": 14,
+     "ball_recovery_time": 17
+    },
+    "territory": {
+     "possession_pct": 56.2,
+     "field_tilt": 56.2,
+     "final_third_entries": 34,
+     "box_entries": 15,
+     "avg_action_x": 49.4
+    },
+    "tempo": {
+     "passes_per_sequence": 3.61,
+     "sequence_time": 11.42,
+     "direct_speed": 2.25,
+     "buildup_attacks": 0,
+     "direct_attacks": 10
     }
    }
   },
@@ -29025,105 +29125,6 @@
     }
    }
   },
-  "SUN": {
-   "match_id": "m_0IHgwr",
-   "ppda": 11.78,
-   "field_tilt": 56.2,
-   "possession_pct": 56.2,
-   "final_third_entries": 34,
-   "box_entries": 15,
-   "direct_speed": 2.25,
-   "passes_per_sequence": 3.61,
-   "sca": 34,
-   "gca": 2,
-   "pv_offensive": 0.3925,
-   "raw": {
-    "team": {
-     "id": "t_2xPV6y",
-     "name": "Sunderland"
-    },
-    "actions": 707,
-    "possession_value": {
-     "xt_total": 0.9238,
-     "vaep_total": 0.5495,
-     "vaep_offensive": 0.7561,
-     "vaep_defensive": -0.2066,
-     "pv_total": 0.5536,
-     "pv_offensive": 0.3925,
-     "pv_defensive": 0.1611
-    },
-    "passing": {
-     "passes": 440,
-     "pass_accuracy": 79.3,
-     "progressive_passes": 34,
-     "progressive_pass_distance": 763.6,
-     "passes_into_box": 11,
-     "key_passes": 9,
-     "assists": 0,
-     "through_balls": 0,
-     "crosses": 19,
-     "switches": 6
-    },
-    "carrying": {
-     "carries": 102,
-     "carry_distance": 1151.5,
-     "progressive_carries": 11,
-     "progressive_carry_distance": 628.5,
-     "carries_into_final_third": 6,
-     "carries_into_box": 5,
-     "take_ons": 13,
-     "take_ons_won": 8,
-     "miscontrols": 15,
-     "dispossessed": 8
-    },
-    "creation": {
-     "sca": 34,
-     "gca": 2,
-     "chances_created": 9,
-     "second_assists": 0,
-     "sca_breakdown": {
-      "pass_live": 20,
-      "pass_dead": 5,
-      "take_on": 2,
-      "shot": 3,
-      "foul_drawn": 3,
-      "defensive": 1
-     },
-     "xag": null
-    },
-    "defending": {
-     "tackles": 10,
-     "interceptions": 12,
-     "blocks": 4,
-     "clearances": 31,
-     "duels_won": 17,
-     "aerials": 39,
-     "aerials_won": 23,
-     "ppda": 11.78,
-     "opponent_passes": 271,
-     "defensive_actions": 23,
-     "challenges": 2,
-     "avg_defensive_action_x": 30.3,
-     "high_turnovers": 7,
-     "counterpress_regains_5s": 14,
-     "ball_recovery_time": 17
-    },
-    "territory": {
-     "possession_pct": 56.2,
-     "field_tilt": 56.2,
-     "final_third_entries": 34,
-     "box_entries": 15,
-     "avg_action_x": 49.4
-    },
-    "tempo": {
-     "passes_per_sequence": 3.61,
-     "sequence_time": 11.42,
-     "direct_speed": 2.25,
-     "buildup_attacks": 0,
-     "direct_attacks": 10
-    }
-   }
-  },
   "BRE": {
    "match_id": "m_1Gc5Hh",
    "ppda": 10.25,
@@ -29630,6 +29631,6 @@
   "m_1Gc5Hh",
   "m_4RvJ1j"
  ],
- "late_tries": 33,
+ "late_tries": 34,
  "us_tries": 0
 }
