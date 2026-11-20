@@ -1,13 +1,13 @@
 # Christos Tzolis (Arsenal) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/arsenal-tzolis.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/arsenal-tzolis.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Christos Tzolis** · Arsenal · M · shirt 17 · 180 cm · Right foot · market value €42m · SofaScore: https://www.sofascore.com/football/player/christos-tzolis/1031259
-**FPL:** £6.1 · 3.9% owned · status a · pens — corners #4 FKs #— · price Δ -5.5% · net transfers -3,370 · GW1 6 pts/75' (BPS 30, DC 6, xGI 0.33) · GW2 0 pts/45' (BPS 1, DC 3, xGI 0.01) · GW3 5 pts/90' (BPS 31, DC 8, xGI 0.2) · GW4 3 pts/80' (BPS 10, DC 3, xGI 0.13) · GW5 2 pts/72' (BPS 9, DC 3, xGI 0.07) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 3 pts/83' (BPS 14, DC 6, xGI 0.32) · GW10 3 pts/68' (BPS 15, DC 1, xGI 0.28)
-**International:** Greece (37 caps) · NOT in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-13 a Netherlands, 11-16 h Serbia · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £6.1 · 3.9% owned · status a · pens — corners #4 FKs #— · price Δ -9.2% · net transfers -5,338 · GW1 6 pts/75' (BPS 30, DC 6, xGI 0.33) · GW2 0 pts/45' (BPS 1, DC 3, xGI 0.01) · GW3 5 pts/90' (BPS 31, DC 8, xGI 0.2) · GW4 3 pts/80' (BPS 10, DC 3, xGI 0.13) · GW5 2 pts/72' (BPS 9, DC 3, xGI 0.07) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 3 pts/83' (BPS 14, DC 6, xGI 0.32) · GW10 3 pts/68' (BPS 15, DC 1, xGI 0.28)
+**International:** Greece (39 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 161 min in 2 apps (13/11 Netherlands v Greece 7-0: XI 73'; 16/11 Greece v Serbia 1-0: XI 88') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 64.0 / y 79.3 · 283 points, attacking third 55%, box 30, zone 14 4 · latest GW10: x 75.4 y 74.4, 41 points
-Consistency: per-match touch points over the first 7 matches sum 345 v season heat map 345 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 7 matches.
+Consistency: per-match touch points over the first 7 matches sum 345 v season heat map 345 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 7 matches.
 **Errors & last-ditch (FX-59, SofaScore, 7 matches):** errors leading to a goal 0 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. No flag in any match [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 518 min):** progressive carries 32 (5.6/90) of 114 carries, progression 693 m, carry distance 1173 m · crosses 5/22 (3.8/90) · key passes 10 · big chances created 1 / missed 0 · through balls attempted 0 (0.00/90, percentile 0 of 318 players with 180+ min · per GW: GW1–5 combined 0 · GW6 0 · GW7 0 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 1 (0.17/90) · take-ons 1/9 · aerials 10/19 · duels 31/59 · recoveries 17 · possession lost 82 (dispossessed 5) · fouls 3 / fouled 15 · tackles 5/5 int 2 clr 6 blocks 0 · km 60.0 (10.4/90), sprints 106, top speed 33.03324 km/h. Per match: GW1: prog carries 8, crosses 1/3, KP 3, take-ons 0/0, aerials 1/3, CBIT 3, offsides 1; GW2: prog carries 1, crosses 0/3, KP 1, take-ons 0/3, aerials 0/0, CBIT 1, offsides 0; GW3: prog carries 4, crosses 1/2, KP 4, take-ons 1/2, aerials 1/2, CBIT 3, offsides 0; GW4: prog carries 4, crosses 1/1, KP 0, take-ons 0/1, aerials 1/2, CBIT 2, offsides 0; GW5: prog carries 4, crosses 1/4, KP 0, take-ons 0/0, aerials 2/3, CBIT 2, offsides 0; GW9: prog carries 3, crosses 1/5, KP 1, take-ons 0/3, aerials 3/6, CBIT 2, offsides 0; GW10: prog carries 8, crosses 0/4, KP 1, take-ons 0/0, aerials 2/3, CBIT 0, offsides 0
 **Shot list (C15, Understat, 4 shots, xG 0.24):** GW1 4' MissedShots xG 0.08 (OpenPlay, RightFoot, Pass; x 0.84 y 0.58); GW1 7' BlockedShot xG 0.05 (FromCorner, LeftFoot, Pass; x 0.84 y 0.51); GW1 60' BlockedShot xG 0.08 (OpenPlay, RightFoot, BallTouch; x 0.87 y 0.63); GW1 64' SavedShot xG 0.03 (FromCorner, RightFoot, None; x 0.81 y 0.60)
@@ -28,12 +28,12 @@ Consistency: per-match touch points over the first 7 matches sum 345 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Thu 24 Sep 18:45 | UEFA Nations L | Serbia v Greece | 1–2 | 90 | 7.7 | — | — | — | — | — | — |
-| Sun 27 Sep 18:45 | UEFA Nations L | Germany v Greece | 0–1 | 81 | 6.4 | — | — | — | — | — | — |
 | Thu 01 Oct 18:45 | UEFA Nations L | Greece v Netherlands | 2–2 | 18 | 6.9 | — | — | — | — | — | — |
 | Sun 01 Nov 16:30 | Premier League | Liverpool FC v Arsenal | 0–1 | 84 | 7.4 | 0.03 | 0.29 | 1 | 1 | — | — |
 | Wed 04 Nov 20:00 | UEFA Champions | SK Slavia Praha v Arsenal | 1–2 | 28 | 6.4 | — | — | — | — | — | — |
 | Sat 07 Nov 15:00 | Premier League | Arsenal v Hull City | 1–0 | 69 | 7.2 | 0.22 | 0.06 | 4 | 1 | — | — |
+| Fri 13 Nov 19:45 | UEFA Nations L | Netherlands v Greece | 7–0 | 73 | 6.2 | — | — | — | — | — | — |
+| Mon 16 Nov 19:45 | UEFA Nations L | Greece v Serbia | 1–0 | 88 | 9 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 60 rows — 2026/27 league 7, 2026/27 cup 3, 2025/26 50 · position MID · 6 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 2 · int 1 · tkl 3 · aerial 2 · crs 3 · crsOK 3 · keyPass 1 · shot 6 · onTgt 3 · assist 1

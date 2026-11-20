@@ -1,8 +1,8 @@
 # Hull City — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/hull-city.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/hull-city.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Sergej Jakirović · **Venue:** MKM Stadium · **SofaScore:** https://www.sofascore.com/football/team/hull-city/96 · **FPL code:** HUL
 **Table:** 13th, 11 pts (2W 5D 3L, GF 11 GA 11) · Home 9th (1-4-0, 7:5) · Away 15th (1-1-3, 4:6)
 **Standing context (F15):** 28 league games left · points v 4th -7, v 5th -5, v 17th (last safe) +2, v 18th +3 · goal difference +0
@@ -11,7 +11,7 @@
 **DefCon candidates (F11, FPL defensive_contribution; hit = DEF ≥10, MID/FWD ≥12 in a GW):** Mendy (DEF) 13.0/90, hit 5/7; Egan (DEF) 10.9/90, hit 5/10; Belloumi (MID) 9.3/90, hit 2/9; Ajayi (DEF) 7.6/90, hit 2/10; Iroegbunam (MID) 10.5/90, hit 1/8; Herrington (DEF) 10.5/90, hit 1/8
 **Manager tenure (F13, SofaScore):** Sergej Jakirović since 01 Jul 2025 · 63 matches in charge, all competitions (27W 16D 20L) · 10 league matches this season · contract to 30 Jun 2028 · previous club Kayserispor · interim flag not published by SofaScore
 **Archetype (F5):** used **LB** — derived LB [DERIVED] · signals, last 6 league matches: possession 36.0%, PPDA 14.2 (Understat, 4 matches; lower = harder press), opponent offsides forced 2.8/match (line height), fast breaks 1.4/match (season), both sides' xG 2.39/match (openness) · note: computed from 4 of 6 GWs (no PPDA/possession for GW9, GW10). Rule: HP = PPDA among the 5 lowest in the league · PM = possession ≥ 52% · LB = possession ≤ 47.5% and PPDA ≥ league median · TR = the rest (last 6 league matches; checked in that order; needs ≥ 3 GWs with both PPDA and possession, else the hand-set code fills the gap; margin rule Q-86: a code moves from last week's only when every cut is cleared by 0.6 PPDA / 1.5 possession points, otherwise last week's code is held).
-**Squad changes (F20, since 01 Jun 2026):** in 27 (permanent 17, loan 1, free 0, loan returns 9) · out 20 · flags: Matt Targett arrived 23 Jul, 0 league starts since — role security low (FPL-owned ≥ 1% or tracked) — full list in `claude/squad-changes.md`.
+**Squad changes (F20, since 01 Jun 2026):** in 27 (permanent 17, loan 1, free 0, loan returns 9) · out 21 · flags: Matt Targett arrived 23 Jul, 0 league starts since — role security low (FPL-owned ≥ 1% or tracked) — full list in `claude/squad-changes.md`.
 
 ### Season statistics — value and league rank of 20 (after 10 matches)
 | Metric | Value | Rank | Metric | Value | Rank |
@@ -162,26 +162,26 @@ Totals per match: xG 1.21 (npxG 1.11) for, xGA 1.77 (np 1.68) against · dead-ba
 
 ### Starter baseline (C5) — 5-4-1, 10 league matches, weights last-3 ×3 / older ×1
 - GK: Konstantinos Tzolakis (16, 3/3)
-- DEF: Lewie Coyle (16, 3/3), Semi Ajayi (16, 3/3), John Egan (16, 3/3), Ryan Giles (12, 2/3), Nobel Mendy (11, 2/3)
-- MID: Regan Slater (16, 3/3), Elliot Stroud (13, 3/3), Mohamed Belloumi (12, 2/3), Tim Iroegbunam (9, 3/3)
+- DEF: Lewie Coyle (16, 3/3), Semi Ajayi (16, 3/3), John Egan (16, 3/3), Ryan Giles (12, 2/3), Lucas Herrington (5, 1/3)
+- MID: Regan Slater (16, 3/3), Elliot Stroud (13, 3/3), Tim Iroegbunam (9, 3/3), Matt Crooks (5, 0/3)
 - FWD: Oliver McBurnie (10, 3/3)
-- Contested slots: none · Excluded (FPL flag): none
+- Contested slots: M Matt Crooks 5 v Lucas Gourna-Douath 4 · Excluded (FPL flag): Nobel Mendy — Knee injury - 75% chance of playing; Mohamed Belloumi — Hamstring injury - 75% chance of playing
 - Absent last match (E12, SofaScore list): Crooks (ban (yellows)), Hughes (Groin Injury), Gyabi (Groin Injury), Matazo (Cruciate Ligament Injury), Ansah (Back Injury), Targett (Ankle Injury)
 - Substitutions this season (C3): GW8 65' Ryan Giles→Mohamed Ali Cho TACTICAL; GW8 65' Lewie Coyle→Brooke Norton-Cuffy TACTICAL; GW9 90' Regan Slater→Joe Gelhardt LATE; GW9 77' Lewie Coyle→Brooke Norton-Cuffy TACTICAL; GW9 77' Tim Iroegbunam→Hidemasa Morita TACTICAL; GW9 60' Elliot Stroud→Mohamed Ali Cho CARD-RISK; GW9 46' John Egan→Matt Crooks HALF-TIME; GW10 75' Tim Iroegbunam→Christos Mouzakitis CHASING; GW10 75' Elliot Stroud→Ryan Giles INJURY [ONE SOURCE: LiveScore 'injury'; SofaScore marked it regular; FPL shows him available]; GW10 69' Semi Ajayi→Lucas Herrington INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW10 61' Lewie Coyle→Brooke Norton-Cuffy CARD-RISK; GW10 60' Mohamed Ali Cho→Joe Gelhardt TACTICAL
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 3 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
 | GK | Konstantinos Tzolakis | start weight 16 | OK | a | — | — |
 | CB | Semi Ajayi | start weight 16 | OK | a 100% | Lucas Herrington | — |
 | CB | John Egan | start weight 16 | OK | a | Lucas Herrington | — |
-| CB | Nobel Mendy | start weight 11 | OK | a 100% | Lucas Herrington | — |
-| xGI #1 | Mohamed Belloumi | xGI 2.19 | OK | a | Oli McBurnie | — |
+| CB | Nobel Mendy | start weight 11 | DOUBT | d 75% — Knee injury - 75% chance of playing | Lucas Herrington | — |
+| xGI #1 | Mohamed Belloumi | xGI 2.19 | DOUBT | d 75% — Hamstring injury - 75% chance of playing | Oli McBurnie | — |
 | xGI #2 | Mohamed Ali Cho | xGI 1.73 | OK | a 100% | Oli McBurnie | — |
 | Penalties #1 (FPL) | McBurnie | FPL order | OK | a | — | — |
-| Direct FK #1 (FPL) | Belloumi | FPL order | OK | a | McBurnie | — |
-| Corners (observed) | Mohamed Belloumi | 17 corners taken | OK | a | Regan Slater | — |
+| Direct FK #1 (FPL) | Belloumi | FPL order | DOUBT | d 75% — Hamstring injury - 75% chance of playing | McBurnie | — |
+| Corners (observed) | Mohamed Belloumi | 17 corners taken | DOUBT | d 75% — Hamstring injury - 75% chance of playing | Regan Slater | — |
 **Back-fill — first-choice players who did not start (current first-choice set; reason from the SofaScore missing list):** GW1 H Manchester United: Mohamed Ali Cho (not signed yet) · GW2 A Coventry City: Mohamed Ali Cho (did not start) · GW3 H Aston Villa: Mohamed Ali Cho (did not start) · GW4 A Chelsea: Mohamed Ali Cho (did not start) · GW5 A Newcastle United: Nobel Mendy (Concussion), Mohamed Ali Cho (did not start) · GW6 H Everton: Mohamed Belloumi (did not start), Mohamed Ali Cho (did not start) · GW7 A Fulham: Nobel Mendy (Groin Injury), Mohamed Ali Cho (Muscle Injury) · GW8 H Brentford: Nobel Mendy (Groin Injury), Mohamed Ali Cho (did not start) · GW9 H Ipswich Town: Mohamed Ali Cho (did not start) · GW10 A Arsenal: Mohamed Belloumi (did not start)
 
 ### Next fixtures (all competitions)
@@ -193,7 +193,7 @@ First choice = starter baseline (GK, 3 centre-backs — defenders whose median h
 - Sat 19 Dec 15:00 UTC · Premier League R16 · A v Manchester City
 
 ### FPL availability flags (players with league minutes this season)
-Drameh — Has joined Genoa permanently (0%); Millar — Has joined Birmingham on loan for the rest of the season (0%); Targett — Ankle injury - Unknown return date (0%); Morita — Groin injury - Unknown return date (0%)
+Drameh — Has joined Genoa permanently (0%); Belloumi — Hamstring injury - 75% chance of playing (75%); Millar — Has joined Birmingham on loan for the rest of the season (0%); Targett — Ankle injury - Unknown return date (0%); Morita — Groin injury - Unknown return date (0%); Mendy — Knee injury - 75% chance of playing (75%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 H Manchester United 2–0 · xG 1.01–1.83 · poss 28% · 5-4-1 · scorers: Semi Ajayi 17', Nobel Mendy 38'

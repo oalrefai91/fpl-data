@@ -1,8 +1,8 @@
 # Chelsea — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/chelsea.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/chelsea.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Xabi Alonso · **Venue:** Stamford Bridge · **SofaScore:** https://www.sofascore.com/football/team/chelsea/38 · **FPL code:** CHE
 **Table:** 5th, 16 pts (5W 1D 4L, GF 19 GA 16) · Home 5th (3-1-1, 13:8) · Away 9th (2-0-3, 6:8)
 **Standing context (F15):** 28 league games left · points v 4th -2, v 5th +0, v 17th (last safe) +7, v 18th +8 · goal difference +3
@@ -162,7 +162,7 @@ Totals per match: xG 1.56 (npxG 1.56) for, xGA 1.74 (np 1.74) against · dead-ba
 - Absent last match (E12, SofaScore list): Hato (Knock Injury), Pedro (Muscle Injury), Lacroix (Hamstring Injury), James (Knee Injury)
 - Substitutions this season (C3): GW8 72' Geovany Quenda→Estêvão TACTICAL; GW8 65' Jorrel Hato→Marco Palestra TACTICAL; GW9 90' Cole Palmer→Geovany Quenda LATE; GW9 87' Estêvão→Malo Gusto LATE; GW9 87' Pedro Neto→Valentín Barco LATE; GW9 87' Moisés Caicedo→Danny Welbeck LATE; GW9 74' Marco Palestra→Pep Chavarría GAME-STATE; GW10 87' Jordan Henderson→Emmanuel Emegha LATE; GW10 79' Pep Chavarría→Geovany Quenda CHASING; GW10 62' Marco Palestra→Malo Gusto CHASING; GW10 62' Pedro Neto→Danny Welbeck CARD-RISK; GW10 46' Levi Colwill→Estêvão HALF-TIME
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

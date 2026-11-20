@@ -1,13 +1,13 @@
 # Jack Hinshelwood (Brighton & Hove Albion) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/brighton-hinshelwood.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/brighton-hinshelwood.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Jack Hinshelwood** · Brighton & Hove Albion · M · shirt 8 · 182 cm · Right foot · market value €34m · SofaScore: https://www.sofascore.com/football/player/jack-hinshelwood/1142315
-**FPL:** £5.9 · 0.6% owned · status a · pens — corners #— FKs #— · price Δ 3.2% · net transfers -928 · GW1 16 pts/63' (BPS 54, DC 3, xGI 1.43) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 6 pts/19' (BPS 22, DC 2, xGI 0.94) · GW8 1 pts/45' (BPS 5, DC 3, xGI 0.02) · GW9 1 pts/18' (BPS 0, DC 4, xGI 0.14) · GW10 1 pts/12' (BPS 1, DC 1, xGI 0.06)
+**FPL:** £5.9 · 0.6% owned · status a · pens — corners #— FKs #— · price Δ 3.1% · net transfers -1,338 · GW1 16 pts/63' (BPS 54, DC 3, xGI 1.43) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 6 pts/19' (BPS 22, DC 2, xGI 0.94) · GW8 1 pts/45' (BPS 5, DC 3, xGI 0.02) · GW9 1 pts/18' (BPS 0, DC 4, xGI 0.14) · GW10 1 pts/12' (BPS 1, DC 1, xGI 0.06)
 **International:** uncapped — no call-up exposure [SofaScore national-team-statistics]
 **Per-match heat maps (C16, SofaScore, last 5 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 53.7 / y 49.7 · 94 points, attacking third 41%, box 15, zone 14 10 · latest GW10: x 53.9 y 45.3, 15 points
-Consistency: per-match touch points over the first 5 matches sum 94 v season heat map 94 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 5 matches.
+Consistency: per-match touch points over the first 5 matches sum 94 v season heat map 94 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 5 matches.
 **ROLE SHIFT (E4):** average position moved more than 15 units from the season map in GW9 (x 32.5 y 37.7 v season x 56.1 y 51.2) — read the match report for the position he actually played (note only).
 **Errors & last-ditch (FX-59, SofaScore, 5 matches):** errors leading to a goal 0 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. No flag in any match [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 158 min):** progressive carries 2 (1.1/90) of 18 carries, progression 49 m, carry distance 166 m · crosses 0/1 (0.6/90) · key passes 1 · big chances created 0 / missed 1 · through balls attempted 0 (0.00/90, under 180 min — no percentile) [PL/Opta, season] · offsides 1 (0.57/90) · take-ons 1/2 · aerials 1/2 · duels 8/13 · recoveries 6 · possession lost 12 (dispossessed 1) · fouls 2 / fouled 3 · tackles 3/3 int 0 clr 4 blocks 0 · km 23.9 (13.6/90), sprints 21, top speed 30.4452 km/h. Per match: GW1: prog carries 0, crosses 0/0, KP 1, take-ons 1/1, aerials 1/1, CBIT 2, offsides 0; GW7: prog carries 1, crosses 0/0, KP 0, take-ons 0/0, aerials 0/0, CBIT 1, offsides 0; GW8: prog carries 0, crosses 0/0, KP 0, take-ons 0/1, aerials 0/1, CBIT 1, offsides 0; GW9: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 0/0, CBIT 3, offsides 0; GW10: prog carries 1, crosses 0/1, KP 0, take-ons 0/0, aerials 0/0, CBIT 0, offsides 1
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 5 matches sum 94 v season hea
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Thu 22 Oct 16:45 | UEFA Conferenc | FK Jablonec v Brighton & Hove Albion | 0–0 | 68 | 6.7 | — | — | — | — | — | — |
-| Sun 25 Oct 14:00 | Premier League | Liverpool FC v Brighton & Hove Albion | 2–0 | 45 | 6.5 | 0 | 0.02 | 0 | 0 | — | — |
 | Wed 28 Oct 19:30 | EFL Cup | Manchester City v Brighton & Hove Albion | 6–5 | 76 | 6.1 | — | — | — | — | — | — |
 | Sat 31 Oct 15:00 | Premier League | Manchester City v Brighton & Hove Albion | 0–1 | 18 | 7 | 0.14 | 0.00 | 1 | 0 | — | — |
 | Thu 05 Nov 20:00 | UEFA Conferenc | Getafe v Brighton & Hove Albion | 0–1 | 90 | 6.9 | — | — | — | — | — | — |
 | Sun 08 Nov 14:00 | Premier League | Brighton & Hove Albion v Brentford | 2–0 | 12 | 6.7 | 0.05 | 0.01 | 1 | 0 | — | — |
+| Fri 13 Nov 19:30 | U21 Friendly G | England U21 v Portugal U21 | 0–1 | 29 | 7 | — | — | — | — | — | — |
+| Mon 16 Nov 19:30 | U21 Friendly G | England U21 v France U21 | 3–2 | 75 | 6.8 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 40 rows — 2026/27 league 5, 2026/27 cup 5, 2025/26 30 · position MID · 4 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 2 · int 1 · tkl 2 · keyPass 1 · shot 7 · onTgt 4 · outBox 1 · goal 4 · foul 4

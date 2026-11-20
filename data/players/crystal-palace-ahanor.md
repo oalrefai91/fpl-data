@@ -1,13 +1,13 @@
 # Honest Ahanor (Crystal Palace) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/crystal-palace-ahanor.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/crystal-palace-ahanor.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Honest Ahanor** · Crystal Palace · D · shirt 21 · 184 cm · Left foot · market value €41m · SofaScore: https://www.sofascore.com/football/player/honest-ahanor/1634980
-**FPL:** £4.5 · 0% owned · status a · pens — corners #— FKs #— · price Δ -29.7% · net transfers -1 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 3 pts/90' (BPS 10, DC 11, xGI 0.01) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 1 pts/18' (BPS 4, DC 4, xGI 0) · GW7 -1 pts/52' (BPS -4, DC 4, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
-**International:** Italy (2 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-12 h France, 11-15 a Belgium · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £4.5 · 0% owned · status a · pens — corners #— FKs #— · price Δ -31% · net transfers +2 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 3 pts/90' (BPS 10, DC 11, xGI 0.01) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 1 pts/18' (BPS 4, DC 4, xGI 0) · GW7 -1 pts/52' (BPS -4, DC 4, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
+**International:** Italy (2 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 0 min in 0 apps (12/11 Italy v France 3-1: not in matchday squad; 15/11 Belgium v Italy 4-1: unused sub) · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 3 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 30.8 / y 72.6 · 156 points, attacking third 5%, box 2, zone 14 0 · latest GW7: x 32.1 y 74.5, 50 points
-Consistency: per-match touch points over the first 3 matches sum 156 v season heat map 156 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 3 matches.
+Consistency: per-match touch points over the first 3 matches sum 156 v season heat map 156 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 3 matches.
 **Errors & last-ditch (FX-59, SofaScore, 3 matches):** errors leading to a goal 0 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. No flag in any match [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 161 min):** progressive carries 2 (1.1/90) of 41 carries, progression 176 m, carry distance 309 m · crosses 0/1 (0.6/90) · key passes 1 · big chances created 0 / missed 0 · through balls attempted 0 (0.00/90, under 180 min — no percentile) [PL/Opta, season] · offsides 0 (0.00/90) · take-ons 1/1 · aerials 3/4 · duels 13/17 · recoveries 4 · possession lost 16 (dispossessed 0) · fouls 2 / fouled 6 · tackles 3/3 int 1 clr 14 blocks 1 · km 19.1 (10.7/90), sprints 21, top speed 30.45456 km/h. Per match: GW4: prog carries 2, crosses 0/1, KP 1, take-ons 0/0, aerials 2/3, CBIT 11, offsides 0; GW6: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 1/1, CBIT 4, offsides 0; GW7: prog carries 0, crosses 0/0, KP 0, take-ons 1/1, aerials 0/0, CBIT 4, offsides 0
 **Shot list (C15, Understat):** no shots recorded in GWs 1, 2, 3, 4, 5, 6, 7, 8
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 3 matches sum 156 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Sun 11 Oct 13:00 | Premier League | Crystal Palace v Nottingham Forest | 3–1 | 18 | 6.9 | 0 | 0.00 | 0 | 0 | — | — |
 | Thu 15 Oct 16:45 | UEFA Europa Le | Olympique Lyonnais v Crystal Palace | 3–2 | bench | — | — | — | — | — | — | — |
 | Sun 18 Oct 13:00 | Premier League | Brighton & Hove Albion v Crystal Palace | 5–0 | 53 | 6 | 0 | 0.00 | 0 | 0 | — | — |
 | Thu 22 Oct 19:00 | UEFA Europa Le | Beşiktaş JK v Crystal Palace | 2–2 | bench | — | — | — | — | — | — | — |
 | Wed 28 Oct 19:45 | EFL Cup | Fulham v Crystal Palace | 0–1 | 90 | 7.2 | — | — | — | — | — | — |
 | Thu 05 Nov 17:45 | UEFA Europa Le | Crystal Palace v TSG Hoffenheim | 1–1 | 75 | 7.1 | — | — | — | — | — | — |
+| Sun 15 Nov 19:45 | UEFA Nations L | Belgium v Italy | 4–1 | bench | — | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 42 rows — 2026/27 league 3, 2026/27 cup 4, 2025/26 35 · position DEF · 7 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 5 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 2 · int 7 · blk 1 · tkl 1 · aerial 1 · fouled 2

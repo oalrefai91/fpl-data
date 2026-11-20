@@ -1,8 +1,8 @@
 # Manchester City — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/man-city.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/man-city.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Enzo Maresca · **Venue:** Etihad Stadium · **SofaScore:** https://www.sofascore.com/football/team/manchester-city/17 · **FPL code:** MCI
 **Table:** 3rd, 21 pts (7W 0D 3L, GF 21 GA 13) · Home 3rd (4-0-1, 11:7) · Away 4th (3-0-2, 10:6)
 **Standing context (F15):** 28 league games left · points v 4th +3, v 5th +5, v 17th (last safe) +12, v 18th +13 · goal difference +8
@@ -179,7 +179,7 @@ Totals per match: xG 2.37 (npxG 2.37) for, xGA 1.28 (np 1.18) against · dead-ba
 - Absent last match (E12, SofaScore list): Semenyo (Leg Injury)
 - Substitutions this season (C3): GW7 61' Nico O'Reilly→Joško Gvardiol TACTICAL; GW7 50' Mateo Kovačić→Enzo Fernández INJURY [CONFIRMED: SofaScore flag + LiveScore 'knock']; GW8 69' Iliman Ndiaye→Ryan McAidoo CHASING; GW8 46' Rayan Cherki→Phil Foden HALF-TIME; GW8 46' Marc Guéhi→Rico Lewis HALF-TIME; GW9 79' Joško Gvardiol→Phil Foden CHASING; GW9 79' Iliman Ndiaye→Allan CHASING; GW9 64' Enzo Fernández→Nico O'Reilly CHASING; GW9 55' Ayyoub Bouaddi→Rayan Cherki CHASING; GW10 78' Enzo Fernández→Phil Foden CHASING; GW10 46' Marc Guéhi→Matheus Nunes HALF-TIME; GW10 46' Joško Gvardiol→Nico O'Reilly HALF-TIME
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

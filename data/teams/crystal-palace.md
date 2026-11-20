@@ -1,15 +1,15 @@
 # Crystal Palace — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/crystal-palace.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/crystal-palace.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
-**Manager:** Pierre Sage · **Venue:** Selhurst Park · **SofaScore:** https://www.sofascore.com/football/team/crystal-palace/7 · **FPL code:** CRY
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
+**Manager:** Thomas Frank · **Venue:** Selhurst Park · **SofaScore:** https://www.sofascore.com/football/team/crystal-palace/7 · **FPL code:** CRY
 **Table:** 20th, 7 pts (2W 1D 7L, GF 10 GA 24) · Home 20th (1-0-4, 7:13) · Away 17th (1-1-3, 3:11)
 **Standing context (F15):** 28 league games left · points v 4th -11, v 5th -9, v 17th (last safe) -2, v 18th -1 · goal difference -14
 **Suspension watch (D7, all players of the club):** Yeremy — 🟨 **ONE FROM A BAN** (4/5 before GW19); Lerma — 🟨 2 from a ban (3/5); Mateta — ⛔ SUSPENDED (Suspended until 2 Dec) [FPL]
 **Goal timing & game state (F17, 10 league matches):** goals after 75′ — for 2/10 (20%), against 4/24 (17%) · scored first 1, conceded first 8 (80% of matches), goalless 1 · points from losing positions 6 of 27 (9 matches behind at some point) · points from winning positions 6 of 9 (3 matches ahead)
 **DefCon candidates (F11, FPL defensive_contribution; hit = DEF ≥10, MID/FWD ≥12 in a GW):** Richards (DEF) 11.1/90, hit 7/10; Disasi (DEF) 14.1/90, hit 4/6; Canvot (DEF) 9.2/90, hit 3/8; Lerma (MID) 15.8/90, hit 2/6; Timber (MID) 9.9/90, hit 2/6; Khalaili (DEF) 9.6/90, hit 2/10
-**Manager tenure (F13, SofaScore):** Pierre Sage since 01 Jul 2026 · 15 matches in charge, all competitions (5W 3D 7L) · 10 league matches this season · contract to 30 Jun 2029 · previous club RC Lens · interim flag not published by SofaScore
+**Manager tenure (F13, SofaScore):** Thomas Frank since — · — matches in charge, all competitions (—W —D —L) · 10 league matches this season · contract to — · previous club Tottenham Hotspur · interim flag not published by SofaScore
 **Rivalry record (F18, SofaScore h2h, competitive meetings):** v Brighton & Hove Albion — last 4: Oct 2026 Premier League Brighton & Hove Albion 5–0 Crystal Palace (yellows 2–1, xG 2.00–0.77); Feb 2026 Premier League Brighton & Hove Albion 0–1 Crystal Palace (yellows 1–3, xG 0.74–1.16); Nov 2025 Premier League Crystal Palace 0–0 Brighton & Hove Albion (yellows 1–4, xG 0.75–0.38); Apr 2025 Premier League Crystal Palace 2–1 Brighton & Hove Albion (yellows 4–3, reds 2–1, xG 0.60–1.00) · 19 yellows in 4
 **Archetype (F5):** used **LB** — derived LB [DERIVED] — data LB used; hand-set PM kept as gap fallback only (ruled 3 Oct — not re-flagged while the data says LB) · signals, last 6 league matches: possession 43.8%, PPDA 13.9 (Understat, 4 matches; lower = harder press), opponent offsides forced 1.3/match (line height), fast breaks 1.0/match (season), both sides' xG 3.71/match (openness) · note: computed from 4 of 6 GWs (no PPDA/possession for GW9, GW10). Rule: HP = PPDA among the 5 lowest in the league · PM = possession ≥ 52% · LB = possession ≤ 47.5% and PPDA ≥ league median · TR = the rest (last 6 league matches; checked in that order; needs ≥ 3 GWs with both PPDA and possession, else the hand-set code fills the gap; margin rule Q-86: a code moves from last week's only when every cut is cleared by 0.6 PPDA / 1.5 possession points, otherwise last week's code is held).
 **Squad changes (F20, since 01 Jun 2026):** in 13 (permanent 7, loan 3, free 1, loan returns 2) · out 14 · flags: Justin Devenny: still in an FPL set-piece order — use #2 or observation — full list in `claude/squad-changes.md`.
@@ -151,7 +151,7 @@ Totals per match: xG 1.63 (npxG 1.63) for, xGA 2.22 (np 2.22) against · dead-ba
 ### Set pieces observed (D5, Understat shots, GWs 1, 2, 3, 4, 5, 6, 7, 8; counts = shots created, ≥2 is the signal, 1 can be a flick-on)
 - Corner takers (assisted corner shots): **Wharton 5, Mitchell 2, Pino 2** · FPL editorial order: Yeremy #1, Wharton #2, Kamada #3
 - Direct free-kick shooters: **Pino 3** · FPL order: Yeremy #1, Devenny #2
-- Penalties taken: **—** · FPL order: Mateta #1, Sarr #2, Devenny #3
+- Penalties taken: **—** · FPL order: Mateta #1, Nketiah #2, Sarr #3
 - Set-piece deliverers (assisted 'SetPiece' shots): **Pino 3, Canvot 2**
 - Corner targets (headed shots from corners): **Lerma 3, Richards 2, Khalaili 1, Disasi 1** · corner shots 15
 - **DISAGREEMENT:** observed corner taker Adam Wharton (5) v FPL #1 Yeremy — verify before crediting set-piece pairings
@@ -172,7 +172,7 @@ Totals per match: xG 1.63 (npxG 1.63) for, xGA 2.22 (np 2.22) against · dead-ba
 - Absent last match (E12, SofaScore list): Mateta (ban (red)), Riad (Knee Injury), Sarr (Groin Injury), Tomiyasu (Calf Injury)
 - Substitutions this season (C3): GW7 46' Quinten Timber→Dwight McNeil HALF-TIME; GW8 63' Dwight McNeil→Darío Osorio CHASING; GW8 62' Jean-Philippe Mateta→Eddie Nketiah CHASING; GW9 88' Adam Wharton→Jefferson Lerma LATE; GW9 88' Daichi Kamada→Will Hughes LATE; GW9 77' Dwight McNeil→Darío Osorio CHASING; GW9 60' Óscar Mingueza→Anan Khalaili CARD-RISK; GW9 60' Yéremy Pino→Eddie Nketiah CHASING; GW10 87' Yéremy Pino→Dwight McNeil CARD-RISK; GW10 87' Óscar Mingueza→Anan Khalaili LATE; GW10 72' Jørgen Strand Larsen→Eddie Nketiah CHASING; GW10 60' Quinten Timber→Darío Osorio CHASING
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 3 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
@@ -182,7 +182,7 @@ First choice = starter baseline (GK, 3 centre-backs — defenders whose median h
 | CB | Axel Disasi | start weight 11 | OK | a 100% | Honest Ahanor | — |
 | xGI #1 | Eddie Nketiah | xGI 2.79 | OK | a 100% | Jørgen Strand Larsen | — |
 | xGI #2 | Yéremy Pino | xGI 2.79 | OK | a | Jørgen Strand Larsen | — |
-| Penalties #1 (FPL) | Mateta | FPL order | **OUT** | s 0% — Suspended until 2 Dec | — | opposing defenders' negative set-piece pairing removed; own pairings built on him dropped |
+| Penalties #1 (FPL) | Mateta | FPL order | **OUT** | s 0% — Suspended until 2 Dec | Nketiah | opposing defenders' negative set-piece pairing removed; own pairings built on him dropped |
 | Direct FK #1 (FPL) | Yeremy | FPL order | OK | a | — | — |
 | Corners (observed) | Adam Wharton | 15 corners taken | OK | a 100% | Yeremy Pino | — |
 **Back-fill — first-choice players who did not start (current first-choice set; reason from the SofaScore missing list):** GW1 A Everton: Axel Disasi (not signed yet), Yéremy Pino (did not start) · GW2 H Manchester City: Axel Disasi (did not start) · GW3 A Fulham: all started · GW4 H Ipswich Town: Dean Henderson (did not start), Jaydee Canvot (did not start), Eddie Nketiah (Physical Discomfort) · GW5 A Leeds United: Dean Henderson (Foot Injury), Axel Disasi (ban (red)), Eddie Nketiah (did not start) · GW6 H Nottingham Forest: Dean Henderson (Foot Injury), Axel Disasi (ban (red)), Eddie Nketiah (did not start) · GW7 A Brighton & Hove Albion: Dean Henderson (did not start), Axel Disasi (ban (red)), Eddie Nketiah (did not start) · GW8 H Newcastle United: Dean Henderson (did not start), Eddie Nketiah (did not start) · GW9 A Tottenham Hotspur: Eddie Nketiah (did not start) · GW10 H Liverpool FC: Jaydee Canvot (did not start), Eddie Nketiah (did not start)
@@ -196,7 +196,7 @@ First choice = starter baseline (GK, 3 centre-backs — defenders whose median h
 - Thu 10 Dec 17:45 UTC · UEFA Europa League R6 · A v Jagiellonia Białystok
 
 ### FPL availability flags (players with league minutes this season)
-Chadi Riad — Knee injury - Unknown return date (0%); Sarr — Groin injury - Expected back 21 Nov (0%); Mateta — Suspended until 2 Dec (0%); Tomiyasu — Calf injury - Expected back 21 Nov (0%)
+Chadi Riad — Knee injury - Unknown return date (0%); Sarr — Groin injury - Expected back 21 Nov (0%); Strand Larsen — Ankle injury - 75% chance of playing (75%); Mateta — Suspended until 2 Dec (0%); Tomiyasu — Calf injury - Expected back 21 Nov (0%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 A Everton 0–2 · xG 1.96–1.12 · poss 58% · 3-4-2-1 · scorers: none

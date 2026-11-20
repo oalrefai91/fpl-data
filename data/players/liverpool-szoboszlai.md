@@ -1,13 +1,13 @@
 # Dominik Szoboszlai (Liverpool FC) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/liverpool-szoboszlai.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/liverpool-szoboszlai.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Dominik Szoboszlai** · Liverpool FC · M · shirt 8 · 187 cm · Right foot · market value €91m · SofaScore: https://www.sofascore.com/football/player/dominik-szoboszlai/869856
-**FPL:** £6.7 · 13.4% owned · status a · pens #1 [CONFIRMED: 1 taken] corners #1 FKs #1 · price Δ 3.3% · net transfers +3,518 · GW1 8 pts/90' (BPS 29, DC 7, xGI 1.12) · GW2 4 pts/90' (BPS 24, DC 13, xGI 0.33) · GW3 3 pts/90' (BPS 20, DC 9, xGI 0.24) · GW4 3 pts/90' (BPS 25, DC 6, xGI 0.4) · GW5 2 pts/80' (BPS 5, DC 6, xGI 0.15) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 1 pts/31' (BPS 3, DC 6, xGI 0.34) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 1 pts/32' (BPS 10, DC 7, xGI 0.05) · GW10 7 pts/68' (BPS 31, DC 7, xGI 0.51)
-**International:** Hungary (69 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-14 a Georgia, 11-17 h Northern Ireland · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £6.7 · 13.4% owned · status a · pens #1 [CONFIRMED: 1 taken] corners #1 FKs #1 · price Δ 3.9% · net transfers +3,750 · GW1 8 pts/90' (BPS 29, DC 7, xGI 1.12) · GW2 4 pts/90' (BPS 24, DC 13, xGI 0.33) · GW3 3 pts/90' (BPS 20, DC 9, xGI 0.24) · GW4 3 pts/90' (BPS 25, DC 6, xGI 0.4) · GW5 2 pts/80' (BPS 5, DC 6, xGI 0.15) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 1 pts/31' (BPS 3, DC 6, xGI 0.34) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 1 pts/32' (BPS 10, DC 7, xGI 0.05) · GW10 7 pts/68' (BPS 31, DC 7, xGI 0.51)
+**International:** Hungary (70 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-17 h Northern Ireland · window so far: 90 min in 1 app (14/11 Georgia v Hungary 0-2: XI 90') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 52.3 / y 42.3 · 386 points, attacking third 28%, box 2, zone 14 33 · latest GW10: x 57.4 y 31.9, 56 points
-Consistency: per-match touch points over the first 8 matches sum 615 v season heat map 615 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 8 matches.
+Consistency: per-match touch points over the first 8 matches sum 615 v season heat map 615 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 8 matches.
 **ROLE SHIFT (E4):** average position moved more than 15 units from the season map in GW7 (x 55.4 y 64.8 v season x 52.6 y 41.4) — read the match report for the position he actually played (note only).
 **Errors & last-ditch (FX-59, SofaScore, 8 matches):** errors leading to a goal 0 · to a shot 1 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. Per match: GW3: errorLeadToAShot 1 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 574 min):** progressive carries 12 (1.9/90) of 124 carries, progression 569 m, carry distance 1133 m · crosses 17/51 (8.0/90) · key passes 18 · big chances created 4 / missed 0 · through balls attempted 1 (0.16/90, percentile 63 of 318 players with 180+ min · per GW: GW1–5 combined 0 · GW6 0 · GW7 1 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 1 (0.16/90) · take-ons 3/6 · aerials 5/14 · duels 20/52 · recoveries 37 · possession lost 107 (dispossessed 6) · fouls 11 / fouled 4 · tackles 5/8 int 4 clr 9 blocks 3 · km 69.7 (10.9/90), sprints 92, top speed 33.54768 km/h. Per match: GW1: prog carries 1, crosses 3/10, KP 3, take-ons 1/2, aerials 0/3, CBIT 3, offsides 0; GW2: prog carries 2, crosses 3/10, KP 2, take-ons 1/2, aerials 0/3, CBIT 6, offsides 0; GW3: prog carries 0, crosses 1/4, KP 2, take-ons 0/0, aerials 2/3, CBIT 3, offsides 1; GW4: prog carries 3, crosses 3/9, KP 4, take-ons 0/0, aerials 0/1, CBIT 3, offsides 0; GW5: prog carries 0, crosses 0/3, KP 0, take-ons 0/0, aerials 1/2, CBIT 4, offsides 0; GW7: prog carries 2, crosses 0/0, KP 0, take-ons 0/0, aerials 1/1, CBIT 2, offsides 0; GW9: prog carries 4, crosses 0/2, KP 1, take-ons 0/1, aerials 0/0, CBIT 2, offsides 0; GW10: prog carries 0, crosses 7/13, KP 6, take-ons 1/1, aerials 1/1, CBIT 1, offsides 0
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 8 matches sum 615 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Fri 02 Oct 18:45 | UEFA Nations L | Hungary v Georgia | 1–0 | 80 | 9.3 | — | — | — | — | — | — |
 | Mon 05 Oct 18:45 | UEFA Nations L | Ukraine v Hungary | 1–2 | 87 | 6.9 | — | — | — | — | — | — |
 | Sat 17 Oct 14:00 | Premier League | Brentford v Liverpool FC | 1–2 | 32 | 6.9 | 0.10 | 0.24 | 1 | 0 | — | — |
 | Sun 01 Nov 16:30 | Premier League | Liverpool FC v Arsenal | 0–1 | 32 | 7 | 0 | 0.05 | 0 | 1 | — | — |
 | Wed 04 Nov 17:45 | UEFA Champions | Fenerbahçe v Liverpool FC | 3–2 | 90 | 6.7 | — | — | — | — | — | — |
 | Sun 08 Nov 14:00 | Premier League | Crystal Palace v Liverpool FC | 1–3 | 69 | 7.9 | 0.02 | 0.49 | 1 | 6 | — | — |
+| Sat 14 Nov 17:00 | UEFA Nations L | Georgia v Hungary | 0–2 | 90 | 8.7 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 64 rows — 2026/27 league 8, 2026/27 cup 3, 2025/26 53 · position MID · 6 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 9 · int 2 · tkl 2 · aerial 2 · crs 7 · crsOK 7 · shot 7 · onTgt 2 · outBox 3 · goal 1 · assist 1 · foul 1

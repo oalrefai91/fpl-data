@@ -1,8 +1,8 @@
 # Newcastle United — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/newcastle.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/newcastle.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Matthias Jaissle · **Venue:** St James' Park · **SofaScore:** https://www.sofascore.com/football/team/newcastle-united/39 · **FPL code:** NEW
 **Table:** 12th, 12 pts (3W 3D 4L, GF 13 GA 16) · Home 17th (1-2-2, 6:7) · Away 7th (2-1-2, 7:9)
 **Standing context (F15):** 28 league games left · points v 4th -6, v 5th -4, v 17th (last safe) +3, v 18th +4 · goal difference -3
@@ -163,7 +163,7 @@ Totals per match: xG 1.26 (npxG 1.16) for, xGA 1.92 (np 1.73) against · dead-ba
 - Absent last match (E12, SofaScore list): Ramsey (ban (cards)), Jaouen (Hamstring Injury), Joelinton (Knock Injury)
 - Substitutions this season (C3): GW8 77' Joe Willock→Jacob Ramsey GAME-STATE; GW8 77' William Osula→Yoane Wissa GAME-STATE; GW9 87' Amar Dedić→Bazoumana Touré LATE; GW9 76' Anthony Elanga→Jacob Murphy CHASING; GW9 75' Joelinton→Jacob Ramsey CHASING; GW9 64' Nico González→Sean Steur CHASING; GW9 64' Joe Willock→Yoane Wissa CHASING; GW10 85' William Osula→Anthony Elanga LATE; GW10 85' Malick Thiaw→Fabian Schär INJURY [CONFIRMED: SofaScore flag + LiveScore 'knock']; GW10 74' Sean Steur→Matías Fernández-Pardo TACTICAL; GW10 61' Nico González→Lewis Miley TACTICAL; GW10 61' Yoane Wissa→Joe Willock TACTICAL
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

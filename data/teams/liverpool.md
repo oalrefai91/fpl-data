@@ -1,8 +1,8 @@
 # Liverpool FC — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/liverpool.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/liverpool.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Andoni Iraola · **Venue:** Anfield · **SofaScore:** https://www.sofascore.com/football/team/liverpool/44 · **FPL code:** LIV
 **Table:** 4th, 18 pts (5W 3D 2L, GF 14 GA 10) · Home 18th (1-2-2, 4:6) · Away 1st (4-1-0, 10:4)
 **Standing context (F15):** 28 league games left · points v 4th +0, v 5th +2, v 17th (last safe) +9, v 18th +10 · goal difference +4
@@ -162,7 +162,7 @@ Totals per match: xG 1.49 (npxG 1.39) for, xGA 1.34 (np 1.25) against · dead-ba
 - Absent last match (E12, SofaScore list): Bradley (Knee Injury), Leoni (Cruciate Ligament Injury), Ekitiké (Achilles Tendon Injury), Frimpong (Hamstring Injury), Gravenberch (Heel Injury; doubtful)
 - Substitutions this season (C3): GW8 77' Bradley Barcola→Rio Ngumoha GAME-STATE; GW8 65' Florian Wirtz→Trey Nyoni INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 81' Florian Wirtz→Lewis Koumas CHASING; GW9 81' Ronald Araújo→Víctor Muñoz CHASING; GW9 81' Miloš Kerkez→Kostas Tsimikas CARD-RISK; GW9 67' Cody Gakpo→Rio Ngumoha CHASING; GW9 58' Trey Nyoni→Dominik Szoboszlai CHASING; GW10 90' Ronald Araújo→Joe Gomez CARD-RISK; GW10 90' Alexander Isak→Lewis Koumas LATE; GW10 76' Cody Gakpo→Rio Ngumoha GAME-STATE; GW10 69' Dominik Szoboszlai→Trey Nyoni GAME-STATE; GW10 69' Bradley Barcola→Víctor Muñoz CARD-RISK
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

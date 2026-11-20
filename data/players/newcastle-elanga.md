@@ -1,13 +1,13 @@
 # Anthony Elanga (Newcastle United) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/newcastle-elanga.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/newcastle-elanga.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Anthony Elanga** · Newcastle United · F · shirt 19 · 178 cm · Right foot · market value €34m · SofaScore: https://www.sofascore.com/football/player/anthony-elanga/979232
-**FPL:** £6 · 2.3% owned · status a · pens — corners #2 FKs #— · price Δ -16.9% · net transfers -3,193 · GW1 9 pts/75' (BPS 31, DC 2, xGI 0.23) · GW2 8 pts/81' (BPS 32, DC 3, xGI 0.3) · GW3 1 pts/76' (BPS 8, DC 4, xGI 0.23) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 1 pts/13' (BPS 5, DC 3, xGI 0.01) · GW9 2 pts/75' (BPS 5, DC 2, xGI 0.4) · GW10 1 pts/5' (BPS 3, DC 0, xGI 0.02)
-**International:** Sweden (34 caps) · NOT in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-14 h Bosnia & Herzegovina, 11-17 a Poland · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £6 · 2.3% owned · status a · pens — corners #2 FKs #— · price Δ -21.8% · net transfers -4,467 · GW1 9 pts/75' (BPS 31, DC 2, xGI 0.23) · GW2 8 pts/81' (BPS 32, DC 3, xGI 0.3) · GW3 1 pts/76' (BPS 8, DC 4, xGI 0.23) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 1 pts/13' (BPS 5, DC 3, xGI 0.01) · GW9 2 pts/75' (BPS 5, DC 2, xGI 0.4) · GW10 1 pts/5' (BPS 3, DC 0, xGI 0.02)
+**International:** Sweden (35 caps) · NOT in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-17 a Poland · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 66.3 / y 46.5 · 155 points, attacking third 52%, box 21, zone 14 2 · latest GW10: x 80 y 74.5, 2 points
-Consistency: per-match touch points over the first 6 matches sum 155 v season heat map 155 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 6 matches.
+Consistency: per-match touch points over the first 6 matches sum 155 v season heat map 155 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 6 matches.
 **ROLE SHIFT (E4):** average position moved more than 15 units from the season map in GW8 (x 51.5 y 83.5 v season x 65.5 y 34.6); GW10 (x 80 y 74.5 v season x 65.5 y 34.6) — read the match report for the position he actually played (note only).
 **Errors & last-ditch (FX-59, SofaScore, 6 matches):** errors leading to a goal 0 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. No flag in any match [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 337 min):** progressive carries 8 (2.1/90) of 40 carries, progression 256 m, carry distance 395 m · crosses 3/8 (2.1/90) · key passes 5 · big chances created 1 / missed 1 · through balls attempted 1 (0.27/90, percentile 78 of 318 players with 180+ min, TOP QUARTILE — supplier · per GW: GW1–5 combined 0 · GW6 0 · GW7 0 · GW8 0 · GW9 1 · GW10 0) [PL/Opta, season] · offsides 0 (0.00/90) · take-ons 2/6 · aerials 3/11 · duels 15/33 · recoveries 6 · possession lost 47 (dispossessed 1) · fouls 4 / fouled 5 · tackles 2/5 int 0 clr 3 blocks 0 · km 38.3 (10.2/90), sprints 80, top speed 35.2332 km/h. Per match: GW1: prog carries 4, crosses 0/1, KP 0, take-ons 1/2, aerials 1/2, CBIT 1, offsides 0; GW2: prog carries 1, crosses 1/4, KP 1, take-ons 1/1, aerials 0/0, CBIT 2, offsides 0; GW3: prog carries 1, crosses 0/1, KP 3, take-ons 0/3, aerials 1/4, CBIT 3, offsides 0; GW8: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 1/2, CBIT 1, offsides 0; GW9: prog carries 2, crosses 2/2, KP 1, take-ons 0/0, aerials 0/2, CBIT 1, offsides 0; GW10: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 0/1, CBIT 0, offsides 0
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 6 matches sum 155 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Sat 05 Sep 11:30 | Premier League | Newcastle United v Bournemouth | 2–2 | 77 | 6.7 | 0 | 0.23 | 0 | 3 | — | — |
 | Tue 08 Sep 19:00 | EFL Cup | Millwall v Newcastle United | 0–1 | 24 | 6.5 | — | — | — | — | — | — |
 | Sun 25 Oct 14:00 | Premier League | Crystal Palace v Newcastle United | 0–2 | 13 | 6.7 | 0 | 0.01 | 0 | 0 | — | — |
 | Thu 29 Oct 19:45 | EFL Cup | Everton v Newcastle United | 3–1 | 45 | 6.2 | — | — | — | — | — | — |
 | Mon 02 Nov 20:00 | Premier League | Newcastle United v Everton | 0–1 | 76 | 6 | 0.35 | 0.05 | 2 | 1 | — | — |
 | Sat 07 Nov 15:00 | Premier League | Fulham v Newcastle United | 1–1 | 13 | 6.6 | 0 | 0.02 | 0 | 0 | — | — |
+| Sat 14 Nov 19:45 | UEFA Nations L | Sweden v Bosnia & Herzegovina | 3–2 | 61 | 6.3 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 58 rows — 2026/27 league 6, 2026/27 cup 3, 2025/26 49 · position MID · 9 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 1 · int 2 · tkl 2 · aerial 1 · crs 2 · crsOK 2 · keyPass 2 · shot 7 · onTgt 4 · goal 1 · fouled 1

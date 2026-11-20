@@ -1,8 +1,8 @@
 # Aston Villa — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/aston-villa.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/aston-villa.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Unai Emery · **Venue:** Villa Park · **SofaScore:** https://www.sofascore.com/football/team/aston-villa/40 · **FPL code:** AVL
 **Table:** 10th, 13 pts (3W 4D 3L, GF 14 GA 17) · Home 16th (1-2-2, 6:7) · Away 5th (2-2-1, 8:10)
 **Standing context (F15):** 28 league games left · points v 4th -5, v 5th -3, v 17th (last safe) +4, v 18th +5 · goal difference -3
@@ -164,7 +164,7 @@ Totals per match: xG 1.21 (npxG 1.21) for, xGA 1.92 (np 1.92) against · dead-ba
 ### Set pieces observed (D5, Understat shots, GWs 1, 2, 3, 4, 5, 6, 7, 8; counts = shots created, ≥2 is the signal, 1 can be a flick-on)
 - Corner takers (assisted corner shots): **McGinn 3, Buendía 1, Cash 1** · FPL editorial order: McGinn #1, Buendía #2, Alysson #3
 - Direct free-kick shooters: **Manzambi 2, Buendía 1** · FPL order: Buendía #1, Manzambi #2
-- Penalties taken: **—** · FPL order: Buendía #1, McGinn #2, N.Jackson #3
+- Penalties taken: **—** · FPL order: McGinn #1, Buendía #2, N.Jackson #3
 - Set-piece deliverers (assisted 'SetPiece' shots): **Lindelöf 1, McGinn 1**
 - Corner targets (headed shots from corners): **Barkley 2, Edward 1** · corner shots 8
 
@@ -177,14 +177,14 @@ Totals per match: xG 1.21 (npxG 1.21) for, xGA 1.92 (np 1.92) against · dead-ba
 
 ### Starter baseline (C5) — 4-2-3-1, 10 league matches, weights last-3 ×3 / older ×1
 - GK: Zion Suzuki (15, 3/3)
-- DEF: Victor Lindelöf (16, 3/3), Ian Maatsen (13, 3/3), Pau Torres (12, 3/3), Matty Cash (11, 2/3)
-- MID: Boubacar Kamara (16, 3/3), John McGinn (15, 3/3), Johan Manzambi (12, 3/3), João Gomes (7, 1/3), Leon Goretzka (6, 2/3)
+- DEF: Victor Lindelöf (16, 3/3), Ian Maatsen (13, 3/3), Pau Torres (12, 3/3), Tyrone Mings (4, 0/3)
+- MID: Boubacar Kamara (16, 3/3), John McGinn (15, 3/3), João Gomes (7, 1/3), Leon Goretzka (6, 2/3), Ross Barkley (4, 0/3)
 - FWD: Nicolas Jackson (15, 3/3)
-- Contested slots: none · Excluded (FPL flag): none
+- Contested slots: D Tyrone Mings 4 v Taylor Harwood-Bellis 3; M Ross Barkley 4 v George Hemmings 4 · Excluded (FPL flag): Matty Cash — Concussion - 75% chance of playing; Johan Manzambi — Calf injury - 75% chance of playing
 - Absent last match (E12, SofaScore list): Cash (ban (yellows)), Onana (Cruciate Ligament Injury), Ruggeri (Hamstring Injury)
 - Substitutions this season (C3): GW8 66' Johan Manzambi→Emiliano Buendía CARD-RISK; GW8 59' Alysson→Ibrahim Mbaye TACTICAL; GW9 87' John McGinn→Alejandro Garnacho LATE; GW9 79' Boubacar Kamara→Ross Barkley TACTICAL; GW9 66' Johan Manzambi→João Gomes TACTICAL; GW9 66' Alysson→Emiliano Buendía TACTICAL; GW9 66' Leon Goretzka→Ibrahim Mbaye TACTICAL; GW10 86' Nicolas Jackson→Brian Madjo LATE; GW10 78' Leon Goretzka→Ibrahim Mbaye GAME-STATE; GW10 78' Johan Manzambi→João Gomes GAME-STATE; GW10 71' Alysson→Ross Barkley GAME-STATE; GW10 71' John McGinn→George Hemmings GAME-STATE
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
@@ -193,7 +193,7 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 | CB | Pau Torres | start weight 12 | OK | a 100% | Tyrone Mings | — |
 | xGI #1 | Nicolas Jackson | xGI 4.34 | OK | a | Johan Manzambi | — |
 | xGI #2 | John McGinn | xGI 4.03 | OK | a | Johan Manzambi | — |
-| Penalties #1 (FPL) | Buendía | FPL order | OK | a | McGinn | — |
+| Penalties #1 (FPL) | McGinn | FPL order | OK | a | Buendía | — |
 | Direct FK #1 (FPL) | Buendía | FPL order | OK | a | Manzambi | — |
 | Corners (observed) | John McGinn | 30 corners taken | OK | a | Emiliano Buendia | — |
 **Back-fill — first-choice players who did not start (current first-choice set; reason from the SofaScore missing list):** GW1 A Brighton & Hove Albion: Zion Suzuki (did not start), Nicolas Jackson (not signed yet) · GW2 H Arsenal: all started · GW3 A Hull City: Pau Torres (did not start) · GW4 H Nottingham Forest: all started · GW5 A Tottenham Hotspur: Pau Torres (Hamstring Injury) · GW6 H Brentford: Pau Torres (did not start) · GW7 A Newcastle United: Pau Torres (did not start), John McGinn (did not start) · GW8 H Manchester City: all started · GW9 H Fulham: all started · GW10 A Manchester United: all started
@@ -207,7 +207,7 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 - Tue 08 Dec 20:00 UTC · UEFA Champions League R6 · H v Paris Saint-Germain
 
 ### FPL availability flags (players with league minutes this season)
-Ruggeri — Hamstring injury - Expected back 2 Jan (0%); Wan-Bissaka — Hamstring injury - 50% chance of playing (50%)
+Cash — Concussion - 75% chance of playing (75%); Manzambi — Calf injury - 75% chance of playing (75%); Ruggeri — Hamstring injury - Expected back 2 Jan (0%); Wan-Bissaka — Hamstring injury - 50% chance of playing (50%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 A Brighton & Hove Albion 0–4 · xG 0.29–3.77 · poss 27% · 4-2-3-1 · scorers: none

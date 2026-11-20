@@ -1,8 +1,8 @@
 # Bournemouth — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/bournemouth.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/bournemouth.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Marco Rose · **Venue:** Vitality Stadium · **SofaScore:** https://www.sofascore.com/football/team/bournemouth/60 · **FPL code:** BOU
 **Table:** 7th, 15 pts (4W 3D 3L, GF 16 GA 14) · Home 8th (2-2-1, 7:4) · Away 6th (2-1-2, 9:10)
 **Standing context (F15):** 28 league games left · points v 4th -3, v 5th -1, v 17th (last safe) +6, v 18th +7 · goal difference +2
@@ -165,7 +165,7 @@ Totals per match: xG 2.11 (npxG 2.11) for, xGA 1.17 (np 1.17) against · dead-ba
 - Absent last match (E12, SofaScore list): Tóth (Hamstring Injury), Sánchez (Ankle Injury), Araujo (Thigh Injury)
 - Substitutions this season (C3): GW8 75' Lewis Cook→Ryan Christie GAME-STATE; GW8 63' Justin Kluivert→Ben Gannon-Doak GAME-STATE; GW9 88' Rayan→Amine Adli LATE; GW9 88' Adam Smith→Bafodé Diakité LATE; GW9 76' Evanilson→Álvaro Rodriguez TACTICAL; GW9 68' Ryan Christie→Lewis Cook CARD-RISK; GW9 68' Justin Kluivert→Eli Junior Kroupi TACTICAL; GW10 85' Rayan→Amine Adli LATE; GW10 85' Evanilson→Álvaro Rodriguez LATE; GW10 79' Adam Smith→Bafodé Diakité CARD-RISK; GW10 68' Justin Kluivert→Eli Junior Kroupi GAME-STATE; GW10 67' Ryan Christie→Lewis Cook GAME-STATE
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

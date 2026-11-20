@@ -1,8 +1,8 @@
 # Brentford — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/brentford.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/brentford.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Keith Andrews · **Venue:** Brentford Community Stadium · **SofaScore:** https://www.sofascore.com/football/team/brentford/50 · **FPL code:** BRE
 **Table:** 8th, 14 pts (3W 5D 2L, GF 16 GA 11) · Home 4th (3-1-1, 10:3) · Away 14th (0-4-1, 6:8)
 **Standing context (F15):** 28 league games left · points v 4th -4, v 5th -2, v 17th (last safe) +5, v 18th +6 · goal difference +5
@@ -163,7 +163,7 @@ Totals per match: xG 1.84 (npxG 1.74) for, xGA 1.62 (np 1.42) against · dead-ba
 - Absent last match (E12, SofaScore list): Milambo (Cruciate Ligament Injury), Carvalho (Knock Injury), Dasilva (Hamstring Injury), Furo (Knee Surgery), Henry (Muscle Injury)
 - Substitutions this season (C3): GW8 78' Dango Ouattara→Callum Wilson TACTICAL; GW8 62' Kevin Schade→Jaidon Anthony CHASING; GW8 62' Aaron Hickey→Mikkel Damsgaard CARD-RISK; GW9 84' Kevin Schade→Callum Wilson GAME-STATE; GW9 72' Dango Ouattara→Jaidon Anthony TACTICAL; GW9 62' Mamadou Sangare→Aaron Hickey TACTICAL; GW9 62' Mathias Jensen→Mikkel Damsgaard TACTICAL; GW10 69' Sepp van den Berg→Callum Wilson CHASING; GW10 59' Mamadou Sangare→Mathias Jensen CHASING; GW10 59' Keane Lewis-Potter→El Hadji Malick Diouf CHASING; GW10 46' Aaron Hickey→Nathan Collins HALF-TIME; GW10 46' Dango Ouattara→Yehor Yarmoliuk HALF-TIME
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
@@ -186,7 +186,7 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 - Sat 19 Dec 12:30 UTC · Premier League R16 · H v Newcastle United
 
 ### FPL availability flags (players with league minutes this season)
-Henry — Hip injury - Unknown return date (0%); Carvalho — Knock - Expected back 23 Nov (0%); Thiago — Suspended until 5 Dec (0%)
+Collins — Knee injury - 75% chance of playing (75%); Henry — Hip injury - Unknown return date (0%); Carvalho — Knock - Expected back 23 Nov (0%); Thiago — Suspended until 5 Dec (0%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 H Tottenham Hotspur 3–0 · xG 3.87–0.57 · poss 40% · 4-2-3-1 · scorers: Keane Lewis-Potter 12', Vitaly Janelt 33', Michael Kayode 49'

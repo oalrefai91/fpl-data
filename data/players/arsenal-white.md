@@ -1,13 +1,13 @@
 # Ben White (Arsenal) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/arsenal-white.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/arsenal-white.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Ben White** · Arsenal · D · shirt 4 · 186 cm · Right foot · market value €32m · SofaScore: https://www.sofascore.com/football/player/ben-white/846036
-**FPL:** £5.4 · 4.2% owned · status a · pens — corners #— FKs #— · price Δ -34.1% · net transfers -28,331 · GW1 11 pts/90' (BPS 37, DC 5, xGI 0.39) · GW2 7 pts/90' (BPS 26, DC 4, xGI 0.05) · GW3 2 pts/90' (BPS 11, DC 6, xGI 0.03) · GW4 1 pts/45' (BPS 4, DC 3, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 5 pts/62' (BPS 20, DC 4, xGI 0.17) · GW7 6 pts/65' (BPS 23, DC 1, xGI 0.01) · GW8 10 pts/90' (BPS 38, DC 5, xGI 0.36) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
-**International:** England (6 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-12 h Croatia, 11-15 a Spain · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £5.4 · 4.2% owned · status a · pens — corners #— FKs #— · price Δ -46.5% · net transfers -34,387 · GW1 11 pts/90' (BPS 37, DC 5, xGI 0.39) · GW2 7 pts/90' (BPS 26, DC 4, xGI 0.05) · GW3 2 pts/90' (BPS 11, DC 6, xGI 0.03) · GW4 1 pts/45' (BPS 4, DC 3, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 5 pts/62' (BPS 20, DC 4, xGI 0.17) · GW7 6 pts/65' (BPS 23, DC 1, xGI 0.01) · GW8 10 pts/90' (BPS 38, DC 5, xGI 0.36) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
+**International:** England (8 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 101 min in 2 apps (12/11 England v Croatia 2-1: sub 12'; 15/11 Spain v England 2-3: XI 89') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 53.4 / y 14.4 · 382 points, attacking third 34%, box 14, zone 14 2 · latest GW8: x 53.4 y 17.9, 81 points
-Consistency: per-match touch points over the first 7 matches sum 486 v season heat map 486 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 7 matches.
+Consistency: per-match touch points over the first 7 matches sum 486 v season heat map 486 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 7 matches.
 **Errors & last-ditch (FX-59, SofaScore, 7 matches):** errors leading to a goal 0 · to a shot 1 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. Per match: GW8: errorLeadToAShot 1 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 534 min):** progressive carries 2 (0.3/90) of 66 carries, progression 129 m, carry distance 429 m · crosses 3/15 (2.5/90) · key passes 7 · big chances created 2 / missed 0 · through balls attempted 1 (0.17/90, percentile 64 of 318 players with 180+ min · per GW: GW1–5 combined 0 · GW6 0 · GW7 0 · GW8 1 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 3 (0.51/90) · take-ons 2/4 · aerials 10/13 · duels 29/39 · recoveries 19 · possession lost 86 (dispossessed 2) · fouls 2 / fouled 7 · tackles 5/10 int 3 clr 14 blocks 1 · km 65.4 (11.0/90), sprints 73, top speed 32.06736 km/h. Per match: GW1: prog carries 1, crosses 0/3, KP 2, take-ons 0/0, aerials 3/5, CBIT 5, offsides 1; GW2: prog carries 0, crosses 2/3, KP 1, take-ons 1/1, aerials 3/4, CBIT 4, offsides 0; GW3: prog carries 0, crosses 0/4, KP 0, take-ons 1/1, aerials 0/0, CBIT 6, offsides 0; GW4: prog carries 0, crosses 0/1, KP 0, take-ons 0/2, aerials 0/0, CBIT 3, offsides 0; GW6: prog carries 0, crosses 0/1, KP 1, take-ons 0/0, aerials 1/1, CBIT 4, offsides 2; GW7: prog carries 1, crosses 0/1, KP 0, take-ons 0/0, aerials 0/0, CBIT 1, offsides 0; GW8: prog carries 0, crosses 1/2, KP 3, take-ons 0/0, aerials 3/3, CBIT 5, offsides 0
 **Shot list (C15, Understat, 1 shots, xG 0.13):** GW1 32' BlockedShot xG 0.13 (OpenPlay, RightFoot, Pass; x 0.91 y 0.41)
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 7 matches sum 486 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Wed 21 Oct 19:00 | UEFA Champions | FC Bayern München v Arsenal | 2–2 | bench | — | — | — | — | — | — | — |
-| Sat 24 Oct 14:00 | Premier League | Arsenal v Everton | 2–0 | 90 | 7.7 | 0 | 0.36 | 0 | 3 | — | — |
 | Tue 27 Oct 20:00 | EFL Cup | Fleetwood Town v Arsenal | 6–4 | 45 | 7.5 | — | — | — | — | — | — |
 | Sun 01 Nov 16:30 | Premier League | Liverpool FC v Arsenal | 0–1 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 | Wed 04 Nov 20:00 | UEFA Champions | SK Slavia Praha v Arsenal | 1–2 | 78 | 7.2 | — | — | — | — | — | — |
 | Sat 07 Nov 15:00 | Premier League | Arsenal v Hull City | 1–0 | 0 | None | 0 | 0 | 0 | 0 | — | — |
+| Thu 12 Nov 19:45 | UEFA Nations L | England v Croatia | 2–1 | 12 | 6.6 | — | — | — | — | — | — |
+| Sun 15 Nov 19:45 | UEFA Nations L | Spain v England | 2–3 | 89 | 7.1 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 41 rows — 2026/27 league 7, 2026/27 cup 4, 2025/26 30 · position DEF · 7 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 4 · int 4 · blk 1 · tkl 3 · aerial 5 · keyPass 2 · shot 1 · onTgt 1 · error 1 · assist 2

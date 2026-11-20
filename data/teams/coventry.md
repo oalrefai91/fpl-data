@@ -1,8 +1,8 @@
 # Coventry City — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/coventry.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/coventry.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Frank Lampard · **Venue:** Coventry Building Society Arena · **SofaScore:** https://www.sofascore.com/football/team/coventry-city/11 · **FPL code:** COV
 **Table:** 17th, 9 pts (3W 0D 7L, GF 10 GA 19) · Home 13th (2-0-3, 7:9) · Away 19th (1-0-4, 3:10)
 **Standing context (F15):** 28 league games left · points v 4th -9, v 5th -7, v 17th (last safe) +0, v 18th +1 · goal difference -9
@@ -171,7 +171,7 @@ Totals per match: xG 1.03 (npxG 0.93) for, xGA 1.55 (np 1.46) against · dead-ba
 - Absent last match (E12, SofaScore list): Amenda (Calf Injury), Thomas (Leg Injury), Wright (Muscle Injury), Eccles (Knock Injury), Woolfenden (Knee Injury), Onyeka (Strain Injury; doubtful)
 - Substitutions this season (C3): GW8 67' Brandon Thomas-Asante→Ephron Mason-Clark TACTICAL; GW8 67' Sidiki Cherif→Taiwo Awoniyi TACTICAL; GW8 67' Caleb Yirenkyi→Frank Onyeka TACTICAL; GW8 60' Bobby Thomas→Stephen Mfuni INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 83' Victor Torp→Matt Grimes CARD-RISK; GW9 72' Yann Gboho→Brandon Thomas-Asante GAME-STATE; GW9 72' Taiwo Awoniyi→Sidiki Cherif GAME-STATE; GW10 87' Taiwo Awoniyi→Sidiki Cherif LATE; GW10 86' Tatsuhiro Sakamoto→Loum Tchaouna LATE; GW10 86' Jack Rudoni→Gustavo Hamer LATE; GW10 86' Victor Torp→Matt Grimes LATE; GW10 73' Yann Gboho→Brandon Thomas-Asante CHASING
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

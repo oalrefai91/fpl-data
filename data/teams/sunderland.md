@@ -1,8 +1,8 @@
 # Sunderland — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/sunderland.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/sunderland.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Régis Le Bris · **Venue:** Stadium of Light · **SofaScore:** https://www.sofascore.com/football/team/sunderland/41 · **FPL code:** SUN
 **Table:** 19th, 8 pts (2W 2D 6L, GF 8 GA 17) · Home 12th (2-1-2, 2:4) · Away 20th (0-1-4, 6:13)
 **Standing context (F15):** 28 league games left · points v 4th -10, v 5th -8, v 17th (last safe) -1, v 18th +0 · goal difference -9
@@ -152,7 +152,7 @@ Totals per match: xG 1.54 (npxG 1.35) for, xGA 2.00 (np 1.90) against · dead-ba
 ### Set pieces observed (D5, Understat shots, GWs 1, 2, 3, 4, 5, 6, 7, 8; counts = shots created, ≥2 is the signal, 1 can be a flick-on)
 - Corner takers (assisted corner shots): **Xhaka 4, Fée 3, Sadiki 1** · FPL editorial order: E.Le Fée #1, Xhaka #2, Hume #3
 - Direct free-kick shooters: **Xhaka 2, Angulo 1, Isidor 1** · FPL order: Xhaka #1, N.Angulo #2, E.Le Fée #3
-- Penalties taken: **Fée 2** · FPL order: Diarra #1, E.Le Fée #2
+- Penalties taken: **Fée 2** · FPL order: E.Le Fée #1, Diarra #2
 - Set-piece deliverers (assisted 'SetPiece' shots): **Xhaka 5, Meunier 1, Sadiki 1**
 - Corner targets (headed shots from corners): **Angulo 1, Brobbey 1, Danso 1, Hume 1** · corner shots 14
 - **DISAGREEMENT:** observed corner taker Granit Xhaka (4) v FPL #1 E.Le Fée — verify before crediting set-piece pairings
@@ -168,12 +168,12 @@ Totals per match: xG 1.54 (npxG 1.35) for, xGA 2.00 (np 1.90) against · dead-ba
 - GK: Robin Roefs (16, 3/3)
 - DEF: Reinildo Mandava (15, 3/3), Nordi Mukiele (12, 2/3), Luke O'Nien (10, 3/3), Thomas Meunier (9, 1/3)
 - MID: Noah Sadiki (16, 3/3), Enzo Le Fée (16, 3/3), Trai Hume (13, 3/3), Nilson Angulo (12, 2/3), Chris Rigg (7, 2/3)
-- FWD: Brian Brobbey (14, 3/3)
-- Contested slots: none · Excluded (FPL flag): Granit Xhaka — Calf injury - 75% chance of playing
+- FWD: Chemsdine Talbi (3, 1/3)
+- Contested slots: none · Excluded (FPL flag): Granit Xhaka — Calf injury - 75% chance of playing; Brian Brobbey — Muscular injury - 75% chance of playing
 - Absent last match (E12, SofaScore list): Alderete (ban (cards)), Ballard (Hamstring Injury), Diarra (Muscle Injury), Mundle (Knee Injury)
-- Substitutions this season (C3): GW8 79' Enzo Le Fée→Habib Diarra TACTICAL; GW8 79' Nilson Angulo→Chemsdine Talbi TACTICAL; GW8 65' Brian Brobbey→Timur Tuterov TACTICAL; GW8 52' Nordi Mukiele→Omar Alderete INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 75' Noah Sadiki→Malick Fofana CHASING; GW9 75' Trai Hume→Thomas Meunier CHASING; GW9 57' Chris Rigg→Chemsdine Talbi CHASING; GW9 57' Nilson Angulo→Wilson Isidor CHASING; GW10 88' Enzo Le Fée→Chris Rigg LATE; GW10 88' Chemsdine Talbi→Nilson Angulo LATE; GW10 67' Brian Brobbey→Wilson Isidor INJURY [ONE SOURCE: LiveScore 'knock'; SofaScore marked it regular; FPL shows him available]; GW10 4' Granit Xhaka→Jules Ahoka INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']
+- Substitutions this season (C3): GW8 79' Enzo Le Fée→Habib Diarra TACTICAL; GW8 79' Nilson Angulo→Chemsdine Talbi TACTICAL; GW8 65' Brian Brobbey→Timur Tuterov TACTICAL; GW8 52' Nordi Mukiele→Omar Alderete INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 75' Noah Sadiki→Malick Fofana CHASING; GW9 75' Trai Hume→Thomas Meunier CHASING; GW9 57' Chris Rigg→Chemsdine Talbi CHASING; GW9 57' Nilson Angulo→Wilson Isidor CHASING; GW10 88' Enzo Le Fée→Chris Rigg LATE; GW10 88' Chemsdine Talbi→Nilson Angulo LATE; GW10 67' Brian Brobbey→Wilson Isidor INJURY [ONE SOURCE: LiveScore 'knock'; SofaScore marked it regular; FPL now flags d — Muscular injury - 75% chance of playing]; GW10 4' Granit Xhaka→Jules Ahoka INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
@@ -181,8 +181,8 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 | CB | Nordi Mukiele | start weight 12 | OK | a 100% | Kevin Danso | — |
 | CB | Luke O'Nien | start weight 10 | OK | a | Kevin Danso | — |
 | xGI #1 | Enzo Le Fée | xGI 5.66 | OK | a | Wilson Isidor | — |
-| xGI #2 | Brian Brobbey | xGI 4.34 | OK | a 100% | Wilson Isidor | — |
-| Penalties #1 (FPL) | Diarra | FPL order | **OUT** | i 0% — Muscular injury - Unknown return date | E.Le Fée | opposing defenders' negative set-piece pairing removed; own pairings built on him dropped |
+| xGI #2 | Brian Brobbey | xGI 4.34 | DOUBT | d 75% — Muscular injury - 75% chance of playing | Wilson Isidor | — |
+| Penalties #1 (FPL) | E.Le Fée | FPL order | OK | a | — | — |
 | Direct FK #1 (FPL) | Xhaka | FPL order | DOUBT | d 75% — Calf injury - 75% chance of playing | N.Angulo | — |
 | Corners (observed) | Granit Xhaka | 20 corners taken | DOUBT | d 75% — Calf injury - 75% chance of playing | Enzo Le Fee | — |
 **Back-fill — first-choice players who did not start (current first-choice set; reason from the SofaScore missing list):** GW1 A Ipswich Town: Nordi Mukiele (did not start) · GW2 H Fulham: Luke O'Nien (did not start) · GW3 A Brentford: Luke O'Nien (did not start) · GW4 H Arsenal: Luke O'Nien (did not start) · GW5 A Manchester City: Luke O'Nien (did not start) · GW6 H Brighton & Hove Albion: Luke O'Nien (did not start), Brian Brobbey (Hamstring Injury) · GW7 A Bournemouth: Luke O'Nien (did not start), Brian Brobbey (did not start) · GW8 H Leeds United: all started · GW9 A Coventry City: Nordi Mukiele (did not start) · GW10 H Chelsea: all started
@@ -196,7 +196,7 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 - Thu 10 Dec 20:00 UTC · UEFA Europa League R6 · A v AC Milan
 
 ### FPL availability flags (players with league minutes this season)
-Ballard — Hamstring injury - Unknown return date (0%); Diarra — Muscular injury - Unknown return date (0%); Xhaka — Calf injury - 75% chance of playing (75%); Mundle — Knee injury - Unknown return date (0%)
+Ballard — Hamstring injury - Unknown return date (0%); Diarra — Muscular injury - Unknown return date (0%); Xhaka — Calf injury - 75% chance of playing (75%); Mundle — Knee injury - Unknown return date (0%); Brobbey — Muscular injury - 75% chance of playing (75%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 A Ipswich Town 1–2 · xG 0.66–1.80 · poss 62% · 4-2-3-1 · scorers: Nilson Angulo 39'

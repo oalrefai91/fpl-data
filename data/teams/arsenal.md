@@ -1,8 +1,8 @@
 # Arsenal — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/arsenal.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/arsenal.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Mikel Arteta · **Venue:** Emirates Stadium · **SofaScore:** https://www.sofascore.com/football/team/arsenal/42 · **FPL code:** ARS
 **Table:** 1st, 27 pts (9W 0D 1L, GF 15 GA 5) · Home 1st (5-0-0, 10:2) · Away 2nd (4-0-1, 5:3)
 **Standing context (F15):** 28 league games left · points v 4th +9, v 5th +11, v 17th (last safe) +18, v 18th +19 · goal difference +10
@@ -153,7 +153,7 @@ Totals per match: xG 1.88 (npxG 1.79) for, xGA 1.03 (np 0.94) against · dead-ba
 - Absent last match (E12, SofaScore list): Dowman (ban (red)), Saka (Muscle Injury)
 - Substitutions this season (C3): GW8 68' Myles Lewis-Skelly→Riccardo Calafiori CARD-RISK; GW8 68' Viktor Gyökeres→Kai Havertz GAME-STATE; GW8 68' Mikel Merino→Bruno Guimarães GAME-STATE; GW9 88' Martin Ødegaard→Mikel Merino LATE; GW9 84' Kai Havertz→Viktor Gyökeres TACTICAL; GW9 84' Christos Tzolis→Piero Hincapié TACTICAL; GW9 62' Bruno Guimarães→Myles Lewis-Skelly TACTICAL; GW10 89' Bruno Guimarães→Martín Zubimendi LATE; GW10 69' Riccardo Calafiori→Piero Hincapié TACTICAL; GW10 69' Christos Tzolis→Eberechi Eze TACTICAL; GW10 63' Kai Havertz→Viktor Gyökeres TACTICAL; GW10 63' Declan Rice→Mikel Merino TACTICAL
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
@@ -176,7 +176,7 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 - Wed 09 Dec 20:00 UTC · UEFA Champions League R6 · H v Real Madrid
 
 ### FPL availability flags (players with league minutes this season)
-Saka — Thigh injury - Unknown return date (0%); Dowman — Suspended until 29 Nov (0%)
+Saka — Thigh injury - Unknown return date (0%); Zubimendi — Hamstring injury - 75% chance of playing (75%); Dowman — Suspended until 29 Nov (0%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 H Coventry City 3–0 · xG 1.88–0.20 · poss 64% · 4-2-3-1 · scorers: Kai Havertz 15', Bukayo Saka 23', Martin Ødegaard 49'

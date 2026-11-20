@@ -1,11 +1,11 @@
 # Martin Dúbravka (Tottenham Hotspur) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/tottenham-dubravka.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/tottenham-dubravka.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Martin Dúbravka** · Tottenham Hotspur · G · shirt 39 · 190 cm · Right foot · market value €0m · SofaScore: https://www.sofascore.com/football/player/martin-dubravka/42209
-**FPL:** £4 · 15.3% owned · status a · pens — corners #— FKs #— · price Δ -85.9% · net transfers -11,637 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
-**International:** Slovakia (61 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-13 h Faroe Islands, 11-16 a Kazakhstan · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £4 · 15.2% owned · status a · pens — corners #— FKs #— · price Δ -92.2% · net transfers -16,174 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
+**International:** Slovakia (61 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 0 min in 0 apps (13/11 Slovakia v Faroe Islands 2-2: not in matchday squad; 16/11 Kazakhstan v Slovakia 2-2: not in matchday squad) · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Goalkeeping (C10):** no season stats
 **Shot list (C15, Understat):** no shots recorded in GWs 1, 2, 3, 4, 5, 6, 7, 8
 **Cards (D7):** 0 yellows this season · 0/5 — 5 bookings clear · a 5th by GW19 = 1-match ban, 10th by GW32 = 2, 15th = 3 [FPL/SofaScore]

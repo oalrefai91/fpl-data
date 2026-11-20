@@ -1,8 +1,8 @@
 # Nottingham Forest — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/nottm-forest.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/nottm-forest.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Oliver Glasner · **Venue:** City Ground · **SofaScore:** https://www.sofascore.com/football/team/nottingham-forest/14 · **FPL code:** NFO
 **Table:** 16th, 9 pts (2W 3D 5L, GF 9 GA 13) · Home 19th (1-1-3, 3:4) · Away 13th (1-2-2, 6:9)
 **Standing context (F15):** 28 league games left · points v 4th -9, v 5th -7, v 17th (last safe) +0, v 18th +1 · goal difference -4
@@ -159,13 +159,13 @@ Totals per match: xG 1.98 (npxG 1.88) for, xGA 1.15 (np 1.15) against · dead-ba
 ### Starter baseline (C5) — 3-4-2-1, 10 league matches, weights last-3 ×3 / older ×1
 - GK: Matz Sels (16, 3/3)
 - DEF: Murillo (16, 3/3), Jair (14, 3/3), Nikola Milenković (12, 3/3)
-- MID: Neco Williams (16, 3/3), James McAtee (16, 3/3), Xaver Schlager (15, 3/3), Ola Aina (8, 1/3), Ryan Yates (3, 1/3), Ibrahim Sangaré (1, 0/3)
+- MID: James McAtee (16, 3/3), Ola Aina (8, 1/3), Ryan Yates (3, 1/3), Ibrahim Sangaré (1, 0/3)
 - FWD: Morgan Gibbs-White (15, 3/3)
-- Contested slots: F Morgan Gibbs-White 15 v Liam Delap 14 · Excluded (FPL flag): Nicolás Domínguez — Muscular injury - Expected back 30 Dec
+- Contested slots: F Morgan Gibbs-White 15 v Liam Delap 14 · Excluded (FPL flag): Neco Williams — Ankle injury - 75% chance of playing; Xaver Schlager — Thigh injury - 75% chance of playing; Nicolás Domínguez — Muscular injury - Expected back 30 Dec
 - Absent last match (E12, SofaScore list): Domínguez (Knock Injury), Savona (Knee Injury)
 - Substitutions this season (C3): GW7 73' Dan Ndoye→Arnaud Kalimuendo TACTICAL; GW8 90' Liam Delap→Chris Wood LATE; GW8 84' Neco Williams→Luca Netz INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW8 69' Dan Ndoye→Callum Hudson Odoi TACTICAL; GW9 65' Dan Ndoye→Arnaud Kalimuendo CHASING; GW9 65' Liam Delap→Chris Wood CHASING; GW9 46' Xaver Schlager→Ryan Yates HALF-TIME; GW9 46' Ola Aina→Daniel Muñoz HALF-TIME; GW10 87' Liam Delap→Igor Jesus LATE; GW10 79' Ryan Yates→Ibrahim Sangaré GAME-STATE; GW10 65' Daniel Muñoz→Luca Netz TACTICAL; GW10 65' James McAtee→Dan Ndoye CARD-RISK
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 3 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
@@ -189,7 +189,7 @@ First choice = starter baseline (GK, 3 centre-backs — defenders whose median h
 - Sun 20 Dec 14:00 UTC · Premier League R16 · H v Everton
 
 ### FPL availability flags (players with league minutes this season)
-Dominguez — Muscular injury - Expected back 30 Dec (0%)
+N.Williams — Ankle injury - 75% chance of playing (75%); Dominguez — Muscular injury - Expected back 30 Dec (0%); Schlager — Thigh injury - 75% chance of playing (75%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 H Leeds United 0–1 · xG 0.66–0.47 · poss 56% · 3-4-2-1 · scorers: none

@@ -1,15 +1,15 @@
 # Manchester United — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/man-united.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/man-united.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
-**Manager:** Michael Carrick · **Venue:** Old Trafford · **SofaScore:** https://www.sofascore.com/football/team/manchester-united/35 · **FPL code:** MUN
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
+**Manager:** Mauricio Pochettino · **Venue:** Old Trafford · **SofaScore:** https://www.sofascore.com/football/team/manchester-united/35 · **FPL code:** MUN
 **Table:** 18th, 8 pts (1W 5D 4L, GF 14 GA 19) · Home 14th (1-2-2, 10:11) · Away 18th (0-3-2, 4:8)
 **Standing context (F15):** 28 league games left · points v 4th -10, v 5th -8, v 17th (last safe) -1, v 18th +0 · goal difference -5
 **Suspension watch (D7, all players of the club):** Maguire — 🟨 **ONE FROM A BAN** (4/5 before GW19) [FPL]
 **Goal timing & game state (F17, 10 league matches):** goals after 75′ — for 5/14 (36%), against 4/19 (21%) · scored first 3, conceded first 7 (70% of matches), goalless 0 · points from losing positions 5 of 21 (7 matches behind at some point) · points from winning positions 6 of 12 (4 matches ahead)
 **DefCon candidates (F11, FPL defensive_contribution; hit = DEF ≥10, MID/FWD ≥12 in a GW):** Mainoo (MID) 14.5/90, hit 6/8; Yoro (DEF) 10.4/90, hit 3/7; Tielemans (MID) 10.3/90, hit 3/9; Dalot (DEF) 7.1/90, hit 2/10; Maguire (DEF) 6.9/90, hit 2/10; Martinez (DEF) 6.2/90, hit 2/8
-**Manager tenure (F13, SofaScore):** Michael Carrick since 22 May 2026 · 15 matches in charge, all competitions (4W 4D 7L) · 10 league matches this season · contract to 30 Jun 2028 · previous club Middlesbrough; earlier stint here 13 Jan 2026–22 May 2026, 21 Nov 2021–03 Dec 2021 (read as interim/caretaker if it ended when this one began) · interim flag not published by SofaScore
+**Manager tenure (F13, SofaScore):** Mauricio Pochettino since — · — matches in charge, all competitions (—W —D —L) · 10 league matches this season · contract to — · previous club USA · interim flag not published by SofaScore
 **Rivalry record (F18, SofaScore h2h, competitive meetings):** v Liverpool FC — last 4: May 2026 Premier League Manchester United 3–2 Liverpool FC (yellows 2–2, xG 2.34–0.89); Oct 2025 Premier League Liverpool FC 1–2 Manchester United (yellows 0–2, xG 2.74–1.34); Jan 2025 Premier League Liverpool FC 2–2 Manchester United (yellows 2–4, xG 2.82–1.05); Sep 2024 Premier League Manchester United 0–3 Liverpool FC (yellows 4–1, xG 1.36–1.79) · 17 yellows in 4 | v Manchester City — last 4: Sep 2026 Premier League Manchester United 0–1 Manchester City (yellows 1–2, reds 0–1, xG 1.00–1.10); Jan 2026 Premier League Manchester United 2–0 Manchester City (yellows 2–3, xG 2.27–0.45); Sep 2025 Premier League Manchester City 3–0 Manchester United (yellows 0–0, xG 2.63–1.52); Apr 2025 Premier League Manchester United 0–0 Manchester City (yellows 3–2, xG 0.91–0.49) · 13 yellows in 4 | v Leeds United — last 4: Oct 2026 Premier League Leeds United 1–1 Manchester United (yellows 2–2, xG 1.41–0.92); Apr 2026 Premier League Manchester United 1–2 Leeds United (yellows 3–2, reds 1–0, xG 1.27–2.57); Jan 2026 Premier League Leeds United 1–1 Manchester United (yellows 0–1, xG 0.90–1.59); Feb 2023 Premier League Leeds United 0–2 Manchester United (yellows 2–1, xG 1.81–1.12) · 13 yellows in 4 | v Everton — last 4: Sep 2026 Premier League Everton 2–2 Manchester United (yellows 3–3, xG 1.01–0.69); Feb 2026 Premier League Everton 0–1 Manchester United (yellows 2–3, xG 0.63–1.27); Nov 2025 Premier League Manchester United 0–1 Everton (yellows 2–0, reds 0–1, xG 1.71–0.21); Feb 2025 Premier League Everton 2–2 Manchester United (yellows 4–1, xG 1.91–0.41) · 18 yellows in 4
 **Archetype (F5):** used **PM** — last week's PM HELD by the margin rule (Q-86) — derived TR is inside the borderline band · signals, last 6 league matches: possession 51.3%, PPDA 14.2 (Understat, 4 matches; lower = harder press), opponent offsides forced 1.5/match (line height), fast breaks 2.0/match (season), both sides' xG 3.66/match (openness) · note: possession 51.3 v 52; computed from 4 of 6 GWs (no PPDA/possession for GW9, GW10). Rule: HP = PPDA among the 5 lowest in the league · PM = possession ≥ 52% · LB = possession ≤ 47.5% and PPDA ≥ league median · TR = the rest (last 6 league matches; checked in that order; needs ≥ 3 GWs with both PPDA and possession, else the hand-set code fills the gap; margin rule Q-86: a code moves from last week's only when every cut is cleared by 0.6 PPDA / 1.5 possession points, otherwise last week's code is held).
 **Squad changes (F20, since 01 Jun 2026):** in 14 (permanent 8, loan 0, free 0, loan returns 6) · out 8 — full list in `claude/squad-changes.md`.
@@ -174,19 +174,19 @@ Totals per match: xG 1.71 (npxG 1.61) for, xGA 1.69 (np 1.69) against · dead-ba
 
 ### Starter baseline (C5) — 4-2-3-1, 10 league matches, weights last-3 ×3 / older ×1
 - GK: Senne Lammens (16, 3/3)
-- DEF: Harry Maguire (16, 3/3), Diogo Dalot (14, 3/3), Leny Yoro (11, 3/3), Lisandro Martínez (9, 1/3)
+- DEF: Diogo Dalot (14, 3/3), Leny Yoro (11, 3/3), Lisandro Martínez (9, 1/3), Noussair Mazraoui (4, 1/3)
 - MID: Bryan Mbeumo (16, 3/3), Youri Tielemans (13, 2/3), Bruno Fernandes (13, 2/3), Amad Diallo (11, 3/3), Andrey Santos (8, 2/3)
 - FWD: Matheus Cunha (12, 2/3)
-- Contested slots: M Andrey Santos 8 v Kobbie Mainoo 8 · Excluded (FPL flag): none
+- Contested slots: D Noussair Mazraoui 4 v Ayden Heaven 4; M Andrey Santos 8 v Kobbie Mainoo 8 · Excluded (FPL flag): Harry Maguire — Back injury - 75% chance of playing; Luke Shaw — Unspecified injury - Unknown return date
 - Absent last match (E12, SofaScore list): Martínez (ban (cards)), Šeško (Leg Injury), Baleba (Hamstring Injury), Ugarte (Cruciate Ligament Injury)
-- Substitutions this season (C3): GW8 72' Carlos Baleba→Joshua Zirkzee CHASING; GW8 65' Ayden Heaven→Lisandro Martínez CARD-RISK; GW8 46' Youri Tielemans→Matheus Cunha HALF-TIME; GW9 77' Amad Diallo→Joshua Zirkzee INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 66' Andrey Santos→Ayden Heaven CHASING; GW9 66' Matheus Cunha→Mason Mount CHASING; GW9 58' Carlos Baleba→Kobbie Mainoo CHASING; GW10 83' Bryan Mbeumo→Joshua Zirkzee CHASING; GW10 66' Amad Diallo→Shea Lacey CHASING; GW10 66' Diogo Dalot→Patrick Dorgu CHASING; GW10 66' Youri Tielemans→Mason Mount CHASING; GW10 46' Harry Maguire→Ayden Heaven INJURY [ONE SOURCE: LiveScore 'knock'; SofaScore marked it regular; FPL shows him available]
+- Substitutions this season (C3): GW8 72' Carlos Baleba→Joshua Zirkzee CHASING; GW8 65' Ayden Heaven→Lisandro Martínez CARD-RISK; GW8 46' Youri Tielemans→Matheus Cunha HALF-TIME; GW9 77' Amad Diallo→Joshua Zirkzee INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 66' Andrey Santos→Ayden Heaven CHASING; GW9 66' Matheus Cunha→Mason Mount CHASING; GW9 58' Carlos Baleba→Kobbie Mainoo CHASING; GW10 83' Bryan Mbeumo→Joshua Zirkzee CHASING; GW10 66' Amad Diallo→Shea Lacey CHASING; GW10 66' Diogo Dalot→Patrick Dorgu CHASING; GW10 66' Youri Tielemans→Mason Mount CHASING; GW10 46' Harry Maguire→Ayden Heaven INJURY [ONE SOURCE: LiveScore 'knock'; SofaScore marked it regular; FPL now flags d — Back injury - 75% chance of playing]
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
 | GK | Senne Lammens | start weight 16 | OK | a | — | — |
-| CB | Harry Maguire | start weight 16 | OK | a | Noussair Mazraoui | — |
+| CB | Harry Maguire | start weight 16 | DOUBT | d 75% — Back injury - 75% chance of playing | Noussair Mazraoui | — |
 | CB | Lisandro Martínez | start weight 9 | OK | a 100% | Noussair Mazraoui | — |
 | xGI #1 | Bruno Fernandes | xGI 6.13 | OK | a | Matheus Cunha | — |
 | xGI #2 | Bryan Mbeumo | xGI 5.92 | OK | a | Matheus Cunha | — |
@@ -204,7 +204,7 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 - Tue 08 Dec 20:00 UTC · UEFA Champions League R6 · H v RB Leipzig
 
 ### FPL availability flags (players with league minutes this season)
-Baleba — Hamstring injury - Unknown return date (0%); Shaw — Unspecified injury - Unknown return date (0%); Rashford — Hip injury - Unknown return date (0%); Šeško — Shin injury - Unknown return date (0%)
+Baleba — Hamstring injury - Unknown return date (0%); Dorgu — Hamstring injury - 75% chance of playing (75%); Maguire — Back injury - 75% chance of playing (75%); Shaw — Unspecified injury - Unknown return date (0%); Rashford — Hip injury - Unknown return date (0%); Šeško — Shin injury - Unknown return date (0%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 A Hull City 0–2 · xG 1.83–1.01 · poss 72% · 4-2-3-1 · scorers: none

@@ -1,8 +1,8 @@
 # Everton — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/everton.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/everton.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** David Moyes · **Venue:** Hill Dickinson Stadium · **SofaScore:** https://www.sofascore.com/football/team/everton/48 · **FPL code:** EVE
 **Table:** 6th, 16 pts (4W 4D 2L, GF 12 GA 10) · Home 6th (3-1-1, 8:5) · Away 8th (1-3-1, 4:5)
 **Standing context (F15):** 28 league games left · points v 4th -2, v 5th +0, v 17th (last safe) +7, v 18th +8 · goal difference +2
@@ -12,7 +12,7 @@
 **Manager tenure (F13, SofaScore):** David Moyes since 11 Jan 2025 · 72 matches in charge, all competitions (27W 21D 24L) · 10 league matches this season · contract to — · previous club West Ham United · interim flag not published by SofaScore
 **Rivalry record (F18, SofaScore h2h, competitive meetings):** v Liverpool FC — last 4: Apr 2026 Premier League Everton 1–2 Liverpool FC (yellows 2–0, xG 0.79–1.45); Sep 2025 Premier League Liverpool FC 2–1 Everton (yellows 2–3, xG 0.90–0.70); Apr 2025 Premier League Liverpool FC 1–0 Everton (yellows 2–2, xG 1.47–0.67); Feb 2025 Premier League Everton 2–2 Liverpool FC (yellows 4–4, reds 1–1, xG 0.95–0.62) · 19 yellows in 4 | v Manchester United — last 4: Sep 2026 Premier League Everton 2–2 Manchester United (yellows 3–3, xG 1.01–0.69); Feb 2026 Premier League Everton 0–1 Manchester United (yellows 2–3, xG 0.63–1.27); Nov 2025 Premier League Manchester United 0–1 Everton (yellows 2–0, reds 0–1, xG 1.71–0.21); Feb 2025 Premier League Everton 2–2 Manchester United (yellows 4–1, xG 1.91–0.41) · 18 yellows in 4
 **Archetype (F5):** used **TR** — derived TR [DERIVED] · signals, last 6 league matches: possession 50.7%, PPDA 12.9 (Understat, 4 matches; lower = harder press), opponent offsides forced 0.3/match (line height), fast breaks 0.6/match (season), both sides' xG 2.91/match (openness) · note: possession 50.7 v 52; computed from 4 of 6 GWs (no PPDA/possession for GW9, GW10). Rule: HP = PPDA among the 5 lowest in the league · PM = possession ≥ 52% · LB = possession ≤ 47.5% and PPDA ≥ league median · TR = the rest (last 6 league matches; checked in that order; needs ≥ 3 GWs with both PPDA and possession, else the hand-set code fills the gap; margin rule Q-86: a code moves from last week's only when every cut is cleared by 0.6 PPDA / 1.5 possession points, otherwise last week's code is held).
-**Squad changes (F20, since 01 Jun 2026):** in 8 (permanent 6, loan 1, free 0, loan returns 1) · out 12 — full list in `claude/squad-changes.md`.
+**Squad changes (F20, since 01 Jun 2026):** in 9 (permanent 7, loan 1, free 0, loan returns 1) · out 12 — full list in `claude/squad-changes.md`.
 
 ### Season statistics — value and league rank of 20 (after 10 matches)
 | Metric | Value | Rank | Metric | Value | Rank |
@@ -163,7 +163,7 @@ Totals per match: xG 1.58 (npxG 1.58) for, xGA 1.58 (np 1.58) against · dead-ba
 - Absent last match (E12, SofaScore list): Grealish (club decision)
 - Substitutions this season (C3): GW7 55' Ainsley Maitland-Niles→Tyrique George CHASING; GW8 86' Kiernan Dewsbury-Hall→Carlos Alcaraz LATE; GW8 74' Vitaliy Mykolenko→Hayden Hackney INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW8 72' Brennan Johnson→Tyler Dibling CHASING; GW9 90' Tyrique George→Hayden Hackney CARD-RISK; GW9 82' Jarrad Branthwaite→Michael Keane INJURY [ONE SOURCE: LiveScore 'knock'; SofaScore marked it regular; FPL shows him available]; GW9 80' Thierno Barry→Brennan Johnson TACTICAL; GW10 90' Tyrique George→Carlos Alcaraz LATE; GW10 89' Jarrad Branthwaite→Michael Keane CARD-RISK; GW10 73' Tyler Dibling→Brennan Johnson TACTICAL; GW10 73' Harrison Armstrong→Hayden Hackney TACTICAL; GW10 73' Merlin Röhl→Jake O'Brien TACTICAL
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

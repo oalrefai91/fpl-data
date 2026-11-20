@@ -1,13 +1,13 @@
 # Jarrad Branthwaite (Everton) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/everton-branthwaite.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/everton-branthwaite.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Jarrad Branthwaite** · Everton · D · shirt 4 · 195 cm · Left foot · market value €46m · SofaScore: https://www.sofascore.com/football/player/jarrad-branthwaite/979563
-**FPL:** £5.5 · 2.2% owned · status a · pens — corners #— FKs #— · price Δ 22.3% · net transfers +1,407 · GW1 6 pts/90' (BPS 27, DC 8, xGI 0.01) · GW2 4 pts/90' (BPS 6, DC 12, xGI 0.1) · GW3 3 pts/90' (BPS 10, DC 11, xGI 0.08) · GW4 6 pts/90' (BPS 27, DC 9, xGI 0) · GW5 8 pts/90' (BPS 27, DC 14, xGI 0) · GW6 3 pts/90' (BPS 13, DC 10, xGI 0.07) · GW7 1 pts/90' (BPS 5, DC 8, xGI 0.07) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 9 pts/81' (BPS 31, DC 7, xGI 0.15) · GW10 3 pts/88' (BPS 11, DC 11, xGI 0.1)
-**International:** England (3 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-12 h Croatia, 11-15 a Spain · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £5.5 · 2.2% owned · status a · pens — corners #— FKs #— · price Δ 23.5% · net transfers +1,469 · GW1 6 pts/90' (BPS 27, DC 8, xGI 0.01) · GW2 4 pts/90' (BPS 6, DC 12, xGI 0.1) · GW3 3 pts/90' (BPS 10, DC 11, xGI 0.08) · GW4 6 pts/90' (BPS 27, DC 9, xGI 0) · GW5 8 pts/90' (BPS 27, DC 14, xGI 0) · GW6 3 pts/90' (BPS 13, DC 10, xGI 0.07) · GW7 1 pts/90' (BPS 5, DC 8, xGI 0.07) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 9 pts/81' (BPS 31, DC 7, xGI 0.15) · GW10 3 pts/88' (BPS 11, DC 11, xGI 0.1)
+**International:** England (3 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 0 min in 0 apps (12/11 England v Croatia 2-1: unused sub; 15/11 Spain v England 2-3: not in matchday squad) · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 38.4 / y 71.3 · 488 points, attacking third 9%, box 16, zone 14 2 · latest GW10: x 40.6 y 70.1, 82 points
-Consistency: per-match touch points over the first 9 matches sum 677 v season heat map 677 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 9 matches.
+Consistency: per-match touch points over the first 9 matches sum 677 v season heat map 677 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 9 matches.
 **ROLE SHIFT (E4):** average position moved more than 15 units from the season map in GW6 (x 47.5 y 85.7 v season x 37.9 y 70.4) — read the match report for the position he actually played (note only).
 **Errors & last-ditch (FX-59, SofaScore, 9 matches):** errors leading to a goal 0 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 1 · clearances off the line 0. Per match: GW4: lastManTackle 1 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 801 min):** progressive carries 6 (0.7/90) of 125 carries, progression 417 m, carry distance 915 m · crosses 0/3 (0.3/90) · key passes 3 · big chances created 2 / missed 2 · through balls attempted 1 (0.11/90, percentile 56 of 318 players with 180+ min · per GW: GW1–5 combined 1 · GW6 0 · GW7 0 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 1 (0.11/90) · take-ons 1/2 · aerials 35/50 · duels 52/78 · recoveries 29 · possession lost 72 (dispossessed 2) · fouls 6 / fouled 8 · tackles 5/10 int 13 clr 53 blocks 14 · km 88.3 (9.9/90), sprints 46, top speed 33.21504 km/h. Per match: GW1: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 4/4, CBIT 8, offsides 1; GW2: prog carries 0, crosses 0/0, KP 0, take-ons 0/1, aerials 2/3, CBIT 12, offsides 0; GW3: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 4/4, CBIT 11, offsides 0; GW4: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 0/1, CBIT 9, offsides 0; GW5: prog carries 1, crosses 0/0, KP 0, take-ons 0/0, aerials 3/7, CBIT 14, offsides 0; GW6: prog carries 0, crosses 0/2, KP 1, take-ons 0/0, aerials 2/2, CBIT 10, offsides 0; GW7: prog carries 1, crosses 0/0, KP 0, take-ons 0/0, aerials 0/5, CBIT 8, offsides 0; GW9: prog carries 1, crosses 0/0, KP 1, take-ons 0/0, aerials 11/14, CBIT 7, offsides 0; GW10: prog carries 3, crosses 0/1, KP 1, take-ons 1/1, aerials 9/10, CBIT 11, offsides 0
@@ -30,12 +30,12 @@ Consistency: per-match touch points over the first 9 matches sum 677 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Sat 03 Oct 16:00 | UEFA Nations L | Croatia v England | 0–7 | bench | — | — | — | — | — | — | — |
 | Tue 06 Oct 18:45 | UEFA Nations L | England v Czechia | 3–0 | 27 | 6.8 | — | — | — | — | — | — |
 | Sun 11 Oct 13:00 | Premier League | Hull City v Everton | 2–2 | 90 | 6.4 | 0.05 | 0.02 | 1 | 1 | — | — |
 | Sat 17 Oct 11:30 | Premier League | Everton v Chelsea | 0–2 | 90 | 6.7 | 0.06 | 0.01 | 1 | 0 | — | — |
 | Mon 02 Nov 20:00 | Premier League | Newcastle United v Everton | 0–1 | 82 | 8.2 | 0.07 | 0.08 | 1 | 1 | — | — |
 | Fri 06 Nov 20:00 | Premier League | Everton v Coventry City | 3–1 | 89 | 7.7 | 0 | 0.10 | 0 | 1 | — | — |
+| Thu 12 Nov 19:45 | UEFA Nations L | England v Croatia | 2–1 | bench | — | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 9 rows — 2026/27 league 9, 2026/27 cup 0, 2025/26 0 · position DEF · 0 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 12 · int 11 · blk 8 · tkl 5 · aerial 10 · keyPass 1 · shot 1

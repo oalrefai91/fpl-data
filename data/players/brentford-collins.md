@@ -1,13 +1,13 @@
 # Nathan Collins (Brentford) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/brentford-collins.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/brentford-collins.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Nathan Collins** · Brentford · D · shirt 22 · 193 cm · Right foot · market value €29m · SofaScore: https://www.sofascore.com/football/player/nathan-collins/958916
-**FPL:** £5.4 · 0.8% owned · status a · pens — corners #— FKs #— · price Δ -8.2% · net transfers -264 · GW1 6 pts/90' (BPS 21, DC 3, xGI 0.38) · GW2 3 pts/90' (BPS 14, DC 13, xGI 0.18) · GW3 1 pts/16' (BPS 4, DC 1, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 1 pts/45' (BPS 5, DC 6, xGI 0)
-**International:** Ireland (40 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-14 a Austria, 11-17 h Kosovo · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £5.4 · 0.8% owned · status d — Knee injury - 75% chance of playing · pens — corners #— FKs #— · price Δ -5.1% · net transfers -390 · GW1 6 pts/90' (BPS 21, DC 3, xGI 0.38) · GW2 3 pts/90' (BPS 14, DC 13, xGI 0.18) · GW3 1 pts/16' (BPS 4, DC 1, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 1 pts/45' (BPS 5, DC 6, xGI 0)
+**International:** Ireland (41 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-17 h Kosovo · window so far: 90 min in 1 app (14/11 Austria v Ireland 1-0: XI 90') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 4 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 34.5 / y 62.7 · 211 points, attacking third 12%, box 17, zone 14 0 · latest GW10: x 35.9 y 60, 28 points
-Consistency: per-match touch points over the first 4 matches sum 211 v season heat map 211 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 4 matches.
+Consistency: per-match touch points over the first 4 matches sum 211 v season heat map 211 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 4 matches.
 **Errors & last-ditch (FX-59, SofaScore, 4 matches):** errors leading to a goal 0 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 1 · clearances off the line 0. Per match: GW10: lastManTackle 1 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 242 min):** progressive carries 1 (0.4/90) of 43 carries, progression 105 m, carry distance 312 m · crosses 0/0 (0.0/90) · key passes 2 · big chances created 0 / missed 1 · through balls attempted 0 (0.00/90, percentile 0 of 318 players with 180+ min · per GW: GW1–5 combined 0 · GW6 0 · GW7 0 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 1 (0.37/90) · take-ons 0/0 · aerials 8/15 · duels 14/26 · recoveries 11 · possession lost 27 (dispossessed 0) · fouls 3 / fouled 3 · tackles 3/3 int 2 clr 18 blocks 0 · km 27.3 (10.2/90), sprints 11, top speed 31.55256 km/h. Per match: GW1: prog carries 0, crosses 0/0, KP 2, take-ons 0/0, aerials 2/3, CBIT 3, offsides 1; GW2: prog carries 1, crosses 0/0, KP 0, take-ons 0/0, aerials 4/8, CBIT 13, offsides 0; GW3: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 0/0, CBIT 1, offsides 0; GW10: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 2/4, CBIT 6, offsides 0
 **Shot list (C15, Understat, 5 shots, xG 0.61):** GW1 3' MissedShots xG 0.49 (FromCorner, Head, Cross; x 0.95 y 0.51); GW1 77' BlockedShot xG 0.02 (OpenPlay, Head, Aerial; x 0.92 y 0.40); GW2 9' SavedShot xG 0.04 (FromCorner, Head, Cross; x 0.89 y 0.43); GW2 55' BlockedShot xG 0.02 (OpenPlay, Head, BallTouch; x 0.93 y 0.34); GW2 56' BlockedShot xG 0.04 (FromCorner, Head, Dispossessed; x 0.95 y 0.59)
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 4 matches sum 211 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Sat 05 Sep 14:00 | Premier League | Brentford v Sunderland | 1–1 | 17 | 6.7 | 0 | 0.00 | 0 | 0 | — | — |
 | Sat 17 Oct 14:00 | Premier League | Brentford v Liverpool FC | 1–2 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 | Sun 25 Oct 14:00 | Premier League | Hull City v Brentford | 1–1 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 | Wed 28 Oct 19:45 | EFL Cup | Sunderland v Brentford | 3–2 | 71 | 6.4 | — | — | — | — | — | — |
 | Sat 31 Oct 15:00 | Premier League | Brentford v Nottingham Forest | 2–0 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 | Sun 08 Nov 14:00 | Premier League | Brighton & Hove Albion v Brentford | 2–0 | 45 | 7.2 | 0 | 0.00 | 0 | 0 | — | — |
+| Sat 14 Nov 19:45 | UEFA Nations L | Austria v Ireland | 1–0 | 90 | 6.7 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 47 rows — 2026/27 league 4, 2026/27 cup 2, 2025/26 41 · position DEF · 7 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 5 · int 9 · tkl 1 · aerial 5 · keyPass 4 · shot 9 · onTgt 4 · hdr 7 · goal 2 · foul 2 · fouled 3

@@ -1,8 +1,8 @@
 # Ipswich Town — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/ipswich.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/ipswich.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Gary O'Neil · **Venue:** Portman Road Stadium · **SofaScore:** https://www.sofascore.com/football/team/ipswich-town/32 · **FPL code:** IPS
 **Table:** 14th, 11 pts (3W 2D 5L, GF 15 GA 20) · Home 11th (2-1-2, 6:7) · Away 16th (1-1-3, 9:13)
 **Standing context (F15):** 28 league games left · points v 4th -7, v 5th -5, v 17th (last safe) +2, v 18th +3 · goal difference -5
@@ -157,7 +157,7 @@ Totals per match: xG 1.33 (npxG 1.24) for, xGA 2.39 (np 2.29) against · dead-ba
 - Corner targets (headed shots from corners): **O&#039;Shea 1, Greaves 1, Emersonn 1** · corner shots 7
 - **DISAGREEMENT:** observed corner taker Leif Davis (2) v FPL #1 Lukić — verify before crediting set-piece pairings
 
-**Through-ball suppliers (Block P, PL/Opta, season):** Julio Enciso 4 (0.43/90, percentile 86, 829 min); Abdul Fatawu 2 (0.33/90, percentile 83, 544 min); Jack Clarke 1 (0.31/90, percentile 81, 287 min); Jaden Philogene 1 (0.30/90, percentile 81, 298 min) · club total 12 attempted. Top quartile = percentile 75+ of through balls attempted per 90 among 318 players with 180+ min — the supply half of the offside-trap pairing (`context-factors.md`).
+**Through-ball suppliers (Block P, PL/Opta, season):** Julio Enciso 4 (0.43/90, percentile 86, 829 min); Abdul Fatawu Issahaku 2 (0.33/90, percentile 83, 544 min); Jack Clarke 1 (0.31/90, percentile 81, 287 min); Jaden Philogene 1 (0.30/90, percentile 81, 298 min) · club total 12 attempted. Top quartile = percentile 75+ of through balls attempted per 90 among 318 players with 180+ min — the supply half of the offside-trap pairing (`context-factors.md`).
 
 **Pressing & territory (C13, PitchAPI):** GW1: PPDA 11.49, field tilt 41, possession 37.4%, box entries 7, direct speed 2.51, SCA 20; GW2: PPDA 13.43, field tilt 33.7, possession 40.4%, box entries 8, direct speed 2.43, SCA 16; GW3: PPDA 14.64, field tilt 42, possession 45.9%, box entries 10, direct speed 3.01, SCA 27; GW4: PPDA 8.37, field tilt 57, possession 53.3%, box entries 12, direct speed 2.8, SCA 20; GW5: PPDA 15.52, field tilt 40.1, possession 48.2%, box entries 7, direct speed 2, SCA 23; GW6: PPDA 12.06, field tilt 60.1, possession 47.6%, box entries 15, direct speed 2.08, SCA 22; GW7: PPDA 13.2, field tilt 23.2, possession 30.5%, box entries 8, direct speed 2.84, SCA 16; GW8: PPDA 13.54, field tilt 46.5, possession 49.4%, box entries 6, direct speed 2.43, SCA 12; GW9: PPDA 9.28, field tilt 52.3, possession 61.1%, box entries 11, direct speed 2.5, SCA 30; GW10: PPDA 9.3, field tilt 51.1, possession 56%, box entries 8, direct speed 1.99, SCA 19
 
@@ -173,7 +173,7 @@ Totals per match: xG 1.33 (npxG 1.24) for, xGA 2.39 (np 2.29) against · dead-ba
 - Absent last match (E12, SofaScore list): —
 - Substitutions this season (C3): GW8 73' Abdul Fatawu Issahaku→Daizen Maeda TACTICAL; GW8 61' Jaden Philogene-Bidace→Jack Clarke TACTICAL; GW8 60' Emersonn→Zian Flemming TACTICAL; GW9 90' Julio Enciso→Chuba Akpom CARD-RISK; GW9 77' Emersonn→Zian Flemming TACTICAL; GW9 70' Abdul Fatawu Issahaku→Daizen Maeda CHASING; GW9 70' Florentino Luís→Azor Matusiwa CHASING; GW9 69' Jaden Philogene-Bidace→Jack Clarke CHASING; GW10 85' Florentino Luís→Chuba Akpom LATE; GW10 65' Daizen Maeda→Abdul Fatawu Issahaku CHASING; GW10 54' Emersonn→Zian Flemming CHASING; GW10 53' Jaden Philogene-Bidace→Jack Clarke CHASING
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

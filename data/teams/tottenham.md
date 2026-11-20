@@ -1,8 +1,8 @@
 # Tottenham Hotspur — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/tottenham.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/tottenham.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Roberto De Zerbi · **Venue:** Tottenham Hotspur Stadium · **SofaScore:** https://www.sofascore.com/football/team/tottenham-hotspur/33 · **FPL code:** TOT
 **Table:** 11th, 12 pts (3W 3D 4L, GF 10 GA 11) · Home 10th (2-1-2, 7:6) · Away 12th (1-2-2, 3:5)
 **Standing context (F15):** 28 league games left · points v 4th -6, v 5th -4, v 17th (last safe) +3, v 18th +4 · goal difference -1
@@ -163,7 +163,7 @@ Totals per match: xG 1.23 (npxG 1.23) for, xGA 1.47 (np 1.38) against · dead-ba
 - Absent last match (E12, SofaScore list): Bergvall (Physical Discomfort), Mudryk (Ankle Injury), Sávio (Muscle Injury), Odobert (Cruciate Ligament Injury), Simons (Cruciate Ligament Injury)
 - Substitutions this season (C3): GW8 65' Omar Marmoush→Dominic Solanke TACTICAL; GW8 51' James Maddison→Conor Gallagher INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 88' Mathys Tel→Luca Williams-Barnett LATE; GW9 77' Omar Marmoush→Dejan Kulusevski GAME-STATE; GW9 77' Andy Robertson→Destiny Udogie GAME-STATE; GW9 66' Dominic Solanke→Conor Gallagher TACTICAL; GW9 46' Archie Gray→Pedro Porro HALF-TIME; GW10 83' Mohammed Kudus→Luca Williams-Barnett CHASING; GW10 65' Mateus Fernandes→Rodrigo Bentancur TACTICAL; GW10 65' Omar Marmoush→Dejan Kulusevski TACTICAL; GW10 65' Pedro Porro→Conor Gallagher CARD-RISK; GW10 43' Mathys Tel→Dominic Solanke INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

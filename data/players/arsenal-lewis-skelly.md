@@ -1,13 +1,13 @@
 # Myles Lewis-Skelly (Arsenal) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/arsenal-lewis-skelly.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/arsenal-lewis-skelly.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Myles Lewis-Skelly** · Arsenal · D · shirt 49 · 178 cm · Left foot · market value €69m · SofaScore: https://www.sofascore.com/football/player/lewis-skelly-myles/1423711
-**FPL:** £5.3 · 0.5% owned · status a · pens — corners #— FKs #— · price Δ -23.8% · net transfers -1,166 · GW1 3 pts/90' (BPS 15, DC 7, xGI 0.17) · GW2 3 pts/70' (BPS 15, DC 5, xGI 0.09) · GW3 2 pts/66' (BPS 5, DC 2, xGI 0.13) · GW4 1 pts/45' (BPS 2, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 2 pts/62' (BPS 15, DC 4, xGI 0.37) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 2 pts/67' (BPS 16, DC 8, xGI 0.06) · GW9 0 pts/28' (BPS 4, DC 2, xGI 0.04) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
-**International:** England (10 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-12 h Croatia, 11-15 a Spain · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £5.3 · 0.5% owned · status a · pens — corners #— FKs #— · price Δ -32.1% · net transfers -1,625 · GW1 3 pts/90' (BPS 15, DC 7, xGI 0.17) · GW2 3 pts/70' (BPS 15, DC 5, xGI 0.09) · GW3 2 pts/66' (BPS 5, DC 2, xGI 0.13) · GW4 1 pts/45' (BPS 2, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 2 pts/62' (BPS 15, DC 4, xGI 0.37) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 2 pts/67' (BPS 16, DC 8, xGI 0.06) · GW9 0 pts/28' (BPS 4, DC 2, xGI 0.04) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
+**International:** England (11 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 12 min in 1 app (12/11 England v Croatia 2-1: missing: yellow_card_accumulation_suspension; 15/11 Spain v England 2-3: sub 12') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 51.7 / y 54.8 · 298 points, attacking third 21%, box 9, zone 14 21 · latest GW9: x 53.3 y 56.7, 23 points
-Consistency: per-match touch points over the first 7 matches sum 400 v season heat map 400 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 7 matches.
+Consistency: per-match touch points over the first 7 matches sum 400 v season heat map 400 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 7 matches.
 **ROLE SHIFT (E4):** average position moved more than 15 units from the season map in GW8 (x 54.1 y 70.3 v season x 51.9 y 54) — read the match report for the position he actually played (note only).
 **Errors & last-ditch (FX-59, SofaScore, 7 matches):** errors leading to a goal 0 · to a shot 1 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. Per match: GW3: errorLeadToAShot 1 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 432 min):** progressive carries 5 (1.0/90) of 99 carries, progression 401 m, carry distance 711 m · crosses 0/2 (0.4/90) · key passes 3 · big chances created 0 / missed 0 · through balls attempted 2 (0.42/90, percentile 86 of 318 players with 180+ min, TOP QUARTILE — supplier · per GW: GW1–5 combined 1 · GW6 1 · GW7 0 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 0 (0.00/90) · take-ons 1/2 · aerials 3/4 · duels 23/39 · recoveries 13 · possession lost 38 (dispossessed 3) · fouls 11 / fouled 13 · tackles 5/6 int 3 clr 3 blocks 3 · km 52.1 (10.9/90), sprints 27, top speed 31.15548 km/h. Per match: GW1: prog carries 1, crosses 0/0, KP 1, take-ons 0/0, aerials 1/1, CBIT 2, offsides 0; GW2: prog carries 3, crosses 0/0, KP 0, take-ons 0/0, aerials 0/0, CBIT 4, offsides 0; GW3: prog carries 1, crosses 0/0, KP 1, take-ons 0/0, aerials 1/1, CBIT 0, offsides 0; GW4: prog carries 0, crosses 0/0, KP 0, take-ons 0/1, aerials 0/0, CBIT 0, offsides 0; GW6: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 1/1, CBIT 3, offsides 0; GW8: prog carries 0, crosses 0/2, KP 1, take-ons 0/0, aerials 0/0, CBIT 4, offsides 0; GW9: prog carries 0, crosses 0/0, KP 0, take-ons 1/1, aerials 0/1, CBIT 2, offsides 0
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 7 matches sum 400 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Wed 21 Oct 19:00 | UEFA Champions | FC Bayern München v Arsenal | 2–2 | 21 | 6.7 | — | — | — | — | — | — |
 | Sat 24 Oct 14:00 | Premier League | Arsenal v Everton | 2–0 | 68 | 7.4 | 0 | 0.06 | 0 | 1 | — | — |
 | Tue 27 Oct 20:00 | EFL Cup | Fleetwood Town v Arsenal | 6–4 | 82 | 6.5 | — | — | — | — | — | — |
 | Sun 01 Nov 16:30 | Premier League | Liverpool FC v Arsenal | 0–1 | 28 | 6.7 | 0.04 | 0.00 | 1 | 0 | — | — |
 | Wed 04 Nov 20:00 | UEFA Champions | SK Slavia Praha v Arsenal | 1–2 | bench | — | — | — | — | — | — | — |
 | Sat 07 Nov 15:00 | Premier League | Arsenal v Hull City | 1–0 | 0 | None | 0 | 0 | 0 | 0 | — | — |
+| Sun 15 Nov 19:45 | UEFA Nations L | Spain v England | 2–3 | 12 | 6.6 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 47 rows — 2026/27 league 7, 2026/27 cup 4, 2025/26 36 · position MID · 7 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 4 · blk 1 · tkl 9 · aerial 2 · crs 1 · crsOK 1 · keyPass 3 · shot 5 · outBox 1 · fouled 2

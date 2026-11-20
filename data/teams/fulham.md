@@ -1,8 +1,8 @@
 # Fulham — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/fulham.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/fulham.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Álvaro Arbeloa · **Venue:** Craven Cottage · **SofaScore:** https://www.sofascore.com/football/team/fulham/43 · **FPL code:** FUL
 **Table:** 15th, 10 pts (2W 4D 4L, GF 10 GA 12) · Home 15th (1-2-2, 7:8) · Away 10th (1-2-2, 3:4)
 **Standing context (F15):** 28 league games left · points v 4th -8, v 5th -6, v 17th (last safe) +1, v 18th +2 · goal difference -2
@@ -156,7 +156,7 @@ Totals per match: xG 1.59 (npxG 1.59) for, xGA 1.56 (np 1.56) against · dead-ba
 - Absent last match (E12, SofaScore list): Cairney (Knee Injury)
 - Substitutions this season (C3): GW8 74' Alex Iwobi→César Palacios TACTICAL; GW8 74' Gonzalo García→Rodrigo Muniz TACTICAL; GW8 63' Hugo Larsson→Sander Berge TACTICAL; GW9 87' Timothy Castagne→Hugo Larsson LATE; GW9 87' Gonzalo García→Rodrigo Muniz LATE; GW9 79' Josh King→César Palacios TACTICAL; GW9 79' Oscar Bobb→Kenny Tete TACTICAL; GW9 75' Alex Iwobi→Tom Cairney TACTICAL; GW10 77' Oscar Bobb→Ryan Sessegnon TACTICAL; GW10 77' Timothy Castagne→Kenny Tete TACTICAL; GW10 72' Josh King→César Palacios INJURY [CONFIRMED: SofaScore flag + LiveScore 'knock']; GW10 65' Gonzalo García→Rodrigo Muniz TACTICAL
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

@@ -1,13 +1,13 @@
 # James Hill (Bournemouth) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/bournemouth-hill.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/bournemouth-hill.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **James Hill** · Bournemouth · D · shirt 5 · 184 cm · Right foot · market value €32m · SofaScore: https://www.sofascore.com/football/player/james-hill/1156586
-**FPL:** £5.6 · 3% owned · status a · pens — corners #— FKs #— · price Δ 13.6% · net transfers +17,626 · GW1 1 pts/90' (BPS 0, DC 6, xGI 0) · GW2 4 pts/90' (BPS 19, DC 12, xGI 0.74) · GW3 1 pts/90' (BPS 4, DC 6, xGI 0.02) · GW4 2 pts/90' (BPS 5, DC 11, xGI 0.01) · GW5 4 pts/90' (BPS 15, DC 15, xGI 0.02) · GW6 2 pts/90' (BPS -6, DC 11, xGI 0.02) · GW7 7 pts/90' (BPS 27, DC 9, xGI 0.14) · GW8 11 pts/90' (BPS 56, DC 22, xGI 0.01) · GW9 6 pts/90' (BPS 24, DC 9, xGI 0.01) · GW10 4 pts/90' (BPS 4, DC 14, xGI 0.35)
+**FPL:** £5.6 · 3.1% owned · status a · pens — corners #— FKs #— · price Δ 20.6% · net transfers +27,222 · GW1 1 pts/90' (BPS 0, DC 6, xGI 0) · GW2 4 pts/90' (BPS 19, DC 12, xGI 0.74) · GW3 1 pts/90' (BPS 4, DC 6, xGI 0.02) · GW4 2 pts/90' (BPS 5, DC 11, xGI 0.01) · GW5 4 pts/90' (BPS 15, DC 15, xGI 0.02) · GW6 2 pts/90' (BPS -6, DC 11, xGI 0.02) · GW7 7 pts/90' (BPS 27, DC 9, xGI 0.14) · GW8 11 pts/90' (BPS 56, DC 22, xGI 0.01) · GW9 6 pts/90' (BPS 24, DC 9, xGI 0.01) · GW10 4 pts/90' (BPS 4, DC 14, xGI 0.35)
 **International:** uncapped — no call-up exposure [SofaScore national-team-statistics]
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 36.6 / y 31.1 · 544 points, attacking third 8%, box 9, zone 14 9 · latest GW10: x 38.2 y 31.2, 92 points
-Consistency: per-match touch points over the first 10 matches sum 864 v season heat map 864 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 10 matches.
+Consistency: per-match touch points over the first 10 matches sum 864 v season heat map 864 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 10 matches.
 **Errors & last-ditch (FX-59, SofaScore, 10 matches):** errors leading to a goal 0 · to a shot 1 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 2. Per match: GW2: errorLeadToAShot 1; GW8: clearanceOffLine 2 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 900 min):** progressive carries 3 (0.3/90) of 179 carries, progression 319 m, carry distance 1181 m · crosses 1/2 (0.2/90) · key passes 8 · big chances created 2 / missed 1 · through balls attempted 0 (0.00/90, percentile 0 of 318 players with 180+ min · per GW: GW1–5 combined 0 · GW6 0 · GW7 0 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 1 (0.10/90) · take-ons 0/2 · aerials 40/59 · duels 71/108 · recoveries 31 · possession lost 163 (dispossessed 0) · fouls 9 / fouled 6 · tackles 15/25 int 17 clr 64 blocks 9 · km 105.8 (10.6/90), sprints 56, top speed 33.49512 km/h. Per match: GW1: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 2/3, CBIT 6, offsides 1; GW2: prog carries 0, crosses 0/0, KP 2, take-ons 0/0, aerials 7/10, CBIT 12, offsides 0; GW3: prog carries 0, crosses 0/0, KP 3, take-ons 0/0, aerials 1/1, CBIT 6, offsides 0; GW4: prog carries 0, crosses 0/0, KP 1, take-ons 0/1, aerials 5/8, CBIT 11, offsides 0; GW5: prog carries 1, crosses 1/1, KP 0, take-ons 0/1, aerials 1/2, CBIT 15, offsides 0; GW6: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 4/5, CBIT 11, offsides 0; GW7: prog carries 2, crosses 0/1, KP 1, take-ons 0/0, aerials 7/8, CBIT 9, offsides 0; GW8: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 1/4, CBIT 22, offsides 0; GW9: prog carries 0, crosses 0/0, KP 1, take-ons 0/0, aerials 5/7, CBIT 9, offsides 0; GW10: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 7/11, CBIT 14, offsides 0
 **Shot list (C15, Understat, 2 shots, xG 0.05):** GW7 21' MissedShots xG 0.02 (OpenPlay, RightFoot, Pass; x 0.77 y 0.24); GW7 21' MissedShots xG 0.03 (OpenPlay, RightFoot, Pass; x 0.77 y 0.41)
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 10 matches sum 864 v season h
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Thu 22 Oct 19:00 | UEFA Europa Le | Bournemouth v AC Milan | 3–0 | 90 | 8.1 | — | — | — | — | — | — |
-| Sun 25 Oct 14:00 | Premier League | Manchester United v Bournemouth | 0–3 | 90 | 9.5 | 0 | 0.01 | 0 | 0 | — | — |
 | Wed 28 Oct 19:45 | EFL Cup | Bournemouth v Aston Villa | 3–0 | bench | — | — | — | — | — | — | — |
 | Sat 31 Oct 15:00 | Premier League | Bournemouth v Leeds United | 2–0 | 90 | 6.9 | 0.01 | 0.00 | 1 | 1 | — | — |
 | Thu 05 Nov 17:45 | UEFA Europa Le | AC Sparta Praha v Bournemouth | 1–3 | 90 | 6.7 | — | — | — | — | — | — |
 | Sun 08 Nov 14:00 | Premier League | Ipswich Town v Bournemouth | 1–2 | 90 | 6.7 | 0.35 | 0.00 | 1 | 0 | — | — |
+| Thu 12 Nov 19:45 | UEFA Nations L | England v Croatia | 2–1 | bench | — | — | — | — | — | — | — |
+| Sun 15 Nov 19:45 | UEFA Nations L | Spain v England | 2–3 | bench | — | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 15 rows — 2026/27 league 10, 2026/27 cup 5, 2025/26 0 · position DEF · 1 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 19 · int 7 · blk 7 · tkl 6 · aerial 6 · keyPass 2 · shot 4 · hdr 2 · outBox 1 · foul 1 · fouled 1

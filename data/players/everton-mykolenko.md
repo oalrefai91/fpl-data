@@ -1,13 +1,13 @@
 # Vitaliy Mykolenko (Everton) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/everton-mykolenko.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/everton-mykolenko.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Vitaliy Mykolenko** · Everton · D · shirt 16 · 180 cm · Left foot · market value €26m · SofaScore: https://www.sofascore.com/football/player/vitaliy-mykolenko/876643
-**FPL:** £4.6 · 2.5% owned · status a · pens — corners #— FKs #— · price Δ -37.9% · net transfers +3,441 · GW1 6 pts/90' (BPS 27, DC 4, xGI 0.05) · GW2 4 pts/90' (BPS 7, DC 12, xGI 0.01) · GW3 1 pts/90' (BPS 8, DC 6, xGI 0.01) · GW4 11 pts/90' (BPS 38, DC 11, xGI 0.07) · GW5 5 pts/90' (BPS 29, DC 6, xGI 0.06) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 1 pts/90' (BPS 17, DC 4, xGI 0.21) · GW8 0 pts/73' (BPS -4, DC 6, xGI 0.01) · GW9 6 pts/90' (BPS 27, DC 7, xGI 0.04) · GW10 8 pts/90' (BPS 33, DC 11, xGI 0.33)
-**International:** Ukraine (55 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-14 a Northern Ireland, 11-17 h Georgia · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £4.6 · 2.5% owned · status a · pens — corners #— FKs #— · price Δ -37.6% · net transfers +4,107 · GW1 6 pts/90' (BPS 27, DC 4, xGI 0.05) · GW2 4 pts/90' (BPS 7, DC 12, xGI 0.01) · GW3 1 pts/90' (BPS 8, DC 6, xGI 0.01) · GW4 11 pts/90' (BPS 38, DC 11, xGI 0.07) · GW5 5 pts/90' (BPS 29, DC 6, xGI 0.06) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 1 pts/90' (BPS 17, DC 4, xGI 0.21) · GW8 0 pts/73' (BPS -4, DC 6, xGI 0.01) · GW9 6 pts/90' (BPS 27, DC 7, xGI 0.04) · GW10 8 pts/90' (BPS 33, DC 11, xGI 0.33)
+**International:** Ukraine (56 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-17 h Georgia · window so far: 90 min in 1 app (14/11 Northern Ireland v Ukraine 1-0: XI 90') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 41.4 / y 82.0 · 497 points, attacking third 19%, box 14, zone 14 6 · latest GW10: x 42.3 y 84.8, 96 points
-Consistency: per-match touch points over the first 9 matches sum 725 v season heat map 725 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 9 matches.
+Consistency: per-match touch points over the first 9 matches sum 725 v season heat map 725 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 9 matches.
 **Errors & last-ditch (FX-59, SofaScore, 9 matches):** errors leading to a goal 1 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. Per match: GW8: errorLeadToAGoal 1 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 794 min):** progressive carries 7 (0.8/90) of 103 carries, progression 290 m, carry distance 873 m · crosses 5/19 (2.2/90) · key passes 6 · big chances created 1 / missed 0 · through balls attempted 0 (0.00/90, percentile 0 of 318 players with 180+ min · per GW: GW1–5 combined 0 · GW6 0 · GW7 0 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 0 (0.00/90) · take-ons 4/7 · aerials 23/35 · duels 53/81 · recoveries 48 · possession lost 120 (dispossessed 2) · fouls 4 / fouled 11 · tackles 14/18 int 10 clr 31 blocks 8 · km 90.9 (10.3/90), sprints 77, top speed 32.02488 km/h. Per match: GW1: prog carries 1, crosses 0/0, KP 1, take-ons 0/1, aerials 3/5, CBIT 4, offsides 0; GW2: prog carries 0, crosses 0/3, KP 0, take-ons 1/1, aerials 4/7, CBIT 12, offsides 0; GW3: prog carries 1, crosses 0/4, KP 0, take-ons 1/1, aerials 1/1, CBIT 6, offsides 0; GW4: prog carries 1, crosses 0/2, KP 1, take-ons 0/1, aerials 1/2, CBIT 11, offsides 0; GW5: prog carries 1, crosses 1/2, KP 0, take-ons 0/0, aerials 2/3, CBIT 6, offsides 0; GW7: prog carries 0, crosses 1/2, KP 2, take-ons 2/2, aerials 2/4, CBIT 4, offsides 0; GW8: prog carries 0, crosses 0/1, KP 0, take-ons 0/0, aerials 2/2, CBIT 6, offsides 0; GW9: prog carries 0, crosses 1/1, KP 0, take-ons 0/0, aerials 2/3, CBIT 7, offsides 0; GW10: prog carries 3, crosses 2/4, KP 2, take-ons 0/1, aerials 6/8, CBIT 11, offsides 0
 **Shot list (C15, Understat, 1 shots, xG 0.09):** GW5 31' BlockedShot xG 0.09 (OpenPlay, LeftFoot, Pass; x 0.95 y 0.68)
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 9 matches sum 725 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Fri 25 Sep 18:45 | UEFA Nations L | Hungary v Ukraine | 0–1 | 90 | 7.6 | — | — | — | — | — | — |
 | Sat 17 Oct 11:30 | Premier League | Everton v Chelsea | 0–2 | 90 | 7.2 | 0 | 0.21 | 0 | 2 | — | — |
 | Sat 24 Oct 14:00 | Premier League | Arsenal v Everton | 2–0 | 74 | 6.4 | 0 | 0.01 | 0 | 0 | — | — |
 | Thu 29 Oct 19:45 | EFL Cup | Everton v Newcastle United | 3–1 | 86 | 7.4 | — | — | — | — | — | — |
 | Mon 02 Nov 20:00 | Premier League | Newcastle United v Everton | 0–1 | 90 | 7.4 | 0 | 0.04 | 0 | 0 | — | — |
 | Fri 06 Nov 20:00 | Premier League | Everton v Coventry City | 3–1 | 90 | 7.7 | 0.14 | 0.19 | 1 | 2 | — | — |
+| Sat 14 Nov 19:45 | UEFA Nations L | Northern Ireland v Ukraine | 1–0 | 90 | 6.2 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 12 rows — 2026/27 league 9, 2026/27 cup 3, 2025/26 0 · position DEF · 1 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 12 · int 9 · blk 4 · tkl 6 · aerial 4 · crs 4 · crsOK 4 · keyPass 3 · shot 2 · onTgt 1 · error 1 · assist 1 · kpGoal 1 · foul 1 · fouled 2

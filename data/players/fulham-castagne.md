@@ -1,13 +1,13 @@
 # Timothy Castagne (Fulham) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/fulham-castagne.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/fulham-castagne.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Timothy Castagne** · Fulham · D · shirt 21 · 185 cm · Right foot · market value €8m · SofaScore: https://www.sofascore.com/football/player/timothy-castagne/329417
-**FPL:** £4.5 · 1.2% owned · status a · pens — corners #3 FKs #— · price Δ 22.7% · net transfers +130 · GW1 6 pts/90' (BPS 21, DC 6, xGI 0.27) · GW2 6 pts/67' (BPS 18, DC 2, xGI 0) · GW3 1 pts/90' (BPS -1, DC 7, xGI 0.77) · GW4 6 pts/71' (BPS 23, DC 5, xGI 0.01) · GW5 1 pts/90' (BPS 3, DC 9, xGI 0.01) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 8 pts/90' (BPS 32, DC 6, xGI 0.11) · GW8 7 pts/90' (BPS 32, DC 8, xGI 0.07) · GW9 2 pts/86' (BPS 12, DC 5, xGI 0.45) · GW10 7 pts/76' (BPS 27, DC 3, xGI 0.09)
-**International:** Belgium (73 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-12 a Türkiye, 11-15 h Italy · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £4.5 · 1.2% owned · status a · pens — corners #3 FKs #— · price Δ 24.1% · net transfers +772 · GW1 6 pts/90' (BPS 21, DC 6, xGI 0.27) · GW2 6 pts/67' (BPS 18, DC 2, xGI 0) · GW3 1 pts/90' (BPS -1, DC 7, xGI 0.77) · GW4 6 pts/71' (BPS 23, DC 5, xGI 0.01) · GW5 1 pts/90' (BPS 3, DC 9, xGI 0.01) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 8 pts/90' (BPS 32, DC 6, xGI 0.11) · GW8 7 pts/90' (BPS 32, DC 8, xGI 0.07) · GW9 2 pts/86' (BPS 12, DC 5, xGI 0.45) · GW10 7 pts/76' (BPS 27, DC 3, xGI 0.09)
+**International:** Belgium (75 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 180 min in 2 apps (12/11 Türkiye v Belgium 1-2: XI 90'; 15/11 Belgium v Italy 4-1: XI 90') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 44.6 / y 17.3 · 545 points, attacking third 23%, box 29, zone 14 4 · latest GW10: x 47 y 19.4, 76 points
-Consistency: per-match touch points over the first 9 matches sum 769 v season heat map 769 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 9 matches.
+Consistency: per-match touch points over the first 9 matches sum 769 v season heat map 769 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 9 matches.
 **ROLE SHIFT (E4):** average position moved more than 15 units from the season map in GW4 (x 31.3 y 17.5 v season x 46.8 y 16.3) — read the match report for the position he actually played (note only).
 **Errors & last-ditch (FX-59, SofaScore, 9 matches):** errors leading to a goal 0 · to a shot 0 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. No flag in any match [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 754 min):** progressive carries 2 (0.2/90) of 128 carries, progression 263 m, carry distance 828 m · crosses 1/19 (2.3/90) · key passes 5 · big chances created 1 / missed 1 · through balls attempted 2 (0.24/90, percentile 74 of 318 players with 180+ min · per GW: GW1–5 combined 1 · GW6 0 · GW7 0 · GW8 1 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 3 (0.36/90) · take-ons 6/12 · aerials 10/26 · duels 36/79 · recoveries 36 · possession lost 109 (dispossessed 1) · fouls 13 / fouled 6 · tackles 10/14 int 8 clr 25 blocks 4 · km 98.2 (11.7/90), sprints 109, top speed 33.4782 km/h. Per match: GW1: prog carries 0, crosses 1/2, KP 2, take-ons 1/1, aerials 3/4, CBIT 6, offsides 0; GW2: prog carries 1, crosses 0/1, KP 0, take-ons 0/0, aerials 0/2, CBIT 2, offsides 1; GW3: prog carries 1, crosses 0/2, KP 2, take-ons 0/1, aerials 0/1, CBIT 7, offsides 0; GW4: prog carries 0, crosses 0/0, KP 0, take-ons 0/1, aerials 0/1, CBIT 5, offsides 1; GW5: prog carries 0, crosses 0/0, KP 0, take-ons 0/0, aerials 0/3, CBIT 9, offsides 0; GW7: prog carries 0, crosses 0/5, KP 0, take-ons 4/5, aerials 2/5, CBIT 6, offsides 0; GW8: prog carries 0, crosses 0/6, KP 0, take-ons 0/0, aerials 3/6, CBIT 8, offsides 0; GW9: prog carries 0, crosses 0/0, KP 1, take-ons 0/2, aerials 1/2, CBIT 5, offsides 1; GW10: prog carries 0, crosses 0/3, KP 0, take-ons 1/2, aerials 1/2, CBIT 3, offsides 0
@@ -30,12 +30,12 @@ Consistency: per-match touch points over the first 9 matches sum 769 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Sat 10 Oct 14:00 | Premier League | Ipswich Town v Fulham | 2–1 | 0 | None | 0 | 0 | 0 | 0 | — | — |
-| Sat 17 Oct 14:00 | Premier League | Fulham v Hull City | 1–0 | 90 | 7.6 | 0 | 0.11 | 0 | 0 | — | — |
 | Sat 24 Oct 14:00 | Premier League | Coventry City v Fulham | 0–1 | 90 | 7 | 0.05 | 0.02 | 1 | 0 | — | — |
 | Wed 28 Oct 19:45 | EFL Cup | Fulham v Crystal Palace | 0–1 | 32 | 7.2 | — | — | — | — | — | — |
 | Sat 31 Oct 20:00 | Premier League | Aston Villa v Fulham | 1–1 | 87 | 7.2 | 0 | 0.45 | 0 | 1 | — | — |
 | Sat 07 Nov 15:00 | Premier League | Fulham v Newcastle United | 1–1 | 77 | 6.9 | 0.09 | 0.00 | 1 | 0 | — | — |
+| Thu 12 Nov 17:00 | UEFA Nations L | Türkiye v Belgium | 1–2 | 90 | 6.5 | — | — | — | — | — | — |
+| Sun 15 Nov 19:45 | UEFA Nations L | Belgium v Italy | 4–1 | 90 | 6.9 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 11 rows — 2026/27 league 9, 2026/27 cup 2, 2025/26 0 · position DEF · 1 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 6 · int 10 · tkl 3 · keyPass 1 · shot 1 · hdr 1

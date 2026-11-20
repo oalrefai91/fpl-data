@@ -1,8 +1,8 @@
 # Leeds United — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/leeds.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/leeds.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Daniel Farke · **Venue:** Elland Road · **SofaScore:** https://www.sofascore.com/football/team/leeds-united/34 · **FPL code:** LEE
 **Table:** 9th, 14 pts (3W 5D 2L, GF 10 GA 8) · Home 7th (2-3-0, 7:3) · Away 11th (1-2-2, 3:5)
 **Standing context (F15):** 28 league games left · points v 4th -4, v 5th -2, v 17th (last safe) +5, v 18th +6 · goal difference +2
@@ -148,7 +148,7 @@ Totals per match: xG 1.47 (npxG 1.47) for, xGA 1.38 (np 1.38) against · dead-ba
 - Absent last match (E12, SofaScore list): Joseph (Knee Injury), Stach (Foot Injury; doubtful)
 - Substitutions this season (C3): GW8 66' Harry Wilson→Anton Stach TACTICAL; GW8 65' Brenden Aaronson→Noah Okafor TACTICAL; GW9 84' Harry Wilson→Brenden Aaronson CHASING; GW9 84' James Justin→Jean-Mattéo Bahoya CHASING; GW9 65' Daniel James→Lukas Nmecha CHASING; GW9 65' Ao Tanaka→Anton Stach CHASING; GW9 65' Gabriel Gudmundsson→Sean Longstaff CHASING; GW10 90' Sean Longstaff→Ilia Gruev CARD-RISK; GW10 90' Jayden Bogle→Joe Rodon LATE; GW10 77' Lukas Nmecha→Noah Okafor TACTICAL; GW10 77' Ao Tanaka→Harry Wilson TACTICAL; GW10 46' Gabriel Gudmundsson→Melvin Bard HALF-TIME
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 3 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|

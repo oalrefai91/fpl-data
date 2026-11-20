@@ -1,8 +1,8 @@
 # Brighton & Hove Albion — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/teams/brighton.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/teams/brighton.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Manager:** Fabian Hurzeler · **Venue:** American Express Stadium · **SofaScore:** https://www.sofascore.com/football/team/brighton-and-hove-albion/30 · **FPL code:** BHA
 **Table:** 2nd, 22 pts (7W 1D 2L, GF 26 GA 7) · Home 2nd (4-1-0, 15:1) · Away 3rd (3-0-2, 11:6)
 **Standing context (F15):** 28 league games left · points v 4th +4, v 5th +6, v 17th (last safe) +13, v 18th +14 · goal difference +19
@@ -150,13 +150,13 @@ Totals per match: xG 2.34 (npxG 2.25) for, xGA 1.55 (np 1.55) against · dead-ba
 ### Starter baseline (C5) — 4-2-3-1, 10 league matches, weights last-3 ×3 / older ×1
 - GK: Bart Verbruggen (16, 3/3)
 - DEF: Luka Vušković (16, 3/3), Olivier Boscagli (16, 3/3), Lewis Dunk (14, 3/3), Ferdi Kadıoğlu (9, 1/3)
-- MID: Pascal Groß (16, 3/3), Diego Gómez (16, 3/3), Maxim De Cuyper (16, 3/3), Yasin Ayari (15, 3/3), Chema Andrés (12, 3/3)
+- MID: Pascal Groß (16, 3/3), Diego Gómez (16, 3/3), Maxim De Cuyper (16, 3/3), Yasin Ayari (15, 3/3), Malick Yalcouyé (3, 0/3)
 - FWD: Charalampos Kostoulas (15, 3/3)
-- Contested slots: none · Excluded (FPL flag): none
+- Contested slots: none · Excluded (FPL flag): Chema Andrés — Hip injury - 75% chance of playing
 - Absent last match (E12, SofaScore list): Ferguson (Ankle Injury), Mitoma (Hamstring Injury), Tzimas (Cruciate Ligament Injury), Yohanna (Knock Injury)
 - Substitutions this season (C3): GW8 46' Olivier Boscagli→Jack Hinshelwood HALF-TIME; GW8 6' Ferdi Kadıoğlu→Costinha INJURY [CONFIRMED: SofaScore flag + LiveScore 'injury']; GW9 84' Diego Gómez→Georginio Rutter TACTICAL; GW9 72' Charalampos Kostoulas→Jack Hinshelwood TACTICAL; GW9 72' Maxim De Cuyper→Malick Yalcouyé CARD-RISK; GW9 64' Chema Andrés→Mats Wieffer CARD-RISK; GW9 64' Olivier Boscagli→Jaouen Hadjam TACTICAL; GW10 90' Diego Gómez→Malick Yalcouyé LATE; GW10 82' Maxim De Cuyper→Yankuba Minteh GAME-STATE; GW10 82' Charalampos Kostoulas→Georginio Rutter GAME-STATE; GW10 78' Yasin Ayari→Jack Hinshelwood GAME-STATE; GW10 46' Chema Andrés→Mats Wieffer HALF-TIME
 
-### First-choice players and absences (F14) — generated 2026-11-10 07:41 UTC
+### First-choice players and absences (F14) — generated 2026-11-17 07:44 UTC
 First choice = starter baseline (GK, 2 centre-backs — defenders whose median heat-map y sits in 25–75), the top 2 by league xGI, and the primary takers. Absent = FPL status i/s/u/n or chance ≤ 25%. COVER = next available in the same role. The effect column is the I-adj the PRE run applies to **this club's opponents** (`selection-model.md`).
 | Role | Player | Evidence | Availability | FPL status / news | COVER | I-adj when absent |
 |---|---|---|---|---|---|---|
@@ -179,7 +179,7 @@ First choice = starter baseline (GK, 2 centre-backs — defenders whose median h
 - Thu 10 Dec 20:00 UTC · UEFA Conference League R5 · H v AS Monaco
 
 ### FPL availability flags (players with league minutes this season)
-Yohanna — Unspecified injury - Expected back 22 Nov (0%); Struijk — Hamstring injury - Expected back 8 Nov (0%)
+Yohanna — Unspecified injury - Expected back 22 Nov (0%); Struijk — Hamstring injury - Expected back 8 Nov (0%); Hadjam — Unspecified injury - 75% chance of playing (75%); Andrés — Hip injury - 75% chance of playing (75%)
 <!-- AUTO:END -->
 ### Match-log facts (FX-09, one line per league match)
 - GW1 H Aston Villa 4–0 · xG 3.77–0.29 · poss 73% · 4-2-3-1 · scorers: Victor Lindelöf 8', Maxim De Cuyper 18', Jack Hinshelwood 30', Jack Hinshelwood 31'

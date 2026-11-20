@@ -1,13 +1,13 @@
 # Bradley Barcola (Liverpool FC) — data doc
-*Feeder-written (2026-11-10 07:41 UTC); do not edit. Narrative: `profiles/players/liverpool-barcola.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/liverpool-barcola.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-10 07:41 UTC)
+## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
 **Bradley Barcola** · Liverpool FC · F · shirt 29 · 182 cm · Right foot · market value €97m · SofaScore: https://www.sofascore.com/football/player/barcola-bradley/996952
-**FPL:** £8.1 · 4.4% owned · status a · pens — corners #— FKs #— · price Δ 28.5% · net transfers +3,188 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 1 pts/26' (BPS 5, DC 0, xGI 0.07) · GW4 3 pts/71' (BPS 9, DC 5, xGI 0.24) · GW5 3 pts/71' (BPS 8, DC 3, xGI 0.08) · GW6 2 pts/87' (BPS 21, DC 10, xGI 0.07) · GW7 4 pts/90' (BPS 13, DC 9, xGI 0.72) · GW8 6 pts/76' (BPS 21, DC 10, xGI 0.44) · GW9 1 pts/90' (BPS 6, DC 5, xGI 0.21) · GW10 5 pts/68' (BPS 13, DC 9, xGI 0.49)
-**International:** France (32 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): 11-12 a Italy, 11-15 h Türkiye · window so far: 0 min in 0 apps (no finished match yet) · fetched 2026-11-10. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £8.1 · 4.4% owned · status a · pens — corners #— FKs #— · price Δ 31% · net transfers +4,758 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 1 pts/26' (BPS 5, DC 0, xGI 0.07) · GW4 3 pts/71' (BPS 9, DC 5, xGI 0.24) · GW5 3 pts/71' (BPS 8, DC 3, xGI 0.08) · GW6 2 pts/87' (BPS 21, DC 10, xGI 0.07) · GW7 4 pts/90' (BPS 13, DC 9, xGI 0.72) · GW8 6 pts/76' (BPS 21, DC 10, xGI 0.44) · GW9 1 pts/90' (BPS 6, DC 5, xGI 0.21) · GW10 5 pts/68' (BPS 13, DC 9, xGI 0.49)
+**International:** France (34 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 139 min in 2 apps (12/11 Italy v France 3-1: XI 76'; 15/11 France v Türkiye 2-1: XI 63') · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Per-match heat maps (C16, SofaScore, last 6 matches — summary; full table in `~/Documents/FPL/feeder-data/side_tables.json` → heat, FX-67):** mean avg x 59.2 / y 65.2 · 309 points, attacking third 51%, box 53, zone 14 20 · latest GW10: x 60.8 y 53.6, 36 points
-Consistency: per-match touch points over the first 8 matches sum 361 v season heat map 361 (OK); season map fetched 2026-11-10 07:41 UTC, per-match maps cover 8 matches.
+Consistency: per-match touch points over the first 8 matches sum 361 v season heat map 361 (OK); season map fetched 2026-11-17 07:44 UTC, per-match maps cover 8 matches.
 **ROLE SHIFT (E4):** average position moved more than 15 units from the season map in GW5 (x 59.5 y 85 v season x 60.9 y 69.4); GW8 (x 45.6 y 24.2 v season x 60.9 y 69.4); GW10 (x 60.8 y 53.6 v season x 60.9 y 69.4) — read the match report for the position he actually played (note only).
 **Errors & last-ditch (FX-59, SofaScore, 8 matches):** errors leading to a goal 0 · to a shot 1 · penalties conceded 0 · own goals 0 · last-man tackles 0 · clearances off the line 0. Per match: GW9: errorLeadToAShot 1 [CONFIRMED — SofaScore lineup stats]
 **Progression & duels (C18/C19, SofaScore, 584 min):** progressive carries 31 (4.8/90) of 101 carries, progression 683 m, carry distance 1146 m · crosses 1/8 (1.2/90) · key passes 9 · big chances created 2 / missed 3 · through balls attempted 0 (0.00/90, percentile 0 of 318 players with 180+ min · per GW: GW1–5 combined 0 · GW6 0 · GW7 0 · GW8 0 · GW9 0 · GW10 0) [PL/Opta, season] · offsides 2 (0.31/90) · take-ons 12/31 · aerials 3/11 · duels 31/76 · recoveries 27 · possession lost 78 (dispossessed 6) · fouls 9 / fouled 4 · tackles 7/12 int 6 clr 6 blocks 0 · km 65.9 (10.2/90), sprints 109, top speed 35.928 km/h. Per match: GW3: prog carries 1, crosses 0/0, KP 1, take-ons 1/2, aerials 0/0, CBIT 0, offsides 0; GW4: prog carries 1, crosses 0/2, KP 1, take-ons 0/2, aerials 0/0, CBIT 3, offsides 0; GW5: prog carries 1, crosses 0/0, KP 0, take-ons 0/3, aerials 1/1, CBIT 0, offsides 1; GW6: prog carries 4, crosses 0/0, KP 2, take-ons 4/7, aerials 0/4, CBIT 4, offsides 0; GW7: prog carries 11, crosses 0/1, KP 1, take-ons 3/6, aerials 0/1, CBIT 3, offsides 0; GW8: prog carries 2, crosses 0/0, KP 1, take-ons 1/1, aerials 1/1, CBIT 5, offsides 0; GW9: prog carries 9, crosses 0/4, KP 1, take-ons 3/6, aerials 1/3, CBIT 3, offsides 1; GW10: prog carries 2, crosses 1/1, KP 2, take-ons 0/4, aerials 0/1, CBIT 6, offsides 0
@@ -29,12 +29,12 @@ Consistency: per-match touch points over the first 8 matches sum 361 v season he
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Tue 20 Oct 19:00 | UEFA Champions | Liverpool FC v Villarreal | 4–3 | 16 | 6.7 | — | — | — | — | — | — |
-| Sun 25 Oct 14:00 | Premier League | Liverpool FC v Brighton & Hove Albion | 2–0 | 77 | 7.8 | 0.07 | 0.37 | 1 | 1 | — | — |
 | Wed 28 Oct 20:00 | EFL Cup | Liverpool FC v Chelsea | 7–6 | 31 | 7.4 | — | — | — | — | — | — |
 | Sun 01 Nov 16:30 | Premier League | Liverpool FC v Arsenal | 0–1 | 90 | 6.4 | 0.07 | 0.14 | 1 | 1 | — | — |
 | Wed 04 Nov 17:45 | UEFA Champions | Fenerbahçe v Liverpool FC | 3–2 | 90 | 6.8 | — | — | — | — | — | — |
 | Sun 08 Nov 14:00 | Premier League | Crystal Palace v Liverpool FC | 1–3 | 69 | 6.5 | 0.45 | 0.06 | 3 | 2 | — | — |
+| Thu 12 Nov 19:45 | UEFA Nations L | Italy v France | 3–1 | 76 | 6.9 | — | — | — | — | — | — |
+| Sun 15 Nov 19:45 | UEFA Nations L | France v Türkiye | 2–1 | 63 | 6.9 | — | — | — | — | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 14 rows — 2026/27 league 8, 2026/27 cup 6, 2025/26 0 · position MID · 1 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].
 **LiveScore actions (Block L commentary counts, last 6 matches — a proxy, cross-check SofaScore; per-match table in side_tables.json → ls_actions, FX-67):** clr 2 · int 4 · tkl 5 · crs 1 · crsOK 1 · keyPass 2 · shot 8 · onTgt 3 · outBox 1 · error 1 · assist 2 · foul 1
