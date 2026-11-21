@@ -1,6 +1,6 @@
 {
  "gw": 9,
- "generated_utc": "2026-11-20T23:41:36Z",
+ "generated_utc": "2026-11-21T14:14:08Z",
  "players": {
   "Morgan Rogers (CHE)": {
    "match_id": "m_0C3yM3",
@@ -16972,7 +16972,7 @@
     }
    }
   },
-  "Luca Williams-Barnett (TOT)": {
+  "Lucá Williams-Barnett (TOT)": {
    "match_id": "m_0GIRbd",
    "team": "TOT",
    "min": 6,
@@ -16998,7 +16998,7 @@
    "raw": {
     "player": {
      "id": "p_0DojTs",
-     "name": "Luca Williams-Barnett",
+     "name": "Lucá Williams-Barnett",
      "shirt_number": 68
     },
     "team_id": "t_4A7FfD",
@@ -27083,29 +27083,30 @@
    "take_ons": 0,
    "take_ons_won": 0
   },
-  "Rogers (CHE)": {
-   "match_id": "m_0C3yM3",
-   "name": "Morgan Rogers",
-   "match_score": 2,
-   "min": 100,
-   "sca": 6,
-   "gca": 0,
+  "Van Hecke (TOT)": {
+   "match_id": "m_0GIRbd",
+   "name": "Jan Paul van Hecke",
+   "match_score": 4,
+   "min": 93,
+   "sca": 5,
+   "gca": 1,
    "sca_breakdown": {
-    "pass_live": 6
+    "pass_live": 4,
+    "shot": 1
    },
    "chances_created": 3,
-   "xag": 0.1136,
-   "xg_chain": 1.3758,
-   "xg_buildup": 1.3194,
-   "xt_off": 1.0214,
-   "xt_def": 0.0078,
-   "prog_passes": 4,
-   "passes_into_box": 3,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": 0.955,
+   "xt_def": 0.0019,
+   "prog_passes": 6,
+   "passes_into_box": 1,
    "key_passes": 3,
    "prog_carries": 4,
-   "carries_into_box": 1,
-   "take_ons": 2,
-   "take_ons_won": 1
+   "carries_into_box": 0,
+   "take_ons": 0,
+   "take_ons_won": 0
   },
   "Groß (BHA)": {
    "match_id": "m_4RvJ1j",
@@ -27153,29 +27154,32 @@
    "take_ons": 5,
    "take_ons_won": 1
   },
-  "Tavernier (BOU)": {
-   "match_id": "m_0bXUBx",
-   "name": "Marcus Tavernier",
+  "Rudoni (COV)": {
+   "match_id": "m_0IHgwr",
+   "name": "Jack Rudoni",
    "match_score": 2,
-   "min": 95,
-   "sca": 2,
+   "min": 99,
+   "sca": 4,
    "gca": 0,
    "sca_breakdown": {
-    "pass_live": 2
+    "pass_live": 1,
+    "pass_dead": 1,
+    "take_on": 1,
+    "defensive": 1
    },
-   "chances_created": 0,
+   "chances_created": 2,
    "xag": null,
    "xg_chain": null,
    "xg_buildup": null,
-   "xt_off": -0.1688,
-   "xt_def": -0.0075,
-   "prog_passes": 3,
+   "xt_off": 1.0692,
+   "xt_def": -0.0034,
+   "prog_passes": 2,
    "passes_into_box": 2,
-   "key_passes": 0,
-   "prog_carries": 0,
-   "carries_into_box": 1,
-   "take_ons": 2,
-   "take_ons_won": 0
+   "key_passes": 2,
+   "prog_carries": 1,
+   "carries_into_box": 0,
+   "take_ons": 3,
+   "take_ons_won": 1
   },
   "Haaland (MCI)": {
    "match_id": "m_4RvJ1j",
@@ -27275,57 +27279,53 @@
    "take_ons": 0,
    "take_ons_won": 0
   },
-  "Rudoni (COV)": {
-   "match_id": "m_0IHgwr",
-   "name": "Jack Rudoni",
+  "Tavernier (BOU)": {
+   "match_id": "m_0bXUBx",
+   "name": "Marcus Tavernier",
    "match_score": 2,
-   "min": 99,
-   "sca": 4,
-   "gca": 0,
-   "sca_breakdown": {
-    "pass_live": 1,
-    "pass_dead": 1,
-    "take_on": 1,
-    "defensive": 1
-   },
-   "chances_created": 2,
-   "xag": null,
-   "xg_chain": null,
-   "xg_buildup": null,
-   "xt_off": 1.0692,
-   "xt_def": -0.0034,
-   "prog_passes": 2,
-   "passes_into_box": 2,
-   "key_passes": 2,
-   "prog_carries": 1,
-   "carries_into_box": 0,
-   "take_ons": 3,
-   "take_ons_won": 1
-  },
-  "Davis (IPS)": {
-   "match_id": "m_0n3Keu",
-   "name": "Leif Davis",
-   "match_score": 2,
-   "min": 94,
+   "min": 95,
    "sca": 2,
    "gca": 0,
    "sca_breakdown": {
-    "pass_live": 1,
-    "pass_dead": 1
+    "pass_live": 2
    },
    "chances_created": 0,
    "xag": null,
    "xg_chain": null,
    "xg_buildup": null,
-   "xt_off": -0.0068,
-   "xt_def": 0.0091,
+   "xt_off": -0.1688,
+   "xt_def": -0.0075,
    "prog_passes": 3,
-   "passes_into_box": 0,
+   "passes_into_box": 2,
    "key_passes": 0,
-   "prog_carries": 1,
-   "carries_into_box": 0,
-   "take_ons": 0,
+   "prog_carries": 0,
+   "carries_into_box": 1,
+   "take_ons": 2,
    "take_ons_won": 0
+  },
+  "Rogers (CHE)": {
+   "match_id": "m_0C3yM3",
+   "name": "Morgan Rogers",
+   "match_score": 2,
+   "min": 100,
+   "sca": 6,
+   "gca": 0,
+   "sca_breakdown": {
+    "pass_live": 6
+   },
+   "chances_created": 3,
+   "xag": 0.1136,
+   "xg_chain": 1.3758,
+   "xg_buildup": 1.3194,
+   "xt_off": 1.0214,
+   "xt_def": 0.0078,
+   "prog_passes": 4,
+   "passes_into_box": 3,
+   "key_passes": 3,
+   "prog_carries": 4,
+   "carries_into_box": 1,
+   "take_ons": 2,
+   "take_ons_won": 1
   },
   "Bogle (LEE)": {
    "match_id": "m_0bXUBx",
@@ -27398,31 +27398,6 @@
    "take_ons": 1,
    "take_ons_won": 0
   },
-  "Van Hecke (TOT)": {
-   "match_id": "m_0GIRbd",
-   "name": "Jan Paul van Hecke",
-   "match_score": 4,
-   "min": 93,
-   "sca": 5,
-   "gca": 1,
-   "sca_breakdown": {
-    "pass_live": 4,
-    "shot": 1
-   },
-   "chances_created": 3,
-   "xag": null,
-   "xg_chain": null,
-   "xg_buildup": null,
-   "xt_off": 0.955,
-   "xt_def": 0.0019,
-   "prog_passes": 6,
-   "passes_into_box": 1,
-   "key_passes": 3,
-   "prog_carries": 4,
-   "carries_into_box": 0,
-   "take_ons": 0,
-   "take_ons_won": 0
-  },
   "Palmer (CHE)": {
    "match_id": "m_0C3yM3",
    "name": "Cole Palmer",
@@ -27471,6 +27446,28 @@
    "carries_into_box": 1,
    "take_ons": 3,
    "take_ons_won": 3
+  },
+  "Muharemović (LEE)": {
+   "match_id": "m_0bXUBx",
+   "name": "Tarik Muharemović",
+   "match_score": 2,
+   "min": 95,
+   "sca": 0,
+   "gca": 0,
+   "sca_breakdown": {},
+   "chances_created": 0,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": 0.0336,
+   "xt_def": -0.0344,
+   "prog_passes": 3,
+   "passes_into_box": 0,
+   "key_passes": 0,
+   "prog_carries": 1,
+   "carries_into_box": 0,
+   "take_ons": 0,
+   "take_ons_won": 0
   },
   "Wirtz (LIV)": {
    "match_id": "m_1cQmo2",
@@ -28131,105 +28128,6 @@
      "sequence_time": 11.42,
      "direct_speed": 2.25,
      "buildup_attacks": 0,
-     "direct_attacks": 10
-    }
-   }
-  },
-  "IPS": {
-   "match_id": "m_0n3Keu",
-   "ppda": 9.28,
-   "field_tilt": 52.3,
-   "possession_pct": 61.1,
-   "final_third_entries": 51,
-   "box_entries": 11,
-   "direct_speed": 2.5,
-   "passes_per_sequence": 3.9,
-   "sca": 30,
-   "gca": 4,
-   "pv_offensive": 2.126,
-   "raw": {
-    "team": {
-     "id": "t_2C9laO",
-     "name": "Ipswich Town"
-    },
-    "actions": 862,
-    "possession_value": {
-     "xt_total": 1.1635,
-     "vaep_total": 2.2929,
-     "vaep_offensive": 2.4116,
-     "vaep_defensive": -0.1188,
-     "pv_total": 2.3049,
-     "pv_offensive": 2.126,
-     "pv_defensive": 0.1789
-    },
-    "passing": {
-     "passes": 553,
-     "pass_accuracy": 87,
-     "progressive_passes": 30,
-     "progressive_pass_distance": 582.1,
-     "passes_into_box": 9,
-     "key_passes": 12,
-     "assists": 2,
-     "through_balls": 2,
-     "crosses": 7,
-     "switches": 1
-    },
-    "carrying": {
-     "carries": 138,
-     "carry_distance": 1688.7,
-     "progressive_carries": 19,
-     "progressive_carry_distance": 959.8,
-     "carries_into_final_third": 9,
-     "carries_into_box": 2,
-     "take_ons": 17,
-     "take_ons_won": 8,
-     "miscontrols": 19,
-     "dispossessed": 11
-    },
-    "creation": {
-     "sca": 30,
-     "gca": 4,
-     "chances_created": 12,
-     "second_assists": 2,
-     "sca_breakdown": {
-      "pass_live": 25,
-      "pass_dead": 1,
-      "take_on": 2,
-      "shot": 1,
-      "foul_drawn": 1,
-      "defensive": 0
-     },
-     "xag": null
-    },
-    "defending": {
-     "tackles": 8,
-     "interceptions": 16,
-     "blocks": 1,
-     "clearances": 34,
-     "duels_won": 13,
-     "aerials": 35,
-     "aerials_won": 15,
-     "ppda": 9.28,
-     "opponent_passes": 269,
-     "defensive_actions": 29,
-     "challenges": 3,
-     "avg_defensive_action_x": 30.4,
-     "high_turnovers": 6,
-     "counterpress_regains_5s": 8,
-     "ball_recovery_time": 19
-    },
-    "territory": {
-     "possession_pct": 61.1,
-     "field_tilt": 52.3,
-     "final_third_entries": 51,
-     "box_entries": 11,
-     "avg_action_x": 46.8
-    },
-    "tempo": {
-     "passes_per_sequence": 3.9,
-     "sequence_time": 12.07,
-     "direct_speed": 2.5,
-     "buildup_attacks": 2,
      "direct_attacks": 10
     }
    }
@@ -29422,6 +29320,105 @@
     }
    }
   },
+  "IPS": {
+   "match_id": "m_0n3Keu",
+   "ppda": 9.28,
+   "field_tilt": 52.3,
+   "possession_pct": 61.1,
+   "final_third_entries": 51,
+   "box_entries": 11,
+   "direct_speed": 2.5,
+   "passes_per_sequence": 3.9,
+   "sca": 30,
+   "gca": 4,
+   "pv_offensive": 2.126,
+   "raw": {
+    "team": {
+     "id": "t_2C9laO",
+     "name": "Ipswich Town"
+    },
+    "actions": 862,
+    "possession_value": {
+     "xt_total": 1.1635,
+     "vaep_total": 2.2929,
+     "vaep_offensive": 2.4116,
+     "vaep_defensive": -0.1188,
+     "pv_total": 2.3049,
+     "pv_offensive": 2.126,
+     "pv_defensive": 0.1789
+    },
+    "passing": {
+     "passes": 553,
+     "pass_accuracy": 87,
+     "progressive_passes": 30,
+     "progressive_pass_distance": 582.1,
+     "passes_into_box": 9,
+     "key_passes": 12,
+     "assists": 2,
+     "through_balls": 2,
+     "crosses": 7,
+     "switches": 1
+    },
+    "carrying": {
+     "carries": 138,
+     "carry_distance": 1688.7,
+     "progressive_carries": 19,
+     "progressive_carry_distance": 959.8,
+     "carries_into_final_third": 9,
+     "carries_into_box": 2,
+     "take_ons": 17,
+     "take_ons_won": 8,
+     "miscontrols": 19,
+     "dispossessed": 11
+    },
+    "creation": {
+     "sca": 30,
+     "gca": 4,
+     "chances_created": 12,
+     "second_assists": 2,
+     "sca_breakdown": {
+      "pass_live": 25,
+      "pass_dead": 1,
+      "take_on": 2,
+      "shot": 1,
+      "foul_drawn": 1,
+      "defensive": 0
+     },
+     "xag": null
+    },
+    "defending": {
+     "tackles": 8,
+     "interceptions": 16,
+     "blocks": 1,
+     "clearances": 34,
+     "duels_won": 13,
+     "aerials": 35,
+     "aerials_won": 15,
+     "ppda": 9.28,
+     "opponent_passes": 269,
+     "defensive_actions": 29,
+     "challenges": 3,
+     "avg_defensive_action_x": 30.4,
+     "high_turnovers": 6,
+     "counterpress_regains_5s": 8,
+     "ball_recovery_time": 19
+    },
+    "territory": {
+     "possession_pct": 61.1,
+     "field_tilt": 52.3,
+     "final_third_entries": 51,
+     "box_entries": 11,
+     "avg_action_x": 46.8
+    },
+    "tempo": {
+     "passes_per_sequence": 3.9,
+     "sequence_time": 12.07,
+     "direct_speed": 2.5,
+     "buildup_attacks": 2,
+     "direct_attacks": 10
+    }
+   }
+  },
   "CRY": {
    "match_id": "m_0GIRbd",
    "ppda": 18.78,
@@ -29631,6 +29628,6 @@
   "m_1Gc5Hh",
   "m_4RvJ1j"
  ],
- "late_tries": 34,
+ "late_tries": 35,
  "us_tries": 0
 }
