@@ -8,14 +8,14 @@
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
-   "utc": "2026-11-07T15:00:00Z",
+   "utc": "2026-11-21T17:30:00Z",
    "comp": "PL",
-   "opp": "HUL"
+   "opp": "NEW"
   },
   "AVL": {
-   "utc": "2026-11-08T16:30:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "MUN"
+   "opp": "SUN"
   },
   "BHA": {
    "utc": "2026-11-08T14:00:00Z",
@@ -23,9 +23,9 @@
    "opp": "BRE"
   },
   "BOU": {
-   "utc": "2026-11-08T14:00:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "IPS"
+   "opp": "NFO"
   },
   "BRE": {
    "utc": "2026-11-08T14:00:00Z",
@@ -33,19 +33,19 @@
    "opp": "BHA"
   },
   "CHE": {
-   "utc": "2026-11-08T14:00:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "SUN"
+   "opp": "LEE"
   },
   "COV": {
-   "utc": "2026-11-06T20:00:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "EVE"
+   "opp": "CRY"
   },
   "CRY": {
-   "utc": "2026-11-08T14:00:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "LIV"
+   "opp": "COV"
   },
   "EVE": {
    "utc": "2026-11-06T20:00:00Z",
@@ -63,14 +63,14 @@
    "opp": "ARS"
   },
   "IPS": {
-   "utc": "2026-11-08T14:00:00Z",
-   "comp": "PL",
-   "opp": "BOU"
-  },
-  "LEE": {
-   "utc": "2026-11-07T12:30:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
    "opp": "TOT"
+  },
+  "LEE": {
+   "utc": "2026-11-21T15:00:00Z",
+   "comp": "PL",
+   "opp": "CHE"
   },
   "LIV": {
    "utc": "2026-11-08T14:00:00Z",
@@ -88,24 +88,24 @@
    "opp": "AVL"
   },
   "NEW": {
-   "utc": "2026-11-07T15:00:00Z",
+   "utc": "2026-11-21T17:30:00Z",
    "comp": "PL",
-   "opp": "FUL"
+   "opp": "ARS"
   },
   "NFO": {
-   "utc": "2026-11-07T17:30:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "MCI"
+   "opp": "BOU"
   },
   "SUN": {
-   "utc": "2026-11-08T14:00:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "CHE"
+   "opp": "AVL"
   },
   "TOT": {
-   "utc": "2026-11-07T12:30:00Z",
+   "utc": "2026-11-21T15:00:00Z",
    "comp": "PL",
-   "opp": "LEE"
+   "opp": "IPS"
   }
  }
 }

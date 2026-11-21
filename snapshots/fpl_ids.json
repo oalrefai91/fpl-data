@@ -6046,5 +6046,23 @@
 "second_name": "Cissé",
 "team": "AVL",
 "pos": 2
+},
+{
+"id": 673,
+"code": 171422,
+"web_name": "Browne",
+"first_name": "Alan",
+"second_name": "Browne",
+"team": "SUN",
+"pos": 3
+},
+{
+"id": 674,
+"code": 605845,
+"web_name": "Kaiser",
+"first_name": "Dino",
+"second_name": "Kaiser",
+"team": "FUL",
+"pos": 1
 }
 ]
