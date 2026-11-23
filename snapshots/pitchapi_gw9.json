@@ -1,6 +1,6 @@
 {
  "gw": 9,
- "generated_utc": "2026-11-22T23:15:33Z",
+ "generated_utc": "2026-11-23T17:25:52Z",
  "players": {
   "Morgan Rogers (CHE)": {
    "match_id": "m_0C3yM3",
@@ -23526,8 +23526,7 @@
   },
   "Gabriel (ARS)": {
    "match_id": "m_1cQmo2",
-   "name": "Gabriel",
-   "match_score": 1,
+   "team": "ARS",
    "min": 96,
    "sca": 1,
    "gca": 0,
@@ -23546,7 +23545,72 @@
    "prog_carries": 0,
    "carries_into_box": 0,
    "take_ons": 0,
-   "take_ons_won": 0
+   "take_ons_won": 0,
+   "raw": {
+    "player": {
+     "id": "p_2siSV9",
+     "name": "Gabriel",
+     "shirt_number": 6
+    },
+    "team_id": "t_1gkhxH",
+    "minutes_played": 96,
+    "actions": 55,
+    "possession_value": {
+     "xt_total": 0.0138,
+     "vaep_total": -0.0244,
+     "vaep_offensive": 0.0711,
+     "vaep_defensive": -0.0955,
+     "pv_total": 0.0388,
+     "pv_offensive": 0.0502,
+     "pv_defensive": -0.0115
+    },
+    "passing": {
+     "passes": 34,
+     "pass_accuracy": 82.4,
+     "progressive_passes": 1,
+     "progressive_pass_distance": 21,
+     "passes_into_box": 0,
+     "key_passes": 0,
+     "assists": 0,
+     "through_balls": 0,
+     "crosses": 0,
+     "switches": 1
+    },
+    "carrying": {
+     "carries": 7,
+     "carry_distance": 67.1,
+     "progressive_carries": 0,
+     "progressive_carry_distance": 37.9,
+     "carries_into_final_third": 0,
+     "carries_into_box": 0,
+     "take_ons": 0,
+     "take_ons_won": 0,
+     "miscontrols": 0,
+     "dispossessed": 1
+    },
+    "creation": {
+     "sca": 1,
+     "gca": 0,
+     "chances_created": 0,
+     "second_assists": 0,
+     "sca_breakdown": {
+      "pass_live": 1
+     },
+     "xag": 0,
+     "xg_chain": 0.2411,
+     "xg_buildup": 0.2411
+    },
+    "defending": {
+     "tackles": 2,
+     "interceptions": 1,
+     "blocks": 3,
+     "clearances": 4,
+     "duels_won": 2,
+     "aerials": 5,
+     "aerials_won": 3
+    },
+    "goalkeeping": null
+   }
   },
   "Riccardo Calafiori (ARS)": {
    "match_id": "m_1cQmo2",
@@ -27373,6 +27437,31 @@
    "take_ons": 0,
    "take_ons_won": 0
   },
+  "Ødegaard (ARS)": {
+   "match_id": "m_1cQmo2",
+   "name": "Martin Ødegaard",
+   "match_score": 2,
+   "min": 87,
+   "sca": 2,
+   "gca": 0,
+   "sca_breakdown": {
+    "pass_live": 1,
+    "pass_dead": 1
+   },
+   "chances_created": 2,
+   "xag": 0.0995,
+   "xg_chain": 0.8311,
+   "xg_buildup": 0.7746,
+   "xt_off": 0.1499,
+   "xt_def": -0.025,
+   "prog_passes": 3,
+   "passes_into_box": 2,
+   "key_passes": 2,
+   "prog_carries": 1,
+   "carries_into_box": 0,
+   "take_ons": 1,
+   "take_ons_won": 0
+  },
   "Petrović (BOU)": {
    "match_id": "m_0bXUBx",
    "name": "Djordje Petrović",
@@ -27606,28 +27695,6 @@
    "take_ons": 1,
    "take_ons_won": 0
   },
-  "Kinsky (TOT)": {
-   "match_id": "m_0GIRbd",
-   "name": "Antonín Kinský",
-   "match_score": 2,
-   "min": 93,
-   "sca": 0,
-   "gca": 0,
-   "sca_breakdown": {},
-   "chances_created": 0,
-   "xag": null,
-   "xg_chain": null,
-   "xg_buildup": null,
-   "xt_off": 0.0088,
-   "xt_def": 0.0254,
-   "prog_passes": 0,
-   "passes_into_box": 0,
-   "key_passes": 0,
-   "prog_carries": 0,
-   "carries_into_box": 0,
-   "take_ons": 0,
-   "take_ons_won": 0
-  },
   "E.Le Fée (SUN)": {
    "match_id": "m_0IHgwr",
    "name": "Enzo Le Fée",
@@ -27653,6 +27720,28 @@
    "carries_into_box": 1,
    "take_ons": 4,
    "take_ons_won": 3
+  },
+  "Silva (BOU)": {
+   "match_id": "m_0bXUBx",
+   "name": "António Silva",
+   "match_score": 2,
+   "min": 95,
+   "sca": 0,
+   "gca": 0,
+   "sca_breakdown": {},
+   "chances_created": 0,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": 0.0524,
+   "xt_def": -0.0082,
+   "prog_passes": 3,
+   "passes_into_box": 0,
+   "key_passes": 0,
+   "prog_carries": 0,
+   "carries_into_box": 0,
+   "take_ons": 0,
+   "take_ons_won": 0
   }
  },
  "teams": {
@@ -29647,6 +29736,6 @@
   "m_1Gc5Hh",
   "m_4RvJ1j"
  ],
- "late_tries": 38,
+ "late_tries": 39,
  "us_tries": 0
 }
