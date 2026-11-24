@@ -1,11 +1,11 @@
 # Martin Dúbravka (Tottenham Hotspur) — data doc
-*Feeder-written (2026-11-17 07:44 UTC); do not edit. Narrative: `profiles/players/tottenham-dubravka.md`. Detailed rows keep the last 6 matches (FX-17).*
+*Feeder-written (2026-11-24 07:45 UTC); do not edit. Narrative: `profiles/players/tottenham-dubravka.md`. Detailed rows keep the last 6 matches (FX-17).*
 
 <!-- AUTO:START — machine-written from SofaScore + FPL; do not edit inside the markers -->
-## Data block (SofaScore, fetched 2026-11-17 07:44 UTC)
+## Data block (SofaScore, fetched 2026-11-24 07:45 UTC)
 **Martin Dúbravka** · Tottenham Hotspur · G · shirt 39 · 190 cm · Right foot · market value €0m · SofaScore: https://www.sofascore.com/football/player/martin-dubravka/42209
-**FPL:** £4 · 15.2% owned · status a · pens — corners #— FKs #— · price Δ -92.2% · net transfers -16,174 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0)
-**International:** Slovakia (61 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 0 min in 0 apps (13/11 Slovakia v Faroe Islands 2-2: not in matchday squad; 16/11 Kazakhstan v Slovakia 2-2: not in matchday squad) · fetched 2026-11-17. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
+**FPL:** £3.9 · 14.7% owned · status a · pens — corners #— FKs #— · price Δ -15.2% · net transfers -29,013 · GW1 0 pts/0' (BPS 0, DC 0, xGI 0) · GW2 0 pts/0' (BPS 0, DC 0, xGI 0) · GW3 0 pts/0' (BPS 0, DC 0, xGI 0) · GW4 0 pts/0' (BPS 0, DC 0, xGI 0) · GW5 0 pts/0' (BPS 0, DC 0, xGI 0) · GW6 0 pts/0' (BPS 0, DC 0, xGI 0) · GW7 0 pts/0' (BPS 0, DC 0, xGI 0) · GW8 0 pts/0' (BPS 0, DC 0, xGI 0) · GW9 0 pts/0' (BPS 0, DC 0, xGI 0) · GW10 0 pts/0' (BPS 0, DC 0, xGI 0) · GW11 0 pts/0' (BPS 0, DC 0, xGI 0)
+**International:** Slovakia (61 caps) · in latest announced squad [FRESH — squad changed since the last pull] · window ? (): none listed · window so far: 0 min in 0 apps (13/11 Slovakia v Faroe Islands 2-2: not in matchday squad; 16/11 Kazakhstan v Slovakia 2-2: not in matchday squad) · fetched 2026-11-24. Note only — no Minutes-tier or score effect; surface in XI, sell and buy lines.
 **Goalkeeping (C10):** no season stats
 **Shot list (C15, Understat):** no shots recorded in GWs 1, 2, 3, 4, 5, 6, 7, 8
 **Cards (D7):** 0 yellows this season · 0/5 — 5 bookings clear · a 5th by GW19 = 1-match ban, 10th by GW32 = 2, 15th = 3 [FPL/SofaScore]
@@ -18,11 +18,11 @@
 **Last matches:**
 | Date | Comp | Fixture | Score | Min | Rating | xG | xA | Shots | KP | G | A |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Fri 02 Oct 18:45 | UEFA Nations L | Faroe Islands v Slovakia | 1–1 | bench | — | — | — | — | — | — | — |
 | Tue 06 Oct 18:45 | UEFA Nations L | Moldova v Slovakia | 0–4 | bench | — | — | — | — | — | — | — |
 | Sat 10 Oct 16:30 | Premier League | Manchester United v Tottenham Hotspur | 1–1 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 | Mon 19 Oct 19:00 | Premier League | Tottenham Hotspur v Coventry City | 3–1 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 | Sat 24 Oct 16:30 | Premier League | Chelsea v Tottenham Hotspur | 0–2 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 | Sat 31 Oct 17:30 | Premier League | Tottenham Hotspur v Crystal Palace | 2–0 | 0 | None | 0 | 0 | 0 | 0 | — | — |
+| Sat 21 Nov 15:00 | Premier League | Tottenham Hotspur v Ipswich Town | 2–0 | 0 | None | 0 | 0 | 0 | 0 | — | — |
 <!-- AUTO:END -->
 **H-adj history (FX-14, scored from GW19):** 36 rows — 2026/27 league 0, 2026/27 cup 1, 2025/26 35 · position GK · 1 rows have no provider xG ([NO XG] — minutes and DEF/GK points still count, the attacker ratio skips them) · full table in `~/Documents/FPL/feeder-data/hadj.json` (staged by the PRE run; written by `claude/feeder/gen.md`). Rows are kept out of this doc to stay inside the FX-17 size cap [USER DECISION, 22 Sep 2026].

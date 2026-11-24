@@ -1,653 +1,705 @@
 {
  "files": {
   "data/players/arsenal-calafiori.md": {
-   "bytes": 10761,
-   "sha256": "6275707bad45748ef26b52b1d0632358538a17e9bce4604d39628bda0eba195a"
+   "bytes": 10936,
+   "sha256": "1b1c9f6a6c6c3a3c21bdaa6ae85832f6cf431c700a64fbe848891503c8c1db7c"
   },
   "data/players/arsenal-gabriel.md": {
-   "bytes": 10015,
-   "sha256": "d2da551e8611edcd85c81014536eaf7e3d9498408b89b4abffc3898306365c6a"
+   "bytes": 10415,
+   "sha256": "e78f45496e46ba6c698c9b5dd3e2eea483bdf4566a7029d4755a96f50fd1fb3f"
   },
   "data/players/arsenal-havertz.md": {
-   "bytes": 10955,
-   "sha256": "f81cbed5c0ff77c8d24d36391f5f19fa4567be91a8d9987bd32782d620eead0a"
+   "bytes": 11244,
+   "sha256": "d0b772ab9b75d34f3a93bd0a343243eea634f814b5a6442f75c0811450860809"
   },
   "data/players/arsenal-konsa.md": {
-   "bytes": 9720,
-   "sha256": "bd33c63c93af9ec06962bab78bb83675cf3951fc7bce87fe428e4f4a52d5e819"
+   "bytes": 9927,
+   "sha256": "c3203f9d100dd5d5945740243d92fc012012e92fad7c32264e8c199564ea6d62"
   },
   "data/players/arsenal-lewis-skelly.md": {
-   "bytes": 10044,
-   "sha256": "1a6ed20895a318a54308d0c16abea56c3a71ba9cc6e766c279e622a42d040f4d"
+   "bytes": 10265,
+   "sha256": "0cdca53283e198943d1b1a514224743b4dc313b5d8e05c4db378debc256eb318"
   },
   "data/players/arsenal-madueke.md": {
-   "bytes": 9792,
-   "sha256": "6d16e76d05e243eb97322f72756e8b62e414146a353dfef0b12a2dcd17c6d9cc"
+   "bytes": 10034,
+   "sha256": "f80951ffca1f59f52fa857a852adab6456d06dee97381a877d8b56c3e901666b"
   },
   "data/players/arsenal-odegaard.md": {
-   "bytes": 11142,
-   "sha256": "50c8a13c907c66099af083466228236577a82613c6c15ec191f1641099b29b8e"
+   "bytes": 11488,
+   "sha256": "976d95705fe8e1cccf2473fa952f0b425cf4b2468320d9951405fea664b88af9"
   },
   "data/players/arsenal-raya.md": {
-   "bytes": 10255,
-   "sha256": "5ae5d2ffdfc8558424110951165c84df17c35fca50cc94198b55e9b858651c92"
+   "bytes": 10856,
+   "sha256": "d58e75a6f5d07a7be076ca7b3517cba4a4cbc28fe0b0ddebaebda98252996b52"
   },
   "data/players/arsenal-rice.md": {
-   "bytes": 10596,
-   "sha256": "e18f1e64cc79815587b7d0bc9f2e6072985099436dceee50ca89b004f2ee83f6"
+   "bytes": 10814,
+   "sha256": "71152291d1fe3f4560c832809e5330a66872db3e577e642f2f43e823b240fbe3"
   },
   "data/players/arsenal-saka.md": {
-   "bytes": 10516,
-   "sha256": "adc56e5d032d31fac59fca2a100830a975123c3482dd3a782a0e62c741249877"
+   "bytes": 10594,
+   "sha256": "94a9a9ecdf67896920c64db4e5686d08e76f743e4dacc8aab734c9fefca12995"
   },
   "data/players/arsenal-tzolis.md": {
-   "bytes": 9788,
-   "sha256": "bf3356155766892694fe5d02a0c182441f492647a312a492d9e093631e649067"
+   "bytes": 9937,
+   "sha256": "c987d7a575d276840d06e4b23bfa4ccd599c45e261e8d0e07a192d3e79b85dae"
   },
   "data/players/arsenal-white.md": {
-   "bytes": 9528,
-   "sha256": "59ae4ee227bf7d34275269ce0826315b2b0f44afbb959a815bbe582e67768615"
+   "bytes": 9600,
+   "sha256": "2168d9b13c57b8f051cfc64c7c60aed8f63904ac38e2b1eefbc00b5e7d9121ac"
+  },
+  "data/players/aston-villa-alysson.md": {
+   "bytes": 8888,
+   "sha256": "fd1f92b1ff42eb69dd753d5741aa23c49d59aa71b087daa7b742336a74e8aee9"
   },
   "data/players/aston-villa-manzambi.md": {
-   "bytes": 11194,
-   "sha256": "64b2b78eb230531a9791a4763f7adf3348489396699f690f2704042f7d34e469"
+   "bytes": 11337,
+   "sha256": "43da874a22c61d98165ce3317d89d4230890d4414aaf1a5e2068247e3d9028f3"
   },
   "data/players/aston-villa-mcginn.md": {
-   "bytes": 10618,
-   "sha256": "dbb3ed79361653d6b08190cbe12742340fcf55ef0ff1311efb9dab219c91df8f"
+   "bytes": 10803,
+   "sha256": "2a53cf4038396381794299bd6350f0fba6567c8de159367823cc3105e289a648"
   },
   "data/players/aston-villa-njackson.md": {
-   "bytes": 11345,
-   "sha256": "e28efbf118d88840f3cece769531ab11ed8aee09c664a188c95c34886eaa9804"
+   "bytes": 11612,
+   "sha256": "d94683f413e200c6f0094f34912db45f0049f27491b66ee1fc4e4d305dc0d0b2"
   },
   "data/players/aston-villa-suzuki.md": {
-   "bytes": 10082,
-   "sha256": "0dc31bce5516224e3c815b6b73380a28ead03720a61a366f3632da45420ace5a"
+   "bytes": 10355,
+   "sha256": "ca162c319af53f5433a385f04259267920673f8963b219495ae5ba007c62550b"
+  },
+  "data/players/bournemouth-christie.md": {
+   "bytes": 10423,
+   "sha256": "c6c3897919bf48c4663b55d3179cd8862ddd08cbf303aabeaa3f409f97ea758a"
+  },
+  "data/players/bournemouth-cook.md": {
+   "bytes": 10183,
+   "sha256": "ad0409de58e33860944e7604d35e63064d079cc6e98511a78b0c49260b8cf93c"
   },
   "data/players/bournemouth-evanilson.md": {
-   "bytes": 11580,
-   "sha256": "01201215157cc7f34f3227c809ac04659e89b93ae9d961249f5792dc635267c3"
+   "bytes": 11755,
+   "sha256": "0f5834ccec132a9823ee10c68c0c67dcb8e26a0d8118d09090e97f8c954a5906"
   },
   "data/players/bournemouth-hill.md": {
-   "bytes": 9584,
-   "sha256": "600e540ff943b1eceab4982fd5faa1365db2e3e0e971ff3f4d61d930fd360b06"
+   "bytes": 9775,
+   "sha256": "3a1c752ae965312631de97c61143a9ffcacc6cdd7baa192ed8da7da32cf52650"
   },
   "data/players/bournemouth-kluivert.md": {
-   "bytes": 10852,
-   "sha256": "758ded9cecc96e1c889d8877a4d28b1903307a5fbbbadeba71a31ab4ae05d08f"
+   "bytes": 11177,
+   "sha256": "ddae0068fe8d70861af36bad7e6a93b5bff00425f2d5415411957f183f085585"
+  },
+  "data/players/bournemouth-petrovic.md": {
+   "bytes": 10426,
+   "sha256": "0b609b8997a50f6dfd452eed34f64c7309c43c12c01abf5ff6e59a71c2dbc316"
   },
   "data/players/bournemouth-scott.md": {
-   "bytes": 9298,
-   "sha256": "0141c6716fccacb1c0b55acc3f1c870b39dfa4dce2344ccefc79b4531218278c"
+   "bytes": 9619,
+   "sha256": "33e8b4f9df5c08080849abe629c3e540144100d0346b6a03536b96991a1356f3"
   },
   "data/players/bournemouth-silva.md": {
-   "bytes": 10129,
-   "sha256": "abc10bf111939c93aecf08f221c022a68fdca23f4759dd900cec9fea9a5fbfb2"
+   "bytes": 10405,
+   "sha256": "816b8ac8e8b3a465836e5746e68eb33bc032a7a2732171a707cb924e5a2722d5"
   },
   "data/players/bournemouth-smith.md": {
-   "bytes": 10005,
-   "sha256": "cc78c4d7d42e5c988dfa1b41f24dfe51695dfcd86b34c0bafc834258892df855"
+   "bytes": 10275,
+   "sha256": "c77a09f2b36a12910cda378cd20d91c2ad59248226bc973c5f0cfaad569ba946"
   },
   "data/players/bournemouth-tavernier.md": {
-   "bytes": 11040,
-   "sha256": "9d1c0769f9ed0b56eded2501140d1a529a5b898e73bee7198ceda7a5a1274da3"
+   "bytes": 11242,
+   "sha256": "68f3ecaf2b71fd916935bbc01b3f074e14329dd5311d7c1c80a9b46fdf9eb293"
   },
   "data/players/bournemouth-truffert.md": {
-   "bytes": 10362,
-   "sha256": "c57b4aac5a219ec1afa6be66e1b0ffaf5166447b832baacf1604d83eaf5e8e3a"
+   "bytes": 10598,
+   "sha256": "773be2e0048cb8c6f22612b1906e6811ee7f8ca41e8ccdd881882c7afb57a17b"
   },
   "data/players/brentford-ajer.md": {
-   "bytes": 9971,
-   "sha256": "47eaacc8eab75457fb7ffeafd893a7c30047719b2a2bfa5745322d9f56515045"
+   "bytes": 10267,
+   "sha256": "41c3d250c0a5383e124f63c4b108af2b681ddd91a5718eca0ba825696377abb3"
   },
   "data/players/brentford-collins.md": {
-   "bytes": 9032,
-   "sha256": "4b1af25f1e2ba1073d2124f2a37f695beef2424cfda3bc8f7ed8d2da8775fdd3"
+   "bytes": 9152,
+   "sha256": "548ee2baf37268134ea595afae9c375f8c0c0b0995aa4707f5d1cfbb262d4050"
   },
   "data/players/brentford-janelt.md": {
-   "bytes": 9316,
-   "sha256": "99595b7595915f9568a812e6a6f7d9f49949ef7fccb759fd6891bbbe6ce44208"
+   "bytes": 9913,
+   "sha256": "0d4ace1444a19a050ed96dfa42de68e24ecea1292cc99a91e84d62a11904968d"
   },
   "data/players/brentford-kayode.md": {
-   "bytes": 10301,
-   "sha256": "a9a68b026b6d2396fc856ed98050198a0a6256080fc234f6a75791dd33621eba"
+   "bytes": 10521,
+   "sha256": "4f5a043f1fd8d24156f233f8b604f8cbf90bd0f87264f2adb0cf6d45a940d2c1"
   },
   "data/players/brentford-kelleher.md": {
-   "bytes": 9994,
-   "sha256": "64b2b938ff8348117056088e9a93c140b5eaeb1e6b065f2752c1a137cd911ac4"
+   "bytes": 10299,
+   "sha256": "96623d1f1116ae5f5488461b04fedd7a34615284abf45e95f116142cae16705c"
   },
   "data/players/brentford-lewis-potter.md": {
-   "bytes": 10844,
-   "sha256": "8183824676078a4aff72264e8f4bce68b4869f38172dc8d7c067e25c708c8ec8"
+   "bytes": 11145,
+   "sha256": "e6841956ad3ffac0ef1f57101ba11a7108696bd7da7baae34f6d32a8a88366e9"
   },
   "data/players/brentford-ouattara.md": {
-   "bytes": 10638,
-   "sha256": "6415b6bc88d9168a878b423ce1d5b2e0e5529fdca8c1a31d5fb3c625bba4405b"
+   "bytes": 11062,
+   "sha256": "4d3118ecccf67b009756a4aed492f262b43cda70ebb0f83b7eb703cc4a313b82"
   },
   "data/players/brentford-sangare.md": {
-   "bytes": 10281,
-   "sha256": "b7780c1516bdfaca9962e306e587266169f20b4f969ad07f6b5701d19dd4da23"
+   "bytes": 10306,
+   "sha256": "e5b4282a32acf1db54dfb56cf028dbd29a66e2adc6d0807563de2bd0ac291831"
   },
   "data/players/brentford-schade.md": {
-   "bytes": 11104,
-   "sha256": "0ff1cc599a55d408dcf7b55251d78ebb48c65143877434e0517f3c04526c8961"
+   "bytes": 11328,
+   "sha256": "d79bbbfa5f49f955f015226632d36e0448ab5998e956e389dc984ce9feacb1c1"
   },
   "data/players/brentford-thiago.md": {
-   "bytes": 10883,
-   "sha256": "590ba5e0fe4bdf68786ef8075483dff81f2ca6460d378cc3f2df9ac1ffb22f55"
+   "bytes": 10979,
+   "sha256": "540758934fe9424f067be2d74f1df6aaf0c3af1124d3b9e34be864a50bcb4995"
   },
   "data/players/brighton-ayari.md": {
-   "bytes": 11297,
-   "sha256": "83d8b5122641beb4c23ae1fe8a86ddba40a6512ef13db77e46b4aac779f9acfe"
+   "bytes": 11588,
+   "sha256": "b5dcd9a32f6bdac2cf33f31ca4c8fe5d10b9799a120e7f9e59dca6dc3e4df38a"
   },
   "data/players/brighton-boscagli.md": {
-   "bytes": 10573,
-   "sha256": "e356035d617cf4621011ff8bc7aeb2fa01325a81be8cee6ef5f7dbcc0c7b5af2"
+   "bytes": 10829,
+   "sha256": "e69ca5cdc812becd71c694275d812d71eba2a7a88e79f8aedba6bae7061005d5"
   },
   "data/players/brighton-de-cuyper.md": {
-   "bytes": 11147,
-   "sha256": "fa7102b3f62d7527de401665a2b8b090d36bbb2e404d70fda9051ba9ee9e671e"
+   "bytes": 11375,
+   "sha256": "3956e245e1c432b697e05edfef5931408fb47210dedd2405c0a2421bbf77e5a7"
   },
   "data/players/brighton-dunk.md": {
-   "bytes": 10055,
-   "sha256": "2108bd1c72f8228367f207626294dccb456f072d8375f0d6c256b58c90209fbb"
+   "bytes": 10075,
+   "sha256": "9124725996fab59b98ba616ee43a42456e676b5a66ecca44c318490f7b012ed6"
   },
   "data/players/brighton-gomez.md": {
-   "bytes": 11730,
-   "sha256": "8405c1b115c929b334cea951fcd971fe871a5ee392462ddfaa9cfc2c0ce4043a"
+   "bytes": 12034,
+   "sha256": "2fd186226cf35aacf99c7cae29655e8cfdb2f75bddddea746e9ab52c2e72274d"
   },
   "data/players/brighton-gross.md": {
-   "bytes": 10838,
-   "sha256": "a722448d42f47e32c2887975c4e6e9dbc6b63cd6cebb9923d4232205bac99dc3"
+   "bytes": 11042,
+   "sha256": "26f249171c7b8827586c3bc7d4940773c58dcdf2b0e81cee02f17e41bf05275d"
   },
   "data/players/brighton-hinshelwood.md": {
-   "bytes": 9067,
-   "sha256": "3bc3119e6d48232c8a3cfe0d91a379bfac808c7581bced32588e40a9d23004cb"
+   "bytes": 9340,
+   "sha256": "2a6145c6bfb13a046fc6d903314e2c58e9866831506d0bfe908bf8b889bfb54b"
   },
   "data/players/brighton-kostoulas.md": {
-   "bytes": 11941,
-   "sha256": "8fe37e449f68b2b3a45e8fa461dad57cecc74e85e46c1bee8cf9cf3040c2d85f"
+   "bytes": 12317,
+   "sha256": "d11984203d96e022a5d6655cbb6fbb15c42d43e7b95fa765113d01fd709933e3"
   },
   "data/players/brighton-verbruggen.md": {
-   "bytes": 10439,
-   "sha256": "34bdb363db3e34b4aa256ed3ed8bf8498dd01043f5f029ce484ba5ea1006f6ae"
+   "bytes": 10709,
+   "sha256": "02196421674f09f7ab7429b768eff069a648ac276ff9fb0b7b4ae748da0d82ea"
   },
   "data/players/brighton-vuskovic.md": {
-   "bytes": 11133,
-   "sha256": "8a41050e19a60c4386320048e707f60cad3338ee211ea11a2e88f5fb44968bc3"
+   "bytes": 11354,
+   "sha256": "5e65505c65578e9fdaa29f4f53c142d27f39735ef1186043e9ebc6ab7c9c9921"
   },
   "data/players/chelsea-joao-pedro.md": {
-   "bytes": 10117,
-   "sha256": "2ef0dddd912806e554c0de82af9d7c121400e2b3fa1f35cbd43acf219a7cf53e"
+   "bytes": 10212,
+   "sha256": "6bd166c1e3c3efb526736f89b41bbfa24f1b40e3ba9764823ffdbc87e71aab7d"
   },
   "data/players/chelsea-martinez.md": {
-   "bytes": 9190,
-   "sha256": "e3594eac1b7cb237fcd00d546a2211c5ac5cbb90473e218d28a0f2f761734a87"
+   "bytes": 9527,
+   "sha256": "9f96ccbc7e11227da9be88c4339956dc3749a3d2051eee6b894efe249f8a7488"
   },
   "data/players/chelsea-neto.md": {
-   "bytes": 11231,
-   "sha256": "dedc3a38d731f0402eacf371acfb9f4c25e397c9e81d4f5194f08991b68d76ef"
+   "bytes": 11456,
+   "sha256": "212b36792c891c647a17d9fc1ea3533b55fde5ae994f55f0add8a26776c6cf4a"
   },
   "data/players/chelsea-palmer.md": {
-   "bytes": 11415,
-   "sha256": "c3aecbc33496da5b5e9b23860d8688787df18b490bdc19bcb32e944c25f3c4c1"
+   "bytes": 11607,
+   "sha256": "46ab4a1c46bd4c0c7e4e58d7fafa729da4c4a295da7b93e81fa19767e92700e9"
   },
   "data/players/chelsea-rogers.md": {
-   "bytes": 11055,
-   "sha256": "0210a91daa117fd0b2a67f8f5a06a59999bd0f835c9627a552fea907be7d8818"
+   "bytes": 11290,
+   "sha256": "5b10e48b8e37cb62e06e88d0a231878ac2d35720a4abe06e7027095313cdb42a"
+  },
+  "data/players/coventry-ewijk.md": {
+   "bytes": 9210,
+   "sha256": "3ffcac2530b2d83eac448e6bc7a5e853b9c45b17863eeeb0a1f68510c0c512a0"
   },
   "data/players/coventry-rudoni.md": {
-   "bytes": 10429,
-   "sha256": "3b6cb33836467bc51be76647690e88c3db4d42d50666f909fbc6c3c84e4d9a8d"
+   "bytes": 10624,
+   "sha256": "3faa61208bf010dc56006939b408f25b100669578a04d4d5a15fb027ff62a4aa"
   },
   "data/players/coventry-rushworth.md": {
-   "bytes": 9774,
-   "sha256": "eca31e6ef636ac051067c4b8515fa4aef91d4ce9e28f3e0a0198e01604a7fab1"
+   "bytes": 10018,
+   "sha256": "8fc3a2c783e39bcfe3183960e5fa2958c98fa0d9878cb9075b49cf4e115a0712"
   },
   "data/players/coventry-thomas.md": {
-   "bytes": 10170,
-   "sha256": "8ba785a22a510a672b11f161415b49e2b39b14ad822bb72fbbf61a4b2436c9e1"
+   "bytes": 10417,
+   "sha256": "7862350301d89e15b76c1660a9d1a05a4ca9b2524cd7078f563b5a18028c88e1"
   },
   "data/players/crystal-palace-ahanor.md": {
-   "bytes": 8457,
-   "sha256": "806e62c8c473e53dc988774e661825c7390e9e3c3277bbee3dbcfafff21ac25a"
+   "bytes": 8498,
+   "sha256": "d8b448e3ffff8f8c0d131ba0a7378b79cf1eaa2ed9912c94f2f24bb53fa1fd9b"
   },
   "data/players/crystal-palace-disasi.md": {
-   "bytes": 9303,
-   "sha256": "dcbf7414f4961f45b89a126ff6b026124965304a8af41c36164e495b3a6a7fd9"
+   "bytes": 9544,
+   "sha256": "3637470bb63693eb4347d7a60338ec1b36f91431b4a161df4ed6ad6b0af9cbaf"
   },
   "data/players/crystal-palace-kamada.md": {
-   "bytes": 10342,
-   "sha256": "c2e7678f93f36e3f95f2f3da91509d548c47f9fbb9fc1408079ce0b770194a0a"
+   "bytes": 10804,
+   "sha256": "993b92e6cf70ad04120e47c723d9e4c140f69bcd0b4b3945b39977c6bb45b846"
   },
   "data/players/crystal-palace-khalaili.md": {
-   "bytes": 10653,
-   "sha256": "772695bc27eb2b037f48ae6434e1afa5f98d0ed730fd5767cab2def214cea94b"
+   "bytes": 10914,
+   "sha256": "9fb78b2e719114d4dbc5bf7c475b1b467d885d33c4c2cbe6b6e448d1f3d9ec6d"
   },
   "data/players/crystal-palace-mitchell.md": {
-   "bytes": 10667,
-   "sha256": "a5e0fd8273a0c044c1a3d710105c305a58d5b31c2d1a7d1ea320eee97b772fd8"
+   "bytes": 10876,
+   "sha256": "71aabecd0f93c26bc47d761cf50192086620c4b210a7e64dde00494cd22ed528"
   },
   "data/players/crystal-palace-richards.md": {
-   "bytes": 10147,
-   "sha256": "660a8829ba92a11920339395682a6159f298584bc59ada37f278015f7306be6e"
+   "bytes": 10430,
+   "sha256": "d73d85a50b7599985a094dd2e67e3d68f8b2a87fd549b4d08bbbef2e5d6b6725"
   },
   "data/players/crystal-palace-strand-larsen.md": {
-   "bytes": 10645,
-   "sha256": "4a19923190d26fe17cda447b2e7a1b71f8bc974f54dc34ee56c75387dd172829"
+   "bytes": 10706,
+   "sha256": "d38abddd36fc1f1f134ae6127a61932cc25a9f14920637cc6776bab9f030e01e"
   },
   "data/players/everton-barry.md": {
-   "bytes": 11368,
-   "sha256": "ebae86e89ae888a1d975ff142b0ea8da2a7061d6d74d9303a2b55257e4af0981"
+   "bytes": 11627,
+   "sha256": "e22d23b3fa1c5cb0403a3a694de71c9b9ca020db501ade7ddd76af9829b97e75"
   },
   "data/players/everton-branthwaite.md": {
-   "bytes": 10191,
-   "sha256": "881f488cc4bf59b55a7cdb7238b3080f6c5eec30911166e5e02849e97291ef01"
+   "bytes": 10393,
+   "sha256": "07a1020c7b3ada11846629a75eafb67de8177af590b2d8499119de7c910f68b8"
   },
   "data/players/everton-dewsbury-hall.md": {
-   "bytes": 10825,
-   "sha256": "47341992691302dc18de5a3b06256e4fd058d6fd3284a4ef2ffe1aa40096dda2"
+   "bytes": 11103,
+   "sha256": "9f83257134e5f045a0eb8d0a4e723f696969d55315f8a8a42effe52c68dabe01"
   },
   "data/players/everton-george.md": {
-   "bytes": 10260,
-   "sha256": "d728c16781d75bce12dffcd39388d6c5b27d542d14fa33d1fb245d6ab50f1a42"
+   "bytes": 10551,
+   "sha256": "f36c3c83f45aaa5b7662c5938a4f68e9371d8834fa9c03585b35294ab61d0623"
   },
   "data/players/everton-maitland-niles.md": {
-   "bytes": 9228,
-   "sha256": "ed5f9b75faea262a9426271cc7b136e4bfdc5cb3987f3ce7157b8231b45980bd"
+   "bytes": 9294,
+   "sha256": "6308aa7b2e97f4ddbafc49930e78e16692eb30ae9e7d14bdd70037f2af4d9ca9"
   },
   "data/players/everton-mykolenko.md": {
-   "bytes": 9567,
-   "sha256": "8d2f33c6554b0e36248bd55f0d770d0e27fdc5cd50ddd9b79c524d7f57a31651"
+   "bytes": 9786,
+   "sha256": "ca8e41ebfff8018c9b983883e7d220889c5cda5ad348b02e2152fcdcfc288c18"
   },
   "data/players/everton-pickford.md": {
-   "bytes": 10026,
-   "sha256": "29567facc633185d13a221b769d6bac610a2895d3f5354d8ea9bd904eb5f4416"
+   "bytes": 10301,
+   "sha256": "9d7d1216c83721c069f9702c6f1a78a0ed42689b3ffcd0bd588d02449a07c19a"
   },
   "data/players/everton-tarkowski.md": {
-   "bytes": 9634,
-   "sha256": "d17711a267d6c35fd16a1d803523d085a4dcfbf4b055cc8fa757e987c575d865"
+   "bytes": 9918,
+   "sha256": "f2c10cb5d457d329a50ab363a6245232f66e3ef71190128ce7d4950ac7c0eb05"
   },
   "data/players/fulham-castagne.md": {
-   "bytes": 10234,
-   "sha256": "5c87d76f738422e0891af3772468f82bf2d00df59f8eaccf0af505f96068b910"
+   "bytes": 10303,
+   "sha256": "e0de072d19b587e51b3d4ec6dfefeb713af0eba5d7fa03563edde1bc27ef74f6"
   },
   "data/players/fulham-gonzalo.md": {
-   "bytes": 11367,
-   "sha256": "4a6710d4768da55b6dd966692ea01453092843825997d645bc2d43fc9a29aafb"
+   "bytes": 11574,
+   "sha256": "474902f2f820c05475abe7383e949b04e5d56b27b4dda25337cb89d46d1e68b3"
   },
   "data/players/fulham-iwobi.md": {
-   "bytes": 10734,
-   "sha256": "da7e9a58ad1ee6777ea4ad6faefdaac7b1c4c4ba78df700bfa975dd84d6febd7"
+   "bytes": 11094,
+   "sha256": "855cdaf132f73afebe62e814ac4826a7eba72ffd303f51bdddbcee3b1d37a385"
   },
   "data/players/fulham-king.md": {
-   "bytes": 11140,
-   "sha256": "2053700e61ab26a711b6912f9817e18d8a11ff7cd2540cc10b5406431c9d5840"
+   "bytes": 11419,
+   "sha256": "149fa629a5f55328d1249cf9d27df6c2b4b99cb67997c3ca348104c911441a76"
+  },
+  "data/players/fulham-leno.md": {
+   "bytes": 10161,
+   "sha256": "9c56c8c0b125a43feebb71380a0636df905572071fb38b2a66513928225274f4"
   },
   "data/players/hull-city-ajayi.md": {
-   "bytes": 9907,
-   "sha256": "8b81df1b455c087197fb306e02f95820655b0b587bb0de6fb98517a96a1ba6b1"
+   "bytes": 10177,
+   "sha256": "49cad5cee4f41ab18807072ed5b71bd55e0ecd9af8b3c91149ddf36a5360bf57"
   },
   "data/players/hull-city-belloumi.md": {
-   "bytes": 11228,
-   "sha256": "b613c4ef22a8e472864970ba2667b84157c33bf885e26ede44d7875331b49866"
+   "bytes": 11408,
+   "sha256": "ef0d8784f62bf1b2b002e839f627aabb90ca716a5e1908ce26fceba5c2c7f15f"
   },
   "data/players/hull-city-egan.md": {
-   "bytes": 9832,
-   "sha256": "09c922923f37ad2087d4f1a2a7bfa040aaf2016d4d0f39171d4d48d1446d5942"
+   "bytes": 9945,
+   "sha256": "7cb936bca617a86e3224fc2a02b4f22c7a061dc1766de435472d69f0b49ccc94"
   },
   "data/players/hull-city-giles.md": {
-   "bytes": 9694,
-   "sha256": "1bad865790f589e3450055d261bdb6d3a6778ee6d6924d2cba51b1b3c5d877ff"
+   "bytes": 9885,
+   "sha256": "08a167e585bac1a4dac7d223d6d1a968ae2ad8b1ea8dea7f5135f4a3ff3ee019"
   },
   "data/players/hull-city-mendy.md": {
-   "bytes": 9979,
-   "sha256": "f91374e55eda6b3f43b63f42749088dabb058f956fec92b73d82e0e0793420cd"
+   "bytes": 10073,
+   "sha256": "eceaabe8c0e2077ffd38e6dff6a0c4e3d8c242e86414e707cf842932c5583677"
   },
   "data/players/hull-city-slater.md": {
-   "bytes": 10016,
-   "sha256": "784be137984bcd8d87786b78a4ccd41fc8fbf9df2771a3e02e2f92e439a17da4"
+   "bytes": 10281,
+   "sha256": "cef2bc066e7e9a6460ec16d742c65a894fb1a0fde51937f8b1afe3f197c77ddc"
   },
   "data/players/hull-city-tzolakis.md": {
-   "bytes": 10014,
-   "sha256": "725181ed24f67215e1e494552473922125dd162efcf7d1113132be1065a37bd0"
+   "bytes": 10285,
+   "sha256": "6e8a9bf33c89c08f9043ac2e0bbfdc9740280ee123d29a7212c727d74500c869"
   },
   "data/players/ipswich-davis.md": {
-   "bytes": 9629,
-   "sha256": "8b751caf2218c5ddcef7177afdd13bc9be0c2ad79b0c0399f83f938aeb822571"
+   "bytes": 10136,
+   "sha256": "497e924dbe3c91c70a414b62865b1c965d90f792cba6ef9f226d0b7553689586"
+  },
+  "data/players/ipswich-diop.md": {
+   "bytes": 9817,
+   "sha256": "af37374a20fed1d10db9f2b52a78a919bcaf9a520aa5766eed5a0a9587810ec1"
   },
   "data/players/ipswich-emersonn.md": {
-   "bytes": 10818,
-   "sha256": "4a8d15a89550c6aebab67d5d58fd90d33ec8112090d3a996ed96de450e1d6fea"
+   "bytes": 10987,
+   "sha256": "61999261d738426562be595b54effbab70f67356be23001f12468196159e1c87"
   },
   "data/players/ipswich-enciso.md": {
-   "bytes": 11667,
-   "sha256": "369a82de0b2b26e79bb872aedb7a603d5a4285cbb8de7d34c4af257db4feb9d2"
+   "bytes": 11920,
+   "sha256": "4157dd7fd4f0378d6b93cc363e71180130d94a87594dffc1bcf0ca68eeb87b84"
   },
   "data/players/ipswich-flemming.md": {
-   "bytes": 9156,
-   "sha256": "02dcafd56c61f3f91f5a8f9e7fd48416387d1a84d36dac61a6ec57ac882378ff"
+   "bytes": 9709,
+   "sha256": "c3488d1c3d9f5df0b7604b295ba9af2bb0d4a994c39bbb8be28bbb787dc0f737"
+  },
+  "data/players/ipswich-greaves.md": {
+   "bytes": 8885,
+   "sha256": "41172328fa49e8e3f02af3746740c35e67f11cf786d3bfd4a2c07ac0da5c97bf"
   },
   "data/players/ipswich-oshea.md": {
-   "bytes": 9854,
-   "sha256": "8c2a52ae61e1f0d3d0ba49258c7d20b0c93786bb2fe6d296879d3b2d6dfb1196"
+   "bytes": 10075,
+   "sha256": "4f28f1d2da554d3001835d6585389c6c1630a7d916bb1a62458652166b8b4504"
+  },
+  "data/players/ipswich-walton.md": {
+   "bytes": 9078,
+   "sha256": "00dcc3d9dc8a68d5216d806c60bbc372645001b6fc28629f5d015e2244024efa"
   },
   "data/players/leeds-aaronson.md": {
-   "bytes": 9029,
-   "sha256": "60cf3d5569fe8856e3fb9d1105a9758f4879848978556e79071414fe2c16c3d0"
+   "bytes": 9193,
+   "sha256": "55991e2fe1cfef08aec805fce344c3954c6b28bc4b369e098218737a1ffe06bd"
   },
   "data/players/leeds-bogle.md": {
-   "bytes": 10472,
-   "sha256": "cc7c26ff6e4c6027e492ff9668309a38a0bd524a2d3ef31dbacf40e4672e7c10"
+   "bytes": 10741,
+   "sha256": "b37c232c0f4e4dec50958c16ecef960efed6f80752bc69899244430590c8cc78"
   },
   "data/players/leeds-calvert-lewin.md": {
-   "bytes": 10678,
-   "sha256": "badf58ff4148d198b5cc765cc5eef075017ed244be9703380306e0b19d00620b"
+   "bytes": 10832,
+   "sha256": "250b80f2457c6b45722b8c649918a6c3af6b5671f513c4994031e48dc0aeb322"
   },
   "data/players/leeds-gudmundsson.md": {
-   "bytes": 9775,
-   "sha256": "7e6836f72e4c0ff95837fc81698ea220cd9742ec074d79d84d82ab027559e0ab"
+   "bytes": 9951,
+   "sha256": "64fea51e879a3f780c0cb1cb100954c9051582b470ac22445f198bddd62ffb50"
   },
   "data/players/leeds-justin.md": {
-   "bytes": 10428,
-   "sha256": "9d66553ded6fe8ac1608729b9cc2b7548269872252bb02acaaaf5c0d756b5529"
+   "bytes": 10398,
+   "sha256": "dd8a8640533a2569d715955633a5af740a55d4884f15b68bba5efa94d9246a02"
   },
   "data/players/leeds-muharemovic.md": {
-   "bytes": 9953,
-   "sha256": "d37295f7565ddcdd84a1be5ef95ccf28dcf1fbea681b6dd4c4cfac9bc7e36d37"
+   "bytes": 10210,
+   "sha256": "8bf59bb30d213900f5e0a676db30f8836f857e3ac38a70f510c9807a8c9bcadc"
   },
   "data/players/leeds-okafor.md": {
-   "bytes": 10106,
-   "sha256": "04badef628e0485ee80374d5c1b4f72cea76037bdf1973571ebb2828d570a7b4"
+   "bytes": 10364,
+   "sha256": "ce0e7c648550d5de2356ee911cbfcf3aa5844e610a937a17522e339343f72945"
   },
   "data/players/leeds-stach.md": {
-   "bytes": 10208,
-   "sha256": "e3fb722090f71995d310ad39612d700ea2607e19b766443fafe044af2f91e33a"
+   "bytes": 10300,
+   "sha256": "bb468f975ba6b8bfab337787a52b70096ae83848dbfa916e0de6dad68c2ddfa9"
   },
   "data/players/leeds-trafford.md": {
-   "bytes": 10055,
-   "sha256": "10611fa517aead8a899bd9113d6faedddb1a1706360d83f8b0bc7687ec610646"
+   "bytes": 10318,
+   "sha256": "32c5842db9a7c3cb60e93e61aec8e2f133136db8a8bc722694e1eccf01dd1816"
   },
   "data/players/liverpool-alisson.md": {
-   "bytes": 9219,
-   "sha256": "635d6582a286e7ac5be3c230fc618a9d73ca24980860ace275fc925b57f0f9c0"
+   "bytes": 9524,
+   "sha256": "323a08dbf67f92a6da6410b0d8bd1753048e586bb410364ecc087dc201af27b2"
   },
   "data/players/liverpool-araujo.md": {
-   "bytes": 10147,
-   "sha256": "de33e2394e7ad8c0c3e01835663188d489f6471d1d5e173c21a64139c3d0cbd1"
+   "bytes": 10465,
+   "sha256": "ccac8a303d974252722df9837a4ee722cf03b0e350d596d54ebfd372a2c6dcac"
   },
   "data/players/liverpool-barcola.md": {
-   "bytes": 10504,
-   "sha256": "a70f45bda2bdf3dc99da80f936b578cd81de0453adec09e6324573dc855d743d"
+   "bytes": 10843,
+   "sha256": "ee5e0d81fd326c9eb45676369a52353ffe5f58cc748d12e962576334f9787c36"
   },
   "data/players/liverpool-gakpo.md": {
-   "bytes": 11173,
-   "sha256": "663797577add0998d66506d0ca8e97de25c3f79e348ce3e3b13cc2cd32d71ef5"
+   "bytes": 11327,
+   "sha256": "8a9c4bd79cc8d8552827eaef9abed55ee4ec8a56570345b68ceee085f33b8953"
   },
   "data/players/liverpool-isak.md": {
-   "bytes": 11200,
-   "sha256": "89e521b1312dea1631fcef3bb4fdf158fd8d4e4ae617566f4be4067a30b86360"
+   "bytes": 11549,
+   "sha256": "491ce28a67cc8dd94c01f55ce431b7bc566f475d28336e500c6bdd4bcb1daa93"
   },
   "data/players/liverpool-jacquet.md": {
-   "bytes": 10244,
-   "sha256": "7f6aadff3322bb50fa044ddc6d0e371fd6ebe4ba3c37d6f38cbc72661a187b50"
+   "bytes": 10474,
+   "sha256": "6e0cb276f92a3f62a838d19b1ee33b0a2368a9f0c9df5ac0145d56f1c1c25c6a"
   },
   "data/players/liverpool-szoboszlai.md": {
-   "bytes": 10767,
-   "sha256": "c4a4c79383fde8b51f572b85405c4883bf49d759252fea4a071743d1ec42b919"
+   "bytes": 11092,
+   "sha256": "fd5d59ffb8c879156776a02049d776297226c08d37ed83d4712e48f5689edb61"
   },
   "data/players/liverpool-van-dijk.md": {
-   "bytes": 9954,
-   "sha256": "b397a1e13996d2afb941ea712e59da758847d97c623971abc326c15c719c869d"
+   "bytes": 10150,
+   "sha256": "01b7c8bbda4594ad5ec2abaf10df74b5ee4a50964c84eb5dfb15acf902de22e9"
   },
   "data/players/liverpool-wirtz.md": {
-   "bytes": 11314,
-   "sha256": "9501243f9f8a52cf11c2bff187ec23484f91ef52f72504fdaf340d56393f52f2"
+   "bytes": 11553,
+   "sha256": "22cffb44a2308c33a5d59ee996e8c11550874a009cfa9f0526de07631a0e5886"
+  },
+  "data/players/man-city-anderson.md": {
+   "bytes": 10591,
+   "sha256": "acd19c792b60ffafe99bffffebc4ff3b93fcaa3da49b2469d6bcbc3e9f6f5502"
   },
   "data/players/man-city-cherki.md": {
-   "bytes": 11150,
-   "sha256": "02de0ff0080cc8956da3960cf837e5a82e3a1667014958bd7db1db6b3d8e1055"
+   "bytes": 11276,
+   "sha256": "8c776f01cc53554be6736cabd7772cac623e259e29f74738b50d1fca8578ecb9"
   },
   "data/players/man-city-doku.md": {
-   "bytes": 9599,
-   "sha256": "bd946aff101b2fc77ebba3f10fade1593d056f2c90de16454de6cc99e6a016a1"
+   "bytes": 9784,
+   "sha256": "0e2f18dd6643c7015da31b6161038ac15801e4c1d2e37894e8a532902103c62f"
   },
   "data/players/man-city-donnarumma.md": {
-   "bytes": 10371,
-   "sha256": "b230d8f7b844424e7f0a0d52b301beefa8a4db3d21d1b1888537e8be827d8330"
+   "bytes": 10617,
+   "sha256": "a265b196fcd5ffc1eedb82fcd4a5dbe4e9243fb5e69f639058317fd7b6630222"
   },
   "data/players/man-city-foden.md": {
-   "bytes": 10318,
-   "sha256": "77280cfe0ea003610cb20314c0609185a5a4b8ffb515c6efe2b69b869f5cf651"
+   "bytes": 10571,
+   "sha256": "c274c5952fb9704ec090c77040555f56ba4b936514503aee71c96a2c3dbcb5d6"
   },
   "data/players/man-city-guehi.md": {
-   "bytes": 10388,
-   "sha256": "fe6a6a39f7a49fdd957b8535c0ea1a4ccc31b3c5758cd6f8676577872aca095a"
+   "bytes": 10424,
+   "sha256": "5c1d3250b10e3e1cfbc71548053f5d5ab69111297c6fc8ef89c55e1d1461eb73"
   },
   "data/players/man-city-gvardiol.md": {
-   "bytes": 10753,
-   "sha256": "f32300d6abfc2e6ba2d4402f9550691bc88a33251d78b597d1745c5ae1bef14c"
+   "bytes": 10806,
+   "sha256": "cc98d734750d3d1ad19a6105ccdf0d19f9eb112c984a93275fa1fa7f66fbe276"
   },
   "data/players/man-city-haaland.md": {
-   "bytes": 11696,
-   "sha256": "6ebda825027abe6a52ed29b0beb6faa451781691917eb2a05b02eb65a7e2b9ad"
+   "bytes": 11929,
+   "sha256": "c775d76af718d759b2223c9fe120c903aa9bcbda95b00bb2064d061255e69b70"
   },
   "data/players/man-city-ndiaye.md": {
-   "bytes": 10947,
-   "sha256": "1d34891df825a85e26e5f4fe6c45ce01c60666496a9ca8d74cfd8d238f650b65"
+   "bytes": 11218,
+   "sha256": "97b959a6f692b7c8514595b7ab3ed10beea81b06fb5183a057f13c258264e76d"
   },
   "data/players/man-city-oreilly.md": {
-   "bytes": 10491,
-   "sha256": "b78225b9a845b0be8b3b1ce23a5709205a2e09a93f60833c2a7ac00bf619ed8b"
+   "bytes": 10714,
+   "sha256": "f85901e8a49679a897f6fb2040b984a868ced97bc1a9af91315f57523df7807f"
   },
   "data/players/man-city-semenyo.md": {
-   "bytes": 9887,
-   "sha256": "aa96d23a9a80a5e42386010376ca21e827e740b025b8624bf85084137d6d6669"
+   "bytes": 9936,
+   "sha256": "cede6127905af7aab0066e25442c5dda13ddf1902aa9e588016523120e1bd933"
   },
   "data/players/man-united-cunha.md": {
-   "bytes": 11340,
-   "sha256": "1d26fa42a79472d65cac338f62e187cb94bc487cbdea44449a27192be0b62284"
+   "bytes": 11710,
+   "sha256": "563c13227a48f67f887a88ee1e233431799aee7577521dcbbe618a3dd06092b4"
   },
   "data/players/man-united-fernandes.md": {
-   "bytes": 10986,
-   "sha256": "f44ac32bc319e035a68666561dd90abd341f8e4e36ea1dcc9ff5b04c59953585"
+   "bytes": 11220,
+   "sha256": "26c61f32d8fa00573f792deb4728f4b91c19e29ed226df12b04a9fe6e585b535"
   },
   "data/players/man-united-mbeumo.md": {
-   "bytes": 11825,
-   "sha256": "563be925b5cb3d1c466a4f1aa4a63267a6fd91ebad9458133e04b61f03a8a9ad"
+   "bytes": 12125,
+   "sha256": "62609649117c5b8347b1b25420bd86a08a12da5feba72fb6ce390d78f6c51ae6"
   },
   "data/players/man-united-shaw.md": {
-   "bytes": 9194,
-   "sha256": "e5a8a6f6806e6cf4cf809425bb07a6a7311fce4541288f03bef96d0576e3ba88"
+   "bytes": 9236,
+   "sha256": "1b5a86471232884d812e2eaa511382713b68f445bee0abe925fec11cd54bf08f"
   },
   "data/players/newcastle-barnes.md": {
-   "bytes": 10833,
-   "sha256": "2f8cc605de37f988cff494cf061d36c66af9dd375ce607f49816233f9c71ff8e"
+   "bytes": 11042,
+   "sha256": "8db09ec676142a6321a4dc8907577198a0e6ab9463dbac5018083df20ca63f4c"
   },
   "data/players/newcastle-dedic.md": {
-   "bytes": 9812,
-   "sha256": "e56ee25a7f3bad5c5e70798f42ae84d30679e65b58c448da87f92ab1b2913b93"
+   "bytes": 10168,
+   "sha256": "54dc3870fe8859f116f4c8672a5c05169fa12a7f3baaed18c234ad41cba95aec"
   },
   "data/players/newcastle-elanga.md": {
-   "bytes": 9508,
-   "sha256": "2ce1b02550f242cf954f7c446830373457949ea68b6d8e3d424702f39bcb8819"
+   "bytes": 9622,
+   "sha256": "52ccac56865cffabaca0d1ff7784da387a5fdc15f340ddb9518d968e2c206226"
   },
   "data/players/newcastle-hall.md": {
-   "bytes": 10162,
-   "sha256": "1101df635ef47990a6d1c0300baf232810ed98467819d84cf885f4222db38291"
+   "bytes": 10598,
+   "sha256": "9a246529b0c94a1569086dac70b4430901d57312e56114b3034873da8a756824"
   },
   "data/players/newcastle-hornicek.md": {
-   "bytes": 10095,
-   "sha256": "ba92333a03a7df7f12c06b1cc8470c2ccecc7f19c23fa2eaa4f84b638653e97d"
+   "bytes": 10339,
+   "sha256": "590f6e341db6728ba1a67be503d833730f32d4c7286d8708a8c8a592f2da44cc"
   },
   "data/players/newcastle-willock.md": {
-   "bytes": 10695,
-   "sha256": "876513587370adf30344e94c7ec16f8e18779835184164d0929a25a17fd5c5b3"
+   "bytes": 10988,
+   "sha256": "b7eb50df341a769db75ef0c6b5c6736d9a31457b81284d69106a984e750c8c1c"
   },
   "data/players/newcastle-wissa.md": {
-   "bytes": 11007,
-   "sha256": "ac5954284aa890146ce047b5407cd4c36caa6c5b6789b848a80e45126eebdc5a"
+   "bytes": 11441,
+   "sha256": "bd3c392832644b209ee72cfe7cab6e02562e135c9b7ad99e2fb103e18a0b101e"
   },
   "data/players/nottm-forest-delap.md": {
-   "bytes": 10961,
-   "sha256": "77a3b93a286c325edd61bf1c98ce7670cece65d25724b651b8391cdf028a9d05"
+   "bytes": 11149,
+   "sha256": "807d6f0958385b19df3c8e13005fa3dcba6f8a562efbf22626b882efe8f126e3"
   },
   "data/players/nottm-forest-gibbs-white.md": {
-   "bytes": 10391,
-   "sha256": "b23121fb2a12f662e8226dafa608d829cc40556ecc12002f9a4e3c11b88260a7"
+   "bytes": 10595,
+   "sha256": "fa4a39de2fcf649be6775eae26d416c1dca8aafcb8265f272925257c8a54155e"
   },
   "data/players/nottm-forest-igor-jesus.md": {
-   "bytes": 9559,
-   "sha256": "238c960daa1f53f8ce131775fd60035901bba37754de98425e7e8b3f8155f96a"
+   "bytes": 9786,
+   "sha256": "fdc499926852945d6a2c3016c53a7b0f509c10f3357fa2936d51d2e2196744cf"
+  },
+  "data/players/nottm-forest-mcatee.md": {
+   "bytes": 11009,
+   "sha256": "999362ffb1ad9007a1c403c91d31eb7368e416c8f185c536ff52f466736c9d73"
   },
   "data/players/nottm-forest-munoz.md": {
-   "bytes": 10103,
-   "sha256": "6329120814cc5e846dbd5aee6f311b150ddef732b66ce48330d77e5d757cb40d"
+   "bytes": 10438,
+   "sha256": "dcddcf8466b09b851f4175caf1a2a980d97543595e6f02675fe70f1997878252"
   },
   "data/players/nottm-forest-murillo.md": {
-   "bytes": 10658,
-   "sha256": "0c8eb2b7fa3ea524432600b6dd684cf1004230d2771087b4511d23ddb493c8b6"
+   "bytes": 10881,
+   "sha256": "4a418443992d9fc1c096d53f381e1364a75608f500acb89bc224f575e5d131e5"
   },
   "data/players/nottm-forest-ndoye.md": {
-   "bytes": 11619,
-   "sha256": "13844d786b4e775e855080ec302181e916da1c0868849a9eb25aee8f2e16fe83"
+   "bytes": 11923,
+   "sha256": "fa76c8b5f514fe3cc30814922b1f916f341b2f4268a38ff48a1b1747edbd267a"
   },
   "data/players/nottm-forest-neco-williams.md": {
-   "bytes": 10744,
-   "sha256": "d72a88039ff3e31078fc190e5dba68a6c613d229263686fe78d418ad6c96048e"
+   "bytes": 11010,
+   "sha256": "01bca3dae6fd0200d81dbaeab0684124b864f1cec1c293612d3d7d9463cc2822"
   },
   "data/players/sunderland-brobbey.md": {
-   "bytes": 10567,
-   "sha256": "7e599853d0da4c043128894052a613cae7312757e2e7ba33f6d2467b743c88c0"
+   "bytes": 10630,
+   "sha256": "c7b5c62875980a0ef74cdf93693c41ea5b3275fc19c422e7d24c1b35a11990d8"
+  },
+  "data/players/sunderland-fee.md": {
+   "bytes": 10954,
+   "sha256": "a155c43cbbd594dbb70aad49a1c24f6a3249796d04b81796013b7212a79f04a5"
   },
   "data/players/sunderland-hume.md": {
-   "bytes": 10230,
-   "sha256": "6733252eb8d665e44023461b8afb64d6402e0547ddcdbc8bd809b861b5a9acd7"
+   "bytes": 10257,
+   "sha256": "cb6ffa2431b06b16327e6da1ef0377db2d7416bcea82a81ac763d7ecb850d3a5"
+  },
+  "data/players/sunderland-nien.md": {
+   "bytes": 9483,
+   "sha256": "6a8491d5fe8a0fa2c98e9b9bb2c8d59ad6e322ad3cc1acda89331d438c8d2e53"
   },
   "data/players/tottenham-bergvall.md": {
-   "bytes": 8420,
-   "sha256": "dc7ac1a1264061555190a6c2a767729437ad0a2b6b606f218c8014d9cece828e"
+   "bytes": 8710,
+   "sha256": "ec681d959d47c5033fed3f768916fb6600ceadfecb449b89f92216453c9afad2"
   },
   "data/players/tottenham-dubravka.md": {
-   "bytes": 3824,
-   "sha256": "6de6beff0aa0b631b4af0a91a0d81d422dbdd817c503be3731a00b27ed868713"
+   "bytes": 3861,
+   "sha256": "ec6c1e856b7a8b2d5b1bcbadb91962a229b463ed38a67c5a23774c43b76c4af3"
   },
   "data/players/tottenham-gallagher.md": {
-   "bytes": 9832,
-   "sha256": "1a63a9239f0214e5b9fc4ec4c35ca3a47421f4c8fe68d5f0e9629e49179130f9"
+   "bytes": 10119,
+   "sha256": "bd02d35461f8d5f41824e955cefb9ba43b4ae2d1f34610d7b97f3a8ae4f1b3e8"
   },
   "data/players/tottenham-kinsky.md": {
-   "bytes": 10048,
-   "sha256": "78c8db9175656d68870bb009b0a3b2988d3fa7865740b635bd97cb6e37460781"
+   "bytes": 10303,
+   "sha256": "c969823475ecd28aef2d756c1fce39678b101f39b3bb047166bcbdb22cedf088"
   },
   "data/players/tottenham-kudus.md": {
-   "bytes": 10206,
-   "sha256": "00b7dc9e4dcb321fa92a86c10b3390ce8d9c0b454eb294f935f6e630a10ba7d0"
+   "bytes": 10415,
+   "sha256": "782c007d37916ecd24ea20bba7d405a67dedc4d74ddaba67b8dad3e2b3845998"
   },
   "data/players/tottenham-marmoush.md": {
-   "bytes": 10706,
-   "sha256": "714f9ad9fd78c296643f1b2a2b96a0c140bb981089d801e69e4c913adf515d50"
+   "bytes": 10911,
+   "sha256": "692140ad3284d2253f1898d57bb221c74b54b76f0a61ac6051069ff3fe2990b5"
   },
   "data/players/tottenham-porro.md": {
-   "bytes": 9698,
-   "sha256": "ae39a8b30cf7e8fc1428c7bdee50e143011fd67378d4b2d9813a9e3358e3c42a"
+   "bytes": 9936,
+   "sha256": "3b68b9c095363ee2cae57ca2e254b16702c773313fcce682d2724f0d8c036318"
   },
   "data/players/tottenham-robertson.md": {
-   "bytes": 10071,
-   "sha256": "a73a9b2462cba5268eba8d174d292cef6b2fbaf8579e7b9668f16551147615ba"
+   "bytes": 10228,
+   "sha256": "38db1c4f5a47397e3819353108c1c06c39cc3b5d03d6ece7bffddd4522c0133a"
   },
   "data/players/tottenham-solanke.md": {
-   "bytes": 10614,
-   "sha256": "c165b3a3312de58f6a88d448015c530623e9b1a7b8aebee7ceb9f1df4c42f9a6"
+   "bytes": 10900,
+   "sha256": "f8c6b93df1929ae3f35a36633e83445b9ce1690b99c3fec4dcbb04cc6a18a2c0"
   },
   "data/players/tottenham-tel.md": {
-   "bytes": 9937,
-   "sha256": "14e5af66f91e9e201fe48460a68b103e3ba94781abcdb61c3987c8ed23e013c9"
+   "bytes": 9979,
+   "sha256": "41f32ed209f0549b84ba9a8ad424d14f33c5bcbdfe26e1822d0ac8a1244b8c10"
   },
   "data/players/tottenham-van-hecke.md": {
-   "bytes": 9955,
-   "sha256": "3493cd4f771e8786468ad7c323a382988175ce75f8eb5e47fdb984e17fb8ab12"
+   "bytes": 10192,
+   "sha256": "898d3e75518227c0d08c967e6be2643e761803631acd4d30d0e0c91961ad5193"
   },
   "data/teams/arsenal.md": {
-   "bytes": 25644,
-   "sha256": "5425491c56780286e6c744ee27198d58f1167d5ea6a103de7e95c3492bf5a9f9"
+   "bytes": 26391,
+   "sha256": "6e7e21f54984d4152b9aa7cdcc3fdf4a174b7bee57ebc9c8b330808e6eaf84fb"
   },
   "data/teams/aston-villa.md": {
-   "bytes": 31361,
-   "sha256": "b6d5fe884e309a3852c7e1ea9cb912042f33d3fa1d9c87afac60834160455aae"
+   "bytes": 29539,
+   "sha256": "dcb775b3041067cbb8811f6d18cfb25322831b937cc9909fda61c698eba72cda"
   },
   "data/teams/bournemouth.md": {
-   "bytes": 26572,
-   "sha256": "a896f7d843e020db5aefe9a6a6f659dc23be50891fbe5fadd37993fb749aa435"
+   "bytes": 26160,
+   "sha256": "50624f71f9ed63d3bf6ad00ab22a7bf9bdee07d603a87abceab5757a44c0e1ea"
   },
   "data/teams/brentford.md": {
-   "bytes": 27523,
-   "sha256": "a5448404158df897ecf3bfad63502759d666f1e6307fc987c69f68b5e1045f03"
+   "bytes": 28275,
+   "sha256": "9329398f69df7dad065b0057ff79e4fa4b8bfb87c01d68b1def7c91a0782a344"
   },
   "data/teams/brighton.md": {
-   "bytes": 27026,
-   "sha256": "ee2df27f840090e8e9b08975103ebc6ae168c2939553171432991588f0b0ec7c"
+   "bytes": 27489,
+   "sha256": "ba48b72780b51c0f7a2b04692d8f5cf1dd7f27259946f033cc223b83a803dd0f"
   },
   "data/teams/chelsea.md": {
-   "bytes": 27574,
-   "sha256": "e6760a1c37744337e5e665a914592bc9f42bf1fa29e8557311fb86c5f9f74333"
+   "bytes": 29228,
+   "sha256": "ec5580051db8cee1ab3ce558d515340df27e832ac99a13461c007a83e138834b"
   },
   "data/teams/coventry.md": {
-   "bytes": 27687,
-   "sha256": "df551585f4e43e1300ef7ce688721ba1326626ecbc8b59feac1d2d913d8d7d10"
+   "bytes": 30495,
+   "sha256": "eeef0f81bbc2f3d55b987b53fa021828bb63e8457cd05be87202278aa3eb2f84"
   },
   "data/teams/crystal-palace.md": {
-   "bytes": 29435,
-   "sha256": "25b561e11144cc8be9fc0e4dd1beae894bc929d411b5dc6136e4af9bc1ff7199"
+   "bytes": 32054,
+   "sha256": "8604f82cbf6b48d00be08786f1b314018eb411e8cd9cb18630f03c8dc2dcd7b5"
   },
   "data/teams/everton.md": {
-   "bytes": 26387,
-   "sha256": "b97e26cab43a9ef626293cf87123930ab00624e289525a3abc8261d54faf9af8"
+   "bytes": 28115,
+   "sha256": "195fd914f25514f555aa0fec721f213189e7af8fe6acedf7b69c90a322eb7278"
   },
   "data/teams/fulham.md": {
-   "bytes": 24782,
-   "sha256": "a73c1a4a0ee63632338489cd68340c43d0a006e800977f344dacacc573d1c74a"
+   "bytes": 25221,
+   "sha256": "2472bba86e57adc09ea786bf6a87339119383386b1eabeb1eafccd4f5efaa281"
   },
   "data/teams/hull-city.md": {
-   "bytes": 28244,
-   "sha256": "9d396c387a3e49bd40fd67e854fe8dc3a6136d8853445c8313ee392d93f46148"
+   "bytes": 27284,
+   "sha256": "63a3bd87a15f52809f54b940dd7c8215b0a7c162ef91b44612102846afa11827"
   },
   "data/teams/ipswich.md": {
-   "bytes": 26800,
-   "sha256": "74ed947f992385c020022fc9e167c09d356d6f3aadc6fe01c0cc39598e8c3e1f"
+   "bytes": 27507,
+   "sha256": "8519292888aff7f601d2e460565fd33a959f2576c48773344257c26c23f2765d"
   },
   "data/teams/leeds.md": {
-   "bytes": 24345,
-   "sha256": "814bf23a01d21822c201e14e140c6994c8e01ccdc4b58b293ac30778093a8249"
+   "bytes": 26695,
+   "sha256": "d4eda1b95775387a487f3e49b386453f6689516ed401eebd10ce2ad7f619e2a4"
   },
   "data/teams/liverpool.md": {
-   "bytes": 27948,
-   "sha256": "eaede2305a02bb92c01a49c567b97185b0eeb311549c92719f3a958ee13ec82d"
+   "bytes": 28914,
+   "sha256": "274d5e8b667dc37c6ae399584ce4f824cd84a21b932f48922e14b3b30ae8bd7e"
   },
   "data/teams/man-city.md": {
-   "bytes": 28412,
-   "sha256": "b4502fbbaf7bfcc7413fca0d7c4c626bbe3db02d8bd9a30b23dad35029f96186"
+   "bytes": 26908,
+   "sha256": "0f0697f65019c60930c9dbf1ad0f737a196ad2772ed82243813f367704afb13c"
   },
   "data/teams/man-united.md": {
-   "bytes": 32710,
-   "sha256": "3d670d246b25e273db61850b80254b5319ba30a84434002d5d219d5a4f48e6ef"
+   "bytes": 33051,
+   "sha256": "254331793c825d9d0a7c9b68d04f527fd753d16c0d513d02a8ff514562f0e6cd"
   },
   "data/teams/newcastle.md": {
-   "bytes": 26207,
-   "sha256": "edcfbfd7246e7a5aa92061df76711e5ef17be80f065a2042950ec9ea8c6a32e4"
+   "bytes": 26888,
+   "sha256": "e19512065e40eeae5d95358f90d895c77f9ba9ad036fbeb918c69ae1c315da7a"
   },
   "data/teams/nottm-forest.md": {
-   "bytes": 26830,
-   "sha256": "07165fb4df4993e4dda2c0b03ac3c27e7cd1cc82fd4336c1c0ef1ce6f9d44dde"
+   "bytes": 26865,
+   "sha256": "a7f88c4986eefa5d8ce08ce28b49895e47502468cf0a5b13f1a6767e36dfe45d"
   },
   "data/teams/sunderland.md": {
-   "bytes": 27505,
-   "sha256": "10b1214effdf8498d65c517dc2390bf492c2933e1b248e30b0f2ffac31f6b246"
+   "bytes": 26548,
+   "sha256": "39a77dadfca93d5a5aa2a8f3902e607977d88cef34357c246d601cfd2fc1f134"
   },
   "data/teams/tottenham.md": {
-   "bytes": 27827,
-   "sha256": "5f94d590fcb7896f0b29c78abf1c1353540c1c52ba07a650e44df36686b50271"
+   "bytes": 27425,
+   "sha256": "f20694604eb03e7a83e800c31c7a8b087cb13fb38488fc66d8f9667eff3a2511"
   }
  },
- "updated_utc": "2026-11-20T11:02:56Z"
+ "updated_utc": "2026-11-24T08:00:13Z"
 }
