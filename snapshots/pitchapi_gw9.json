@@ -1,6 +1,6 @@
 {
  "gw": 9,
- "generated_utc": "2026-11-24T03:50:23Z",
+ "generated_utc": "2026-11-24T16:58:53Z",
  "players": {
   "Morgan Rogers (CHE)": {
    "match_id": "m_0C3yM3",
@@ -27462,28 +27462,6 @@
    "take_ons": 1,
    "take_ons_won": 0
   },
-  "Petrović (BOU)": {
-   "match_id": "m_0bXUBx",
-   "name": "Djordje Petrović",
-   "match_score": 1,
-   "min": 95,
-   "sca": 0,
-   "gca": 0,
-   "sca_breakdown": {},
-   "chances_created": 0,
-   "xag": null,
-   "xg_chain": null,
-   "xg_buildup": null,
-   "xt_off": 0.053,
-   "xt_def": 0.1205,
-   "prog_passes": 0,
-   "passes_into_box": 0,
-   "key_passes": 0,
-   "prog_carries": 0,
-   "carries_into_box": 0,
-   "take_ons": 0,
-   "take_ons_won": 0
-  },
   "Hill (BOU)": {
    "match_id": "m_0bXUBx",
    "name": "James Hill",
@@ -27501,6 +27479,28 @@
    "xt_off": 0.0542,
    "xt_def": 0.0311,
    "prog_passes": 2,
+   "passes_into_box": 0,
+   "key_passes": 0,
+   "prog_carries": 0,
+   "carries_into_box": 0,
+   "take_ons": 0,
+   "take_ons_won": 0
+  },
+  "Kelleher (BRE)": {
+   "match_id": "m_1Gc5Hh",
+   "name": "Caoimhín Kelleher",
+   "match_score": 2,
+   "min": 94,
+   "sca": 0,
+   "gca": 0,
+   "sca_breakdown": {},
+   "chances_created": 0,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": 0.0458,
+   "xt_def": 0.0242,
+   "prog_passes": 0,
    "passes_into_box": 0,
    "key_passes": 0,
    "prog_carries": 0,
@@ -27721,24 +27721,26 @@
    "take_ons": 4,
    "take_ons_won": 3
   },
-  "Silva (BOU)": {
-   "match_id": "m_0bXUBx",
-   "name": "António Silva",
+  "Tzolakis (HUL)": {
+   "match_id": "m_0n3Keu",
+   "name": "Konstantinos Tzolakis",
    "match_score": 2,
-   "min": 95,
-   "sca": 0,
+   "min": 94,
+   "sca": 1,
    "gca": 0,
-   "sca_breakdown": {},
+   "sca_breakdown": {
+    "pass_live": 1
+   },
    "chances_created": 0,
    "xag": null,
    "xg_chain": null,
    "xg_buildup": null,
-   "xt_off": 0.0524,
-   "xt_def": -0.0082,
-   "prog_passes": 3,
+   "xt_off": 0.0489,
+   "xt_def": 0.139,
+   "prog_passes": 0,
    "passes_into_box": 0,
    "key_passes": 0,
-   "prog_carries": 0,
+   "prog_carries": 1,
    "carries_into_box": 0,
    "take_ons": 0,
    "take_ons_won": 0
@@ -28042,6 +28044,105 @@
     }
    }
   },
+  "BRE": {
+   "match_id": "m_1Gc5Hh",
+   "ppda": 10.25,
+   "field_tilt": 30.4,
+   "possession_pct": 41.3,
+   "final_third_entries": 24,
+   "box_entries": 5,
+   "direct_speed": 2.97,
+   "passes_per_sequence": 2.82,
+   "sca": 14,
+   "gca": 2,
+   "pv_offensive": 1.0846,
+   "raw": {
+    "team": {
+     "id": "t_2ihyjC",
+     "name": "Brentford"
+    },
+    "actions": 574,
+    "possession_value": {
+     "xt_total": 0.5003,
+     "vaep_total": 1.1167,
+     "vaep_offensive": 1.3172,
+     "vaep_defensive": -0.2005,
+     "pv_total": 1.0166,
+     "pv_offensive": 1.0846,
+     "pv_defensive": -0.068
+    },
+    "passing": {
+     "passes": 323,
+     "pass_accuracy": 73.7,
+     "progressive_passes": 16,
+     "progressive_pass_distance": 335.9,
+     "passes_into_box": 2,
+     "key_passes": 3,
+     "assists": 1,
+     "through_balls": 1,
+     "crosses": 4,
+     "switches": 1
+    },
+    "carrying": {
+     "carries": 74,
+     "carry_distance": 814,
+     "progressive_carries": 10,
+     "progressive_carry_distance": 481.9,
+     "carries_into_final_third": 4,
+     "carries_into_box": 4,
+     "take_ons": 14,
+     "take_ons_won": 6,
+     "miscontrols": 22,
+     "dispossessed": 10
+    },
+    "creation": {
+     "sca": 14,
+     "gca": 2,
+     "chances_created": 3,
+     "second_assists": 1,
+     "sca_breakdown": {
+      "pass_live": 9,
+      "pass_dead": 4,
+      "take_on": 0,
+      "shot": 0,
+      "foul_drawn": 1,
+      "defensive": 0
+     },
+     "xag": null
+    },
+    "defending": {
+     "tackles": 19,
+     "interceptions": 22,
+     "blocks": 6,
+     "clearances": 33,
+     "duels_won": 13,
+     "aerials": 25,
+     "aerials_won": 13,
+     "ppda": 10.25,
+     "opponent_passes": 369,
+     "defensive_actions": 36,
+     "challenges": 2,
+     "avg_defensive_action_x": 35.3,
+     "high_turnovers": 5,
+     "counterpress_regains_5s": 12,
+     "ball_recovery_time": 18
+    },
+    "territory": {
+     "possession_pct": 41.3,
+     "field_tilt": 30.4,
+     "final_third_entries": 24,
+     "box_entries": 5,
+     "avg_action_x": 42.5
+    },
+    "tempo": {
+     "passes_per_sequence": 2.82,
+     "sequence_time": 7.85,
+     "direct_speed": 2.97,
+     "buildup_attacks": 1,
+     "direct_attacks": 9
+    }
+   }
+  },
   "COV": {
    "match_id": "m_0IHgwr",
    "ppda": 11.77,
@@ -28237,6 +28338,105 @@
      "direct_speed": 2.25,
      "buildup_attacks": 0,
      "direct_attacks": 10
+    }
+   }
+  },
+  "HUL": {
+   "match_id": "m_0n3Keu",
+   "ppda": 15.71,
+   "field_tilt": 47.7,
+   "possession_pct": 38.9,
+   "final_third_entries": 27,
+   "box_entries": 5,
+   "direct_speed": 3.38,
+   "passes_per_sequence": 3.01,
+   "sca": 16,
+   "gca": 4,
+   "pv_offensive": 1.9535,
+   "raw": {
+    "team": {
+     "id": "t_0HV3k6",
+     "name": "Hull City"
+    },
+    "actions": 596,
+    "possession_value": {
+     "xt_total": 0.5424,
+     "vaep_total": 2.186,
+     "vaep_offensive": 2.2371,
+     "vaep_defensive": -0.0511,
+     "pv_total": 2.0985,
+     "pv_offensive": 1.9535,
+     "pv_defensive": 0.145
+    },
+    "passing": {
+     "passes": 336,
+     "pass_accuracy": 72.9,
+     "progressive_passes": 22,
+     "progressive_pass_distance": 407.5,
+     "passes_into_box": 6,
+     "key_passes": 5,
+     "assists": 1,
+     "through_balls": 0,
+     "crosses": 11,
+     "switches": 3
+    },
+    "carrying": {
+     "carries": 103,
+     "carry_distance": 1345.9,
+     "progressive_carries": 16,
+     "progressive_carry_distance": 635.1,
+     "carries_into_final_third": 9,
+     "carries_into_box": 2,
+     "take_ons": 8,
+     "take_ons_won": 7,
+     "miscontrols": 11,
+     "dispossessed": 7
+    },
+    "creation": {
+     "sca": 16,
+     "gca": 4,
+     "chances_created": 5,
+     "second_assists": 1,
+     "sca_breakdown": {
+      "pass_live": 11,
+      "pass_dead": 3,
+      "take_on": 1,
+      "shot": 0,
+      "foul_drawn": 1,
+      "defensive": 0
+     },
+     "xag": null
+    },
+    "defending": {
+     "tackles": 20,
+     "interceptions": 12,
+     "blocks": 6,
+     "clearances": 23,
+     "duels_won": 12,
+     "aerials": 35,
+     "aerials_won": 20,
+     "ppda": 15.71,
+     "opponent_passes": 487,
+     "defensive_actions": 31,
+     "challenges": 3,
+     "avg_defensive_action_x": 37.3,
+     "high_turnovers": 7,
+     "counterpress_regains_5s": 9,
+     "ball_recovery_time": 25
+    },
+    "territory": {
+     "possession_pct": 38.9,
+     "field_tilt": 47.7,
+     "final_third_entries": 27,
+     "box_entries": 5,
+     "avg_action_x": 45.7
+    },
+    "tempo": {
+     "passes_per_sequence": 3.01,
+     "sequence_time": 8.86,
+     "direct_speed": 3.38,
+     "buildup_attacks": 2,
+     "direct_attacks": 11
     }
    }
   },
@@ -29131,105 +29331,6 @@
     }
    }
   },
-  "BRE": {
-   "match_id": "m_1Gc5Hh",
-   "ppda": 10.25,
-   "field_tilt": 30.4,
-   "possession_pct": 41.3,
-   "final_third_entries": 24,
-   "box_entries": 5,
-   "direct_speed": 2.97,
-   "passes_per_sequence": 2.82,
-   "sca": 14,
-   "gca": 2,
-   "pv_offensive": 1.0846,
-   "raw": {
-    "team": {
-     "id": "t_2ihyjC",
-     "name": "Brentford"
-    },
-    "actions": 574,
-    "possession_value": {
-     "xt_total": 0.5003,
-     "vaep_total": 1.1167,
-     "vaep_offensive": 1.3172,
-     "vaep_defensive": -0.2005,
-     "pv_total": 1.0166,
-     "pv_offensive": 1.0846,
-     "pv_defensive": -0.068
-    },
-    "passing": {
-     "passes": 323,
-     "pass_accuracy": 73.7,
-     "progressive_passes": 16,
-     "progressive_pass_distance": 335.9,
-     "passes_into_box": 2,
-     "key_passes": 3,
-     "assists": 1,
-     "through_balls": 1,
-     "crosses": 4,
-     "switches": 1
-    },
-    "carrying": {
-     "carries": 74,
-     "carry_distance": 814,
-     "progressive_carries": 10,
-     "progressive_carry_distance": 481.9,
-     "carries_into_final_third": 4,
-     "carries_into_box": 4,
-     "take_ons": 14,
-     "take_ons_won": 6,
-     "miscontrols": 22,
-     "dispossessed": 10
-    },
-    "creation": {
-     "sca": 14,
-     "gca": 2,
-     "chances_created": 3,
-     "second_assists": 1,
-     "sca_breakdown": {
-      "pass_live": 9,
-      "pass_dead": 4,
-      "take_on": 0,
-      "shot": 0,
-      "foul_drawn": 1,
-      "defensive": 0
-     },
-     "xag": null
-    },
-    "defending": {
-     "tackles": 19,
-     "interceptions": 22,
-     "blocks": 6,
-     "clearances": 33,
-     "duels_won": 13,
-     "aerials": 25,
-     "aerials_won": 13,
-     "ppda": 10.25,
-     "opponent_passes": 369,
-     "defensive_actions": 36,
-     "challenges": 2,
-     "avg_defensive_action_x": 35.3,
-     "high_turnovers": 5,
-     "counterpress_regains_5s": 12,
-     "ball_recovery_time": 18
-    },
-    "territory": {
-     "possession_pct": 41.3,
-     "field_tilt": 30.4,
-     "final_third_entries": 24,
-     "box_entries": 5,
-     "avg_action_x": 42.5
-    },
-    "tempo": {
-     "passes_per_sequence": 2.82,
-     "sequence_time": 7.85,
-     "direct_speed": 2.97,
-     "buildup_attacks": 1,
-     "direct_attacks": 9
-    }
-   }
-  },
   "NFO": {
    "match_id": "m_1Gc5Hh",
    "ppda": 7.68,
@@ -29326,105 +29427,6 @@
      "direct_speed": 2.06,
      "buildup_attacks": 5,
      "direct_attacks": 8
-    }
-   }
-  },
-  "HUL": {
-   "match_id": "m_0n3Keu",
-   "ppda": 15.71,
-   "field_tilt": 47.7,
-   "possession_pct": 38.9,
-   "final_third_entries": 27,
-   "box_entries": 5,
-   "direct_speed": 3.38,
-   "passes_per_sequence": 3.01,
-   "sca": 16,
-   "gca": 4,
-   "pv_offensive": 1.9535,
-   "raw": {
-    "team": {
-     "id": "t_0HV3k6",
-     "name": "Hull City"
-    },
-    "actions": 596,
-    "possession_value": {
-     "xt_total": 0.5424,
-     "vaep_total": 2.186,
-     "vaep_offensive": 2.2371,
-     "vaep_defensive": -0.0511,
-     "pv_total": 2.0985,
-     "pv_offensive": 1.9535,
-     "pv_defensive": 0.145
-    },
-    "passing": {
-     "passes": 336,
-     "pass_accuracy": 72.9,
-     "progressive_passes": 22,
-     "progressive_pass_distance": 407.5,
-     "passes_into_box": 6,
-     "key_passes": 5,
-     "assists": 1,
-     "through_balls": 0,
-     "crosses": 11,
-     "switches": 3
-    },
-    "carrying": {
-     "carries": 103,
-     "carry_distance": 1345.9,
-     "progressive_carries": 16,
-     "progressive_carry_distance": 635.1,
-     "carries_into_final_third": 9,
-     "carries_into_box": 2,
-     "take_ons": 8,
-     "take_ons_won": 7,
-     "miscontrols": 11,
-     "dispossessed": 7
-    },
-    "creation": {
-     "sca": 16,
-     "gca": 4,
-     "chances_created": 5,
-     "second_assists": 1,
-     "sca_breakdown": {
-      "pass_live": 11,
-      "pass_dead": 3,
-      "take_on": 1,
-      "shot": 0,
-      "foul_drawn": 1,
-      "defensive": 0
-     },
-     "xag": null
-    },
-    "defending": {
-     "tackles": 20,
-     "interceptions": 12,
-     "blocks": 6,
-     "clearances": 23,
-     "duels_won": 12,
-     "aerials": 35,
-     "aerials_won": 20,
-     "ppda": 15.71,
-     "opponent_passes": 487,
-     "defensive_actions": 31,
-     "challenges": 3,
-     "avg_defensive_action_x": 37.3,
-     "high_turnovers": 7,
-     "counterpress_regains_5s": 9,
-     "ball_recovery_time": 25
-    },
-    "territory": {
-     "possession_pct": 38.9,
-     "field_tilt": 47.7,
-     "final_third_entries": 27,
-     "box_entries": 5,
-     "avg_action_x": 45.7
-    },
-    "tempo": {
-     "passes_per_sequence": 3.01,
-     "sequence_time": 8.86,
-     "direct_speed": 3.38,
-     "buildup_attacks": 2,
-     "direct_attacks": 11
     }
    }
   },
@@ -29736,6 +29738,6 @@
   "m_1Gc5Hh",
   "m_4RvJ1j"
  ],
- "late_tries": 40,
+ "late_tries": 41,
  "us_tries": 0
 }
