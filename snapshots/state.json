@@ -8,14 +8,14 @@
  "rule": "POST tasks: expected POST GW = last_finished_gw (finished + data_checked). If last_finished_flag_gw is higher, FPL has not checked the data yet \u2014 wait.",
  "club_last_match": {
   "ARS": {
-   "utc": "2026-11-21T17:30:00Z",
-   "comp": "PL",
-   "opp": "NEW"
+   "utc": "2026-11-24T20:00:00Z",
+   "comp": "UCL",
+   "opp": "Borussia Dortmund"
   },
   "AVL": {
-   "utc": "2026-11-21T15:00:00Z",
-   "comp": "PL",
-   "opp": "SUN"
+   "utc": "2026-11-24T17:45:00Z",
+   "comp": "UCL",
+   "opp": "Galatasaray"
   },
   "BHA": {
    "utc": "2026-11-22T14:00:00Z",
@@ -78,9 +78,9 @@
    "opp": "MUN"
   },
   "MCI": {
-   "utc": "2026-11-21T12:30:00Z",
-   "comp": "PL",
-   "opp": "FUL"
+   "utc": "2026-11-24T20:00:00Z",
+   "comp": "UCL",
+   "opp": "Napoli"
   },
   "MUN": {
    "utc": "2026-11-22T16:30:00Z",

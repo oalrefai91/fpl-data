@@ -1,6 +1,6 @@
 {
  "gw": 11,
- "generated_utc": "2026-11-24T16:59:05Z",
+ "generated_utc": "2026-11-25T01:55:07Z",
  "players": {
   "Elliot Anderson (MCI)": {
    "match_id": "m_4S00KG",
@@ -29985,5 +29985,7 @@
   "m_19nSVX",
   "m_2PtCYr",
   "m_3IrTv6"
- ]
+ ],
+ "late_tries": 1,
+ "us_tries": 0
 }
