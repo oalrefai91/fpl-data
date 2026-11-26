@@ -73,9 +73,9 @@
    "opp": "CHE"
   },
   "LIV": {
-   "utc": "2026-11-22T16:30:00Z",
-   "comp": "PL",
-   "opp": "MUN"
+   "utc": "2026-11-25T20:00:00Z",
+   "comp": "UCL",
+   "opp": "Club Brugge"
   },
   "MCI": {
    "utc": "2026-11-24T20:00:00Z",
@@ -83,9 +83,9 @@
    "opp": "Napoli"
   },
   "MUN": {
-   "utc": "2026-11-22T16:30:00Z",
-   "comp": "PL",
-   "opp": "LIV"
+   "utc": "2026-11-25T20:00:00Z",
+   "comp": "UCL",
+   "opp": "Sporting CP"
   },
   "NEW": {
    "utc": "2026-11-21T17:30:00Z",
