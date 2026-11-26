@@ -1,6 +1,6 @@
 {
  "gw": 11,
- "generated_utc": "2026-11-26T01:34:29Z",
+ "generated_utc": "2026-11-26T16:25:11Z",
  "players": {
   "Elliot Anderson (MCI)": {
    "match_id": "m_4S00KG",
@@ -27805,6 +27805,30 @@
    "take_ons": 3,
    "take_ons_won": 1
   },
+  "Calvert-Lewin (LEE)": {
+   "match_id": "m_19nSVX",
+   "name": "Dominic Calvert-Lewin",
+   "match_score": 3,
+   "min": 96,
+   "sca": 6,
+   "gca": 2,
+   "sca_breakdown": {
+    "pass_live": 6
+   },
+   "chances_created": 3,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": -0.1946,
+   "xt_def": -0.0041,
+   "prog_passes": 1,
+   "passes_into_box": 1,
+   "key_passes": 3,
+   "prog_carries": 1,
+   "carries_into_box": 0,
+   "take_ons": 1,
+   "take_ons_won": 0
+  },
   "Wirtz (LIV)": {
    "match_id": "m_4Pdd0e",
    "name": "Florian Wirtz",
@@ -29962,6 +29986,6 @@
   "m_2PtCYr",
   "m_3IrTv6"
  ],
- "late_tries": 3,
+ "late_tries": 4,
  "us_tries": 0
 }

@@ -1,6 +1,6 @@
 {
  "gw": 10,
- "generated_utc": "2026-11-26T01:34:42Z",
+ "generated_utc": "2026-11-26T16:25:27Z",
  "players": {
   "Thierno Barry (EVE)": {
    "match_id": "m_0ZFoVd",
@@ -27539,6 +27539,32 @@
    "take_ons": 1,
    "take_ons_won": 1
   },
+  "Calvert-Lewin (LEE)": {
+   "match_id": "m_4L4kXH",
+   "name": "Dominic Calvert-Lewin",
+   "match_score": 3,
+   "min": 94,
+   "sca": 6,
+   "gca": 0,
+   "sca_breakdown": {
+    "pass_live": 1,
+    "take_on": 1,
+    "shot": 4
+   },
+   "chances_created": 1,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": 0.2363,
+   "xt_def": 0.0009,
+   "prog_passes": 1,
+   "passes_into_box": 0,
+   "key_passes": 1,
+   "prog_carries": 4,
+   "carries_into_box": 2,
+   "take_ons": 2,
+   "take_ons_won": 2
+  },
   "Wirtz (LIV)": {
    "match_id": "m_4Ct268",
    "name": "Florian Wirtz",
@@ -29701,6 +29727,6 @@
   "m_4Ct268",
   "m_4L4kXH"
  ],
- "late_tries": 33,
+ "late_tries": 34,
  "us_tries": 0
 }
