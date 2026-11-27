@@ -18,14 +18,14 @@
    "opp": "Galatasaray"
   },
   "BHA": {
-   "utc": "2026-11-22T14:00:00Z",
-   "comp": "PL",
-   "opp": "HUL"
+   "utc": "2026-11-26T17:45:00Z",
+   "comp": "UECL",
+   "opp": "Universitatea Craiova"
   },
   "BOU": {
-   "utc": "2026-11-21T15:00:00Z",
-   "comp": "PL",
-   "opp": "NFO"
+   "utc": "2026-11-26T17:45:00Z",
+   "comp": "UEL",
+   "opp": "Celta Vigo"
   },
   "BRE": {
    "utc": "2026-11-23T20:00:00Z",
@@ -43,9 +43,9 @@
    "opp": "CRY"
   },
   "CRY": {
-   "utc": "2026-11-21T15:00:00Z",
-   "comp": "PL",
-   "opp": "COV"
+   "utc": "2026-11-26T20:00:00Z",
+   "comp": "UEL",
+   "opp": "Real Sociedad"
   },
   "EVE": {
    "utc": "2026-11-23T20:00:00Z",
@@ -98,9 +98,9 @@
    "opp": "BOU"
   },
   "SUN": {
-   "utc": "2026-11-21T15:00:00Z",
-   "comp": "PL",
-   "opp": "AVL"
+   "utc": "2026-11-26T20:00:00Z",
+   "comp": "UEL",
+   "opp": "Jagiellonia Bia\u0142ystok"
   },
   "TOT": {
    "utc": "2026-11-21T15:00:00Z",

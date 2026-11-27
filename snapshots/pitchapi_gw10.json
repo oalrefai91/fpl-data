@@ -1,6 +1,6 @@
 {
  "gw": 10,
- "generated_utc": "2026-11-26T16:25:27Z",
+ "generated_utc": "2026-11-27T01:31:39Z",
  "players": {
   "Thierno Barry (EVE)": {
    "match_id": "m_0ZFoVd",
@@ -20894,7 +20894,7 @@
     "goalkeeping": null
    }
   },
-  "Álvaro Rodriguez (BOU)": {
+  "Álvaro Rodríguez (BOU)": {
    "match_id": "m_0sKilh",
    "team": "BOU",
    "min": 15,
@@ -20917,7 +20917,7 @@
    "raw": {
     "player": {
      "id": "p_2X0uve",
-     "name": "Álvaro Rodriguez",
+     "name": "Álvaro Rodríguez",
      "shirt_number": 30
     },
     "team_id": "t_1iaglr",
@@ -29727,6 +29727,6 @@
   "m_4Ct268",
   "m_4L4kXH"
  ],
- "late_tries": 34,
+ "late_tries": 35,
  "us_tries": 0
 }
