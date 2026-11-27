@@ -1,6 +1,6 @@
 {
  "gw": 10,
- "generated_utc": "2026-11-27T01:31:39Z",
+ "generated_utc": "2026-11-27T16:10:21Z",
  "players": {
   "Thierno Barry (EVE)": {
    "match_id": "m_0ZFoVd",
@@ -27515,6 +27515,28 @@
    "take_ons": 3,
    "take_ons_won": 0
   },
+  "Muharemović (LEE)": {
+   "match_id": "m_4L4kXH",
+   "name": "Tarik Muharemović",
+   "match_score": 2,
+   "min": 94,
+   "sca": 0,
+   "gca": 0,
+   "sca_breakdown": {},
+   "chances_created": 0,
+   "xag": null,
+   "xg_chain": null,
+   "xg_buildup": null,
+   "xt_off": 0.0716,
+   "xt_def": 0.0414,
+   "prog_passes": 3,
+   "passes_into_box": 0,
+   "key_passes": 0,
+   "prog_carries": 0,
+   "carries_into_box": 0,
+   "take_ons": 0,
+   "take_ons_won": 0
+  },
   "Okafor (LEE)": {
    "match_id": "m_4L4kXH",
    "name": "Noah Okafor",
@@ -29727,6 +29749,6 @@
   "m_4Ct268",
   "m_4L4kXH"
  ],
- "late_tries": 35,
+ "late_tries": 36,
  "us_tries": 0
 }
